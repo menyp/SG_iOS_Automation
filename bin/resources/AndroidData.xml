@@ -1,0 +1,54 @@
+<Data>
+		<Buttons>
+			<BTN_login_ID>com.skygiraffe.operationaldata:id/login_screen_authentication_btn</BTN_login_ID>
+			<BTN_forgotPassword_ID>com.skygiraffe.operationaldata:id/login_screen_forgor_password</BTN_forgotPassword_ID>
+			<BTN_settingsLoginScreen_ID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTN_settingsLoginScreen_ID>
+		</Buttons>
+		
+		<TextFields>
+			<TextField_email_ID>com.skygiraffe.operationaldata:id/login_screen_email_container</TextField_email_ID>
+			<TextField_password_ID>com.skygiraffe.operationaldata:id/login_screen_password_field</TextField_password_ID>
+
+		</TextFields>
+		
+		<CheckBox>
+		    <Checkbox_rememberme_ID>com.skygiraffe.operationaldata:id/login_screen_remember_me_cb</Checkbox_rememberme_ID>
+		    
+		</CheckBox>
+		
+		<Options>
+			
+		</Options>
+		
+		<List>
+		   
+		    
+		</List>
+		<Strings>
+		  
+		    
+		</Strings>
+		                
+	    <scrollDown>down</scrollDown>
+	   	<scrollUp>up</scrollUp>
+		<password>1</password>
+		<badPassword>incorrectPassword</badPassword>
+		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
+		<ConnectionWIFI>WIFI</ConnectionWIFI>
+		<CoonectionDATA>DATA</CoonectionDATA>
+		<ConnectionALL>ALL</ConnectionALL>
+		<User>auto1@1.com</User>
+	
+
+	<errorText>
+		
+	</errorText>
+	
+	<Icon>
+	  
+	</Icon>
+	
+	
+	
+	
+</Data>

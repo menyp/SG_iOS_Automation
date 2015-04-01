@@ -1,0 +1,70 @@
+<Data>
+	<WebElements>
+		<Button>
+			<AlreadyHaveAnAccount_name>Already have an account</AlreadyHaveAnAccount_name>
+			<SignUp_Name>SignUp_Name</SignUp_Name>
+			<BTNsignin_Name>Sign in</BTNsignin_Name>
+			<BTNleft_Name>left</BTNleft_Name>
+			<BTNshareOn_Name>share on</BTNshareOn_Name>
+			<BTNcameraOn_Name>camera on</BTNcameraOn_Name>
+			<BTNcreateOn_Name>create on</BTNcreateOn_Name>
+			<BTNcancel_Name>Cancel</BTNcancel_Name>
+			<BTNcreate_Name>Create</BTNcreate_Name>
+			<BTNback_Name>Back</BTNback_Name>
+			<BTNdelete_Name>Delete</BTNdelete_Name>	
+			<BTNexistingPhotosorVideos_Name>Existing Photos or Videos</BTNexistingPhotosorVideos_Name>
+			<BTNuploadProgressHistory_Name>Upload Progress / History</BTNuploadProgressHistory_Name>
+			<BTNphotoCapture_Name>PhotoCapture</BTNphotoCapture_Name>
+			<BTNusePhoto_Name>Use Photo</BTNusePhoto_Name>
+			<BTNretake_Name>RetakeS</BTNretake_Name>
+		</Button>
+		
+		<TextField>
+			<TEXTFIELDemail_xpth>//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIATextField[1</TEXTFIELDemail_xpth>
+			<TEXTFIELDpass_xpth>//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[2]/UIASecureTextField[1]</TEXTFIELDpass_xpth>
+		</TextField>
+		
+		<Link>
+		    <ForgotYourPassword_Name>Forgot your password?</ForgotYourPasswordName>
+		    <PrivacyPolicy_Name>Privacy Policy</PrivacyPolicy_Name>
+		    <TRUSTe_Name>TRUSTe</TRUSTe_Name>
+		</Link>
+		
+		<Strings>
+		    <NeverLoseAPhoto_Name>Never Lose a Photo</NeverLoseAPhoto_Name>
+		    <TransferPhonesSimply_Name>Transfer Phones Simply</TransferPhonesSimply_Name>
+		    <Backup_Name>Backup</Backup_Name>
+		    <CATEGORIES_Name>CATEGORIES</CATEGORIES_Name>
+		    <PogoplugCloudUnlimited_Name>Pogoplug Cloud, Unlimited</PogoplugCloudUnlimited_Name>
+		    <DuplicateFolder_Name>There was an error creating the new folder. Please ensure that the specified name is valid, and that a folder by the same name does not already exist.</DuplicateFolder_Name>
+		</Strings>
+		
+		<Option>
+		</Option>
+		                
+	</WebElements>
+	
+	<GeneralInfo>
+		<userName>Automation@1.com</userName>
+		<password>1</password>
+		<newPassword>2</newPassword>
+		<badPassword>incorrectPassword</badPassword>
+		<emptyPassword></emptyPassword>
+		<emptyUserName></emptyUserName>
+	</GeneralInfo>
+	
+	
+	<GeneralStrings>
+		
+		
+	</GeneralStrings>
+
+	<errorText>
+		<changePasswordFailure>One of the required arguments was not entered.</changePasswordFailure>
+		
+	</errorText>
+	
+	
+	
+	
+</Data>
