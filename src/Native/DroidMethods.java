@@ -33,6 +33,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.xml.sax.SAXException;
 
+import com.applitools.eyes.Eyes;
 import com.google.common.base.Function;
 
 
@@ -45,12 +46,21 @@ public class DroidMethods {
 
 //	public DroidMethods (){}
 
-	public void cleanLoginAndroid(DroidMethods genMeth,  DroidElements androidData , String user) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
+	public void cleanLoginAndroid(DroidMethods genMeth,  DroidElements droidData , String user) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
 			
-		genMeth.sendId( genMeth, androidData.TextField_email_ID, androidData.User);
-		genMeth.sendId( genMeth, androidData.TextField_password_ID, androidData.password);
-		genMeth.clickId( genMeth, androidData.BTN_login_ID);
+		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, droidData.User);
+		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, droidData.password);
+		genMeth.clickId( genMeth, droidData.BTNloginID);
 
+	}
+	
+	public void eyesCheckWindow(Eyes eyes, String testName){
+		
+		eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
+		eyes.open(driver, "droid_SG", testName);
+		eyes.checkWindow("Initial screen");
+		eyes.close();
+		
 	}
 
 	

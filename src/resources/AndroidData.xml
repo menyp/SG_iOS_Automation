@@ -1,13 +1,15 @@
 <Data>
 		<Buttons>
-			<BTN_login_ID>com.skygiraffe.operationaldata:id/login_screen_authentication_btn</BTN_login_ID>
-			<BTN_forgotPassword_ID>com.skygiraffe.operationaldata:id/login_screen_forgor_password</BTN_forgotPassword_ID>
-			<BTN_settingsLoginScreen_ID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTN_settingsLoginScreen_ID>
+			<BTNloginID>com.skygiraffe.operationaldata:id/login_screen_authentication_btn</BTNloginID>
+			<BTNforgotPasswordID>com.skygiraffe.operationaldata:id/login_screen_forgor_password</BTNforgotPasswordID>
+			<BTNsettingsLoginScreenID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTNsettingsLoginScreenID>
+			<BTNsampleAccountID>com.skygiraffe.operationaldata:id/login_screen_sample_account</BTNsampleAccountID>
+		
 		</Buttons>
 		
 		<TextFields>
-			<TextField_email_ID>com.skygiraffe.operationaldata:id/login_screen_email_container</TextField_email_ID>
-			<TextField_password_ID>com.skygiraffe.operationaldata:id/login_screen_password_field</TextField_password_ID>
+			<TEXTFIELDemailID>com.skygiraffe.operationaldata:id/login_screen_email_container</TEXTFIELDemailID>
+			<TEXTFIELDpasswordID>com.skygiraffe.operationaldata:id/login_screen_password_field</TEXTFIELDpasswordID>
 
 		</TextFields>
 		

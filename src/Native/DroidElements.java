@@ -13,13 +13,14 @@ public class DroidElements {
 	
 	
 	//Buttons
-	String BTN_login_ID;
-	String BTN_forgotPassword_ID;
-	String BTN_settingsLoginScreen_ID;
+	String BTNloginID;
+	String BTNforgotPasswordID;
+	String BTNsettingsLoginScreenID;
+	String BTNsampleAccountID;
 	
 	//TextFields	
-	String TextField_email_ID;
-	String TextField_password_ID;
+	String TEXTFIELDemailID;
+	String TEXTFIELDpasswordID;
 	
 	
 	
@@ -49,12 +50,15 @@ public class DroidElements {
 
 	
 	public DroidElements(String langXml, String xmlPath ) throws ParserConfigurationException, SAXException, IOException, InterruptedException, org.xml.sax.SAXException{
-		this.BTN_login_ID = XmlHandel.readAndroidXml("BTN_login_ID", langXml, xmlPath);
-		this.BTN_forgotPassword_ID = XmlHandel.readAndroidXml("BTN_forgotPassword_ID", langXml, xmlPath);
-		this.BTN_settingsLoginScreen_ID = XmlHandel.readAndroidXml("BTN_settingsLoginScreen_ID", langXml, xmlPath);
+		this.BTNloginID = XmlHandel.readAndroidXml("BTNloginID", langXml, xmlPath);
+		this.BTNforgotPasswordID = XmlHandel.readAndroidXml("BTNforgotPasswordID", langXml, xmlPath);
+		this.BTNsettingsLoginScreenID = XmlHandel.readAndroidXml("BTNsettingsLoginScreenID", langXml, xmlPath);
+		this.BTNsampleAccountID = XmlHandel.readAndroidXml("BTNsampleAccountID", langXml, xmlPath);
 
-		this.TextField_email_ID = XmlHandel.readAndroidXml("TextField_email_ID", langXml, xmlPath);
-		this.TextField_password_ID = XmlHandel.readAndroidXml("TextField_password_ID", langXml, xmlPath);
+		
+
+		this.TEXTFIELDemailID = XmlHandel.readAndroidXml("TEXTFIELDemailID", langXml, xmlPath);
+		this.TEXTFIELDpasswordID = XmlHandel.readAndroidXml("TEXTFIELDpasswordID", langXml, xmlPath);
 
 		this.Checkbox_rememberme_ID = XmlHandel.readAndroidXml("Checkbox_rememberme_ID", langXml, xmlPath);
 

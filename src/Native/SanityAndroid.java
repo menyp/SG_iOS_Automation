@@ -27,6 +27,7 @@ import com.applitools.eyes.Eyes;
 	DroidElements droidData;
 	public AndroidDriver driver;
 	DroidMethods genMeth = new DroidMethods();
+	Eyes eyes = new Eyes();
 	
 	public SanityAndroid() {
 		// TODO Auto-generated constructor stub
@@ -49,7 +50,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@BeforeMethod (alwaysRun = true)
+	@BeforeMethod (alwaysRun = false)
 	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
 
 //		genMeth.setWifiOn();
@@ -87,19 +88,25 @@ import com.applitools.eyes.Eyes;
 
 	}
 	
-	@AfterMethod(enabled = true, dependsOnMethods = { "connectionLost" })
+	@AfterMethod(enabled = false, dependsOnMethods = { "connectionLost" })
 	public void enabledWifi() {
 
 		genMeth.setWifiOn();
 	}
 
 	@Test (enabled = true ,testName = "createfolder1", retryAnalyzer = Retry.class, description = "Test the Create folder with Android" ,
-			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
-	public void createfolder() throws ParserConfigurationException, SAXException, IOException, InterruptedException{
-		
+			groups= {"Sanity Android1"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void loginSample() throws ParserConfigurationException, SAXException, IOException, InterruptedException{
 
+		driver.resetApp();
+		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
+//		Verify that the sample login success
+		genMeth.eyesCheckWindow(eyes, "login sample success");
+		Thread.sleep(1000);
 		
-		  }
+		
+		
+	}
 
 	
 	@Test (enabled = true , retryAnalyzer = Retry.class, testName="Sanity Tests", description = "Test the Upload utility with Android" ,
@@ -129,7 +136,7 @@ import com.applitools.eyes.Eyes;
 	
 	@SuppressWarnings("static-access")
 	@Test(enabled = true,  testName = "Sanity Tests", description = "login with bad/missing credentials , forgot password (negative & positive)",
-			groups = { "Sanity Android1" })
+			groups = { "Sanity Android" })
 	public void badCredentials() throws Exception, Throwable {
 		
 		String currentTime = genMeth.currentTime();
@@ -166,7 +173,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test (enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: Save Login",
-			groups = { "Sanity Android1" })
+			groups = { "Sanity Android" })
 			
 	public void settingsKeepMeSignedIn() throws Exception, Throwable {
 
@@ -236,7 +243,7 @@ import com.applitools.eyes.Eyes;
 	
 	@Test(enabled = false, retryAnalyzer = Retry.class,  testName = "connection lost handling",
 			description = "Checking how the app owrks while connection is lost & back again",
-			groups={ "Sanity Android1"} )
+			groups={ "Sanity Android"} )
 	public void temp() throws IOException, ParserConfigurationException, SAXException, InterruptedException{
 		
 		
@@ -251,6 +258,7 @@ import com.applitools.eyes.Eyes;
 		
 			try {
 				genMeth.setWifiOn();
+				driver.removeApp("com.skygiraffe.operationaldata");
 				driver.quit();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
