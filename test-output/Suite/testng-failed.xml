@@ -11,7 +11,8 @@
       <class name="Native.SanityAndroid">
         <methods>
           <include name="setupBeforeSuite"/>
-          <include name="loginSample"/>
+          <include name="checkHomeScreen"/>
+          <include name="badCredentials"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Native.SanityAndroid -->

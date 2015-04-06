@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-failed">Suite</span>
+              <span class="suite-name border-passed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,21 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="loginSample">loginSample</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Suite -->
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -115,7 +101,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="loginSample">loginSample</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="badCredentials">badCredentials</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -130,32 +116,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">Native.SanityAndroid</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="loginSample">
-                  </a> <!-- loginSample -->
-                  <span class="method-name">loginSample</span>
-                  <div class="stack-trace">com.applitools.eyes.NewTestException: &apos;login sample success&apos; of &apos;droid_SG&apos;. Please approve the new baseline at https://eyes.applitools.com/app/sessions/251974118933032
-	at com.applitools.eyes.EyesBase.close(EyesBase.java:521)
-	at com.applitools.eyes.Eyes.close(Eyes.java:22)
-	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
-	at com.applitools.eyes.Eyes.close(Eyes.java:22)
-	at Native.DroidMethods.eyesCheckWindow(DroidMethods.java:62)
-	at Native.SanityAndroid.loginSample(SanityAndroid.java:104)
-... Removed 24 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Test the Create folder with Android)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -164,11 +124,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginSample">
-                  </a> <!-- loginSample -->
-                  <span class="method-name">loginSample</span>
+                  <a name="badCredentials">
+                  </a> <!-- badCredentials -->
+                  <span class="method-name">badCredentials</span>
                   <em>
-(Test the Create folder with Android)                  </em>
+(login with bad/missing credentials , forgot password (negative & positive))                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -218,7 +178,7 @@
               <span class="test-group-name">Sanity Android1</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">loginSample</span>
+                <span class="method-in-group-name">badCredentials</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -238,20 +198,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'loginSample')
+data.setCell(0, 1, 'badCredentials')
 data.setCell(0, 2, 'Native.SanityAndroid')
-data.setCell(0, 3, 20554);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'loginSample')
-data.setCell(1, 2, 'Native.SanityAndroid')
-data.setCell(1, 3, 18802);
+data.setCell(0, 3, 122153);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 39 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -276,7 +232,7 @@ return data;
                 <br/>
                 <span class="ignored-method-name">temp</span>
                 <br/>
-                <span class="ignored-method-name">badCredentials</span>
+                <span class="ignored-method-name">loginSample</span>
                 <br/>
                 <span class="ignored-method-name">tour</span>
                 <br/>
@@ -316,22 +272,20 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Native.SanityAndroid</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@6198e9b5)</span>
+                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@431f1eaf)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
+              <div class="configuration-method before">
+                <span class="method-name">checkHomeScreen</span>
+                <span class="method-start">26400 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">loginSample</span>
-                <span class="method-start">30523 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">loginSample</span>
-                <span class="method-start">51080 ms</span>
+                <span class="method-name">badCredentials</span>
+                <span class="method-start">29482 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">69902 ms</span>
+                <span class="method-start">151655 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

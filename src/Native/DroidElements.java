@@ -17,6 +17,9 @@ public class DroidElements {
 	String BTNforgotPasswordID;
 	String BTNsettingsLoginScreenID;
 	String BTNsampleAccountID;
+	String BTNweeklyOperationsID;
+	String BTNlogoutName;
+	String BTNokForErrorPopupID;
 	
 	//TextFields	
 	String TEXTFIELDemailID;
@@ -54,6 +57,13 @@ public class DroidElements {
 		this.BTNforgotPasswordID = XmlHandel.readAndroidXml("BTNforgotPasswordID", langXml, xmlPath);
 		this.BTNsettingsLoginScreenID = XmlHandel.readAndroidXml("BTNsettingsLoginScreenID", langXml, xmlPath);
 		this.BTNsampleAccountID = XmlHandel.readAndroidXml("BTNsampleAccountID", langXml, xmlPath);
+		this.BTNweeklyOperationsID = XmlHandel.readAndroidXml("BTNweeklyOperationsID", langXml, xmlPath);
+		this.BTNlogoutName = XmlHandel.readAndroidXml("BTNlogoutName", langXml, xmlPath);
+		this.BTNokForErrorPopupID = XmlHandel.readAndroidXml("BTNokForErrorPopupID", langXml, xmlPath);
+
+
+
+
 
 		
 

@@ -79,90 +79,32 @@ public class DroidMethods {
 	}
 	
 
-	public void signOutFromStartupAndroid(DroidMethods genMeth, DroidElements droidData) throws InterruptedException, IOException {
-		//genMeth.clickName( genMeth, droidData.Settings_Name);
-		//genMeth.clickName( genMeth, droidData.BTNsingOut_Name);
-		//genMeth.clickName( genMeth, droidData.BTNok_Name);
+	public void signOutFromStartup(DroidMethods genMeth, DroidElements droidData) throws InterruptedException, IOException {
+		genMeth.clickId(genMeth, droidData.BTNweeklyOperationsID);
+		genMeth.clickName(genMeth, droidData.BTNlogoutName);
+		
 	}
 	
-	/*
-	public void loginIos(GenericMethods genMeth, WebElementsAndroid iosData, String user)throws InterruptedException, IOException,ParserConfigurationException, SAXException {
-
-		genMeth.clickName(driver,genMeth, iosData.BTNalreadyHaveAnAccount_name);
-		genMeth.sendId(driver, genMeth, iosData.TEXTFIELDemail_Id, user);
-		genMeth.sendId(driver, genMeth, iosData.TEXTFIELDpass_Id, iosData.password);
-		genMeth.clickName(driver,genMeth, iosData.BTNsignin_Name);
-
-		// check if the tour display (will be display only if it is first login)
-		boolean isFirstLogin = genMeth.checkIsElementVisibleNative(driver,By.name(iosData.NeverLoseAPhoto_Name));
-		if (isFirstLogin == true) {
-			// Make sure that the tour Never lose a photo display properly with full text
-			genMeth.isElementVisibleNative(driver,By.name(iosData.NeverLoseAPhoto_Name));
-			genMeth.isElementVisibleNative(driver,By.name(iosData.NeverLoseaPhotoFullText_Name));
-
-			driver.swipe(270, 265, 55, 265, 1000);
-			// Make sure that the tour Transfer phone simply is displayed properly with full text
-			genMeth.isElementVisibleNative(driver,By.name(iosData.TransferPhonesSimply_Name));
-			genMeth.isElementVisibleNative(driver,By.name(iosData.TransferPhonesSimplyFullText_Name));
-			driver.swipe(270, 265, 55, 265, 1000);
-			
-
-			// check if this is a Limited or Unlimited account
-			boolean isUnlimitedAccount = genMeth.checkIsElementVisibleNative(driver, By.name(iosData.UnlimitedProtection_Name));
-
-			if (isUnlimitedAccount == true) {
-				// Verify that the go unlimited tour text is displayed
-				genMeth.isElementVisibleNative(driver,By.name(iosData.UnlimitedProtection_Name));
-				genMeth.isElementVisibleNative(driver,By.name(iosData.UpgradeTour_Name));
-
-				// Skip- [Need to test 3 options (X button, Go Unlimited button & Skip button)]
-				genMeth.clickName(driver,genMeth, iosData.BTNskip_Name);
-
-				// Verify that the backup tour text is displayed
-				genMeth.isElementVisibleNative(driver,By.name(iosData.Backup_Name));
-				genMeth.isElementVisibleNative(driver,By.name(iosData.BackupTourText_Name));
-				genMeth.clickName(driver,genMeth, iosData.BTNcontinue_Name);
-
-				genMeth.handleAccessPhotosContactsLocationNotifications(genMeth, iosData);
-
-				// verify that the home screen is open with the LSM (left side menu)
-				genMeth.isElementVisibleNative(driver,By.name(iosData.Settings_Name));
-			}
-			
-			else {
-				genMeth.isElementVisibleNative(driver,By.name(iosData.Backup_Name));
-				genMeth.clickName(driver,genMeth, iosData.BTNcontinue_Name);
-				genMeth.handleAccessPhotosContactsLocationNotifications(genMeth, iosData);
-			}
-
-			// verify that the home screen is open with the LSM (left side menu)
-			genMeth.isElementVisibleNative(driver,By.name(iosData.Settings_Name));
-
-		}
-
+	public void scroll(AndroidDriver driver, String direction) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Map<String, String> scrollMap = new HashMap<String, String>();
+		scrollMap.put("direction", direction);
+		js.executeScript("mobile: scroll", scrollMap);
 	}
-	
-	*/
-    public void scroll(AndroidDriver driver , String direction){       
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        Map<String, String>scrollMap =new HashMap<String, String>();
-        scrollMap.put("direction", direction);  
-        js.executeScript("mobile: scroll", scrollMap);  
-}
  
-    public void scrollUp(AndroidDriver driver){       
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        Map<String, String>scrollMap =new HashMap<String, String>();
-        scrollMap.put("direction", "up");  
-        js.executeScript("mobile: scroll", scrollMap);  
-}
+	public void scrollUp(AndroidDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Map<String, String> scrollMap = new HashMap<String, String>();
+		scrollMap.put("direction", "up");
+		js.executeScript("mobile: scroll", scrollMap);
+	}
     
-    public void scrollDown(AndroidDriver driver){       
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        Map<String, String>scrollMap =new HashMap<String, String>();
-        scrollMap.put("direction", "down");  
-        js.executeScript("mobile: scroll", scrollMap);  
-}
+	public void scrollDown(AndroidDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Map<String, String> scrollMap = new HashMap<String, String>();
+		scrollMap.put("direction", "down");
+		js.executeScript("mobile: scroll", scrollMap);
+	}
  
 	public AndroidDriver setCapabilitiesAndroid(DroidMethods genMeth)
 			throws IOException {
@@ -206,39 +148,6 @@ public class DroidMethods {
 	
 
 	
-/*
-	
-	public void signUp(DroidMethods genMeth, DroidWebElements iosData) throws InterruptedException, IOException, ParserConfigurationException, SAXException{
-		
-		String randomName =  genMeth.randomString();
-		String currentDateFolder = genMeth.currentTime();
-		
-		genMeth.clickName(driver,genMeth, iosData.BTNsignUp_Name);
-		genMeth.sendId(driver, genMeth, iosData.TEXTFIELDnameOptional_Id, "meny:" + currentDateFolder);
-		genMeth.sendId(driver, genMeth, iosData.TEXTFIELDemail_Id, "meny@" + randomName + ".com");
-		genMeth.sendId(driver, genMeth, iosData.TEXTFIELDpass_Id, iosData.password);
-		genMeth.clickName(driver,genMeth, iosData.BTNsignUpForFree_Name);
-		
-		genMeth.isElementVisibleNative(driver,By.name(iosData.NeverLoseAPhoto_Name));
-		driver.swipe(270, 265, 55, 265, 1000);
-		genMeth.isElementVisibleNative(driver,By.name(iosData.TransferPhonesSimply_Name));
-		driver.swipe(270, 265, 55, 265, 1000);
-
-		// Verify that the go unlimited tour text is displayed
-		genMeth.isElementVisibleNative(driver,By.name(iosData.UnlimitedProtection_Name));
-		genMeth.isElementVisibleNative(driver,By.name(iosData.UpgradeTour_Name));
-		genMeth.clickName(driver,genMeth, "UIAccessoryButtonX");
-
-		genMeth.isElementVisibleNative(driver,By.name(iosData.Backup_Name));
-		
-		//Disable the backup from TOUR
-		genMeth.clickName(driver,genMeth, iosData.BTNcontinue_Name);
-		genMeth.handleAccessPhotosContactsLocationNotifications(genMeth,  iosData);
-		genMeth.isElementVisibleNative(driver,By.name(iosData.Settings_Name));
-
-	}
-	
-	*/
 	public String getValueFromPropFile(String key) {
 		Properties properties = new Properties();
 		String value = "";
@@ -255,19 +164,6 @@ public class DroidMethods {
 
 		return value;
 	}
-	
-	/*
-	Properties prop = new Properties();
-		String propFileName = "config.properties";
- 
-		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
- 
-		if (inputStream != null) {
-			prop.load(inputStream);
-		} else {
-			throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-		}
-	*/
 
 	public void takeScreenShot(AndroidDriver driver,
 			DroidMethods genMeth, String imageName) throws IOException {
@@ -425,8 +321,7 @@ public class DroidMethods {
 
 	}
 
-	// ========= CLICK an ELEMENT
-	// =========================================================================
+	// ========= CLICK an ELEMENT =========================================================================
 
 	public void clickBy(AndroidDriver driver, DroidMethods genMeth, By by) throws InterruptedException {
 
@@ -538,11 +433,6 @@ public class DroidMethods {
 
 		By by = By.xpath(xpth);
 
-		// (new WebDriverWait(driver,
-		// 50000)).until(ExpectedConditions.visibilityOfElementLocated(by));
-
-		// WebElement my1Element = genMeth.fluentwait(driver, By.xpath(xpth));
-
 		try {
 
 			WebElement myElement = genMeth.fluentwait(driver, by);
@@ -562,11 +452,6 @@ public class DroidMethods {
 			throws InterruptedException, IOException {
 
 		By by = By.xpath(xpth);
-
-		// (new WebDriverWait(driver,
-		// 50000)).until(ExpectedConditions.visibilityOfElementLocated(by));
-
-		// WebElement my1Element = genMeth.fluentwait(driver, By.xpath(xpth));
 
 		try {
 
@@ -622,8 +507,7 @@ public class DroidMethods {
 
 	}
 
-	// ======================== SEND ELEMENT
-	// =========================================================================
+// ======================== SEND ELEMENT =========================================
 
 	public void sendBy(AndroidDriver driver, DroidMethods genMeth, By by, String send)
 			throws InterruptedException, IOException {
@@ -644,8 +528,8 @@ public class DroidMethods {
 
 	}
 
-	public void sendCss(AndroidDriver driver, DroidMethods genMeth, String cssSelector, String send)
-			throws InterruptedException {
+	public void sendCss(AndroidDriver driver, DroidMethods genMeth,
+			String cssSelector, String send) throws InterruptedException {
 
 		try {
 
@@ -737,8 +621,7 @@ public class DroidMethods {
 
 	}
 
-	// =========================Clear
-	// WebElements=====================================================================
+	// =========================Clear WebElements=====================================================================
 
 	public void clearXpth(AndroidDriver driver, DroidMethods genMeth, String xpath)
 			throws InterruptedException {
@@ -777,7 +660,7 @@ public class DroidMethods {
 
 	}
 
-	public void clearId(AndroidDriver driver, DroidMethods genMeth, String id)
+	public void clearId( DroidMethods genMeth, String id)
 			throws InterruptedException {
 
 		try {

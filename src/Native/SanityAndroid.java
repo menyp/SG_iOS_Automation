@@ -50,7 +50,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@BeforeMethod (alwaysRun = false)
+	@BeforeMethod (alwaysRun = true)
 	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
 
 //		genMeth.setWifiOn();
@@ -68,7 +68,7 @@ import com.applitools.eyes.Eyes;
 		}
 
 		else {
-			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.name("need to check the startup screen"));
+			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.id(droidData.BTNweeklyOperationsID));
 
 			if (StartUpScreenDisplay != true) {
 
@@ -94,18 +94,16 @@ import com.applitools.eyes.Eyes;
 		genMeth.setWifiOn();
 	}
 
-	@Test (enabled = true ,testName = "createfolder1", retryAnalyzer = Retry.class, description = "Test the Create folder with Android" ,
-			groups= {"Sanity Android1"}  /*dependsOnMethods={"testLogin"}*/)	
-	public void loginSample() throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+	@Test (enabled = true ,testName = "createfolder1", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity Android"}  /*dependsOnMethods={"testLogin"}*/)	
+	public void loginSample() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
 
 		driver.resetApp();
 		genMeth.clickId(genMeth, droidData.BTNsampleAccountID);
-//		Verify that the sample login success
-		genMeth.eyesCheckWindow(eyes, "login sample success");
-		Thread.sleep(1000);
-		
-		
-		
+		// Verify that the sample login success
+		genMeth.eyesCheckWindow(eyes, "login sample validation");
+
 	}
 
 	
@@ -134,22 +132,56 @@ import com.applitools.eyes.Eyes;
 				
 	}
 	
-	@SuppressWarnings("static-access")
 	@Test(enabled = true,  testName = "Sanity Tests", description = "login with bad/missing credentials , forgot password (negative & positive)",
-			groups = { "Sanity Android" })
+			groups = { "Sanity Android1" })
 	public void badCredentials() throws Exception, Throwable {
+
+		genMeth.signOutFromStartup(genMeth, droidData);
+		// Login with bad user name
+		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, "bad name");
+		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, droidData.password);
+		genMeth.clickId( genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Login Failed"));
 		
-		String currentTime = genMeth.currentTime();
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
 
-		Eyes eyes = new Eyes();
-		eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-		eyes.open(driver, "pp", "test1");
-		eyes.checkWindow("Initial screen");
-		eyes.close();
+		// Login with bad password 
+		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, droidData.User);
+		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, "bad password");
+		genMeth.clickId( genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Login Failed"));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
 
-		genMeth.signOutFromStartupAndroid(genMeth, droidData);
-		// Login with bad credentials
+		
+		// Login with bad user name & password 
+		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, "bad name");
+		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, "bad password");
+		genMeth.clickId( genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Login Failed"));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
 
+		
+		// Login with empty Name
+		genMeth.clearId(genMeth, droidData.TEXTFIELDemailID);
+		genMeth.sendId( genMeth, droidData.TEXTFIELDpasswordID, droidData.password);
+		genMeth.clickId( genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Bad Request"));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
+		
+		// Login with empty Password
+		genMeth.sendId( genMeth, droidData.TEXTFIELDemailID, droidData.User);
+		genMeth.clearId(genMeth, droidData.TEXTFIELDpasswordID);
+		genMeth.clickId(genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Bad Request"));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
+
+		// Login with empty Name & password
+		genMeth.clearId(genMeth, droidData.TEXTFIELDemailID);
+		genMeth.clearId(genMeth, droidData.TEXTFIELDpasswordID);
+		genMeth.clickId(genMeth, droidData.BTNloginID);
+		genMeth.isElementVisible(By.name("Bad Request"));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
+		
 		// Forgot your password Negative (attempt to restore password with a non
 		// existing email)
 
@@ -251,28 +283,24 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@AfterSuite (alwaysRun=true)
+	@AfterSuite(alwaysRun = true)
+	public void tearDown() throws Exception {
+		// driver.removeApp("com.pogoplug.android");
 
-		public void tearDown() throws Exception {
-//			driver.removeApp("com.pogoplug.android");
-		
-			try {
-				genMeth.setWifiOn();
-				driver.removeApp("com.skygiraffe.operationaldata");
-				driver.quit();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}	
-			SendResults sr = new SendResults("elicherni444@gmail.com", "meny@cloudengines.com", "TestNG results", "Test Results");
-			sr.sendTestNGResult();
-		
+		try {
+			genMeth.setWifiOn();
+			driver.quit();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
-
-
+		SendResults sr = new SendResults("elicherni444@gmail.com",
+				"meny@cloudengines.com", "TestNG results", "Test Results");
+		sr.sendTestNGResult();
 
 	}
+
+}
 
 
 
