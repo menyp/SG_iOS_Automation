@@ -132,8 +132,7 @@ import com.applitools.eyes.Eyes;
 				
 	}
 	
-	@Test(enabled = true,  testName = "Sanity Tests", description = "login with bad/missing credentials , forgot password (negative & positive)",
-			groups = { "Sanity Android1" })
+	@Test(enabled = true, groups = { "Sanity Android" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {
 
 		genMeth.signOutFromStartup(genMeth, droidData);
@@ -190,18 +189,16 @@ import com.applitools.eyes.Eyes;
 	
 	}
 	
+	@Test(enabled = true, groups = { "Sanity Android" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot",retryAnalyzer = Retry.class )
+	public void forgotYourPassword() throws Exception, Throwable {
+
+	}
+	
 	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Search functionality & filter",
 			groups = { "Sanity Android" })
 	public void search() throws Exception, Throwable {
 		
 			}
-	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: create & restore a snapshot",
-			groups = { "Sanity Android" })
-	public void createRestoreSnapShot() throws Exception, Throwable {
-		
-		
-				}
 	
 	
 	@Test (enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: Save Login",
@@ -229,17 +226,6 @@ import com.applitools.eyes.Eyes;
 
 	}
 	
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Settings: Backup Enable/disable *with upload in the background",
-			groups = { "Regression iOS" })// , dependsOnMethods={"successTest"})
-	public void settingsBackupEnableDisableDuringUpload() throws Exception,Throwable {
-
-			}
-
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = " Backup running in background -> make sure process keeps alive and completes its queue even in background AND if taking new shots they are automatically backed up",
-			groups = { "Sanity Android" })
-	public void backupInBackground() throws Exception, Throwable {
-
-			}
 
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Switching from Foreground to Background and vice versa use cases",
 			groups = { "Sanity Android" })
@@ -253,34 +239,10 @@ import com.applitools.eyes.Eyes;
 
 	}
 	
-		@Test(enabled = false , retryAnalyzer = Retry.class, testName = "Sanity Tests" , description = " Add remove files from favorites" ,
-				groups = { "Sanity Android"} )
-	public void Favorites() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
-				}
-		
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Adding & removing team folders",
-			groups = { "Sanity Android" })
-	public void addRemoveTeamFolders() throws Exception, Throwable {
-		
-				
-	}
-	@Test(enabled = false, retryAnalyzer = Retry.class,  testName = "connection lost handling", description = "Checking how the app owrks while connection is lost & back again",
-			dependsOnGroups = {"Sanity*"}, groups={ "Sanity Android"})
-			
-	public void connectionLost() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
-		
-			} 
-	
-	
-	
-	@Test(enabled = false, retryAnalyzer = Retry.class,  testName = "connection lost handling",
-			description = "Checking how the app owrks while connection is lost & back again",
-			groups={ "Sanity Android"} )
-	public void temp() throws IOException, ParserConfigurationException, SAXException, InterruptedException{
-		
-		
-		
-		
+	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "connection lost handling", description = "Checking how the app owrks while connection is lost & back again", dependsOnGroups = { "Sanity*" }, groups = { "Sanity Android" })
+	public void connectionLost() throws InterruptedException, IOException,
+			ParserConfigurationException, SAXException {
+
 	}
 	
 	@AfterSuite(alwaysRun = true)
