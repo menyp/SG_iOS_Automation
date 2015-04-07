@@ -189,9 +189,41 @@ import com.applitools.eyes.Eyes;
 	
 	}
 	
-	@Test(enabled = true, groups = { "Sanity Android" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot",retryAnalyzer = Retry.class )
+	@Test(enabled = true, groups = { "Sanity Android1" } , testName = "Sanity Tests", description = "Settings: create & restore a snapshot",retryAnalyzer = Retry.class )
 	public void forgotYourPassword() throws Exception, Throwable {
-
+		genMeth.signOutFromStartup(genMeth, droidData);
+		
+		//Cancel forgot password
+		genMeth.clickId(genMeth, droidData.BTNforgotPasswordID);
+		genMeth.isElementVisible(By.id(droidData.BTNcancelForgotPasswordID));
+		genMeth.pressBackButton();
+		genMeth.eyesCheckWindow(eyes, "forgotYourPassword");
+		genMeth.clickId(genMeth, droidData.BTNcancelForgotPasswordID);
+		
+		//recover with invalid mail
+		genMeth.clickId(genMeth, droidData.BTNforgotPasswordID);
+		genMeth.clearId(genMeth, droidData.TEXTFIELDrecoveryEmailID);
+		genMeth.clickId(genMeth, droidData.BTNrecoverPasswordID);
+		genMeth.isElementVisible(By.name(droidData.InvalidRecoverEmailName));
+		genMeth.eyesCheckWindow(eyes, "forgotYourPassword");
+		
+		
+		//recover with a valid mail
+		genMeth.sendId(genMeth, droidData.TEXTFIELDrecoveryEmailID, droidData.User);
+		genMeth.clickId(genMeth, droidData.BTNrecoverPasswordID);
+		genMeth.isElementVisible(By.id(droidData.BTNresetPasswordID));
+		genMeth.eyesCheckWindow(eyes, "forgotYourPassword");
+			
+		//Attempt to reset password with incorrect confirmation code 
+		genMeth.clickId(genMeth, droidData.BTNresetPasswordID);
+		genMeth.isElementVisible(By.name(droidData.ConfCodeIncorrectName));
+		genMeth.clickId(genMeth, droidData.BTNokForErrorPopupID);
+		//in order to be able to fully test the confirmation process i will need a generic code that will pass (need to ask DEV)
+		
+		
+		//Re-Send confirmation code
+		
+		
 	}
 	
 	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Search functionality & filter",

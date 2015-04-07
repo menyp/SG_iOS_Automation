@@ -20,10 +20,14 @@ public class DroidElements {
 	String BTNweeklyOperationsID;
 	String BTNlogoutName;
 	String BTNokForErrorPopupID;
+	String BTNcancelForgotPasswordID;
+	String BTNrecoverPasswordID;
+	String BTNresetPasswordID;
 	
 	//TextFields	
 	String TEXTFIELDemailID;
 	String TEXTFIELDpasswordID;
+	String TEXTFIELDrecoveryEmailID;
 	
 	
 	
@@ -34,6 +38,8 @@ public class DroidElements {
 	String scrollDown;
 	String scrollUp;
 	String User;
+	String InvalidRecoverEmailName;
+	String ConfCodeIncorrectName;
 	
 	
 	//Checkbox
@@ -60,8 +66,9 @@ public class DroidElements {
 		this.BTNweeklyOperationsID = XmlHandel.readAndroidXml("BTNweeklyOperationsID", langXml, xmlPath);
 		this.BTNlogoutName = XmlHandel.readAndroidXml("BTNlogoutName", langXml, xmlPath);
 		this.BTNokForErrorPopupID = XmlHandel.readAndroidXml("BTNokForErrorPopupID", langXml, xmlPath);
-
-
+		this.BTNcancelForgotPasswordID = XmlHandel.readAndroidXml("BTNcancelForgotPasswordID", langXml, xmlPath);
+		this.BTNrecoverPasswordID = XmlHandel.readAndroidXml("BTNrecoverPasswordID", langXml, xmlPath);
+		this.BTNresetPasswordID = XmlHandel.readAndroidXml("BTNresetPasswordID", langXml, xmlPath);
 
 
 
@@ -69,9 +76,13 @@ public class DroidElements {
 
 		this.TEXTFIELDemailID = XmlHandel.readAndroidXml("TEXTFIELDemailID", langXml, xmlPath);
 		this.TEXTFIELDpasswordID = XmlHandel.readAndroidXml("TEXTFIELDpasswordID", langXml, xmlPath);
+		this.TEXTFIELDrecoveryEmailID = XmlHandel.readAndroidXml("TEXTFIELDrecoveryEmailID", langXml, xmlPath);
 
+
+		
 		this.Checkbox_rememberme_ID = XmlHandel.readAndroidXml("Checkbox_rememberme_ID", langXml, xmlPath);
 
+		
 		this.password = XmlHandel.readAndroidXml("password", langXml, xmlPath);
 		this.scrollDown = XmlHandel.readAndroidXml("scrollDown", langXml, xmlPath);
 		this.scrollUp = XmlHandel.readAndroidXml("scrollUp", langXml, xmlPath);		
@@ -80,6 +91,10 @@ public class DroidElements {
 		this.CoonectionDATA = XmlHandel.readAndroidXml("CoonectionDATA", langXml, xmlPath);
 		this.ConnectionALL = XmlHandel.readAndroidXml("ConnectionALL", langXml, xmlPath);
 		this.User = XmlHandel.readAndroidXml("User", langXml, xmlPath);
+		this.InvalidRecoverEmailName = XmlHandel.readAndroidXml("InvalidRecoverEmailName", langXml, xmlPath);
+		this.ConfCodeIncorrectName = XmlHandel.readAndroidXml("ConfCodeIncorrectName", langXml, xmlPath);
+
+
 
 
 	
