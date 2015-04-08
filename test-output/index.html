@@ -101,7 +101,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="badCredentials">badCredentials</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="forgotYourPassword">forgotYourPassword</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -124,11 +124,11 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="badCredentials">
-                  </a> <!-- badCredentials -->
-                  <span class="method-name">badCredentials</span>
+                  <a name="forgotYourPassword">
+                  </a> <!-- forgotYourPassword -->
+                  <span class="method-name">forgotYourPassword</span>
                   <em>
-(login with bad/missing credentials , forgot password (negative & positive))                  </em>
+(Settings: create & restore a snapshot)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -178,7 +178,7 @@
               <span class="test-group-name">Sanity Android1</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">badCredentials</span>
+                <span class="method-in-group-name">forgotYourPassword</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -200,14 +200,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'badCredentials')
+data.setCell(0, 1, 'forgotYourPassword')
 data.setCell(0, 2, 'Native.SanityAndroid')
-data.setCell(0, 3, 122153);
+data.setCell(0, 3, 54623);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 54 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -222,7 +222,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">16 ignored methods</span>
+            <span class="header-content">11 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -230,7 +230,13 @@ return data;
               <div class="ignored-methods-div">
                 <span class="ignored-method-name">settingsKeepMeSignedIn</span>
                 <br/>
-                <span class="ignored-method-name">temp</span>
+                <span class="ignored-method-name">termsOfServiceAndTruste</span>
+                <br/>
+                <span class="ignored-method-name">search</span>
+                <br/>
+                <span class="ignored-method-name">badCredentials</span>
+                <br/>
+                <span class="ignored-method-name">connectionLost</span>
                 <br/>
                 <span class="ignored-method-name">loginSample</span>
                 <br/>
@@ -240,25 +246,9 @@ return data;
                 <br/>
                 <span class="ignored-method-name">createNewUser</span>
                 <br/>
-                <span class="ignored-method-name">foregroundBackgroundSwitch</span>
-                <br/>
-                <span class="ignored-method-name">settingsBackupEnableDisableDuringUpload</span>
-                <br/>
-                <span class="ignored-method-name">addRemoveTeamFolders</span>
-                <br/>
-                <span class="ignored-method-name">termsOfServiceAndTruste</span>
-                <br/>
-                <span class="ignored-method-name">search</span>
-                <br/>
-                <span class="ignored-method-name">createRestoreSnapShot</span>
-                <br/>
-                <span class="ignored-method-name">backupInBackground</span>
-                <br/>
-                <span class="ignored-method-name">connectionLost</span>
-                <br/>
-                <span class="ignored-method-name">Favorites</span>
-                <br/>
                 <span class="ignored-method-name">uploadImage</span>
+                <br/>
+                <span class="ignored-method-name">foregroundBackgroundSwitch</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -272,20 +262,20 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Native.SanityAndroid</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@431f1eaf)</span>
+                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@63cf9de0)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">26400 ms</span>
+                <span class="method-start">26743 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">badCredentials</span>
-                <span class="method-start">29482 ms</span>
+                <span class="method-name">forgotYourPassword</span>
+                <span class="method-start">28653 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">151655 ms</span>
+                <span class="method-start">83294 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

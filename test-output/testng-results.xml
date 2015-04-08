@@ -2,34 +2,34 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="125251" started-at="2015-04-06T16:18:43Z" finished-at="2015-04-06T16:20:48Z">
+  <suite name="Suite" duration-ms="56550" started-at="2015-04-08T07:32:07Z" finished-at="2015-04-08T07:33:04Z">
     <groups>
       <group name="Sanity Android1">
-        <method signature="SanityAndroid.badCredentials()[pri:0, instance:Native.SanityAndroid@7d286fb6]" name="badCredentials" class="Native.SanityAndroid"/>
+        <method signature="SanityAndroid.forgotYourPassword()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="forgotYourPassword" class="Native.SanityAndroid"/>
       </group> <!-- Sanity Android1 -->
     </groups>
-    <test name="Sanity Tests" duration-ms="125251" started-at="2015-04-06T16:18:43Z" finished-at="2015-04-06T16:20:48Z">
+    <test name="Sanity Tests" duration-ms="56550" started-at="2015-04-08T07:32:07Z" finished-at="2015-04-08T07:33:04Z">
       <class name="Native.SanityAndroid">
-        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityAndroid@7d286fb6]" name="setupBeforeSuite" is-config="true" duration-ms="26387" started-at="2015-04-06T19:18:16Z" finished-at="2015-04-06T19:18:43Z">
+        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityAndroid@71e693fa]" name="setupBeforeSuite" is-config="true" duration-ms="26727" started-at="2015-04-08T10:31:41Z" finished-at="2015-04-08T10:32:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@431f1eaf]]>
+                <![CDATA[org.testng.TestRunner@63cf9de0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBeforeSuite -->
-        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityAndroid@7d286fb6]" name="checkHomeScreen" is-config="true" duration-ms="3082" started-at="2015-04-06T19:18:43Z" finished-at="2015-04-06T19:18:46Z">
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="checkHomeScreen" is-config="true" duration-ms="1910" started-at="2015-04-08T10:32:07Z" finished-at="2015-04-08T10:32:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHomeScreen -->
-        <test-method status="PASS" signature="badCredentials()[pri:0, instance:Native.SanityAndroid@7d286fb6]" name="badCredentials" duration-ms="122153" started-at="2015-04-06T19:18:46Z" description="login with bad/missing credentials , forgot password (negative &amp; positive)" finished-at="2015-04-06T19:20:48Z">
+        <test-method status="PASS" signature="forgotYourPassword()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="forgotYourPassword" duration-ms="54623" started-at="2015-04-08T10:32:09Z" description="Settings: create &amp; restore a snapshot" finished-at="2015-04-08T10:33:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- badCredentials -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityAndroid@7d286fb6]" name="tearDown" is-config="true" duration-ms="28790" started-at="2015-04-06T19:20:48Z" finished-at="2015-04-06T19:21:17Z">
+        </test-method> <!-- forgotYourPassword -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="tearDown" is-config="true" duration-ms="28479" started-at="2015-04-08T10:33:04Z" finished-at="2015-04-08T10:33:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

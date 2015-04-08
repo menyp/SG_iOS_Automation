@@ -12,7 +12,7 @@
         <methods>
           <include name="setupBeforeSuite"/>
           <include name="checkHomeScreen"/>
-          <include name="badCredentials"/>
+          <include name="forgotYourPassword"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Native.SanityAndroid -->
