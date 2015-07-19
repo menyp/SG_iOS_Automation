@@ -1,0 +1,86 @@
+<Data>
+		<Buttons>
+			<BTNloginID>Login</BTNloginID>
+			<BTNforgotPasswordID></BTNforgotPasswordID>
+			<BTNsettingsLoginScreenID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTNsettingsLoginScreenID>
+			<BTNsampleAccountID>Sample account</BTNsampleAccountID>
+			<BTNlogoutName>Logout</BTNlogoutName>
+			<BTNcancelForgotPasswordID></BTNcancelForgotPasswordID>	
+			<BTNrecoverPasswordID></BTNrecoverPasswordID>	
+			<BTNresetPasswordID></BTNresetPasswordID>	
+			<BTNdoneName>Done</BTNdoneName>
+			<BTNsettingsIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]</BTNsettingsIconXpth>
+			<BTNBackName>Back</BTNBackName>
+			<BTNClearName>Clear</BTNClearName>
+			<BTNSlicerIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]</BTNSlicerIconXpth>
+			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
+			<BTNCancelName>Cancel</BTNCancelName>					
+			<BTNMapCarIconName>mapcar icon</BTNMapCarIconName>
+			
+		
+		</Buttons>
+		
+		<TextFields>
+			<TEXTFIELDemailXpth>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</TEXTFIELDemailXpth>
+			<TEXTFIELDpasswordXpth>//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]</TEXTFIELDpasswordXpth>
+			<TEXTFIELDrecoveryEmailID></TEXTFIELDrecoveryEmailID>
+
+		</TextFields>
+		
+		<CheckBox>
+		    <Checkbox_rememberme_ID></Checkbox_rememberme_ID>
+		    
+		</CheckBox>
+		
+		<Options>
+			
+		</Options>
+		
+		<List>
+		   
+		    
+		</List>
+		<Strings>
+		  
+		    
+		</Strings>
+		                
+	    <scrollDown>down</scrollDown>
+	   	<scrollUp>up</scrollUp>
+		<password>M1234567!</password>
+		<badPassword>incorrectPassword</badPassword>
+		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
+		<ConnectionWIFI>WIFI</ConnectionWIFI>
+		<CoonectionDATA>DATA</CoonectionDATA>
+		<ConnectionALL>ALL</ConnectionALL>
+		<User>test1@1.com</User>
+		<InvalidRecoverEmailName></InvalidRecoverEmailName>
+		<ConfCodeIncorrectName></ConfCodeIncorrectName>
+		<DashboardName>Dashboard </DashboardName>
+		<SalesName>Sales</SalesName>
+		<ReturnsName>Returns</ReturnsName>
+		<NetSalesName>Net Sales</NetSalesName>
+		
+		<DailySalesBarID>Daily Sales - Bar</DailySalesBarID>
+		<DailysalesPieID>Daily sales - Pie</DailysalesPieID>
+		<DestinyUSAID>Destiny USA</DestinyUSAID>
+		<Last12hoursID>Last 12 hours</Last12hoursID>
+		<BranchID>Branch</BranchID>
+		<DailySalesID>Daily Sales</DailySalesID>
+		<ServiceCallsID>Service Calls</ServiceCallsID>
+		<ServiceCallsMapID>Service Calls Map</ServiceCallsMapID>
+		<MallofAmericaOnMapName>Mall of America, Open Service Calls: 5</MallofAmericaOnMapName>
+		
+		
+	<errorText>
+		
+	</errorText>
+	
+	<Icon>
+	  
+	</Icon>
+	
+	
+	
+	
+</Data>

@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,21 +90,31 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods, 3 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Suite">
+                    <div class="method-list-content failed suite-Suite">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityAndroid" hash-for-method="forgotYourPassword">forgotYourPassword</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="loginSample">loginSample</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Suite -->
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="loginSample">loginSample</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="loginSample">loginSample</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -116,27 +126,72 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">Native.SanityAndroid</span>
+              <img src="failed.png"/>
+              <span class="class-name">Native.SanityIos</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="forgotYourPassword">
-                  </a> <!-- forgotYourPassword -->
-                  <span class="method-name">forgotYourPassword</span>
+                  <a name="loginSample">
+                  </a> <!-- loginSample -->
+                  <span class="method-name">loginSample</span>
+                  <div class="stack-trace">com.applitools.eyes.TestFailedException: &apos;SampleApp Service Calls - See All (Mall of America&apos; of &apos;iOS_SG&apos;. See details at https://eyes.applitools.com/app/sessions/251965006648197
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:186)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
                   <em>
-(Settings: create & restore a snapshot)                  </em>
+(Test the login via the sample button)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginSample">
+                  </a> <!-- loginSample -->
+                  <span class="method-name">loginSample</span>
+                  <div class="stack-trace">com.applitools.eyes.TestFailedException: &apos;SampleApp Service Calls- priority = 4&apos; of &apos;iOS_SG&apos;. See details at https://eyes.applitools.com/app/sessions/251965005106061
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:193)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test the login via the sample button)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginSample">
+                  </a> <!-- loginSample -->
+                  <span class="method-name">loginSample</span>
+                  <div class="stack-trace">com.applitools.eyes.TestFailedException: &apos;SampleApp Service Calls - See All (Mall of America&apos; of &apos;iOS_SG&apos;. See details at https://eyes.applitools.com/app/sessions/251965005975778
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:186)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test the login via the sample button)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
+          </div> <!-- suite-Suite-class-failed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/sgmacbookpro/Appium/Projects/SG_Android_Automation/src/resources/Testng.xml</span>
+            <span class="header-content">/Users/sgmacbookpro/Appium/Projects/SG_iOS_Automation/src/resources/Testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,11 +201,11 @@
   &lt;test name=&quot;Sanity Tests&quot;&gt;
     &lt;groups&gt;
       &lt;run&gt;
-        &lt;include name=&quot;Sanity Android1&quot;/&gt;
+        &lt;include name=&quot;Sanity IOS&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;Native.SanityAndroid&quot;/&gt;
+      &lt;class name=&quot;Native.SanityIos&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Sanity Tests --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -175,10 +230,10 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
-              <span class="test-group-name">Sanity Android1</span>
+              <span class="test-group-name">Sanity IOS</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">forgotYourPassword</span>
+                <span class="method-in-group-name">loginSample</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -198,16 +253,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'forgotYourPassword')
-data.setCell(0, 2, 'Native.SanityAndroid')
-data.setCell(0, 3, 54623);
+data.setCell(0, 1, 'loginSample')
+data.setCell(0, 2, 'Native.SanityIos')
+data.setCell(0, 3, 766270);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'loginSample')
+data.setCell(1, 2, 'Native.SanityIos')
+data.setCell(1, 3, 581044);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'loginSample')
+data.setCell(2, 2, 'Native.SanityIos')
+data.setCell(2, 3, 570785);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 54 seconds</span>
+              <span class="suite-total-time">Total running time: 31 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -226,29 +289,29 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">Native.SanityAndroid</span>
+              <span class="ignored-class-name">Native.SanityIos</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">settingsKeepMeSignedIn</span>
+                <span class="ignored-method-name">connectionLost</span>
                 <br/>
-                <span class="ignored-method-name">termsOfServiceAndTruste</span>
+                <span class="ignored-method-name">settingsKeepMeSignedIn</span>
                 <br/>
                 <span class="ignored-method-name">search</span>
                 <br/>
-                <span class="ignored-method-name">badCredentials</span>
-                <br/>
-                <span class="ignored-method-name">connectionLost</span>
-                <br/>
-                <span class="ignored-method-name">loginSample</span>
-                <br/>
-                <span class="ignored-method-name">tour</span>
-                <br/>
-                <span class="ignored-method-name">settingsBackupEnableDisable</span>
-                <br/>
                 <span class="ignored-method-name">createNewUser</span>
+                <br/>
+                <span class="ignored-method-name">forgotYourPassword</span>
+                <br/>
+                <span class="ignored-method-name">foregroundBackgroundSwitch</span>
                 <br/>
                 <span class="ignored-method-name">uploadImage</span>
                 <br/>
-                <span class="ignored-method-name">foregroundBackgroundSwitch</span>
+                <span class="ignored-method-name">badCredentials</span>
+                <br/>
+                <span class="ignored-method-name">termsOfServiceAndTruste</span>
+                <br/>
+                <span class="ignored-method-name">settingsBackupEnableDisable</span>
+                <br/>
+                <span class="ignored-method-name">tour</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -260,22 +323,44 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">Native.SanityAndroid</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">Native.SanityIos</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@63cf9de0)</span>
+                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@5568c66f)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">26743 ms</span>
+                <span class="method-start">97312 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">forgotYourPassword</span>
-                <span class="method-start">28653 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">loginSample</span>
+                <span class="method-start">99471 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">checkHomeScreen</span>
+                <span class="method-start">680519 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">loginSample</span>
+                <span class="method-start">779733 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">checkHomeScreen</span>
+                <span class="method-start">1350520 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">loginSample</span>
+                <span class="method-start">1450651 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">83294 ms</span>
+                <span class="method-start">2216960 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

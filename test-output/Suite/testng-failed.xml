@@ -4,18 +4,18 @@
   <test name="Sanity Tests(failed)" parallel="none">
     <groups>
       <run>
-        <include name="Sanity Android1"/>
+        <include name="Sanity IOS"/>
       </run>
     </groups>
     <classes>
-      <class name="Native.SanityAndroid">
+      <class name="Native.SanityIos">
         <methods>
           <include name="setupBeforeSuite"/>
+          <include name="loginSample"/>
           <include name="checkHomeScreen"/>
-          <include name="forgotYourPassword"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- Native.SanityAndroid -->
+      </class> <!-- Native.SanityIos -->
     </classes>
   </test> <!-- Sanity Tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->

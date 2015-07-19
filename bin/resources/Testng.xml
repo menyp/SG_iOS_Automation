@@ -4,16 +4,14 @@
   <test name="Sanity Tests">
       <groups>
 		<run>
-		    
-		    <include name="Sanity Android1"/>     
-		    
+		    <include name="Sanity IOS1"/>     
 		</run>
 	</groups>
 
   
     <classes>
         
-          <class name="Native.SanityAndroid"/>
+          <class name="Native.SanityIos"/>
           
     </classes>
   </test> <!-- Test -->

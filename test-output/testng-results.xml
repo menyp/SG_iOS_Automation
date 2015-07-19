@@ -1,39 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="3" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="56550" started-at="2015-04-08T07:32:07Z" finished-at="2015-04-08T07:33:04Z">
+  <suite name="Suite" duration-ms="2119627" started-at="2015-07-19T08:13:18Z" finished-at="2015-07-19T08:48:38Z">
     <groups>
-      <group name="Sanity Android1">
-        <method signature="SanityAndroid.forgotYourPassword()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="forgotYourPassword" class="Native.SanityAndroid"/>
-      </group> <!-- Sanity Android1 -->
+      <group name="Sanity IOS">
+        <method signature="SanityIos.loginSample()[pri:0, instance:Native.SanityIos@225129c]" name="loginSample" class="Native.SanityIos"/>
+      </group> <!-- Sanity IOS -->
     </groups>
-    <test name="Sanity Tests" duration-ms="56550" started-at="2015-04-08T07:32:07Z" finished-at="2015-04-08T07:33:04Z">
-      <class name="Native.SanityAndroid">
-        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityAndroid@71e693fa]" name="setupBeforeSuite" is-config="true" duration-ms="26727" started-at="2015-04-08T10:31:41Z" finished-at="2015-04-08T10:32:07Z">
+    <test name="Sanity Tests" duration-ms="2119627" started-at="2015-07-19T08:13:18Z" finished-at="2015-07-19T08:48:38Z">
+      <class name="Native.SanityIos">
+        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityIos@225129c]" name="setupBeforeSuite" is-config="true" duration-ms="97299" started-at="2015-07-19T11:11:41Z" finished-at="2015-07-19T11:13:18Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@63cf9de0]]>
+                <![CDATA[org.testng.TestRunner@5568c66f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBeforeSuite -->
-        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="checkHomeScreen" is-config="true" duration-ms="1910" started-at="2015-04-08T10:32:07Z" finished-at="2015-04-08T10:32:09Z">
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@225129c]" name="checkHomeScreen" is-config="true" duration-ms="2159" started-at="2015-07-19T11:13:18Z" finished-at="2015-07-19T11:13:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHomeScreen -->
-        <test-method status="PASS" signature="forgotYourPassword()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="forgotYourPassword" duration-ms="54623" started-at="2015-04-08T10:32:09Z" description="Settings: create &amp; restore a snapshot" finished-at="2015-04-08T10:33:04Z">
+        <test-method status="FAIL" signature="loginSample()[pri:0, instance:Native.SanityIos@225129c]" name="loginSample" duration-ms="581044" started-at="2015-07-19T11:13:20Z" description="Test the login via the sample button" finished-at="2015-07-19T11:23:01Z">
+          <exception class="com.applitools.eyes.TestFailedException">
+            <message>
+              <![CDATA['SampleApp Service Calls - See All (Mall of America' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965006648197]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.applitools.eyes.TestFailedException: 'SampleApp Service Calls - See All (Mall of America' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965006648197
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.applitools.eyes.TestFailedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- forgotYourPassword -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityAndroid@71e693fa]" name="tearDown" is-config="true" duration-ms="28479" started-at="2015-04-08T10:33:04Z" finished-at="2015-04-08T10:33:32Z">
+        </test-method> <!-- loginSample -->
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@225129c]" name="checkHomeScreen" is-config="true" duration-ms="99214" started-at="2015-07-19T11:23:01Z" finished-at="2015-07-19T11:24:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHomeScreen -->
+        <test-method status="FAIL" signature="loginSample()[pri:0, instance:Native.SanityIos@225129c]" name="loginSample" duration-ms="570785" started-at="2015-07-19T11:24:40Z" description="Test the login via the sample button" finished-at="2015-07-19T11:34:11Z">
+          <exception class="com.applitools.eyes.TestFailedException">
+            <message>
+              <![CDATA['SampleApp Service Calls - See All (Mall of America' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965005975778]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.applitools.eyes.TestFailedException: 'SampleApp Service Calls - See All (Mall of America' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965005975778
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1049)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.applitools.eyes.TestFailedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSample -->
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@225129c]" name="checkHomeScreen" is-config="true" duration-ms="100130" started-at="2015-07-19T11:34:11Z" finished-at="2015-07-19T11:35:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHomeScreen -->
+        <test-method status="FAIL" signature="loginSample()[pri:0, instance:Native.SanityIos@225129c]" name="loginSample" duration-ms="766270" started-at="2015-07-19T11:35:51Z" description="Test the login via the sample button" finished-at="2015-07-19T11:48:38Z">
+          <exception class="com.applitools.eyes.TestFailedException">
+            <message>
+              <![CDATA['SampleApp Service Calls- priority = 4' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965005106061]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.applitools.eyes.TestFailedException: 'SampleApp Service Calls- priority = 4' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251965005106061
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:75)
+	at Native.SanityIos.loginSample(SanityIos.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1049)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.applitools.eyes.TestFailedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSample -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityIos@225129c]" name="tearDown" is-config="true" duration-ms="4444" started-at="2015-07-19T11:48:38Z" finished-at="2015-07-19T11:48:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- Native.SanityAndroid -->
+      </class> <!-- Native.SanityIos -->
     </test> <!-- Sanity Tests -->
   </suite> <!-- Suite -->
 </testng-results>
