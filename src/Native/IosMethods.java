@@ -63,7 +63,7 @@ public class IosMethods {
 		genMeth.sendXpth( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.password);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
-		
+	
 
 	}
 	

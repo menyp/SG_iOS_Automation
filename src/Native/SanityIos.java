@@ -25,6 +25,7 @@ import com.applitools.eyes.Eyes;
 	String StartServerPath;
 	String StopServerPath;
 	IosElements iosData;
+	@SuppressWarnings("rawtypes")
 	public IOSDriver driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
@@ -207,6 +208,9 @@ import com.applitools.eyes.Eyes;
 		//Open service calls map
 		genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
 		genMeth.clickName(genMeth, iosData.MallofAmericaOnMapName);
+		
+		//Check is Location popup is displayed
+		//???????????????????????????????????????????
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps-  Mall of America", useEye);
 		genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
