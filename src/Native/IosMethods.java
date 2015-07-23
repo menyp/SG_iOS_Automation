@@ -1,5 +1,6 @@
 package Native;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.NetworkConnectionSetting;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidKeyCode;
@@ -73,6 +74,7 @@ public class IosMethods {
 			eyes.open(driver, "iOS_SG", testName);
 			eyes.checkWindow("Sample Screen");
 			eyes.close();
+			
 			}
 			
 	}	
@@ -281,7 +283,7 @@ public class IosMethods {
 
 	}
 
-	public WebElement returnName(IOSDriver driver, IosMethods genMeth, String name)
+	public MobileElement returnName(IOSDriver driver, IosMethods genMeth, String name)
 			throws InterruptedException {
 
 		try {
@@ -296,7 +298,7 @@ public class IosMethods {
 
 		}
 
-		WebElement myElement = genMeth.fluentwait(driver, By.name(name));
+		MobileElement myElement = genMeth.fluentwait(driver, By.name(name));
 		return myElement;
 
 	}
@@ -800,15 +802,15 @@ public class IosMethods {
 
 	}
 
-	public WebElement fluentwait(IOSDriver driver, final By byType) {
+	public MobileElement fluentwait(IOSDriver driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
 				.withTimeout(45, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 
-		WebElement foo = wait.until(new Function<IOSDriver, WebElement>() {
-			public WebElement apply(IOSDriver driver) {
-				return driver.findElement(byType);
+		MobileElement foo = (MobileElement) wait.until(new Function<IOSDriver, WebElement>() {
+			public MobileElement apply(IOSDriver driver) {
+				return (MobileElement) driver.findElement(byType);
 			}
 		});
 
@@ -845,7 +847,7 @@ public class IosMethods {
 
 	}
 
-	public boolean checkIsTextPresentNative(IOSDriver driver, String text,
+	public boolean checkIsTextPresentNative(IOSDriver<?> driver, String text,
 			By by) throws IOException, ParserConfigurationException,SAXException, InterruptedException {
 
 		boolean isTextPresent = false;

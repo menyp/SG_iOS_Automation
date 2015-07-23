@@ -48,7 +48,7 @@ import com.applitools.eyes.Eyes;
 		iosData= new IosElements(webElementXmlLang, webElementXmlPath);
 		driver = genMeth.setCapabilitiesIos(genMeth);
 		genMeth.cleanLoginIos(genMeth,iosData, iosData.User); 
-		//sdasasdasdsa
+	
 		
 	
 		
@@ -171,7 +171,7 @@ import com.applitools.eyes.Eyes;
 		// ingrid Action- First layer
 		genMeth.clickName(genMeth, "Priority");
 		genMeth.clickName(genMeth, "1");
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		genMeth.clickName(genMeth, "Priority");
 		genMeth.clickName(genMeth, "3");
 		Thread.sleep(5000);
@@ -183,12 +183,12 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 //		genMeth.clickName(genMeth, "See All");
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[5]/UIAStaticText[1]");
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[6]/UIAStaticText[1]");
 		Thread.sleep(2000);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls - See All (Mall of America", useEye);
 		genMeth.clickName(genMeth, "Priority");
 		genMeth.clickName(genMeth, "1");
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		genMeth.clickName(genMeth, "Priority");
 		genMeth.clickName(genMeth, "4");
 		Thread.sleep(6000);
@@ -226,6 +226,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "New Service Call");
 		
 		
+		
 		//Order lookup
 		
 		//Operations (inventory/orders/Place new order)
@@ -233,9 +234,9 @@ import com.applitools.eyes.Eyes;
 		
 		//Technicians
 		Thread.sleep(1000);
-		
-		//Open Last 12 hours
 
+		//Open Last 12 hours
+		
 
 		
 

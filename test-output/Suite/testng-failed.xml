@@ -12,7 +12,6 @@
         <methods>
           <include name="setupBeforeSuite"/>
           <include name="loginSample"/>
-          <include name="checkHomeScreen"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Native.SanityIos -->

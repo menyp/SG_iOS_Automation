@@ -23,8 +23,6 @@
 	<classpathentry kind="lib" path="lib/httpcore-4.3.2.jar"/>
 	<classpathentry kind="lib" path="lib/httpmime-4.3.4.jar"/>
 	<classpathentry kind="lib" path="lib/ini4j-0.5.2.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-2.1.0-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-2.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/javax.mail.jar"/>
 	<classpathentry kind="lib" path="lib/jcommander-1.29.jar"/>
 	<classpathentry kind="lib" path="lib/jetty-websocket-8.1.8.jar"/>
@@ -71,5 +69,8 @@
 	<classpathentry kind="lib" path="lib/selenium-safari-driver-2.44.0.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-support-2.44.0.jar"/>
 	<classpathentry kind="lib" path="lib/webbit-0.4.14.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-3.1.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-3.1.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/java-client-3.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
