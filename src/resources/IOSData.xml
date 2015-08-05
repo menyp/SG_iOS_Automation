@@ -16,8 +16,14 @@
 			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
 			<BTNCancelName>Cancel</BTNCancelName>					
 			<BTNMapCarIconName>mapcar icon</BTNMapCarIconName>
+			<BTNokName>OK</BTNokName>
+			<BTNpriority_Name>Priority</BTNpriority_Name>
+			<BTNnewServiceCallId>New Service Call</BTNnewServiceCallId>
+			<BTNsubmit_ID>Submit</BTNsubmit_ID>
+			<BTNplaceNewOrder_Xpth>//UIACollectionCell[@name='Place New Order']</BTNplaceNewOrder_Xpth>
+			<BTNaddContact_Name>Add contact</BTNaddContact_Name>
+			<BTNdeleteDraft_Name>Delete Draft</BTNdeleteDraft_Name>
 			
-		
 		</Buttons>
 		
 		<TextFields>
@@ -69,7 +75,11 @@
 		<DailySalesID>Daily Sales</DailySalesID>
 		<ServiceCallsID>Service Calls</ServiceCallsID>
 		<ServiceCallsMapID>Service Calls Map</ServiceCallsMapID>
-		<MallofAmericaOnMapName>Mall of America, Open Service Calls: 5</MallofAmericaOnMapName>
+		<MallofAmericaOnMapXpath>//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAMapView[1]/UIAElement[2]</MallofAmericaOnMapXpath>
+		<CameraPemissions_ID>“SkyGiraffe” Would Like to Access the Camera</CameraPemissions_ID>
+		<ContactsPermissionsName>“SkyGiraffe” Would Like to Access Your Contacts</ContactsPermissionsName>
+		<MallOfAmerica_Id>Mall of America</MallOfAmerica_Id>
+		<OrderLookup_ID>Order Lookup</OrderLookup_ID>
 		
 		
 	<errorText>

@@ -15,7 +15,7 @@ public class IosElements {
 	String BTNsettingsLoginScreenID;
 	String BTNsampleAccountID;
 	String BTNweeklyOperationsID;
-	String BTNokForErrorPopupID;
+	String BTNokName;
 	String BTNcancelForgotPasswordID;
 	String BTNrecoverPasswordID;
 	String BTNresetPasswordID;
@@ -28,6 +28,15 @@ public class IosElements {
 	String BTNmapphoneiconID;
 	String BTNCancelName;
 	String BTNMapCarIconName;
+	String BTNpriority_Name;
+	String BTNnewServiceCallId;
+	String BTNsubmit_ID;
+	String BTNplaceNewOrder_Xpth;
+	String BTNaddContact_Name;
+	String BTNdeleteDraft_Name;
+	
+	
+	
 	
 	//TextFields	
 	String TEXTFIELDemailXpth;
@@ -56,10 +65,12 @@ public class IosElements {
 	String DailySalesID;
 	String ServiceCallsID;
 	String ServiceCallsMapID;
-	String MallofAmericaOnMapName;
+	String MallofAmericaOnMapXpath;
+	String MallOfAmerica_Id;
 	
-
-	
+	String CameraPemissions_ID;
+	String ContactsPermissionsName;
+	String OrderLookup_ID;
 	
 	//Checkbox
 	
@@ -93,6 +104,13 @@ public class IosElements {
 		this.BTNmapphoneiconID = XmlHandel.readAndroidXml("BTNmapphoneiconID", langXml, xmlPath);
 		this.BTNCancelName = XmlHandel.readAndroidXml("BTNCancelName", langXml, xmlPath);
 		this.BTNMapCarIconName = XmlHandel.readAndroidXml("BTNMapCarIconName", langXml, xmlPath);
+		this.BTNokName = XmlHandel.readAndroidXml("BTNokName", langXml, xmlPath);
+		this.BTNpriority_Name = XmlHandel.readAndroidXml("BTNpriority_Name", langXml, xmlPath);
+		this.BTNnewServiceCallId = XmlHandel.readAndroidXml("BTNnewServiceCallId", langXml, xmlPath);
+		this.BTNsubmit_ID = XmlHandel.readAndroidXml("BTNsubmit_ID", langXml, xmlPath);
+		this.BTNplaceNewOrder_Xpth = XmlHandel.readAndroidXml("BTNplaceNewOrder_Xpth", langXml, xmlPath);
+		this.BTNaddContact_Name = XmlHandel.readAndroidXml("BTNaddContact_Name", langXml, xmlPath);
+		this.BTNdeleteDraft_Name = XmlHandel.readAndroidXml("BTNdeleteDraft_Name", langXml, xmlPath);
 
 		
 		
@@ -122,9 +140,15 @@ public class IosElements {
 		this.DailySalesID = XmlHandel.readAndroidXml("DailySalesID", langXml, xmlPath);		
 		this.ServiceCallsID = XmlHandel.readAndroidXml("ServiceCallsID", langXml, xmlPath);		
 		this.ServiceCallsMapID = XmlHandel.readAndroidXml("ServiceCallsMapID", langXml, xmlPath);		
-		this.MallofAmericaOnMapName = XmlHandel.readAndroidXml("MallofAmericaOnMapName", langXml, xmlPath);		
+		this.MallofAmericaOnMapXpath = XmlHandel.readAndroidXml("MallofAmericaOnMapXpath", langXml, xmlPath);		
+		this.CameraPemissions_ID = XmlHandel.readAndroidXml("CameraPemissions_ID", langXml, xmlPath);		
+		this.ContactsPermissionsName = XmlHandel.readAndroidXml("ContactsPermissionsName", langXml, xmlPath);		
+		this.MallOfAmerica_Id = XmlHandel.readAndroidXml("MallOfAmerica_Id", langXml, xmlPath);		
+		this.OrderLookup_ID = XmlHandel.readAndroidXml("OrderLookup_ID", langXml, xmlPath);		
 
 		
+		
+
 		
 		
 		

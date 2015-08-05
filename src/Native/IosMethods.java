@@ -1,10 +1,9 @@
 package Native;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.NetworkConnectionSetting;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.pagefactory.WithTimeout;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +27,6 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -43,35 +41,34 @@ import com.google.common.base.Function;
 
 public class IosMethods {
 	
-	IOSDriver driver;
+	IOSDriver<MobileElement> driver;
 	IosElements iosData;
-	
 	IosMethods genMeth;
 
 	public void cleanLoginIos(IosMethods genMeth,  IosElements iosData , String user) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
 	
-		//Check language making sure keyboard is set to English
+//Check language making sure keyboard is set to English
 		WebElement EmailField = genMeth.returnXpth(driver, genMeth, iosData.TEXTFIELDemailXpth);
 		driver.tap(1, EmailField, 1000);
-		boolean isENG = genMeth.checkIsElementVisible(By.name("a"));
-		if ( isENG != true){
-			//change to English
-			genMeth.clickId(genMeth, "English (US)");
-		}
-		
+//make sure that the English keyboard is open
+		genMeth.setEnglishKeyboard(genMeth);
 		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth , iosData.User);	
 		genMeth.sendXpth( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.password);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
+		
+		//location popup handle
+		genMeth.locationServicesHadle(genMeth);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
 	
 
 	}
 	
-	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEyes) throws InterruptedException{
+	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEye) throws InterruptedException{
 		
-			if (useEyes){
+			if (useEye){
 			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
 			eyes.open(driver, "iOS_SG", testName);
+			//eyes.setMatchTimeout(5);
 			eyes.checkWindow("Sample Screen");
 			eyes.close();
 			
@@ -80,7 +77,7 @@ public class IosMethods {
 	}	
 
 	
-	public void killAppAndroid(IOSDriver driver)throws InterruptedException, IOException {
+	public void killAppAndroid(IOSDriver<MobileElement> driver)throws InterruptedException, IOException {
 
 	//	driver.removeApp("com.pogoplug.android");
 		driver.resetApp();
@@ -102,28 +99,28 @@ public class IosMethods {
 		
 	}
 	
-	public void scroll(IOSDriver driver, String direction) {
+	public void scroll(IOSDriver<MobileElement> driver, String direction) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", direction);
 		js.executeScript("mobile: scroll", scrollMap);
 	}
  
-	public void scrollUp(IOSDriver driver) {
+	public void scrollUp(IOSDriver<MobileElement> driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", "up");
 		js.executeScript("mobile: scroll", scrollMap);
 	}
     
-	public void scrollDown(IOSDriver driver) {
+	public void scrollDown(IOSDriver<MobileElement> driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", "down");
 		js.executeScript("mobile: scroll", scrollMap);
 	}
  
-	public IOSDriver setCapabilitiesIos(IosMethods genMeth)
+	public IOSDriver<MobileElement> setCapabilitiesIos(IosMethods genMeth)
 			throws IOException {
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -137,7 +134,7 @@ public class IosMethods {
 
 		try {
 
-			driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+			driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 
 		}
 
@@ -167,7 +164,7 @@ public class IosMethods {
 		return value;
 	}
 
-	public void takeScreenShot(IOSDriver driver,
+	public void takeScreenShot(IOSDriver<MobileElement> driver,
 			IosMethods genMeth, String imageName) throws IOException {
 
 		File scrFile = (driver.getScreenshotAs(OutputType.FILE));
@@ -202,7 +199,7 @@ public class IosMethods {
 
 	// ==================== RETURN ELEMENT
 
-		public WebElement returnCss(IOSDriver driver, String cssSelector)
+		public WebElement returnCss(IOSDriver<MobileElement> driver, String cssSelector)
 			throws InterruptedException {
 
 		IosMethods genMeth = new IosMethods();
@@ -223,7 +220,7 @@ public class IosMethods {
 		return myElement;
 	}
 
-	public WebElement returnId(IOSDriver driver,IosMethods genMeth, String id)
+	public WebElement returnId(IOSDriver<MobileElement> driver,IosMethods genMeth, String id)
 			throws InterruptedException {
 
 
@@ -244,7 +241,7 @@ public class IosMethods {
 
 	}
 
-	public WebElement returnClassName(IOSDriver driver, IosMethods genMeth,  String className)
+	public WebElement returnClassName(IOSDriver<MobileElement> driver, IosMethods genMeth,  String className)
 			throws InterruptedException {
 
 
@@ -264,7 +261,7 @@ public class IosMethods {
 		return myElement;
 	}
 
-	public WebElement returnXpth(IOSDriver driver, IosMethods genMeth, String xpth)
+	public WebElement returnXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpth)
 			throws InterruptedException {
 
 		try {
@@ -283,7 +280,7 @@ public class IosMethods {
 
 	}
 
-	public MobileElement returnName(IOSDriver driver, IosMethods genMeth, String name)
+	public MobileElement returnName(IOSDriver<MobileElement> driver, IosMethods genMeth, String name)
 			throws InterruptedException {
 
 		try {
@@ -303,7 +300,7 @@ public class IosMethods {
 
 	}
 	
-	public WebElement returnBy(IOSDriver driver, IosMethods genMeth, By by)
+	public WebElement returnBy(IOSDriver<MobileElement> driver, IosMethods genMeth, By by)
 			throws InterruptedException {
 
 		try {
@@ -325,7 +322,7 @@ public class IosMethods {
 
 	// ========= CLICK an ELEMENT =========================================================================
 
-	public void clickBy(IOSDriver driver, IosMethods genMeth, By by) throws InterruptedException {
+	public void clickBy(IOSDriver<MobileElement> driver, IosMethods genMeth, By by) throws InterruptedException {
 
 
 		try {
@@ -343,7 +340,7 @@ public class IosMethods {
 	}
 	
 	
-	public void tapBy(IOSDriver driver, IosMethods genMeth, By by) throws InterruptedException {
+	public void tapBy(IOSDriver<MobileElement> driver, IosMethods genMeth, By by) throws InterruptedException {
 
 
 		try {
@@ -360,7 +357,7 @@ public class IosMethods {
 
 	}
 
-	public void clickCss(IOSDriver driver, IosMethods genMeth, String cssSelector)
+	public void clickCss(IOSDriver<MobileElement> driver, IosMethods genMeth, String cssSelector)
 			throws InterruptedException {
 
 		try {
@@ -379,7 +376,7 @@ public class IosMethods {
 
 	}
 
-	public void clickId( IosMethods genMeth,
+	public void clickId1( IosMethods genMeth,
 			String id) throws InterruptedException {
 
 		try {
@@ -395,12 +392,30 @@ public class IosMethods {
 		}
 	}
 	
+	public void clickId( IosMethods genMeth,
+			String id) throws InterruptedException {
+
+		try {
+			MobileElement myElement = genMeth.fluentwait(driver, By.id(id));
+			 myElement.click();
+		//driver.findElementById(id).click();
+			
+			
+		}
+
+		catch (Exception e) {
+
+			org.testng.Assert.fail(id + " didn't display");
+
+		}
+	}
+	
 	public void tapId( IosMethods genMeth,
 			String id) throws InterruptedException {
 
 		try {
 
-			WebElement myElement = genMeth.fluentwait(driver, By.id(id));
+			MobileElement myElement = genMeth.fluentwait(driver, By.id(id));
 			driver.tap(1, myElement, 1000);
 
 		}
@@ -412,7 +427,7 @@ public class IosMethods {
 		}
 	}
 
-	public void clickClassName(IOSDriver driver, IosMethods genMeth, String className)
+	public void clickClassName(IOSDriver<MobileElement> driver, IosMethods genMeth, String className)
 			throws InterruptedException {
 
 		try {
@@ -430,15 +445,16 @@ public class IosMethods {
 	}
 	
 
-	public void clickXpth(IOSDriver driver, IosMethods genMeth, String xpth)
+	public void clickXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpth)
 			throws InterruptedException, IOException {
 
 		By by = By.xpath(xpth);
 
 		try {
 
-			WebElement myElement = genMeth.fluentwait(driver, by);
+			MobileElement myElement = genMeth.fluentwait(driver, by);
 			myElement.click();
+			//driver.findElementByXPath(xpth).click();
 
 		}
 
@@ -474,9 +490,8 @@ public class IosMethods {
 
 		try {
 
-			WebElement myElement = genMeth.fluentwait(driver, By.name(name));
+			MobileElement myElement = genMeth.fluentwait(driver, By.name(name));
 			myElement.click();
-
 		}
 
 		catch (Exception e) {
@@ -511,7 +526,7 @@ public class IosMethods {
 
 // ======================== SEND ELEMENT =========================================
 
-	public void sendBy(IOSDriver driver, IosMethods genMeth, By by, String send)
+	public void sendBy(IOSDriver<MobileElement> driver, IosMethods genMeth, By by, String send)
 			throws InterruptedException, IOException {
 
 		try {
@@ -530,7 +545,7 @@ public class IosMethods {
 
 	}
 
-	public void sendCss(IOSDriver driver, IosMethods genMeth,
+	public void sendCss(IOSDriver<MobileElement> driver, IosMethods genMeth,
 			String cssSelector, String send) throws InterruptedException {
 
 		try {
@@ -568,7 +583,7 @@ public class IosMethods {
 
 	}
 
-	public void sendClassName(IOSDriver driver, IosMethods genMeth, String className, String send)
+	public void sendClassName(IOSDriver<MobileElement> driver, IosMethods genMeth, String className, String send)
 			throws InterruptedException {
 
 		try {
@@ -604,7 +619,7 @@ public class IosMethods {
 
 	}
 /*
-	public void sendXpth(IOSDriver driver, IosMethods genMeth, String xpth, String send)
+	public void sendXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpth, String send)
 			throws IOException {
 
 		try {
@@ -644,7 +659,7 @@ public class IosMethods {
 
 	// =========================Clear WebElements=====================================================================
 
-	public void clearXpth(IOSDriver driver, IosMethods genMeth, String xpath)
+	public void clearXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpath)
 			throws InterruptedException {
 
 		try {
@@ -662,7 +677,7 @@ public class IosMethods {
 
 	}
 
-	public void clearClassName(IOSDriver driver, IosMethods genMeth, String className)
+	public void clearClassName(IOSDriver<MobileElement> driver, IosMethods genMeth, String className)
 			throws InterruptedException {
 
 		try {
@@ -699,7 +714,7 @@ public class IosMethods {
 
 	}
 
-	public void clearCss(IOSDriver driver, IosMethods genMeth, String cssSelector)
+	public void clearCss(IOSDriver<MobileElement> driver, IosMethods genMeth, String cssSelector)
 			throws InterruptedException {
 
 		try {
@@ -725,7 +740,7 @@ public class IosMethods {
 	 */
 
 	// Look for an element in a few tries (with counter)
-	public void waitForElementToBeInvisible(IOSDriver driver, By byType,
+	public void waitForElementToBeInvisible(IOSDriver<MobileElement> driver, By byType,
 			int numAttempts) throws IOException, ParserConfigurationException,SAXException {
 
 		int count = 0;
@@ -733,7 +748,7 @@ public class IosMethods {
 		while (count < numAttempts) {
 
 			try {
-				isInvisible = new FluentWait<IOSDriver>(driver)
+				isInvisible = new FluentWait<IOSDriver<MobileElement>>(driver)
 						.withTimeout(60, TimeUnit.SECONDS)
 						.pollingEvery(5, TimeUnit.SECONDS)
 						.ignoring(NoSuchElementException.class)
@@ -765,7 +780,7 @@ public class IosMethods {
 
 	}
 
-	public void waitForElementToBeVisible(IOSDriver driver, By By,int numAttempts) 
+	public void waitForElementToBeVisible(IOSDriver<MobileElement> driver, By By,int numAttempts) 
 			throws IOException, ParserConfigurationException,SAXException {
 		
 		IosMethods genMeth = new IosMethods();
@@ -773,7 +788,7 @@ public class IosMethods {
 		WebElement elementToBeVisible = null;
 		while (count < numAttempts) {
 			try {
-				elementToBeVisible = new FluentWait<IOSDriver>(driver)
+				elementToBeVisible = new FluentWait<IOSDriver<MobileElement>>(driver)
 						.withTimeout(60, TimeUnit.SECONDS)
 						.pollingEvery(5, TimeUnit.SECONDS)
 						.ignoring(NoSuchElementException.class)
@@ -802,8 +817,9 @@ public class IosMethods {
 
 	}
 
-	public MobileElement fluentwait(IOSDriver driver, final By byType) {
+	public MobileElement fluentwait(IOSDriver<MobileElement> driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
+			
 				.withTimeout(45, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
@@ -819,14 +835,14 @@ public class IosMethods {
 		return foo;
 	}
 
-	public void isTextPresentAndroid(IOSDriver driver, By By, String text)
+	public void isTextPresentAndroid(IOSDriver<MobileElement> driver, By By, String text)
 			throws IOException, ParserConfigurationException, SAXException,
 			InterruptedException {
 
 		// boolean isStartUpPageOpenIOS = false;
 
 		try {
-			new FluentWait<IOSDriver>(driver)
+			new FluentWait<IOSDriver<MobileElement>>(driver)
 					.withTimeout(45, TimeUnit.SECONDS)
 					.pollingEvery(5, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -847,13 +863,13 @@ public class IosMethods {
 
 	}
 
-	public boolean checkIsTextPresentNative(IOSDriver<?> driver, String text,
+	public boolean checkIsTextPresentNative(IOSDriver<MobileElement> driver, String text,
 			By by) throws IOException, ParserConfigurationException,SAXException, InterruptedException {
 
 		boolean isTextPresent = false;
 
 		try {
-			isTextPresent = new FluentWait<IOSDriver>(driver)
+			isTextPresent = new FluentWait<IOSDriver<MobileElement>>(driver)
 					.withTimeout(5, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -928,7 +944,7 @@ public class IosMethods {
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
 			element = new FluentWait<IOSDriver>(driver)
 					.withTimeout(10, TimeUnit.SECONDS)
-					.pollingEvery(2, TimeUnit.SECONDS)
+					.pollingEvery(5, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
 					.until(ExpectedConditions.visibilityOfElementLocated(By));
 
@@ -1051,7 +1067,7 @@ public class IosMethods {
 	}
 
 
-	public void backgroundToForeground(IOSDriver driver, int numOfTimes) {
+	public void backgroundToForeground(IOSDriver<MobileElement> driver, int numOfTimes) {
 
 		for (int count = 0; count < numOfTimes; count++) {
 
@@ -1061,7 +1077,7 @@ public class IosMethods {
 
 	}
 
-	public void lockUnlock(IOSDriver driver, int numOfTimes) {
+	public void lockUnlock(IOSDriver<MobileElement> driver, int numOfTimes) {
 
 		for (int count = 0; count < numOfTimes; count++) {
 
@@ -1071,7 +1087,7 @@ public class IosMethods {
 
 	}
 	
-	public void longPressElement(IOSDriver driver, IosMethods genMeth, By By){
+	public void longPressElement(IOSDriver<MobileElement> driver, IosMethods genMeth, By By){
 				TouchAction action;
 				WebElement el;
 				try {
@@ -1096,6 +1112,59 @@ public class IosMethods {
 
 		driver.rotate(ScreenOrientation.PORTRAIT);
 	}
+
+	
+	public void setEnglishKeyboard(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		boolean isENG = genMeth.checkIsElementVisible(By.name("space"));
+		if ( isENG != true){
+			//change to English
+			genMeth.clickId(genMeth, "English (US)");
+		}
+		
+		
+	}
+	
+	public void locationServicesHadle (IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		boolean isLocationDisplay = genMeth.checkIsElementVisible(By.name("Allow"));
+		if (isLocationDisplay){
+			
+			genMeth.clickName(genMeth, "Allow");
+		}
+		
+		
+	}
+	
+	public void accessToContactsHandle(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		//boolean isLocationDisplay = genMeth.checkIsElementVisible(By.name(iosData.CameraPemissions_ID));
+		boolean isLocationDisplay = genMeth.checkIsElementVisible(By.name("OK"));
+
+		if (isLocationDisplay){
+			
+			genMeth.clickName(genMeth, "OK");
+		}
+		
+		
+	}
+	
+	public void accessToCameraHandle (IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+	//	boolean accessToCamera = genMeth.checkIsElementVisible(By.name(iosData.CameraPemissions_ID));
+		boolean accessToCamera = genMeth.checkIsElementVisible(By.name("Don't Allow"));
+
+		if (accessToCamera){
+			
+			genMeth.clickName(genMeth, iosData.BTNokName);
+		}
+		
+		
+	}
+	
+	
+	public void swipeRightIphone6Plus(int miliseconds){
+		
+		driver.swipe(370, 200, 140, 200, miliseconds);
+
+	}
+	
 	
 //	public void changeConnectionType(String mode) {
 //
