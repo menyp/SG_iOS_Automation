@@ -49,11 +49,28 @@ public class IosMethods {
 	
 //Check language making sure keyboard is set to English
 		WebElement EmailField = genMeth.returnXpth(driver, genMeth, iosData.TEXTFIELDemailXpth);
+		WebElement PasswordField = genMeth.returnXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
+
+// Make sure that the English keyboard is open
 		driver.tap(1, EmailField, 1000);
-//make sure that the English keyboard is open
 		genMeth.setEnglishKeyboard(genMeth);
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth , iosData.User);	
-		genMeth.sendXpth( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.password);
+		
+// Make sure that the email & password fields are empty
+		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("E-Mail"));
+		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By.id("Password"));
+		
+		if (!isEmailEmpty){
+			//driver.tap(1, EmailField, 1000);
+			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
+			
+		}
+		if (!isPasswordEmpty){
+			driver.tap(1, PasswordField, 1000);
+			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
+			
+		}
+		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth , iosData.userQA);	
+		genMeth.sendXpth( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordQA);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		
 		//location popup handle
@@ -943,8 +960,8 @@ public class IosMethods {
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
 			element = new FluentWait<IOSDriver>(driver)
-					.withTimeout(10, TimeUnit.SECONDS)
-					.pollingEvery(5, TimeUnit.SECONDS)
+					.withTimeout(5, TimeUnit.SECONDS)
+					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
 					.until(ExpectedConditions.visibilityOfElementLocated(By));
 
@@ -1113,11 +1130,10 @@ public class IosMethods {
 		driver.rotate(ScreenOrientation.PORTRAIT);
 	}
 
-	
-	public void setEnglishKeyboard(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+	public void setEnglishKeyboard(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
 		boolean isENG = genMeth.checkIsElementVisible(By.name("space"));
-		if ( isENG != true){
-			//change to English
+		if (isENG != true) {
+			// change to English
 			genMeth.clickId(genMeth, "English (US)");
 		}
 		

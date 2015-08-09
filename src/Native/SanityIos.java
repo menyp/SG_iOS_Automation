@@ -35,17 +35,13 @@ import com.applitools.eyes.Eyes;
 	String webElementXmlPath;
 	String StartServerPath;
 	String StopServerPath;
+	String appIdentifier;
+	
 	IosElements iosData;
 	IOSDriver<MobileElement> driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
-	
-	/*
-	public SanityIos() {
-		// TODO Auto-generated constructor stub
-	}
-	*/
 
 	@BeforeSuite(alwaysRun = true)
 	public void setupBeforeSuite(ITestContext context) throws ParserConfigurationException, SAXException, IOException, InterruptedException, jdk.internal.org.xml.sax.SAXException {
@@ -57,10 +53,16 @@ import com.applitools.eyes.Eyes;
 		StopServerPath = genMeth.getValueFromPropFile("StopServerPath");
 		webElementXmlPath = genMeth.getValueFromPropFile("webElementXmlPath");
 		webElementXmlLang = genMeth.getValueFromPropFile("webElementXmlLang");
+		appIdentifier = genMeth.getValueFromPropFile("appIdentifier");
 		
 		iosData= new IosElements(webElementXmlLang, webElementXmlPath);
+		
 		driver = genMeth.setCapabilitiesIos(genMeth);
-		genMeth.cleanLoginIos(genMeth,iosData, iosData.User); 
+		
+//check if app exist & if so remove it
+		
+		
+		genMeth.cleanLoginIos(genMeth,iosData, iosData.userQA); 
 	
 		
 	
@@ -75,13 +77,13 @@ import com.applitools.eyes.Eyes;
 		// Check if the client still logged in & in StartUp screen before each test
 		if (driver == null) {
 			try {
-				driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
+//				driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
 				driver.quit();
 			} catch (Exception e) {
 				// swallow if fails
 			}
 			driver = genMeth.setCapabilitiesIos(genMeth);
-			genMeth.cleanLoginIos( genMeth,iosData, iosData.User );
+			genMeth.cleanLoginIos( genMeth,iosData, iosData.userQA );
 		}
 
 		else {
@@ -97,7 +99,7 @@ import com.applitools.eyes.Eyes;
 				}
 
 				driver = genMeth.setCapabilitiesIos(genMeth);
-				genMeth.cleanLoginIos( genMeth, iosData, iosData.User);
+				genMeth.cleanLoginIos( genMeth, iosData, iosData.userQA);
 
 			}
 
@@ -111,18 +113,20 @@ import com.applitools.eyes.Eyes;
 
 		//genMeth.setWifiOn();
 	}
+	
+	
+	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
 
-	public void loginSample() throws ParserConfigurationException,
+	public void sampleAplication() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
-		//Logout from startup page
+//Logout from startup page
 		genMeth.signOutFromStartup(genMeth, iosData);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
 			
-		// Login to sample app & open Dashboard report
+// Login to sample app & open Dashboard report
 		genMeth.eyesCheckWindow(eyes, "SampleApp Main screen", useEye);
 		genMeth.clickName(genMeth,  iosData.DashboardName);
 		genMeth.eyesCheckWindow(eyes, "Dashboard Tab", useEye);
@@ -131,7 +135,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		genMeth.clickName(genMeth,  iosData.DashboardName);
 
-		// Open Sales Bar
+// Open Sales Bar
 		genMeth.clickId(genMeth, iosData.SalesName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
 		genMeth.clickId(genMeth, iosData.ReturnsName);
@@ -146,7 +150,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.NetSalesName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
 		
-		//Open Sales Pie
+//Open Sales Pie
 		genMeth.clickId(genMeth, iosData.DailySalesBarID);
 		genMeth.clickId(genMeth, iosData.DailysalesPieID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Net Sales", useEye);
@@ -162,7 +166,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.Last12hoursID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
 		
-		// Check slicer in Sparklines
+// Check slicer in Sparklines
 		genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
 		genMeth.clickId(genMeth, iosData.BranchID);
 		genMeth.clickId(genMeth, iosData.DestinyUSAID);
@@ -170,7 +174,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
 		
-		//Clear the Slicer
+//Clear the Slicer
 		genMeth.clickXpth(driver, genMeth, iosData.BTNSlicerIconXpth);
 		genMeth.clickName(genMeth, iosData.BTNClearName);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
@@ -213,11 +217,11 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 
-		//Open service calls map
+//Open service calls map
 		genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
 		genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
 		
-		//Check is Location popup is displayed
+//Check is Location popup is displayed
 		genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
@@ -232,7 +236,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickXpth(driver, genMeth, iosData.MallofAmericaOnMapXpath);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 
-		//Create new service call
+//Create new service call
 		genMeth.clickId(genMeth, iosData.BTNnewServiceCallId);
 		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
 		
@@ -266,7 +270,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 
-		//Order lookup	
+//Order lookup	
 		genMeth.clickId(genMeth, iosData.OrderLookup_ID);
 		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "Order Lookup parameters", useEye);
@@ -278,10 +282,10 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		
-		//Operations
+//Operations
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]/UIAStaticText[2]");
 		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
-		//Open grid second layer
+//Open grid second layer
 		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
 		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
@@ -302,7 +306,8 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow(eyes, "Place new order parameters missing", useEye);
 		genMeth.clickName(genMeth, iosData.BTNokName);
-		//Fill the parameters
+		
+//Fill the parameters
 		genMeth.clickId(genMeth, iosData.BranchID);
 		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
 		genMeth.clickName(genMeth, "ProductID");
@@ -350,24 +355,21 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone6Plus(1000);
 		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
 				
-		Thread.sleep(1000);
-
-
-
 	}
 
 	
-	@Test (enabled = false , retryAnalyzer = Retry.class, testName="Sanity Tests", description = "Test the Upload utility with Android" ,
-			groups= {"Sanity IOS1"})	
-	public void uploadImage() throws ParserConfigurationException, SAXException, IOException, InterruptedException{
-			}
+	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
+	public void actions() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+// InGrid
+		Thread.sleep(1000);
+
+	}
 	
-	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts",
-			groups = { "Sanity IOS1" })
+	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts", groups = { "Sanity IOS1" })
 	public void tour() throws Exception, Throwable {
 
-			}
+	}
 	
 	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Sign up- Create new user (Negetive positive test), Privacy Policy, TRUSTe",
 			groups = { "Sanity IOS1" })
@@ -388,14 +390,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.signOutFromStartup(genMeth, iosData);
 		// Login with bad user name
 		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, "bad name");
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.password);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordProd);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Login Failed"));
 		
 		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		// Login with bad password 
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.User);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.userQA);
 		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, "bad password");
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Login Failed"));
@@ -412,13 +414,13 @@ import com.applitools.eyes.Eyes;
 		
 		// Login with empty Name
 		genMeth.clearId(genMeth, iosData.TEXTFIELDemailXpth);
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.password);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordQA);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Bad Request"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
 		
 		// Login with empty Password
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.User);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.userQA);
 		genMeth.clearId(genMeth, iosData.TEXTFIELDpasswordXpth);
 		genMeth.clickId(genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Bad Request"));
@@ -461,7 +463,7 @@ import com.applitools.eyes.Eyes;
 		
 		
 		//recover with a valid mail
-		genMeth.sendId(genMeth, iosData.TEXTFIELDrecoveryEmailID, iosData.User);
+		genMeth.sendId(genMeth, iosData.TEXTFIELDrecoveryEmailID, iosData.userQA);
 		genMeth.clickId(genMeth, iosData.BTNrecoverPasswordID);
 		genMeth.isElementVisible(By.id(iosData.BTNresetPasswordID));
 		genMeth.eyesCheckWindow(eyes, "Recover Password valid mail", useEye);
@@ -532,16 +534,18 @@ import com.applitools.eyes.Eyes;
 	
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws Exception {
-		// driver.removeApp("com.pogoplug.android");
-
 		try {
-			//genMeth.setWifiOn();
-			driver.removeApp("dc87ff52b20857e60a521f18599db44338eaf5cc");
+
+			boolean isAppInstalled = driver.isAppInstalled(appIdentifier);
+			if (isAppInstalled) {
+				driver.removeApp(appIdentifier);
+			}
 			driver.quit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		SendResults sr = new SendResults("elicherni444@gmail.com",
 				"meny@skygiraffe.com", "TestNG results", "Test Results");
 		sr.sendTestNGResult();

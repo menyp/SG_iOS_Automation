@@ -23,6 +23,7 @@
 			<BTNplaceNewOrder_Xpth>//UIACollectionCell[@name='Place New Order']</BTNplaceNewOrder_Xpth>
 			<BTNaddContact_Name>Add contact</BTNaddContact_Name>
 			<BTNdeleteDraft_Name>Delete Draft</BTNdeleteDraft_Name>
+			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			
 		</Buttons>
 		
@@ -53,13 +54,17 @@
 		                
 	    <scrollDown>down</scrollDown>
 	   	<scrollUp>up</scrollUp>
-		<password>M1234567!</password>
+		<UserProd>test1@1.com</UserProd>
+		<passwordProd>M1234567!</passwordProd>
+		<userQA>test1@1.com/qa</userQA>
+		<passwordQA>1234</passwordQA>
 		<badPassword>incorrectPassword</badPassword>
 		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
 		<ConnectionWIFI>WIFI</ConnectionWIFI>
 		<CoonectionDATA>DATA</CoonectionDATA>
 		<ConnectionALL>ALL</ConnectionALL>
-		<User>test1@1.com</User>
+
+		
 		<InvalidRecoverEmailName></InvalidRecoverEmailName>
 		<ConfCodeIncorrectName></ConfCodeIncorrectName>
 		<DashboardName>Dashboard </DashboardName>
@@ -80,7 +85,6 @@
 		<ContactsPermissionsName>“SkyGiraffe” Would Like to Access Your Contacts</ContactsPermissionsName>
 		<MallOfAmerica_Id>Mall of America</MallOfAmerica_Id>
 		<OrderLookup_ID>Order Lookup</OrderLookup_ID>
-		
 		
 	<errorText>
 		

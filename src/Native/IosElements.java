@@ -34,8 +34,7 @@ public class IosElements {
 	String BTNplaceNewOrder_Xpth;
 	String BTNaddContact_Name;
 	String BTNdeleteDraft_Name;
-	
-	
+	String BTNclearText_Name;
 	
 	
 	//TextFields	
@@ -47,11 +46,13 @@ public class IosElements {
 	
 	
 	//STRINGS
-	String password;
+	String UserProd;
+	String passwordProd;
+	String userQA;
+	String passwordQA;
 	String badPassword;
 	String scrollDown;
 	String scrollUp;
-	String User;
 	String DashboardName;
 	String SalesName;
 	String ReturnsName;
@@ -111,6 +112,7 @@ public class IosElements {
 		this.BTNplaceNewOrder_Xpth = XmlHandel.readAndroidXml("BTNplaceNewOrder_Xpth", langXml, xmlPath);
 		this.BTNaddContact_Name = XmlHandel.readAndroidXml("BTNaddContact_Name", langXml, xmlPath);
 		this.BTNdeleteDraft_Name = XmlHandel.readAndroidXml("BTNdeleteDraft_Name", langXml, xmlPath);
+		this.BTNclearText_Name = XmlHandel.readAndroidXml("BTNclearText_Name", langXml, xmlPath);
 
 		
 		
@@ -120,14 +122,16 @@ public class IosElements {
 		this.TEXTFIELDrecoveryEmailID = XmlHandel.readAndroidXml("TEXTFIELDrecoveryEmailID", langXml, xmlPath);
 
 		
-		this.password = XmlHandel.readAndroidXml("password", langXml, xmlPath);
+		this.passwordProd = XmlHandel.readAndroidXml("passwordProd", langXml, xmlPath);
+		this.userQA = XmlHandel.readAndroidXml("userQA", langXml, xmlPath);
+		this.passwordQA = XmlHandel.readAndroidXml("passwordQA", langXml, xmlPath);
 		this.scrollDown = XmlHandel.readAndroidXml("scrollDown", langXml, xmlPath);
 		this.scrollUp = XmlHandel.readAndroidXml("scrollUp", langXml, xmlPath);		
 		this.ConnectionAIRPLANE_MODE = XmlHandel.readAndroidXml("ConnectionAIRPLANE_MODE", langXml, xmlPath);
 		this.ConnectionWIFI = XmlHandel.readAndroidXml("ConnectionWIFI", langXml, xmlPath);
 		this.CoonectionDATA = XmlHandel.readAndroidXml("CoonectionDATA", langXml, xmlPath);
 		this.ConnectionALL = XmlHandel.readAndroidXml("ConnectionALL", langXml, xmlPath);
-		this.User = XmlHandel.readAndroidXml("User", langXml, xmlPath);
+		this.UserProd = XmlHandel.readAndroidXml("UserProd", langXml, xmlPath);
 		this.DashboardName = XmlHandel.readAndroidXml("DashboardName", langXml, xmlPath);
 		this.SalesName = XmlHandel.readAndroidXml("SalesName", langXml, xmlPath);
 		this.ReturnsName = XmlHandel.readAndroidXml("ReturnsName", langXml, xmlPath);
