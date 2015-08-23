@@ -4,9 +4,10 @@
   <test name="Sanity Tests">
       <groups>
 		<run>
-		    <include name="Sanity IOS"/>     
+		    <include name="Sanity IOS"/>
 		</run>
 	</groups>
+
   
     <classes>
         
@@ -15,3 +16,4 @@
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+	

@@ -409,20 +409,22 @@ public class IosMethods {
 		}
 	}
 	
-	public void clickId( IosMethods genMeth,
-			String id) throws InterruptedException {
+	public void clickId(IosMethods genMeth, String id)
+			throws InterruptedException, IOException {
 
 		try {
 			MobileElement myElement = genMeth.fluentwait(driver, By.id(id));
-			 myElement.click();
-		//driver.findElementById(id).click();
-			
-			
+			myElement.click();
+
+			// driver.findElementById(id).click();
+
 		}
 
 		catch (Exception e) {
 
+			genMeth.takeScreenShot(driver, genMeth, id);
 			org.testng.Assert.fail(id + " didn't display");
+
 
 		}
 	}
@@ -837,7 +839,7 @@ public class IosMethods {
 	public MobileElement fluentwait(IOSDriver<MobileElement> driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
 			
-				.withTimeout(45, TimeUnit.SECONDS)
+				.withTimeout(30, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 

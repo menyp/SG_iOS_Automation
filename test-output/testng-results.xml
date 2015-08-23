@@ -1,35 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="1" failed="2" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="5530" started-at="2015-08-06T11:40:40Z" finished-at="2015-08-06T11:40:45Z">
+  <suite name="Suite" duration-ms="517566" started-at="2015-08-23T08:08:51Z" finished-at="2015-08-23T08:17:28Z">
     <groups>
       <group name="Sanity IOS">
         <method signature="SanityIos.actions()[pri:0, instance:Native.SanityIos@1838ccb8]" name="actions" class="Native.SanityIos"/>
       </group> <!-- Sanity IOS -->
     </groups>
-    <test name="Sanity Tests" duration-ms="5530" started-at="2015-08-06T11:40:40Z" finished-at="2015-08-06T11:40:45Z">
+    <test name="Sanity Tests" duration-ms="517566" started-at="2015-08-23T08:08:51Z" finished-at="2015-08-23T08:17:28Z">
       <class name="Native.SanityIos">
-        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityIos@1838ccb8]" name="setupBeforeSuite" is-config="true" duration-ms="266006" started-at="2015-08-06T14:36:14Z" finished-at="2015-08-06T14:40:40Z">
+        <test-method status="PASS" signature="setupBeforeSuite(org.testng.ITestContext)[pri:0, instance:Native.SanityIos@1838ccb8]" name="setupBeforeSuite" is-config="true" duration-ms="144844" started-at="2015-08-23T11:06:26Z" finished-at="2015-08-23T11:08:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@67d86804]]>
+                <![CDATA[org.testng.TestRunner@493b01ef]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupBeforeSuite -->
-        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@1838ccb8]" name="checkHomeScreen" is-config="true" duration-ms="2083" started-at="2015-08-06T14:40:40Z" finished-at="2015-08-06T14:40:42Z">
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@1838ccb8]" name="checkHomeScreen" is-config="true" duration-ms="2205" started-at="2015-08-23T11:08:51Z" finished-at="2015-08-23T11:08:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkHomeScreen -->
-        <test-method status="PASS" signature="actions()[pri:0, instance:Native.SanityIos@1838ccb8]" name="actions" duration-ms="3436" started-at="2015-08-06T14:40:42Z" description="Test the Actions" finished-at="2015-08-06T14:40:45Z">
+        <test-method status="FAIL" signature="actions()[pri:0, instance:Native.SanityIos@1838ccb8]" name="actions" duration-ms="48970" started-at="2015-08-23T11:08:53Z" description="Test the Actions" finished-at="2015-08-23T11:09:42Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[InGrid didn't display]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: InGrid didn't display
+	at org.testng.Assert.fail(Assert.java:94)
+	at Native.IosMethods.clickName(IosMethods.java:520)
+	at Native.SanityIos.actions(SanityIos.java:373)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- actions -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityIos@1838ccb8]" name="tearDown" is-config="true" duration-ms="10870" started-at="2015-08-06T14:40:45Z" finished-at="2015-08-06T14:40:56Z">
+        <test-method status="PASS" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@1838ccb8]" name="checkHomeScreen" is-config="true" duration-ms="118686" started-at="2015-08-23T11:09:42Z" finished-at="2015-08-23T11:11:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHomeScreen -->
+        <test-method status="FAIL" signature="actions()[pri:0, instance:Native.SanityIos@1838ccb8]" name="actions" duration-ms="199298" started-at="2015-08-23T11:11:40Z" description="Test the Actions" finished-at="2015-08-23T11:15:00Z">
+          <exception class="com.applitools.eyes.TestFailedException">
+            <message>
+              <![CDATA['iOS_Actions_SimpleList_Manually_Build' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251961983134195]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[com.applitools.eyes.TestFailedException: 'iOS_Actions_SimpleList_Manually_Build' of 'iOS_SG'. See details at https://eyes.applitools.com/app/sessions/251961983134195
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:504)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:90)
+	at Native.SanityIos.actions(SanityIos.java:385)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1049)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- com.applitools.eyes.TestFailedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- actions -->
+        <test-method status="FAIL" signature="checkHomeScreen()[pri:0, instance:Native.SanityIos@1838ccb8]" name="checkHomeScreen" is-config="true" duration-ms="0" started-at="2015-08-23T11:15:00Z" finished-at="2015-08-23T11:15:00Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2] didn't display]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: //UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2] didn't display
+	at org.testng.Assert.fail(Assert.java:94)
+	at Native.IosMethods.clickXpth(IosMethods.java:482)
+	at Native.IosMethods.cleanLoginIos(IosMethods.java:78)
+	at Native.SanityIos.checkHomeScreen(SanityIos.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:653)
+	at org.testng.internal.Invoker.retryFailed(Invoker.java:1049)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1254)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHomeScreen -->
+        <test-method status="SKIP" signature="actions()[pri:0, instance:Native.SanityIos@1838ccb8]" name="actions" duration-ms="1" started-at="2015-08-23T11:17:28Z" description="Test the Actions" finished-at="2015-08-23T11:17:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- actions -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:Native.SanityIos@1838ccb8]" name="tearDown" is-config="true" duration-ms="31670" started-at="2015-08-23T11:17:28Z" finished-at="2015-08-23T11:18:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

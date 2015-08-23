@@ -92,7 +92,7 @@ import com.applitools.eyes.Eyes;
 			if (StartUpScreenDisplay != true) {
 
 				try {
-					driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
+					driver.removeApp(appIdentifier);
 					driver.quit();
 				} catch (Exception e) {
 					// swallow if fails
@@ -116,10 +116,10 @@ import com.applitools.eyes.Eyes;
 	
 	
 	
-	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
-			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
+	@Test (enabled = false ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
 
-	public void sampleAplication() throws ParserConfigurationException,
+	public void sampleAplicationDashboard() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
 //Logout from startup page
@@ -136,6 +136,9 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth,  iosData.DashboardName);
 
 // Open Sales Bar
+		// Change eye back to true once oleg fix the decimal issue
+		//useEye = false;
+		Thread.sleep(2000);
 		genMeth.clickId(genMeth, iosData.SalesName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
 		genMeth.clickId(genMeth, iosData.ReturnsName);
@@ -185,7 +188,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.DailySalesID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
-		
+				
 //OPEN SERVICE CALLS
 		genMeth.clickId(genMeth, iosData.ServiceCallsID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls", useEye);
@@ -193,7 +196,7 @@ import com.applitools.eyes.Eyes;
 // InGrid Action- First layer
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "1");
-		Thread.sleep(8000);
+		Thread.sleep(9000);
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "3");
 		Thread.sleep(5000);
@@ -205,8 +208,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[6]/UIAStaticText[1]");
-		Thread.sleep(2000);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls - See All (Mall of America", useEye);
+		Thread.sleep(3000);
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "1");
 		Thread.sleep(10000);
@@ -229,7 +231,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNMapCarIconName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Car Icon Option", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		
+		//go back to the map tab via the back navigation icon
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAButton[5]");
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
@@ -279,6 +281,7 @@ import com.applitools.eyes.Eyes;
 		UIAPickerWheel.sendKeys("July");
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(1000);
 		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		
@@ -330,6 +333,7 @@ import com.applitools.eyes.Eyes;
 		
 // 	Phone Icon
 		genMeth.clickName(genMeth, "Phone");
+		Thread.sleep(1000);
 		genMeth.eyesCheckWindow(eyes, "Technicians- Phone", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, "Phone");
@@ -341,6 +345,7 @@ import com.applitools.eyes.Eyes;
 		
 // Mail Icon
 		genMeth.clickName(genMeth, "Email");
+		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "Technicians- New Message screen", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
@@ -356,17 +361,53 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
 				
 	}
-
+ 
 	
 	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
 	public void actions() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 // InGrid
+		
+// Open QA_SQL Actions  --> Ingrid report
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, "InGrid");
+		
+// Simple List Manually Build		
+		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
+	//	driver.scrollTo(iosData.BTNpriority_Name);
+		driver.scrollToExact("Category");
+		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "1");
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "2");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_SimpleList_Manually_Build", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+		//
 		Thread.sleep(1000);
+		genMeth.clickId(genMeth, "page 1 of 15");
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_TabsLists", useEye);
+		genMeth.clickName(genMeth, "List- QR");
+		genMeth.clickName(genMeth, "PartID");
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		Thread.sleep(1000);
+		genMeth.clickName(genMeth, "PartID");
+		genMeth.clickName(genMeth, iosData.BTNClearName);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		genMeth.clickName(genMeth, "2");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_QRCode", useEye);
+		Thread.sleep(1000);
+
 
 	}
 	
-	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts", groups = { "Sanity IOS1" })
+	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts", groups = { "Sanity IOS1" })
 	public void tour() throws Exception, Throwable {
 
 	}

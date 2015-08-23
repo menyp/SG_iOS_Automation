@@ -11,6 +11,7 @@
       <class name="Native.SanityIos">
         <methods>
           <include name="setupBeforeSuite"/>
+          <include name="checkHomeScreen"/>
           <include name="actions"/>
           <include name="tearDown"/>
         </methods>
