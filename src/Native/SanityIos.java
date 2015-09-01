@@ -16,6 +16,8 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.openqa.selenium.By;
 import org.testng.ITestContext;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
 import org.testng.annotations.BeforeSuite;
 import org.xml.sax.SAXException;
 
@@ -112,7 +114,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	
-	@Test (enabled = false ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
+	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "Test the login via the sample button" ,
 			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationDashboard() throws ParserConfigurationException,
@@ -384,6 +386,7 @@ import com.applitools.eyes.Eyes;
 		
 		//
 		Thread.sleep(1000);
+		
 		//List- QR
 		genMeth.clickId(genMeth, "page 1 of 15");
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_TabsLists", useEye);
@@ -404,8 +407,8 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_QRCode", useEye);
 		Thread.sleep(4000);
-
-		genMeth.clickId(genMeth, "page 1 of 15");
+//		Grid- Free Text
+		genMeth.clickId(genMeth, "page 2 of 15");
 		//genMeth.tapId(genMeth, "page 1 of 15");
 
 		genMeth.clickName(genMeth, "Grid- Free Text");
@@ -630,10 +633,22 @@ import com.applitools.eyes.Eyes;
 
 		SendResults sr = new SendResults("elicherni444@gmail.com",
 				"meny@skygiraffe.com", "TestNG results", "Test Results");
-		sr.sendTestNGResult();
-
+		//sr.sendTestNGResult();
+		sr.sendRegularEmail();
+		/*
+		TestListenerAdapter tla = new TestListenerAdapter();
+		TestNG testng2 = new TestNG();
+		testng2.setTestClasses(new Class[] { SendReport.class });
+		testng2.setGroups("send mail");
+		testng2.addListener(tla);
+		testng2.run();
+*/
 	}
 
+	
+
+
+	
 }
 
 
