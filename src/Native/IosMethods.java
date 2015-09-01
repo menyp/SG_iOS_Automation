@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -46,10 +47,10 @@ public class IosMethods {
 	IosMethods genMeth;
 
 	public void cleanLoginIos(IosMethods genMeth,  IosElements iosData , String user) throws ParserConfigurationException, SAXException, IOException,InterruptedException {
-	
+		
 //Check language making sure keyboard is set to English
-		WebElement EmailField = genMeth.returnXpth(driver, genMeth, iosData.TEXTFIELDemailXpth);
-		WebElement PasswordField = genMeth.returnXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
+		MobileElement EmailField = genMeth.returnXpth(driver, genMeth, iosData.TEXTFIELDemailXpth);
+		MobileElement PasswordField = genMeth.returnXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
 
 // Make sure that the English keyboard is open
 		driver.tap(1, EmailField, 1000);
@@ -278,7 +279,7 @@ public class IosMethods {
 		return myElement;
 	}
 
-	public WebElement returnXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpth)
+	public MobileElement returnXpth(IOSDriver<MobileElement> driver, IosMethods genMeth, String xpth)
 			throws InterruptedException {
 
 		try {
@@ -292,7 +293,7 @@ public class IosMethods {
 			org.testng.Assert.fail(xpth + " didn't display");
 		}
 
-		WebElement myElement = genMeth.fluentwait(driver, By.xpath(xpth));
+		MobileElement myElement = genMeth.fluentwait(driver, By.xpath(xpth));
 		return myElement;
 
 	}
@@ -754,8 +755,7 @@ public class IosMethods {
 	/*
 	 * ******************************************************************************
 	 * Avoid the Element not found exception *
-	 * ***********************************
-	 * *******************************************
+	 * *****************************************************************************
 	 */
 
 	// Look for an element in a few tries (with counter)
@@ -836,9 +836,10 @@ public class IosMethods {
 
 	}
 
-	public MobileElement fluentwait(IOSDriver<MobileElement> driver, final By byType) {
+	@SuppressWarnings("rawtypes")
+	public MobileElement fluentwait(IOSDriver driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
-			
+
 				.withTimeout(30, TimeUnit.SECONDS)
 				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
@@ -854,57 +855,6 @@ public class IosMethods {
 		return foo;
 	}
 
-	public void isTextPresentAndroid(IOSDriver<MobileElement> driver, By By, String text)
-			throws IOException, ParserConfigurationException, SAXException,
-			InterruptedException {
-
-		// boolean isStartUpPageOpenIOS = false;
-
-		try {
-			new FluentWait<IOSDriver<MobileElement>>(driver)
-					.withTimeout(45, TimeUnit.SECONDS)
-					.pollingEvery(5, TimeUnit.SECONDS)
-					.ignoring(NoSuchElementException.class)
-					.until(ExpectedConditions.textToBePresentInElementLocated(
-							By, text));
-		}
-
-		catch (Exception e) {
-
-			IosMethods genMeth = new IosMethods();
-			// genData str = new genData();
-			String imageName = text + " is invisible";
-			genMeth.takeScreenShot(driver, genMeth, imageName);
-			org.testng.Assert.fail(text + " isn't visible");
-		}
-
-		// return isStartUpPageOpenIOS;
-
-	}
-
-	public boolean checkIsTextPresentNative(IOSDriver<MobileElement> driver, String text,
-			By by) throws IOException, ParserConfigurationException,SAXException, InterruptedException {
-
-		boolean isTextPresent = false;
-
-		try {
-			isTextPresent = new FluentWait<IOSDriver<MobileElement>>(driver)
-					.withTimeout(5, TimeUnit.SECONDS)
-					.pollingEvery(1, TimeUnit.SECONDS)
-					.ignoring(NoSuchElementException.class)
-					.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
-		}
-
-		catch (Exception e) {
-
-			// nothing to do here
-		}
-
-		return isTextPresent;
-
-	}
-
-	// This method checks if a given element is invisible on the screen
 
 	public void isElementInvisible( By By)
 			throws ParserConfigurationException, SAXException, IOException {
@@ -1027,8 +977,8 @@ public class IosMethods {
 	}
 
 
-	public void isElementInvisibleText( By By, String Text) throws ParserConfigurationException,
-			SAXException, IOException {
+	public void isElementInvisibleText(By By, String Text)
+			throws ParserConfigurationException, SAXException, IOException {
 
 		try {
 
@@ -1040,8 +990,9 @@ public class IosMethods {
 		catch (Exception e) {
 
 			IosMethods genMeth = new IosMethods();
-			//String imageName = genMeth.getValueFromPropFile(key) + text + " still visible "
-				//	+ genMeth.currentTime() + ".png";
+			// String imageName = genMeth.getValueFromPropFile(key) + text +
+			// " still visible "
+			// + genMeth.currentTime() + ".png";
 			genMeth.takeScreenShot(driver, genMeth, Text);
 			org.testng.Assert.fail(Text + " still visible");
 
@@ -1059,7 +1010,13 @@ public class IosMethods {
 		}
 
 	};
-
+	
+	
+	public int getRandomInt() {
+		Random rand = new Random();
+		int n = rand.nextInt(50) + 1;
+		return n;
+	}
 	// Creates a Random string
 	public String randomString() {
 
@@ -1183,6 +1140,12 @@ public class IosMethods {
 
 	}
 	
+	
+public void swipedownIphone6Plus(int miliseconds){
+		
+		driver.swipe(50, 650, 50, 200, miliseconds);
+
+	}
 	
 //	public void changeConnectionType(String mode) {
 //

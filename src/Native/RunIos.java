@@ -25,7 +25,7 @@ public class RunIos {
 //		
 		TestNG testng1 = new TestNG();
 		testng1.setTestClasses(new Class[] { SanityIos.class });
-		testng1.setGroups("Sanity Android");
+		testng1.setGroups("Sanity IOS");
 		testng1.addListener(tla);
 		testng1.run();
 		

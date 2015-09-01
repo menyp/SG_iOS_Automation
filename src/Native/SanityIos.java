@@ -58,10 +58,7 @@ import com.applitools.eyes.Eyes;
 		iosData= new IosElements(webElementXmlLang, webElementXmlPath);
 		
 		driver = genMeth.setCapabilitiesIos(genMeth);
-		
-//check if app exist & if so remove it
-		
-		
+				
 		genMeth.cleanLoginIos(genMeth,iosData, iosData.userQA); 
 	
 		
@@ -72,7 +69,6 @@ import com.applitools.eyes.Eyes;
 	@BeforeMethod (alwaysRun = true)
 	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
 
-//		genMeth.setWifiOn();
 
 		// Check if the client still logged in & in StartUp screen before each test
 		if (driver == null) {
@@ -378,8 +374,9 @@ import com.applitools.eyes.Eyes;
 		driver.scrollToExact("Category");
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "1");
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		//genMeth.tapName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "2");
 		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_SimpleList_Manually_Build", useEye);
@@ -387,29 +384,73 @@ import com.applitools.eyes.Eyes;
 		
 		//
 		Thread.sleep(1000);
+		//List- QR
 		genMeth.clickId(genMeth, "page 1 of 15");
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_TabsLists", useEye);
 		genMeth.clickName(genMeth, "List- QR");
 		genMeth.clickName(genMeth, "PartID");
+		Thread.sleep(1000);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		
+		
 		
 		genMeth.clickName(genMeth, "1");
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		genMeth.clickName(genMeth, "PartID");
 		genMeth.clickName(genMeth, iosData.BTNClearName);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
 		genMeth.clickName(genMeth, "2");
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_QRCode", useEye);
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 
+		genMeth.clickId(genMeth, "page 1 of 15");
+		//genMeth.tapId(genMeth, "page 1 of 15");
+
+		genMeth.clickName(genMeth, "Grid- Free Text");
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "2");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(2000);
+		
+		//genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickName(genMeth, "action_icon_green");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "Delete");
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid_Free_Text_action_icon_green", useEye);
+		genMeth.clickName(genMeth, "action_icon_green");
+		Thread.sleep(2000);
 
 	}
 	
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test TOUR for New accounts and for upgrade accounts", groups = { "Sanity IOS1" })
-	public void tour() throws Exception, Throwable {
-
+	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "", groups = { "Sanity IOS" })
+	public void endToEndsimpleApp() throws Exception, Throwable {
+		Thread.sleep(1000);
+		
+		genMeth.swipedownIphone6Plus(500);
+		Thread.sleep(1000);
+		//Open report
+		genMeth.clickName(genMeth, "ranorex app1");
+		genMeth.clickName(genMeth, "ranorex rep1 ");
+		
+		//Validate UI
+		genMeth.eyesCheckWindow(eyes, "endToEnd_NewApplication", useEye);
+		
+		//Go Back to the Startup screen
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
+		
+		
 	}
 	
 	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Sign up- Create new user (Negetive positive test), Privacy Policy, TRUSTe",
