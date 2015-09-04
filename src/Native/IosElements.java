@@ -35,7 +35,7 @@ public class IosElements {
 	String BTNaddContact_Name;
 	String BTNdeleteDraft_Name;
 	String BTNclearText_Name;
-	
+	String BTNdelete_Name;
 	
 	//TextFields	
 	String TEXTFIELDemailXpth;
@@ -77,7 +77,8 @@ public class IosElements {
 	
 	
 	//Icons
-	
+	String IconBackToApplicationList_xpth;
+	String Iconaction_icon_green_Name;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -113,6 +114,7 @@ public class IosElements {
 		this.BTNaddContact_Name = XmlHandel.readAndroidXml("BTNaddContact_Name", langXml, xmlPath);
 		this.BTNdeleteDraft_Name = XmlHandel.readAndroidXml("BTNdeleteDraft_Name", langXml, xmlPath);
 		this.BTNclearText_Name = XmlHandel.readAndroidXml("BTNclearText_Name", langXml, xmlPath);
+		this.BTNdelete_Name = XmlHandel.readAndroidXml("BTNdelete_Name", langXml, xmlPath);
 
 		
 		
@@ -150,7 +152,9 @@ public class IosElements {
 		this.MallOfAmerica_Id = XmlHandel.readAndroidXml("MallOfAmerica_Id", langXml, xmlPath);		
 		this.OrderLookup_ID = XmlHandel.readAndroidXml("OrderLookup_ID", langXml, xmlPath);		
 
-		
+		this.IconBackToApplicationList_xpth = XmlHandel.readAndroidXml("IconBackToApplicationList_xpth", langXml, xmlPath);		
+		this.Iconaction_icon_green_Name = XmlHandel.readAndroidXml("Iconaction_icon_green_Name", langXml, xmlPath);		
+
 		
 
 		

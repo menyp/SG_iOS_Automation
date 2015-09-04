@@ -76,8 +76,10 @@ public class IosMethods {
 		
 		//location popup handle
 		genMeth.locationServicesHadle(genMeth);
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
-	
+		genMeth.clickXpth(driver, genMeth, iosData.IconBackToApplicationList_xpth);
+	//	genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
+		
+
 
 	}
 	
