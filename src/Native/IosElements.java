@@ -36,12 +36,13 @@ public class IosElements {
 	String BTNdeleteDraft_Name;
 	String BTNclearText_Name;
 	String BTNdelete_Name;
+	String BTNrefresh_Name;
 	
 	//TextFields	
 	String TEXTFIELDemailXpth;
 	String TEXTFIELDpasswordXpth;
 	String TEXTFIELDrecoveryEmailID;
-	
+	String TEXTFIELDqr_Xpth;
 	
 	
 	
@@ -115,13 +116,16 @@ public class IosElements {
 		this.BTNdeleteDraft_Name = XmlHandel.readAndroidXml("BTNdeleteDraft_Name", langXml, xmlPath);
 		this.BTNclearText_Name = XmlHandel.readAndroidXml("BTNclearText_Name", langXml, xmlPath);
 		this.BTNdelete_Name = XmlHandel.readAndroidXml("BTNdelete_Name", langXml, xmlPath);
+		this.BTNrefresh_Name = XmlHandel.readAndroidXml("BTNrefresh_Name", langXml, xmlPath);
 
+		
 		
 		
 		
 		this.TEXTFIELDemailXpth = XmlHandel.readAndroidXml("TEXTFIELDemailXpth", langXml, xmlPath);
 		this.TEXTFIELDpasswordXpth = XmlHandel.readAndroidXml("TEXTFIELDpasswordXpth", langXml, xmlPath);
 		this.TEXTFIELDrecoveryEmailID = XmlHandel.readAndroidXml("TEXTFIELDrecoveryEmailID", langXml, xmlPath);
+		this.TEXTFIELDqr_Xpth = XmlHandel.readAndroidXml("TEXTFIELDqr_Xpth", langXml, xmlPath);
 
 		
 		this.passwordProd = XmlHandel.readAndroidXml("passwordProd", langXml, xmlPath);

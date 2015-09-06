@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="actions">actions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,7 +115,7 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="actionsGridFreeText_SimpleList_DataItem">actionsGridFreeText_SimpleList_DataItem</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Native.SanityIos" hash-for-method="actions">actions</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -116,6 +130,32 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Native.SanityIos</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="actions">
+                  </a> <!-- actions -->
+                  <span class="method-name">actions</span>
+                  <div class="stack-trace">com.applitools.eyes.NewTestException: &apos;iOS_Actions_Grid- QR_Success&apos; of &apos;iOS_SG&apos;. Please approve the new baseline at https://eyes.applitools.com/app/sessions/251960759741358
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:521)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at com.applitools.eyes.EyesBase.close(EyesBase.java:444)
+	at com.applitools.eyes.Eyes.close(Eyes.java:22)
+	at Native.IosMethods.eyesCheckWindow(IosMethods.java:93)
+	at Native.SanityIos.actions(SanityIos.java:519)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Test the Actions)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -124,9 +164,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="actionsGridFreeText_SimpleList_DataItem">
-                  </a> <!-- actionsGridFreeText_SimpleList_DataItem -->
-                  <span class="method-name">actionsGridFreeText_SimpleList_DataItem</span>
+                  <a name="actions">
+                  </a> <!-- actions -->
+                  <span class="method-name">actions</span>
                   <em>
 (Test the Actions)                  </em>
                 </div> <!-- method-content -->
@@ -178,7 +218,7 @@
               <span class="test-group-name">Sanity IOS</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">actionsGridFreeText_SimpleList_DataItem</span>
+                <span class="method-in-group-name">actions</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -198,16 +238,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'actionsGridFreeText_SimpleList_DataItem')
+data.setCell(0, 1, 'actions')
 data.setCell(0, 2, 'Native.SanityIos')
-data.setCell(0, 3, 249913);
+data.setCell(0, 3, 473492);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'actions')
+data.setCell(1, 2, 'Native.SanityIos')
+data.setCell(1, 3, 410683);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 minutes</span>
+              <span class="suite-total-time">Total running time: 14 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -236,13 +280,9 @@ return data;
                 <br/>
                 <span class="ignored-method-name">foregroundBackgroundSwitch</span>
                 <br/>
-                <span class="ignored-method-name">actionsManuallyBuild_QR</span>
-                <br/>
                 <span class="ignored-method-name">badCredentials</span>
                 <br/>
                 <span class="ignored-method-name">termsOfServiceAndTruste</span>
-                <br/>
-                <span class="ignored-method-name">actions</span>
                 <br/>
                 <span class="ignored-method-name">sampleAplicationDashboard</span>
                 <br/>
@@ -251,6 +291,10 @@ return data;
                 <span class="ignored-method-name">settingsKeepMeSignedIn</span>
                 <br/>
                 <span class="ignored-method-name">createNewUser</span>
+                <br/>
+                <span class="ignored-method-name">actionsGrid_FreeText_SimpleList_DataItem</span>
+                <br/>
+                <span class="ignored-method-name">actionsGridManuallyBuild_ListQR</span>
                 <br/>
                 <span class="ignored-method-name">settingsBackupEnableDisable</span>
                 <br/>
@@ -266,20 +310,30 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Native.SanityIos</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@263bbfeb)</span>
+                <span class="method-name">setupBeforeSuite(org.testng.TestRunner@309cedb6)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">checkHomeScreen</span>
-                <span class="method-start">117977 ms</span>
+                <span class="method-start">117893 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">actionsGridFreeText_SimpleList_DataItem</span>
-                <span class="method-start">120154 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">actions</span>
+                <span class="method-start">119960 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">checkHomeScreen</span>
+                <span class="method-start">593457 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">actions</span>
+                <span class="method-start">717635 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">370086 ms</span>
+                <span class="method-start">1128376 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

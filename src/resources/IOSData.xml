@@ -25,13 +25,14 @@
 			<BTNdeleteDraft_Name>Delete Draft</BTNdeleteDraft_Name>
 			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			<BTNdelete_Name>Delete</BTNdelete_Name>
-			
+			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
 			
 		</Buttons>
 		
 		<TextFields>
 			<TEXTFIELDemailXpth>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</TEXTFIELDemailXpth>
 			<TEXTFIELDpasswordXpth>//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]</TEXTFIELDpasswordXpth>
+			<TEXTFIELDqr_Xpth>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</TEXTFIELDqr_Xpth>
 			<TEXTFIELDrecoveryEmailID></TEXTFIELDrecoveryEmailID>
 
 		</TextFields>

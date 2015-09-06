@@ -362,7 +362,7 @@ import com.applitools.eyes.Eyes;
  
 	
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
-	public void actionsManuallyBuild_QR() throws ParserConfigurationException, SAXException,
+	public void actionsGridManuallyBuild_ListQR() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Open QA_SQL Actions --> Ingrid report
@@ -371,7 +371,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "QA_SQL Actions");
 		genMeth.clickName(genMeth, "InGrid");
 	
-		// Simple List Manually Build
+		// Grid- Simple List Manually Build
 		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
 		driver.scrollToExact("Category");
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
@@ -390,8 +390,8 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "List- QR");
 		genMeth.clickName(genMeth, "PartID");
 		Thread.sleep(1000);
-		genMeth.clickXpth(driver, genMeth,"//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
-
+		//genMeth.clickXpth(driver, genMeth,"//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		genMeth.clickXpth(driver, genMeth, iosData.TEXTFIELDqr_Xpth);
 		genMeth.clickName(genMeth, "1");
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		Thread.sleep(6000);
@@ -408,9 +408,8 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
-	public void actionsGridFreeText_SimpleList_DataItem() throws ParserConfigurationException, SAXException,
+	public void actionsGrid_FreeText_SimpleList_DataItem() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Open QA_SQL Actions --> Ingrid report
@@ -461,7 +460,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
+	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS" })
 	public void actions() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
@@ -471,45 +470,57 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "QA_SQL Actions");
 		genMeth.clickName(genMeth, "InGrid");
 
-		// Grid Free Text
+		// Grid Dynamic List
 		genMeth.clickId(genMeth, "page 1 of 15");
-		genMeth.clickName(genMeth, "Grid- Free Text");
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.clickName(genMeth, "Grid- Dynamic List");
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
 		
-		genMeth.clickName(genMeth, "2");
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, "Val1");
 		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		genMeth.clickName(genMeth, iosData.BTNdelete_Name);
-		genMeth.clickName(genMeth, iosData.BTNdelete_Name);
-		genMeth.clickName(genMeth, iosData.BTNdelete_Name);
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- DynamicList", useEye);
+		genMeth.clickName(genMeth, "Drawer,12");
+		Thread.sleep(3000);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
+		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
+		genMeth.clickId(genMeth, "page 1 of 15");
+		genMeth.clickName(genMeth, "Grid- Dynamic List");
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- DynamicList_Success", useEye);
+		genMeth.swipeRightIphone6Plus(1000);
+		
+		// Grid Parameterized List
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickName(genMeth, "Val1");
+		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
+		genMeth.clickName(genMeth, "Drawer,12");
+		Thread.sleep(3000);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
+		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
+		genMeth.clickId(genMeth, "page 1 of 15");
+		genMeth.clickName(genMeth, "Grid-ParameterizedSL");
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- ParameterizedSL_Success", useEye);
+		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone6Plus(1000);
+
+		// Grid QR 
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickXpth(driver, genMeth, iosData.TEXTFIELDqr_Xpth);
 		genMeth.clickName(genMeth, "1");
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "1");		
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		Thread.sleep(2000);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickId(genMeth, "page 3 of 15");
+		genMeth.clickXpth(driver, genMeth, iosData.TEXTFIELDqr_Xpth);
+		genMeth.clickName(genMeth, iosData.BTNClearName);
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
+		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
+		genMeth.clickId(genMeth, "page 1 of 15");
+		genMeth.clickName(genMeth, "Grid- QR");
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- QR_Success", useEye);
 		
-		//Grid- Simple List Data Item
-		genMeth.clickName(genMeth, "Grid- SimpleList DI");
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
-		genMeth.clickName(genMeth, "Open");
-		Thread.sleep(1000);
-		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- SimpleList DI_Open", useEye);
-		genMeth.clickName(genMeth, "Closed");
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- Simple List Data Item_action_icon_green_ActionSucess", useEye);
-		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		//Back to startup screen
 		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickXpth(driver, genMeth,iosData.IconBackToApplicationList_xpth);
-		Thread.sleep(1000);
+		genMeth.clickXpth(driver, genMeth, iosData.IconBackToApplicationList_xpth);
 		
 	}
 	
