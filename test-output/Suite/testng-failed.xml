@@ -12,7 +12,7 @@
         <methods>
           <include name="setupBeforeSuite"/>
           <include name="checkHomeScreen"/>
-          <include name="actions"/>
+          <include name="actionsGrid_FreeText_SimpleList_DataItem"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- Native.SanityIos -->

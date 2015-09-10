@@ -135,7 +135,6 @@ import com.applitools.eyes.Eyes;
 
 // Open Sales Bar
 		// Change eye back to true once oleg fix the decimal issue
-		//useEye = false;
 		Thread.sleep(2000);
 		genMeth.clickId(genMeth, iosData.SalesName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
@@ -376,12 +375,12 @@ import com.applitools.eyes.Eyes;
 		driver.scrollToExact("Category");
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "1");
-		Thread.sleep(4000);
+		genMeth.swipedownIphone6Plus(1000);
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "2");
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_SimpleList_Manually_Build",
-				useEye);
+		Thread.sleep(4000);
+		genMeth.swipedownIphone6Plus(1000);
+		genMeth.eyesCheckWindow(eyes, "iOS_Actions_SimpleList_Manually_Build",useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		
 		// List- QR
@@ -447,7 +446,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone6Plus(1000);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
 		genMeth.clickName(genMeth, "Open");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		genMeth.clickXpth(driver, genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
 		Thread.sleep(3000);
 //		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- SimpleList DI_Open", useEye);
@@ -477,6 +476,7 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.clickName(genMeth, "Val1");
 		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
+		Thread.sleep(1000);
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- DynamicList", useEye);
 		genMeth.clickName(genMeth, "Drawer,12");
 		Thread.sleep(3000);
