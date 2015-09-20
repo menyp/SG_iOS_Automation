@@ -1148,6 +1148,11 @@ public void swipedownIphone6Plus(int miliseconds){
 		driver.swipe(50, 650, 50, 200, miliseconds);
 
 	}
+
+	public void swipeUpIphone6Plus(int miliseconds) {
+
+		driver.swipe(50, 200, 50, 650, miliseconds);
+	}
 	
 //	public void changeConnectionType(String mode) {
 //
