@@ -3,8 +3,6 @@ package Native;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.pagefactory.WithTimeout;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -886,7 +884,7 @@ public class IosMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			new FluentWait<IOSDriver>(driver)
+			new FluentWait<IOSDriver<MobileElement>>(driver)
 					.withTimeout(30, TimeUnit.SECONDS)
 					.pollingEvery(5, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -913,7 +911,7 @@ public class IosMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			element = new FluentWait<IOSDriver>(driver)
+			element = new FluentWait<IOSDriver<MobileElement>>(driver)
 					.withTimeout(5, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
@@ -953,7 +951,7 @@ public class IosMethods {
 
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
-			element = new FluentWait<IOSDriver>(driver)
+			element = new FluentWait<IOSDriver<MobileElement>>(driver)
 					.withTimeout(5, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
