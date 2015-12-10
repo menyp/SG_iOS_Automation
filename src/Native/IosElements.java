@@ -22,6 +22,7 @@ public class IosElements {
 	String BTNdoneName;
 	String BTNsettingsIconXpth;
 	String BTNlogoutName;
+	String BTNlogoutXpth;
 	String BTNBackName;
 	String BTNClearName;
 	String BTNSlicerIconXpth;
@@ -80,6 +81,7 @@ public class IosElements {
 	//Icons
 	String IconBackToApplicationList_xpth;
 	String Iconaction_icon_green_Name;
+	String Icon_AllApps_Name;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -101,6 +103,7 @@ public class IosElements {
 		this.BTNdoneName = XmlHandel.readAndroidXml("BTNdoneName", langXml, xmlPath);
 		this.BTNsettingsIconXpth = XmlHandel.readAndroidXml("BTNsettingsIconXpth", langXml, xmlPath);
 		this.BTNlogoutName = XmlHandel.readAndroidXml("BTNlogoutName", langXml, xmlPath);
+		this.BTNlogoutXpth = XmlHandel.readAndroidXml("BTNlogoutXpth", langXml, xmlPath);
 		this.BTNBackName = XmlHandel.readAndroidXml("BTNBackName", langXml, xmlPath);
 		this.BTNClearName = XmlHandel.readAndroidXml("BTNClearName", langXml, xmlPath);
 		this.BTNSlicerIconXpth = XmlHandel.readAndroidXml("BTNSlicerIconXpth", langXml, xmlPath);
@@ -158,9 +161,10 @@ public class IosElements {
 
 		this.IconBackToApplicationList_xpth = XmlHandel.readAndroidXml("IconBackToApplicationList_xpth", langXml, xmlPath);		
 		this.Iconaction_icon_green_Name = XmlHandel.readAndroidXml("Iconaction_icon_green_Name", langXml, xmlPath);		
+		this.Icon_AllApps_Name = XmlHandel.readAndroidXml("Icon_AllApps_Name", langXml, xmlPath);		
 
 		
-
+		
 		
 		
 		

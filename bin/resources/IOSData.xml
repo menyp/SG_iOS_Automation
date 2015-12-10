@@ -4,7 +4,8 @@
 			<BTNforgotPasswordID></BTNforgotPasswordID>
 			<BTNsettingsLoginScreenID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTNsettingsLoginScreenID>
 			<BTNsampleAccountID>Sample account</BTNsampleAccountID>
-			<BTNlogoutName>Logout</BTNlogoutName>
+			<BTNlogoutName>Log Out</BTNlogoutName>
+			<BTNlogoutXpth>//UIAApplication[1]/UIAWindow[1]/UIAButton[2]</BTNlogoutXpth>
 			<BTNcancelForgotPasswordID></BTNcancelForgotPasswordID>	
 			<BTNrecoverPasswordID></BTNrecoverPasswordID>	
 			<BTNresetPasswordID></BTNresetPasswordID>	
@@ -75,7 +76,7 @@
 		<ReturnsName>Returns</ReturnsName>
 		<NetSalesName>Net Sales</NetSalesName>
 		
-		<DailySalesBarID>Daily Sales - Bar</DailySalesBarID>
+		<DailySalesBarID>Daily Sales</DailySalesBarID>
 		<DailysalesPieID>Daily sales - Pie</DailysalesPieID>
 		<DestinyUSAID>Destiny USA</DestinyUSAID>
 		<Last12hoursID>Last 12 hours</Last12hoursID>
@@ -96,6 +97,8 @@
 	<Icon>
 	<IconBackToApplicationList_xpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]</IconBackToApplicationList_xpth>
 	<Iconaction_icon_green_Name>action_icon_green</Iconaction_icon_green_Name>
+	<Icon_AllApps_Name>M</Icon_AllApps_Name>
+	
 	</Icon>
 	
 	
