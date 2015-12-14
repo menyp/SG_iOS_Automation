@@ -94,14 +94,21 @@ public class IosMethods {
 			eyes.open(driver, "iOS_SG", testName);
 			// eyes.setMatchTimeout(5);
 			eyes.checkWindow("Sample Screen");
-			eyes.close();
+			
+			boolean skipfailure = false;
+			if (skipfailure) {
+				// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
+				com.applitools.eyes.TestResults testResult = eyes.close(false);
 
-			// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
-			//com.applitools.eyes.TestResults testResult = eyes.close(false);
+			} else {
+
+				eyes.close();
+			}
 
 		}
 
 	}
+	
 
 	public void killAppAndroid(IOSDriver<MobileElement> driver)
 			throws InterruptedException, IOException {
