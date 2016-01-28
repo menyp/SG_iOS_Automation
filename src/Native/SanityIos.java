@@ -25,6 +25,7 @@ import org.xml.sax.SAXException;
 import com.applitools.eyes.Eyes;
 
 
+
 //MobileElement e2; //test will wait for this diring 20 seconds
 
   public class SanityIos {
@@ -117,7 +118,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS10"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -422,6 +423,7 @@ import com.applitools.eyes.Eyes;
 		
 		//Operations
 		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
+		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
 		//Open grid second layer
 		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
@@ -518,16 +520,89 @@ import com.applitools.eyes.Eyes;
 				
 	}
  
- 
+	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab", groups = { "Sanity IOS" })
 
+	public void tabs() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+		genMeth.openStratupScreen(genMeth, iosData);
+
+		// go to URL
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, "All Tabs");
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Tabs- URL", useEye);
+		genMeth.swipeRightIphone5(1000);
+		
+		//Open List Tab
+		genMeth.eyesCheckWindow(eyes, "Tabs- List", useEye);
+		genMeth.swipeRightIphone5(1000);
+
+		//Open Grid Tab
+		genMeth.eyesCheckWindow(eyes, "Tabs- Grid", useEye);
+
+		//Open Pie Chart
+		genMeth.clickId(genMeth, "page 3 of 9");
+		genMeth.clickName(genMeth, "Daily Sales - Pie");
+		genMeth.eyesCheckWindow(eyes, "Tabs- Pie Chart", useEye);
+		
+		//Open Bar Chart
+		genMeth.clickId(genMeth, "page 4 of 9");
+		genMeth.clickName(genMeth, "Daily Sales - Bar");
+		genMeth.eyesCheckWindow(eyes, "Tabs- Bar Chart", useEye);
+		
+		
+		//Open cover Flow tab
+		genMeth.clickId(genMeth, "page 5 of 9");
+		genMeth.clickName(genMeth, "Cover Flow");
+		genMeth.eyesCheckWindow(eyes, "Tabs- Cover Flow1", useEye);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.eyesCheckWindow(eyes, "Tabs- Cover Flow2", useEye);
+
+		//Open Dashboard tab
+		genMeth.clickId(genMeth, "page 6 of 9");
+		genMeth.clickName(genMeth, "Dashboard");
+		genMeth.eyesCheckWindow(eyes, "Tabs- Dashboard", useEye);
+
+		//Map Tab (GPS)
+		genMeth.swipeRightIphone5(1000);
+		genMeth.eyesCheckWindow(eyes, "Tabs- Map GPS", useEye);
+		
+		//Map (Address)
+		genMeth.clickId(genMeth, "page 8 of 9");
+		genMeth.clickName(genMeth, "Map - Address");
+		//Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Tabs- Map Address", useEye);
+		
+		//Employee Directory
+		Thread.sleep(1000);
+
+
+		
+		
+
+
+		
+		
+
+		
+
+
+		
+		
+
+		
+
+
+	}
 	
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS2" })
+	@Test(enabled = true, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS1" })
 	public void actionsGridManuallyBuild_ListQR() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Open QA_SQL Actions --> Ingrid report
-		genMeth.clickName(genMeth, "A_DL testing");
-		genMeth.clickXpth(genMeth,iosData.IconBackToApplicationList_xpth);
+//		genMeth.clickName(genMeth, "A_DL testing");
+//		genMeth.clickXpth(genMeth,iosData.IconBackToApplicationList_xpth);
 		genMeth.clickName(genMeth, "QA_SQL Actions");
 		genMeth.clickName(genMeth, "InGrid");
 	
@@ -536,11 +611,12 @@ import com.applitools.eyes.Eyes;
 		driver.scrollToExact("Category");
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "1");
-		genMeth.swipedownIphone6Plus(1000);
+		genMeth.swipedownIphone5(1000);
+		
 		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
 		genMeth.clickName(genMeth, "2");
 		Thread.sleep(4000);
-		genMeth.swipedownIphone6Plus(1000);
+		genMeth.swipedownIphone5(1000);
 		genMeth.eyesCheckWindow(eyes, "iOS_Actions_SimpleList_Manually_Build",useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		

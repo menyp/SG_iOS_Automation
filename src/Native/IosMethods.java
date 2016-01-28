@@ -92,10 +92,10 @@ public class IosMethods {
 		if (useEye) {
 			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
 			eyes.open(driver, "iOS_SG", testName);
-			// eyes.setMatchTimeout(5);
+			 eyes.setMatchTimeout(2);
 			eyes.checkWindow("Sample Screen");
 			
-			boolean skipfailure = false;
+			boolean skipfailure = true;
 			if (skipfailure) {
 				// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
 				com.applitools.eyes.TestResults testResult = eyes.close(false);
@@ -1212,6 +1212,21 @@ public class IosMethods {
 	public void swipeUpIphone5(int miliseconds) {
 
 		driver.swipe(150, 100, 150, 500, miliseconds);
+	}
+	
+	public void openStratupScreen(IosMethods genMeth, IosElements iosData) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		
+		
+	//	boolean isStartupScreenDisplay = genMeth.checkIsElementVisible(By.name(iosData.Appium_Startup));
+
+		boolean isStartupScreenDisplay = genMeth.checkIsElementVisible(By.name("Appium Startup"));
+		
+		if (isStartupScreenDisplay != true ) {
+
+			genMeth.signOutFromStartup(genMeth, iosData);
+			genMeth.cleanLoginIos(genMeth, iosData, iosData.userQA);
+		}
+
 	}
 	// public void changeConnectionType(String mode) {
 	//

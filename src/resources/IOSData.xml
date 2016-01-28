@@ -60,13 +60,14 @@
 	   	<scrollUp>up</scrollUp>
 		<UserProd>test1@1.com</UserProd>
 		<passwordProd>M1234567!</passwordProd>
-		<userQA>test1@1.com/qa</userQA>
-		<passwordQA>1234</passwordQA>
+		<userQA>appium1@1.com/qa</userQA>
+		<passwordQA>123</passwordQA>
 		<badPassword>incorrectPassword</badPassword>
 		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
 		<ConnectionWIFI>WIFI</ConnectionWIFI>
 		<CoonectionDATA>DATA</CoonectionDATA>
 		<ConnectionALL>ALL</ConnectionALL>
+		<Appium_Startup>Appium Startup</Appium_Startup>
 
 		
 		<InvalidRecoverEmailName></InvalidRecoverEmailName>

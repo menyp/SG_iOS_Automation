@@ -48,11 +48,6 @@ public class IosElements {
 	
 	
 	//STRINGS
-	String UserProd;
-	String passwordProd;
-	String userQA;
-	String passwordQA;
-	String badPassword;
 	String scrollDown;
 	String scrollUp;
 	String DashboardName;
@@ -89,7 +84,13 @@ public class IosElements {
 	String CoonectionDATA;
 	String ConnectionALL;
 	
-	
+	//Credentials
+		String UserProd;
+		String passwordProd;
+		String userQA;
+		String passwordQA;
+		String badPassword;
+		String Appium_Startup;
 
 	
 	public IosElements(String langXml, String xmlPath ) throws ParserConfigurationException, SAXException, IOException, InterruptedException, org.xml.sax.SAXException{
@@ -131,9 +132,6 @@ public class IosElements {
 		this.TEXTFIELDqr_Xpth = XmlHandel.readAndroidXml("TEXTFIELDqr_Xpth", langXml, xmlPath);
 
 		
-		this.passwordProd = XmlHandel.readAndroidXml("passwordProd", langXml, xmlPath);
-		this.userQA = XmlHandel.readAndroidXml("userQA", langXml, xmlPath);
-		this.passwordQA = XmlHandel.readAndroidXml("passwordQA", langXml, xmlPath);
 		this.scrollDown = XmlHandel.readAndroidXml("scrollDown", langXml, xmlPath);
 		this.scrollUp = XmlHandel.readAndroidXml("scrollUp", langXml, xmlPath);		
 		this.ConnectionAIRPLANE_MODE = XmlHandel.readAndroidXml("ConnectionAIRPLANE_MODE", langXml, xmlPath);
@@ -163,8 +161,12 @@ public class IosElements {
 		this.Iconaction_icon_green_Name = XmlHandel.readAndroidXml("Iconaction_icon_green_Name", langXml, xmlPath);		
 		this.Icon_AllApps_Name = XmlHandel.readAndroidXml("Icon_AllApps_Name", langXml, xmlPath);		
 
-		
-		
+
+		this.passwordProd = XmlHandel.readAndroidXml("passwordProd", langXml, xmlPath);
+		this.userQA = XmlHandel.readAndroidXml("userQA", langXml, xmlPath);
+		this.passwordQA = XmlHandel.readAndroidXml("passwordQA", langXml, xmlPath);
+		this.Appium_Startup = XmlHandel.readAndroidXml("Appium_Startup", langXml, xmlPath);
+
 		
 		
 		
