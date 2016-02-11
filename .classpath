@@ -44,7 +44,6 @@
 	<classpathentry kind="lib" path="lib/serializer-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/jetty-websocket-8.1.15.v20140411.jar"/>
-	<classpathentry kind="lib" path="lib/java-client-3.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-java-2.48.0-srcs.jar"/>
 	<classpathentry kind="lib" path="lib/java-client-3.2.0-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/commons-el-1.0.jar"/>
@@ -78,13 +77,9 @@
 	<classpathentry kind="lib" path="lib/eyes-common-java-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/eyes-connectivity-java-jersey2x-1.0.jar"/>
 	<classpathentry kind="lib" path="lib/eyes-sdk-java-jersey2x-2.24.jar"/>
-	<classpathentry kind="lib" path="lib/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="lib/guava-17.0.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-api-2.4.0-b09.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-locator-2.4.0-b09.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-utils-2.4.0-b09.jar"/>
-	<classpathentry kind="lib" path="lib/httpclient-4.3.3.jar"/>
-	<classpathentry kind="lib" path="lib/httpcore-4.3.2.jar"/>
 	<classpathentry kind="lib" path="lib/imgscalr-lib-4.2.jar"/>
 	<classpathentry kind="lib" path="lib/jackson-annotations-2.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/jackson-core-2.5.1.jar"/>

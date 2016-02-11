@@ -28,7 +28,7 @@ public class IosElements {
 	String BTNSlicerIconXpth;
 	String BTNmapphoneiconID;
 	String BTNCancelName;
-	String BTNMapCarIconName;
+	String BTNdirection;
 	String BTNpriority_Name;
 	String BTNnewServiceCallId;
 	String BTNsubmit_ID;
@@ -38,6 +38,8 @@ public class IosElements {
 	String BTNclearText_Name;
 	String BTNdelete_Name;
 	String BTNrefresh_Name;
+	String BTNsend_Name;
+	String BTNseeAll_ID;
 	
 	//TextFields	
 	String TEXTFIELDemailXpth;
@@ -70,6 +72,7 @@ public class IosElements {
 	String ContactsPermissionsName;
 	String OrderLookup_ID;
 	
+	
 	//Checkbox
 	
 	
@@ -77,21 +80,23 @@ public class IosElements {
 	String IconBackToApplicationList_xpth;
 	String Iconaction_icon_green_Name;
 	String Icon_AllApps_Name;
+	String IconBack_Name;
+	String IconBack_Nav_Name;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
 	String ConnectionWIFI;
 	String CoonectionDATA;
 	String ConnectionALL;
+	String TabBarTitle_Name;
 	
-	//Credentials
-		String UserProd;
-		String passwordProd;
-		String userQA;
-		String passwordQA;
-		String badPassword;
-		String Appium_Startup;
-
+	// Credentials
+	String UserProd;
+	String passwordProd;
+	String userQA;
+	String passwordQA;
+	String badPassword;
+	String StartupApplication;
 	
 	public IosElements(String langXml, String xmlPath ) throws ParserConfigurationException, SAXException, IOException, InterruptedException, org.xml.sax.SAXException{
 		this.BTNloginID = XmlHandel.readAndroidXml("BTNloginID", langXml, xmlPath);
@@ -110,7 +115,7 @@ public class IosElements {
 		this.BTNSlicerIconXpth = XmlHandel.readAndroidXml("BTNSlicerIconXpth", langXml, xmlPath);
 		this.BTNmapphoneiconID = XmlHandel.readAndroidXml("BTNmapphoneiconID", langXml, xmlPath);
 		this.BTNCancelName = XmlHandel.readAndroidXml("BTNCancelName", langXml, xmlPath);
-		this.BTNMapCarIconName = XmlHandel.readAndroidXml("BTNMapCarIconName", langXml, xmlPath);
+		this.BTNdirection = XmlHandel.readAndroidXml("BTNdirection", langXml, xmlPath);
 		this.BTNokName = XmlHandel.readAndroidXml("BTNokName", langXml, xmlPath);
 		this.BTNpriority_Name = XmlHandel.readAndroidXml("BTNpriority_Name", langXml, xmlPath);
 		this.BTNnewServiceCallId = XmlHandel.readAndroidXml("BTNnewServiceCallId", langXml, xmlPath);
@@ -121,6 +126,8 @@ public class IosElements {
 		this.BTNclearText_Name = XmlHandel.readAndroidXml("BTNclearText_Name", langXml, xmlPath);
 		this.BTNdelete_Name = XmlHandel.readAndroidXml("BTNdelete_Name", langXml, xmlPath);
 		this.BTNrefresh_Name = XmlHandel.readAndroidXml("BTNrefresh_Name", langXml, xmlPath);
+		this.BTNsend_Name = XmlHandel.readAndroidXml("BTNsend_Name", langXml, xmlPath);
+		this.BTNseeAll_ID = XmlHandel.readAndroidXml("BTNseeAll_ID", langXml, xmlPath);
 
 		
 		
@@ -159,13 +166,20 @@ public class IosElements {
 
 		this.IconBackToApplicationList_xpth = XmlHandel.readAndroidXml("IconBackToApplicationList_xpth", langXml, xmlPath);		
 		this.Iconaction_icon_green_Name = XmlHandel.readAndroidXml("Iconaction_icon_green_Name", langXml, xmlPath);		
-		this.Icon_AllApps_Name = XmlHandel.readAndroidXml("Icon_AllApps_Name", langXml, xmlPath);		
+		this.Icon_AllApps_Name = XmlHandel.readAndroidXml("Icon_AllApps_Name", langXml, xmlPath);	
+		this.IconBack_Name = XmlHandel.readAndroidXml("IconBack_Name", langXml, xmlPath);	
+		this.IconBack_Nav_Name = XmlHandel.readAndroidXml("IconBack_Nav_Name", langXml, xmlPath);	
+
+		
+
+		
 
 
 		this.passwordProd = XmlHandel.readAndroidXml("passwordProd", langXml, xmlPath);
 		this.userQA = XmlHandel.readAndroidXml("userQA", langXml, xmlPath);
 		this.passwordQA = XmlHandel.readAndroidXml("passwordQA", langXml, xmlPath);
-		this.Appium_Startup = XmlHandel.readAndroidXml("Appium_Startup", langXml, xmlPath);
+		this.StartupApplication = XmlHandel.readAndroidXml("StartupApplication", langXml, xmlPath);
+		this.TabBarTitle_Name = XmlHandel.readAndroidXml("TabBarTitle_Name", langXml, xmlPath);
 
 		
 		

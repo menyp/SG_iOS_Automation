@@ -1188,7 +1188,7 @@ public class IosMethods {
 
 	public void swipeRightIphone5(int miliseconds) {
 
-		driver.swipe(250, 300, 75, 200, miliseconds);
+		driver.swipe(250, 300, 75, 300, miliseconds);
 
 	}
 
@@ -1198,9 +1198,15 @@ public class IosMethods {
 
 	}
 
-	public void swipedownIphone5(int miliseconds) {
+	public void swipedownIphone5Long(int miliseconds) {
 
 		driver.swipe(150, 500, 150, 100, miliseconds);
+
+	}
+	
+	public void swipedownIphone5Short(int miliseconds) {
+
+		driver.swipe(150, 500, 150, 400, miliseconds);
 
 	}
 
@@ -1219,7 +1225,7 @@ public class IosMethods {
 		
 	//	boolean isStartupScreenDisplay = genMeth.checkIsElementVisible(By.name(iosData.Appium_Startup));
 
-		boolean isStartupScreenDisplay = genMeth.checkIsElementVisible(By.name("Appium Startup"));
+		boolean isStartupScreenDisplay = genMeth.checkIsElementVisible(By.name("Applications"));
 		
 		if (isStartupScreenDisplay != true ) {
 

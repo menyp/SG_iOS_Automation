@@ -1,4 +1,6 @@
 <Data>
+
+
 		<Buttons>
 			<BTNloginID>Login</BTNloginID>
 			<BTNforgotPasswordID></BTNforgotPasswordID>
@@ -16,7 +18,7 @@
 			<BTNSlicerIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]</BTNSlicerIconXpth>
 			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
 			<BTNCancelName>Cancel</BTNCancelName>					
-			<BTNMapCarIconName>mapcar icon</BTNMapCarIconName>
+			<BTNdirection>BTNdirection</BTNdirection>
 			<BTNokName>OK</BTNokName>
 			<BTNpriority_Name>Priority</BTNpriority_Name>
 			<BTNnewServiceCallId>New Service Call</BTNnewServiceCallId>
@@ -27,49 +29,33 @@
 			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			<BTNdelete_Name>Delete</BTNdelete_Name>
 			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
+			<BTNsend_Name>Send</BTNsend_Name>
+			<BTNseeAll_ID>See All</BTNseeAll_ID>
 			
 		</Buttons>
+		
 		
 		<TextFields>
 			<TEXTFIELDemailXpth>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</TEXTFIELDemailXpth>
 			<TEXTFIELDpasswordXpth>//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]</TEXTFIELDpasswordXpth>
 			<TEXTFIELDqr_Xpth>//UIAApplication[1]/UIAWindow[1]/UIATextField[1]</TEXTFIELDqr_Xpth>
 			<TEXTFIELDrecoveryEmailID></TEXTFIELDrecoveryEmailID>
-
 		</TextFields>
 		
+		
+		
 		<CheckBox>
-		    <Checkbox_rememberme_ID></Checkbox_rememberme_ID>
-		    
+		    <Checkbox_rememberme_ID></Checkbox_rememberme_ID>	    
 		</CheckBox>
-		
-		<Options>
-			
-		</Options>
-		
-		<List>
-		   
-		    
-		</List>
-		<Strings>
-		  
-		    
-		</Strings>
-		                
-	    <scrollDown>down</scrollDown>
+				
+			    
+		<scrollDown>down</scrollDown>
 	   	<scrollUp>up</scrollUp>
-		<UserProd>test1@1.com</UserProd>
-		<passwordProd>M1234567!</passwordProd>
-		<userQA>appium1@1.com/qa</userQA>
-		<passwordQA>123</passwordQA>
-		<badPassword>incorrectPassword</badPassword>
 		<ConnectionAIRPLANE_MODE>AIRPLANE_MODE</ConnectionAIRPLANE_MODE>
 		<ConnectionWIFI>WIFI</ConnectionWIFI>
 		<CoonectionDATA>DATA</CoonectionDATA>
 		<ConnectionALL>ALL</ConnectionALL>
-		<Appium_Startup>Appium Startup</Appium_Startup>
 
-		
 		<InvalidRecoverEmailName></InvalidRecoverEmailName>
 		<ConfCodeIncorrectName></ConfCodeIncorrectName>
 		<DashboardName>Dashboard </DashboardName>
@@ -90,19 +76,27 @@
 		<ContactsPermissionsName>“SkyGiraffe” Would Like to Access Your Contacts</ContactsPermissionsName>
 		<MallOfAmerica_Id>Mall of America</MallOfAmerica_Id>
 		<OrderLookup_ID>Order Lookup</OrderLookup_ID>
-		
-	<errorText>
-		
-	</errorText>
+		<TabBarTitle_Name>BarTitle</TabBarTitle_Name>
+
 	
 	<Icon>
 	<IconBackToApplicationList_xpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]</IconBackToApplicationList_xpth>
 	<Iconaction_icon_green_Name>action_icon_green</Iconaction_icon_green_Name>
 	<Icon_AllApps_Name>M</Icon_AllApps_Name>
+	<IconBack_Name>Back</IconBack_Name>
+	<IconBack_Nav_Name>back nav</IconBack_Nav_Name>
 	
 	</Icon>
 	
 	
+		   	
+<!-- 	   	General Info -->
+		<UserProd>test1@1.com</UserProd>
+		<passwordProd>M1234567!</passwordProd>
+		<userQA>appium1@1.com/qa</userQA>
+		<passwordQA>123</passwordQA>
+		<badPassword>incorrectPassword</badPassword>
+		<StartupApplication>SQL Golden App</StartupApplication>
 	
 	
 </Data>
