@@ -43,16 +43,16 @@ public class IosMethods {
 	IOSDriver<MobileElement> driver;
 	IosElements iosData;
 	IosMethods genMeth;
+	Eyes eyes = new Eyes();
+	Boolean useEye = true;
 
 	public void cleanLoginIos(IosMethods genMeth, IosElements iosData,
 			String user) throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Check language making sure keyboard is set to English
-		MobileElement EmailField = genMeth.returnXpth(driver, genMeth,
-				iosData.TEXTFIELDemailXpth);
-		MobileElement PasswordField = genMeth.returnXpth(driver, genMeth,
-				"//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
+		MobileElement EmailField = genMeth.returnXpth(driver, genMeth,iosData.TEXTFIELDemailXpth);
+		MobileElement PasswordField = genMeth.returnXpth(driver, genMeth,"//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
 
 		// Make sure that the English keyboard is open
 		driver.tap(1, EmailField, 1000);
@@ -60,11 +60,10 @@ public class IosMethods {
 
 		// Make sure that the email & password fields are empty
 		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("E-Mail"));
-		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By
-				.id("Password"));
+		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By.id("Password"));
 
 		if (!isEmailEmpty) {
-			// driver.tap(1, EmailField, 1000);
+
 			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
 
 		}
@@ -77,12 +76,11 @@ public class IosMethods {
 		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth,
 				iosData.passwordQA);
 		genMeth.clickId(genMeth, iosData.BTNloginID);
+		
+		// Check if default app is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 
-		// location popup handle
-	//	genMeth.locationServicesHadle(genMeth);
-		genMeth.clickXpth(genMeth, iosData.IconBackToApplicationList_xpth);
-		// genMeth.clickXpth(driver, genMeth,
-		// "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[2]");
+		// genMeth.clickXpth(genMeth, iosData.IconBackToApplicationList_xpth);
 
 	}
 
@@ -1215,9 +1213,14 @@ public class IosMethods {
 		driver.swipe(50, 200, 50, 650, miliseconds);
 	}
 
-	public void swipeUpIphone5(int miliseconds) {
+	public void swipeUpIphone5Long(int miliseconds) {
 
 		driver.swipe(150, 100, 150, 500, miliseconds);
+	}
+	
+	public void swipeUpIphone5Short(int miliseconds) {
+
+		driver.swipe(150, 400, 150, 500, miliseconds);
 	}
 	
 	public void openStratupScreen(IosMethods genMeth, IosElements iosData) throws ParserConfigurationException, SAXException, IOException, InterruptedException{

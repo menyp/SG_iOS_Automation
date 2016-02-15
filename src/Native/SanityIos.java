@@ -15,10 +15,7 @@ import java.util.concurrent.TimeUnit;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
-import org.testng.TestListenerAdapter;
-import org.testng.TestNG;
 import org.testng.annotations.BeforeSuite;
 import org.xml.sax.SAXException;
 
@@ -88,7 +85,7 @@ import com.applitools.eyes.Eyes;
 		}
 
 		else {
-			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.id("Applications"));
+			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.name("SQL Golden App"));
 
 			if (StartUpScreenDisplay != true) {
 
@@ -544,10 +541,7 @@ import com.applitools.eyes.Eyes;
 	public void Tabs_URL_Map_Chart() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
-
 		// go to URL
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, "All Tabs");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL", useEye);
@@ -651,10 +645,7 @@ import com.applitools.eyes.Eyes;
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
-
 		// go to CoverFlow
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.swipedownIphone5Long(1000);
@@ -692,7 +683,6 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Cover Flow- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 
 	}
 
@@ -703,10 +693,7 @@ import com.applitools.eyes.Eyes;
 	public void Tabs_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
-
 		// go to List
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.swipedownIphone5Long(1000);
@@ -756,7 +743,6 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.clickName(genMeth, iosData.IconBack_Name);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 
 	}
 	
@@ -768,13 +754,9 @@ import com.applitools.eyes.Eyes;
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
-
 		// go to Grid
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		
 		genMeth.clickName(genMeth, "Grid - Two Layers");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid two layers", useEye);
 		
@@ -832,7 +814,6 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickName(genMeth, iosData.IconBack_Name);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 
 	}
 	
@@ -903,20 +884,116 @@ import com.applitools.eyes.Eyes;
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
 
-		// go to Grid
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		// go to Employee Directory tab
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		
 		genMeth.clickName(genMeth, "Employee Directory");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory main", useEye);
 		
+		//Search an employee (Empty search)
+		genMeth.clickName(genMeth, "Search");
+		genMeth.sendName(genMeth, "Search", "no emplyees found");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - empty search", useEye);
+		
+		genMeth.clickName(genMeth, iosData.BTNclearText_Name);
+		
 		//Search an employee
+		genMeth.sendName(genMeth, "Search" , "Lane" );
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - search Specific employee", useEye);
+		
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 		//second layer
+		genMeth.clickName(genMeth, "Lane R. Barlow");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Second layer", useEye);
 		
+
+		// Phone
+		genMeth.clickName(genMeth, "Phone");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Phone", useEye);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipeUpIphone5Short(1000);
+
+		
+		// Email
+		genMeth.clickName(genMeth, "Email");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Email", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+		
+		//Map
+		genMeth.clickName(genMeth, "Address First");
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.eyesCheckWindow(eyes,"All Tabs- Employee Directory - Address First", useEye);
+		
+		// Mini Map
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+
+		genMeth.clickName(genMeth, "Address (Second)");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Address second", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+
+		// URL
+		genMeth.clickName(genMeth, "Google");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - URL", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		
+		//Social Networks
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[1]");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - FaceBook", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Twitter", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Linkein", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[4]");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Google+", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		
+		//Navigation
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.clickName(genMeth, "First_Name");
+		Thread.sleep(6000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Navigation", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Back from navigation", useEye);
+		
+		//No Social Networks available
+		genMeth.clickName(genMeth, "Callum R. Aguirre");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, No Social Networks", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+		//No Google+ 
+		genMeth.clickName(genMeth, "Caldwell Alexander");
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, No Google+", useEye);
+		
+		//Back to Startup screen
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
+		
+		//Press info for the app
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIAButton[1]");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Golden App info screen", useEye);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
 	}
 
