@@ -1,5 +1,4 @@
 package Native;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -56,19 +55,17 @@ import com.applitools.eyes.Eyes;
 		webElementXmlLang = genMeth.getValueFromPropFile("webElementXmlLang");
 		appIdentifier = genMeth.getValueFromPropFile("appIdentifier");
 		
-		iosData= new IosElements(webElementXmlLang, webElementXmlPath);
-		
+		//iosData= new IosElements(webElementXmlLang, webElementXmlPath);
+		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
 		driver = genMeth.setCapabilitiesIos(genMeth);
-				
-		genMeth.cleanLoginIos(genMeth,iosData, iosData.userQA); 
+			
+		genMeth.cleanLoginIos(genMeth, iosData.userQA); 
+ 
 	
-		
-	
-		
 	}
 
 	@BeforeMethod (alwaysRun = true)
-	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException{
+	public void checkHomeScreen() throws InterruptedException, IOException, ParserConfigurationException, SAXException, jdk.internal.org.xml.sax.SAXException{
 
 
 		// Check if the client still logged in & in StartUp screen before each test
@@ -81,7 +78,8 @@ import com.applitools.eyes.Eyes;
 			}
 			
 			driver = genMeth.setCapabilitiesIos(genMeth);
-			genMeth.cleanLoginIos( genMeth,iosData, iosData.userQA );
+			iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
+			genMeth.cleanLoginIos( genMeth, iosData.userQA );
 		}
 
 		else {
@@ -97,22 +95,15 @@ import com.applitools.eyes.Eyes;
 				}
 
 				driver = genMeth.setCapabilitiesIos(genMeth);
-				genMeth.cleanLoginIos( genMeth, iosData, iosData.userQA);
+				iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
+				genMeth.cleanLoginIos( genMeth, iosData.userQA);
 
 			}
 
 		}
 
 	}
-	
-	@AfterMethod(enabled = false, dependsOnMethods = { "connectionLost" })
-	
-	public void enabledWifi() {
-
-		//genMeth.setWifiOn();
-	}
-	
-	
+		
 	
 	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
 			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
@@ -121,7 +112,7 @@ import com.applitools.eyes.Eyes;
 			SAXException, IOException, InterruptedException {
 
 //Logout from startup page
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
@@ -218,7 +209,7 @@ import com.applitools.eyes.Eyes;
 			SAXException, IOException, InterruptedException {
 
 //OPEN SERVICE CALLS
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
@@ -326,7 +317,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - After Action", useEye);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 				
 	}
@@ -339,7 +330,7 @@ import com.applitools.eyes.Eyes;
 			SAXException, IOException, InterruptedException {
 
 //OPEN SERVICE CALLS Map
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
@@ -408,13 +399,13 @@ import com.applitools.eyes.Eyes;
  
 
 	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS102"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
 //OPEN Order Lookup
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
@@ -493,7 +484,7 @@ import com.applitools.eyes.Eyes;
 			SAXException, IOException, InterruptedException {
 
 //OPEN Order Lookup
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
@@ -529,14 +520,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 // Swipe along the technicians Cover Flow
-
 		genMeth.swipeRightIphone5(1000);
 		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
 				
 	}
  
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS100" })
 
 	public void Tabs_URL_Map_Chart() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -554,6 +544,7 @@ import com.applitools.eyes.Eyes;
 		//Open Map By Address Tab
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Map By Address");
+		                    
 		Thread.sleep(3000);
 		//genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address", useEye);
 		genMeth.clickName(genMeth,"19501 Biscayne Blvd, Aventura, FL 33180, 1 item");
@@ -574,9 +565,8 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Navigation to Aventura", useEye);
 		
 		//Navigation Back
-		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]" );
-
-		//Open MAp By GPS
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		//Open Map By GPS
 		Thread.sleep(10000);
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Map By GPS");
@@ -607,9 +597,11 @@ import com.applitools.eyes.Eyes;
 
 		//Navigation
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart- Navigate to Pie Chart", useEye);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		//Navigate back to the Bar chart
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[1]");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart", useEye);
 
 		
@@ -629,18 +621,24 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "   Aventura Mall         ");
 		Thread.sleep(15000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart- Navigate to Bar Chart", useEye);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		
+		//Navigation back to the Pie chart
+		genMeth.clickId(genMeth, "Aventura Mall");
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart", useEye);
 		
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
+		//Go Back to Startup screen
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+
 		
 	}
 	
 	
 	@Test(enabled = true, testName = "Cover Flow", retryAnalyzer = Retry.class, description = "Check the Cover Flow tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS100" })
 
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -682,13 +680,12 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "URL");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Cover Flow- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
-
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 	}
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS100" })
 
 	public void Tabs_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -697,7 +694,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.clickName(genMeth, "List Tab");
+		genMeth.clickName(genMeth, "List");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List", useEye);
 		
 		//Map
@@ -724,7 +721,6 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Email");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List Email", useEye);
 		genMeth.clickName(genMeth, iosData.BTNsend_Name);
-//		genMeth.clickName(genMeth, iosData.BTNsend_Name);
 
 		//URL
 		genMeth.clickName(genMeth, "URL");
@@ -741,15 +737,19 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List See All scroll down", useEye);
 		
+		
 		genMeth.clickName(genMeth, iosData.IconBack_Name);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);	
+		
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 
 	}
 	
 	
 	
 	@Test(enabled = true, testName = "Grid two layer", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS100" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -813,20 +813,23 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickName(genMeth, iosData.IconBack_Name);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[1]");
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 
+		
+		
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS100" })
 
 	public void Tabs_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		genMeth.openStratupScreen(genMeth, iosData);
 
 		// go to Grid
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		
@@ -838,35 +841,37 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);
 		genMeth.swipeRightIphone5(1000);
 		genMeth.swipeRightIphone5(1000);			
-		genMeth.swipeRightIphone5(1000);			
-
 		
 		// Map
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[3]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Address",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 
 		// MiniMap
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Mini Map",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
 		// Phone
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Phone",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
 
 		// Email
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.swipeRightIphone5(1000);
+			
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Email",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
 
 		// URL
-		genMeth.swipeRightIphone5(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
@@ -874,12 +879,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Swipe right",useEye);
 
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
-	}
+		
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);	}
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS10" })
+			groups = { "Sanity IOS101" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -924,9 +930,11 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
 		
 		//Map
-		genMeth.clickName(genMeth, "Address First");
 		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.clickName(genMeth, "Address First");
 		genMeth.eyesCheckWindow(eyes,"All Tabs- Employee Directory - Address First", useEye);
+
 		
 		// Mini Map
 		genMeth.swipedownIphone5Short(1000);
@@ -990,10 +998,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 		
 		//Press info for the app
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[2]/UIATableCell[2]/UIAButton[1]");
+		genMeth.clickName(genMeth, iosData.IconApplicationInfo_Name);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Golden App info screen", useEye);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
+				
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 		
 	}
 
@@ -1068,7 +1079,7 @@ import com.applitools.eyes.Eyes;
 	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {
 
-		genMeth.signOutFromStartup(genMeth, iosData);
+		genMeth.signOutFromStartup(genMeth);
 		// Login with bad user name
 		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, "bad name");
 		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordProd);

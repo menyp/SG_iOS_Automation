@@ -82,6 +82,7 @@ public class IosElements {
 	String Icon_AllApps_Name;
 	String IconBack_Name;
 	String IconBack_Nav_Name;
+	String IconApplicationInfo_Name;
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -169,9 +170,10 @@ public class IosElements {
 		this.Icon_AllApps_Name = XmlHandel.readAndroidXml("Icon_AllApps_Name", langXml, xmlPath);	
 		this.IconBack_Name = XmlHandel.readAndroidXml("IconBack_Name", langXml, xmlPath);	
 		this.IconBack_Nav_Name = XmlHandel.readAndroidXml("IconBack_Nav_Name", langXml, xmlPath);	
+		this.IconApplicationInfo_Name = XmlHandel.readAndroidXml("IconApplicationInfo_Name", langXml, xmlPath);	
 
 		
-
+		
 		
 
 

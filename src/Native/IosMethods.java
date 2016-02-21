@@ -42,12 +42,20 @@ public class IosMethods {
 
 	IOSDriver<MobileElement> driver;
 	IosElements iosData;
-	IosMethods genMeth;
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
+	
+	public IosMethods(){
+		
+		
+		
+		
+		
+	}
+	
+	
 
-	public void cleanLoginIos(IosMethods genMeth, IosElements iosData,
-			String user) throws ParserConfigurationException, SAXException,
+	public void cleanLoginIos(IosMethods genMeth,String user) throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Check language making sure keyboard is set to English
@@ -123,7 +131,7 @@ public class IosMethods {
 		// driver = genMeth.setCapabilitiesIos();
 	}
 
-	public void signOutFromStartup(IosMethods genMeth, IosElements iosData)
+	public void signOutFromStartup(IosMethods genMeth)
 			throws InterruptedException, IOException {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.clickXpth(genMeth, iosData.BTNsettingsIconXpth);
@@ -161,8 +169,6 @@ public class IosMethods {
 		capabilities.setCapability("device",genMeth.getValueFromPropFile("device"));
 		capabilities.setCapability("udid", genMeth.getValueFromPropFile("udid"));
 		capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
-		// capabilities.setCapability(CapabilityType.PLATFORM,genMeth.getValueFromPropFile("CapabilityType.PLATFORM"));
-		// capabilities.setCapability("platformName",genMeth.getValueFromPropFile("platformName"));
 		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
 		capabilities.setCapability("autoAcceptAlerts", true);
 
@@ -1120,6 +1126,15 @@ public class IosMethods {
 		}
 
 	}
+	
+	public IosElements setElements(String webElementXmlPath, String webElementXmlLang) throws ParserConfigurationException, jdk.internal.org.xml.sax.SAXException, IOException, InterruptedException, SAXException{
+		
+
+	iosData= new IosElements(webElementXmlLang, webElementXmlPath);
+	
+	
+	return iosData;
+	}
 
 /*	public void locationServicesHadle(IosMethods genMeth)
 			throws ParserConfigurationException, SAXException, IOException,
@@ -1232,8 +1247,8 @@ public class IosMethods {
 		
 		if (isStartupScreenDisplay != true ) {
 
-			genMeth.signOutFromStartup(genMeth, iosData);
-			genMeth.cleanLoginIos(genMeth, iosData, iosData.userQA);
+			genMeth.signOutFromStartup(genMeth);
+			genMeth.cleanLoginIos(genMeth, iosData.userQA);
 		}
 
 	}
