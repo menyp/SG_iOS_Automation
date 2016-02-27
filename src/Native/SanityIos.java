@@ -525,19 +525,44 @@ import com.applitools.eyes.Eyes;
 				
 	}
  
+	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
 			groups = { "Sanity IOS100" })
 
-	public void Tabs_URL_Map_Chart() throws ParserConfigurationException, SAXException,
+	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		// go to URL
-		genMeth.clickName(genMeth, "All Tabs");
+		// go to URL Constant
+		genMeth.clickName(genMeth, "URL");
 		Thread.sleep(5000);
-		genMeth.eyesCheckWindow(eyes, "Tabs- URL", useEye);
+		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
+		
+		//go to URL data Item
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickName(genMeth, "URL Constant");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
+		
+		//Go Back to Startup screen
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+		
+	
+	
+	
+	@Test(enabled = true, testName = "Map,Dashboard, Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
+			groups = { "Sanity IOS100" })
+
+	public void Tabs_Map_Chart() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
 		
 		//Open Dashboard tab Tab
+		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Dashboard DefLayouts");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
 
@@ -595,12 +620,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Net Sales");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart", useEye);
 
-		//Navigation
+		//Navigation to pie chart
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart- Navigate to Pie Chart", useEye);
+		
 		//Navigate back to the Bar chart
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[1]");
+		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[1]");
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart", useEye);
 
@@ -617,18 +644,21 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Net Sales");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart- Net Sales", useEye);
 		
-		//Navigation
+		//Navigation to Bar chart
 		genMeth.clickName(genMeth, "   Aventura Mall         ");
 		Thread.sleep(15000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart- Navigate to Bar Chart", useEye);
 		
 		//Navigation back to the Pie chart
-		genMeth.clickId(genMeth, "Aventura Mall");
+		//genMeth.clickId(genMeth, "Aventura Mall");
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart", useEye);
 		
 		//Go Back to Startup screen
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
 		
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
@@ -680,7 +710,16 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "URL");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Cover Flow- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.swipedownIphone5Long(1000);
+		
+		
+		// Landline
+		genMeth.clickName(genMeth, "Landline");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Cover Flow- Landline", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
 	}
 
 	
@@ -729,6 +768,10 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.swipedownIphone5Short(1000);
+		
+		// Landline
+		genMeth.clickName(genMeth, "Landline");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- List Landline", useEye);
 		
 
 		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);		
@@ -811,7 +854,17 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid two layers- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Long(1000);
+		//genMeth.swipedownIphone5Long(1000);
+
+		
+		// Landline
+		genMeth.clickName(genMeth, "Landline");
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickName(genMeth, "Landline");
+
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid two layers- Landline",useEye);
+				
 		genMeth.clickName(genMeth, iosData.IconBack_Name);
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
@@ -876,6 +929,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
 		genMeth.swipeRightIphone5(1000);
+		genMeth.swipedownIphone5Short(1000);
+		
+		// Landline
+		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[21]");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Landline", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+				
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Swipe right",useEye);
 
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
@@ -894,6 +954,7 @@ import com.applitools.eyes.Eyes;
 		// go to Employee Directory tab
 		genMeth.clickName(genMeth, "All Tabs");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		genMeth.swipedownIphone5Short(1000);
 		
 		genMeth.clickName(genMeth, "Employee Directory");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory main", useEye);
