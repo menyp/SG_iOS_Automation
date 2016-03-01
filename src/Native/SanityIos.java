@@ -41,7 +41,7 @@ import com.applitools.eyes.Eyes;
 	IOSDriver<MobileElement> driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
-	Boolean useEye = true;
+	Boolean useEye = false;
 
 	@BeforeSuite(alwaysRun = true)
 	public void setupBeforeSuite(ITestContext context) throws ParserConfigurationException, SAXException, IOException, InterruptedException, jdk.internal.org.xml.sax.SAXException {
@@ -111,6 +111,7 @@ import com.applitools.eyes.Eyes;
 	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
+		
 //Logout from startup page
 		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
@@ -128,7 +129,7 @@ import com.applitools.eyes.Eyes;
 //		genMeth.swipeRightIphone6Plus(1000);
 		genMeth.swipeRightIphone5(500);
 		genMeth.eyesCheckWindow(eyes, "World wide orders Tab", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.clickName(genMeth,  iosData.DashboardName);
 		
 // Open Sales Bar
@@ -179,7 +180,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 // Check slicer in Sparklines
-		genMeth.clickXpth(genMeth, iosData.BTNSlicerIconXpth);
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
 		genMeth.clickId(genMeth, iosData.BranchID);
 		genMeth.clickId(genMeth, iosData.DestinyUSAID);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
@@ -187,27 +188,29 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
 		
 //Clear the Slicer
-		genMeth.clickXpth(genMeth, iosData.BTNSlicerIconXpth);
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
 		genMeth.clickName(genMeth, iosData.BTNClearName);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
 //Open Daily Sales from main screen
 		genMeth.clickId(genMeth, iosData.DailySalesID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
 		genMeth.clickName(genMeth, "M");
 		
 	}
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCalls() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
+	
 //OPEN SERVICE CALLS
 		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
@@ -233,7 +236,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- priority = 3", useEye);	*/
 		
 		//Open the Slicer
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]");
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
 		genMeth.clickId(genMeth, iosData.BranchID);
 		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
 		genMeth.clickId(genMeth, iosData.BTNBackName);
@@ -316,19 +319,20 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, "Open");
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - After Action", useEye);
+		Thread.sleep(2000);
 		genMeth.clickName(genMeth, iosData.BTNBackName);
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 				
 	}
 	
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCallsMapNewServicecall() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
 
+		
 //OPEN SERVICE CALLS Map
 		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
@@ -356,7 +360,7 @@ import com.applitools.eyes.Eyes;
 		//go back to the map tab via the back navigation icon
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
 		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 
 //Create new service call
 		genMeth.clickId(genMeth, iosData.BTNnewServiceCallId);
@@ -392,14 +396,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[1]");
 		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 
 	}
  
 
 	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
-			groups= {"Sanity IOS102"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS101"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -422,7 +425,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(1000);
 		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
 		//Operations
 		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
@@ -431,7 +434,7 @@ import com.applitools.eyes.Eyes;
 		//Open grid second layer
 		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
 		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
 		genMeth.clickName(genMeth, "Inventory");
 		genMeth.clickName(genMeth, "Orders");
@@ -472,17 +475,17 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Place new order All parameters", useEye);
 		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
 		
 	}
 	
 	@Test (enabled = true ,testName = "Sample App Technicians", retryAnalyzer = Retry.class, description = "Technicians" ,
-			groups= {"Sanity IOS"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationTechnicians() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
-
+		
 //OPEN Order Lookup
 		genMeth.signOutFromStartup(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);

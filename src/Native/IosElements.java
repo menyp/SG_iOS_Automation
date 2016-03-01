@@ -25,7 +25,7 @@ public class IosElements {
 	String BTNlogoutXpth;
 	String BTNBackName;
 	String BTNClearName;
-	String BTNSlicerIconXpth;
+	String BTNSlicer;
 	String BTNmapphoneiconID;
 	String BTNCancelName;
 	String BTNdirection;
@@ -113,7 +113,7 @@ public class IosElements {
 		this.BTNlogoutXpth = XmlHandel.readAndroidXml("BTNlogoutXpth", langXml, xmlPath);
 		this.BTNBackName = XmlHandel.readAndroidXml("BTNBackName", langXml, xmlPath);
 		this.BTNClearName = XmlHandel.readAndroidXml("BTNClearName", langXml, xmlPath);
-		this.BTNSlicerIconXpth = XmlHandel.readAndroidXml("BTNSlicerIconXpth", langXml, xmlPath);
+		this.BTNSlicer = XmlHandel.readAndroidXml("BTNSlicer", langXml, xmlPath);
 		this.BTNmapphoneiconID = XmlHandel.readAndroidXml("BTNmapphoneiconID", langXml, xmlPath);
 		this.BTNCancelName = XmlHandel.readAndroidXml("BTNCancelName", langXml, xmlPath);
 		this.BTNdirection = XmlHandel.readAndroidXml("BTNdirection", langXml, xmlPath);

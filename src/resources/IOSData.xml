@@ -15,7 +15,7 @@
 			<BTNsettingsIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]</BTNsettingsIconXpth>
 			<BTNBackName>Back</BTNBackName>
 			<BTNClearName>Clear</BTNClearName>
-			<BTNSlicerIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]</BTNSlicerIconXpth>
+			<BTNSlicer>BTNSlicer</BTNSlicer>
 			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
 			<BTNCancelName>Cancel</BTNCancelName>					
 			<BTNdirection>BTNdirection</BTNdirection>

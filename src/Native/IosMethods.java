@@ -133,7 +133,7 @@ public class IosMethods {
 
 	public void signOutFromStartup(IosMethods genMeth)
 			throws InterruptedException, IOException {
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
+	//	genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.clickXpth(genMeth, iosData.BTNsettingsIconXpth);
 		genMeth.clickXpth(genMeth, iosData.BTNlogoutXpth);
 
