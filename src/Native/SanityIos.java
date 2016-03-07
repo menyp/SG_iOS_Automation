@@ -41,7 +41,7 @@ import com.applitools.eyes.Eyes;
 	IOSDriver<MobileElement> driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
-	Boolean useEye = false;
+	Boolean useEye = true;
 
 	@BeforeSuite(alwaysRun = true)
 	public void setupBeforeSuite(ITestContext context) throws ParserConfigurationException, SAXException, IOException, InterruptedException, jdk.internal.org.xml.sax.SAXException {
@@ -106,7 +106,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
-			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS11"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -530,7 +530,7 @@ import com.applitools.eyes.Eyes;
  
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS100" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -554,22 +554,44 @@ import com.applitools.eyes.Eyes;
 		
 	}
 		
-	
-	
-	
-	@Test(enabled = true, testName = "Map,Dashboard, Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS100" })
+	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
+			groups = { "Sanity IOS" })
 
-	public void Tabs_Map_Chart() throws ParserConfigurationException, SAXException,
+	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		
 		//Open Dashboard tab Tab
+		genMeth.clickName(genMeth, "DashB/Cards/Employee");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Dashboard DefLayouts");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
+		
+		//Navigate to Employee directory tab
+		genMeth.clickName(genMeth, "Service Call ID");
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout- Navigate to Employee Directory", useEye);
+
+		//Navigate back to Dashboard
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth, "Gauge");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
+		
+		//Back to Startup screen
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+				
+	}
+	
+	
+	@Test(enabled = true, testName = "Map,Dashboard, Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
+			groups = { "Sanity IOS" })
+
+	public void Tabs_Map() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
 
 		//Open Map By Address Tab
+		genMeth.clickName(genMeth, "Map");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Map By Address");
 		                    
@@ -588,12 +610,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Phone", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
-		//Navigation
+		//Navigation to URL tab
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAButton[1]" );
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Navigation to Aventura", useEye);
+		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
 		
 		//Navigation Back
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		
 		//Open Map By GPS
 		Thread.sleep(10000);
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
@@ -602,10 +626,19 @@ import com.applitools.eyes.Eyes;
 		Thread.sleep(3000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By GPS- Press pin map", useEye);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
+		
+		//Back to Startup screen
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 
+	}
+	
+	@Test(enabled = true, testName = "Map Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
+			groups = { "Sanity IOS1001" })
+
+	public void Tabs_Chart() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
 		//Open Bar Chart
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Bar Chart");
+		genMeth.clickName(genMeth, "Chart/CoverF/ActionC");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart", useEye);
 		
 		//Filter data
@@ -626,18 +659,16 @@ import com.applitools.eyes.Eyes;
 		//Navigation to pie chart
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
 		Thread.sleep(8000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart- Navigate to Pie Chart", useEye);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart- Navigate to Dashboard", useEye);
 		
 		//Navigate back to the Bar chart
-		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[1]");
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Bar Chart", useEye);
-
 		
 		//Pie Chart
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Pie chart");
+		genMeth.clickName(genMeth, "Pie Chart");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart", useEye);
 		
 		//Filter data	
@@ -653,7 +684,6 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Pie Chart- Navigate to Bar Chart", useEye);
 		
 		//Navigation back to the Pie chart
-		//genMeth.clickId(genMeth, "Aventura Mall");
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 
 		Thread.sleep(10000);
@@ -662,7 +692,6 @@ import com.applitools.eyes.Eyes;
 		//Go Back to Startup screen
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 
-		
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 
