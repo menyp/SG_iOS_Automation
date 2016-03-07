@@ -874,7 +874,7 @@ public class IosMethods {
 	public MobileElement fluentwait(IOSDriver driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
 
-		.withTimeout(60, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
+		.withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 
 		MobileElement foo = (MobileElement) wait

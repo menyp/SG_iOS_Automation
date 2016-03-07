@@ -633,7 +633,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Map Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1001" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Chart() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -700,15 +700,14 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Cover Flow", retryAnalyzer = Retry.class, description = "Check the Cover Flow tab",
-			groups = { "Sanity IOS100" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to CoverFlow
-		genMeth.clickName(genMeth, "All Tabs");
+		genMeth.clickName(genMeth, "Chart/CoverF/ActionC");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickName(genMeth, "Cover Flow");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Cover Flow", useEye);
 		genMeth.swipeRightIphone5(1000);
@@ -756,19 +755,17 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS100" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to List
-		genMeth.clickName(genMeth, "All Tabs");
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.clickName(genMeth, "List");
+		genMeth.clickName(genMeth, "List / Grid");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List", useEye);
 		
 		//Map
+		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickName(genMeth, "Address");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List Address", useEye);
 		genMeth.swipedownIphone5Short(1000);
@@ -804,7 +801,7 @@ import com.applitools.eyes.Eyes;
 		// Landline
 		genMeth.clickName(genMeth, "Landline");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List Landline", useEye);
-		
+		genMeth.swipedownIphone5Short(1000);
 
 		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List See All", useEye);
@@ -824,13 +821,13 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Grid two layer", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS100" })
+			groups = { "Sanity IOS1001" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to Grid
-		genMeth.clickName(genMeth, "All Tabs");
+		genMeth.clickName(genMeth, "List / Grid");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "Grid - Two Layers");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid two layers", useEye);
@@ -887,11 +884,9 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
 		genMeth.swipedownIphone5Long(1000);
-		//genMeth.swipedownIphone5Long(1000);
-
 		
 		// Landline
-		genMeth.clickName(genMeth, "Landline");
+		genMeth.clickId(genMeth, "KPI");
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickName(genMeth, "Landline");
 
