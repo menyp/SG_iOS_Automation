@@ -975,14 +975,14 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS101" })
+			groups = { "Sanity IOS1001" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 
 		// go to Employee Directory tab
-		genMeth.clickName(genMeth, "All Tabs");
+		genMeth.clickName(genMeth, "DashB/Cards/Employee");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.swipedownIphone5Short(1000);
 		
