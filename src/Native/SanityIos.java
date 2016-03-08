@@ -821,7 +821,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Grid two layer", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS1001" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -903,14 +903,13 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab",
-			groups = { "Sanity IOS100" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-
 		// go to Grid
-		genMeth.clickName(genMeth, "All Tabs");
+		genMeth.clickName(genMeth, "List / Grid");
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		
 		genMeth.clickName(genMeth, "Grid - One Layer");
@@ -923,43 +922,47 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);			
 		
 		// Map
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Address",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 
-		// MiniMap
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		// MiniMap - Navigation to slicer report
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Mini Map",useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);	
+		genMeth.swipeRightIphone5(1000);	
 
-		// Phone
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
+
+		// Mobile Phone
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Phone",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
 
 		// Email
-		genMeth.swipeRightIphone5(1000);
-			
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
 		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Email",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
 
 		// URL
-		
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
-		
+		genMeth.swipeRightIphone5(1000);	
+		genMeth.swipeRightIphone5(1000);	
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[3]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
-		genMeth.swipeRightIphone5(1000);
-		genMeth.swipedownIphone5Short(1000);
-		
 		// Landline
-		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[21]");
+		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Landline", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 				
