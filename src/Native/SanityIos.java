@@ -205,7 +205,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS1111"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCalls() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -327,7 +327,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCallsMapNewServicecall() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -402,7 +402,7 @@ import com.applitools.eyes.Eyes;
  
 
 	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
-			groups= {"Sanity IOS101"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -481,7 +481,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test (enabled = true ,testName = "Sample App Technicians", retryAnalyzer = Retry.class, description = "Technicians" ,
-			groups= {"Sanity IOS1"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationTechnicians() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -530,7 +530,7 @@ import com.applitools.eyes.Eyes;
  
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -975,7 +975,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1001" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1099,6 +1099,108 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
+	
+	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
+			groups = { "Sanity IOS1" })
+
+	public void Param_Report_Grid() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+
+		// go to parameterized report - Grid tab
+		genMeth.clickName(genMeth, "Param Report Grid");
+		
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- add Parameters", useEye);
+		
+		//Attempt to submit while mandatory is missing
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Mandatory field is missing", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "SL-Device Types");
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- SL param", useEye);
+		genMeth.clickId(genMeth, "Laptop");
+		Thread.sleep(4000);
+		
+		genMeth.clickId(genMeth, "PSL- Device Model");
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- PSL param", useEye);
+		genMeth.clickId(genMeth, "Lenovo");
+		
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- All params were filled", useEye);
+		
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Grid first layer", useEye);
+		//Go To second layer
+		genMeth.clickId(genMeth, "Laptop");
+		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Grid second layer", useEye);
+		
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+	
+	@Test(enabled = true, testName = "Parameterized report List", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
+			groups = { "Sanity IOS1001" })
+
+	public void Param_Report_List() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+
+		// go to parameterized report - Grid tab
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.clickName(genMeth, "Param Report List");
+		
+		genMeth.eyesCheckWindow(eyes, "Param Report List- add Parameters", useEye);
+		
+		//Attempt to submit while mandatory is missing
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "Param Report List- Mandatory field is missing", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "FreeText  (Priority)");
+		genMeth.clickId(genMeth, "more, numbers");
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+		genMeth.clickId(genMeth, "SL_ML (Priority)");
+		genMeth.eyesCheckWindow(eyes, "Param Report List- SL ML  Priority", useEye);
+		genMeth.clickId(genMeth, "2");
+		genMeth.eyesCheckWindow(eyes, "Param Report List- All params were filled", useEye);
+		
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Param Report List- FreeText Priority = 1", useEye);
+
+		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickName(genMeth, "SL_ML (Priority)");
+		genMeth.eyesCheckWindow(eyes, "Param Report List- FreeText Priority = 2", useEye);
+		
+
+		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickName(genMeth, "SC(Up_Date<=MobDate)");
+		genMeth.eyesCheckWindow(eyes, "Param Report List- SC(Up_Date<=MobDate)", useEye);
+		
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS2" })
 	public void actions() throws ParserConfigurationException, SAXException,
