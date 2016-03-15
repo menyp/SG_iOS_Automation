@@ -530,7 +530,7 @@ import com.applitools.eyes.Eyes;
  
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -940,9 +940,9 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);	
 		genMeth.swipeRightIphone5(1000);	
 
-
 		// Mobile Phone
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
+		Thread.sleep(1000);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Phone",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
@@ -956,7 +956,8 @@ import com.applitools.eyes.Eyes;
 
 		// URL
 		genMeth.swipeRightIphone5(1000);	
-		genMeth.swipeRightIphone5(1000);	
+		genMeth.swipeRightIphone5(1000);
+		Thread.sleep(1000);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[3]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
@@ -1067,7 +1068,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickName(genMeth, "First_Name");
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Navigation", useEye);
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Back from navigation", useEye);
@@ -1101,7 +1102,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Param_Report_Grid() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1120,7 +1121,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "SL-Device Types");
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- SL param", useEye);
 		genMeth.clickId(genMeth, "Laptop");
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		genMeth.clickId(genMeth, "PSL- Device Model");
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- PSL param", useEye);
@@ -1144,7 +1145,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Parameterized report List", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1001" })
+			groups = { "Sanity IOS" })
 
 	public void Param_Report_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1194,78 +1195,53 @@ import com.applitools.eyes.Eyes;
 	}
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Test the Actions", groups = { "Sanity IOS2" })
-	public void actions() throws ParserConfigurationException, SAXException,
+	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
+			groups = { "Sanity IOS" })
+
+	public void Param_Report_DL_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-		// Open QA_SQL Actions --> Ingrid report
-		genMeth.clickName(genMeth, "A_DL testing");
-		genMeth.clickXpth(genMeth,iosData.IconBackToApplicationList_xpth);
-		genMeth.clickName(genMeth, "QA_SQL Actions");
-		genMeth.clickName(genMeth, "InGrid");
 
-		// Grid Dynamic List
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Grid- Dynamic List");
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		// go to parameterized report dashboard - DL- Device Info tab
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickId(genMeth, "Param DL-Dashboard");
 		
-		genMeth.clickName(genMeth, "Val1");
-		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- DynamicList", useEye);
-		genMeth.clickName(genMeth, "Drawer,12");
-		Thread.sleep(3000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
-		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Grid- Dynamic List");
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- DynamicList_Success", useEye);
-		genMeth.swipeRightIphone6Plus(1000);
-		
-		// Grid Parameterized List
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
-		genMeth.clickName(genMeth, "Val1");
-		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		genMeth.clickName(genMeth, "Drawer,12");
-		Thread.sleep(3000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
-		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Grid-ParameterizedSL");
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- ParameterizedSL_Success", useEye);
-		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- add Parameters", useEye);
 
-		// Grid QR 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
-		genMeth.clickXpth(genMeth, iosData.TEXTFIELDqr_Xpth);
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, "1");		
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickName(genMeth, iosData.Iconaction_icon_green_Name);
-		genMeth.clickXpth(genMeth, iosData.TEXTFIELDqr_Xpth);
-		genMeth.clickName(genMeth, iosData.BTNClearName);
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[4]");
-		genMeth.clickName(genMeth, iosData.BTNrefresh_Name);
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Grid- QR");
-		genMeth.eyesCheckWindow(eyes, "iOS_Actions_Grid- QR_Success", useEye);
+		//Insert parameters
+		genMeth.clickId(genMeth, "SL- Devices Type");
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- SL param", useEye);
+		genMeth.clickId(genMeth, "Laptop");
+		Thread.sleep(2000);
+		
+		genMeth.clickId(genMeth, "DL- Device Model");
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- DL param", useEye);
+		genMeth.clickId(genMeth, "Lenovo");
+		
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- All params were filled", useEye);
+		
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
+		
+		//Navigate to Dashboard tab
+		genMeth.clickId(genMeth, "Device Type name (ParentName)");
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Navigate to SL- Devices by Type tab", useEye);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
 		
 		//Back to startup screen
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickXpth(genMeth, iosData.IconBackToApplicationList_xpth);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 		
 	}
+	
+	
+	
+	
 	
 	
 	
@@ -1346,8 +1322,6 @@ import com.applitools.eyes.Eyes;
 			ParserConfigurationException, SAXException {
 
 	}
-	
-	
 	
 	
 	
