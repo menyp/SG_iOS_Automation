@@ -92,8 +92,8 @@
 	
 		   	
 <!-- 	   	General Info -->
-		<UserProd>test1@1.com</UserProd>
-		<passwordProd>M1234567!</passwordProd>
+		<UserProd>meny1@skygiraffe.com</UserProd>
+		<passwordProd>Trustno1</passwordProd>
 		<userQA>appium1@1.com/qa</userQA>
 		<passwordQA>123</passwordQA>
 		<badPassword>incorrectPassword</badPassword>

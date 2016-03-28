@@ -59,7 +59,7 @@ import com.applitools.eyes.Eyes;
 		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
 		driver = genMeth.setCapabilitiesIos(genMeth);
 			
-		genMeth.cleanLoginIos(genMeth, iosData.userQA); 
+		genMeth.cleanLoginIos(genMeth, iosData.userQA, iosData.passwordQA); 
  
 	
 	}
@@ -79,7 +79,7 @@ import com.applitools.eyes.Eyes;
 			
 			driver = genMeth.setCapabilitiesIos(genMeth);
 			iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-			genMeth.cleanLoginIos( genMeth, iosData.userQA );
+			genMeth.cleanLoginIos( genMeth, iosData.userQA , iosData.passwordQA );
 		}
 
 		else {
@@ -96,7 +96,7 @@ import com.applitools.eyes.Eyes;
 
 				driver = genMeth.setCapabilitiesIos(genMeth);
 				iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-				genMeth.cleanLoginIos( genMeth, iosData.userQA);
+				genMeth.cleanLoginIos( genMeth, iosData.userQA, iosData.passwordQA);
 
 			}
 
@@ -106,7 +106,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
-			groups= {"Sanity IOS11"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -117,7 +117,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
 		
 		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 4.11");
+		genMeth.clickName(genMeth,  "Operations 5.2");
 		
 		//useEye = true;
 	
@@ -205,7 +205,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS1111"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCalls() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -327,7 +327,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationServiceCallsMapNewServicecall() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -402,7 +402,7 @@ import com.applitools.eyes.Eyes;
  
 
 	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
-			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -481,7 +481,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test (enabled = true ,testName = "Sample App Technicians", retryAnalyzer = Retry.class, description = "Technicians" ,
-			groups= {"Sanity IOS111"}  /*dependsOnMethods={"testLogin"}*/)	
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
 	public void sampleAplicationTechnicians() throws ParserConfigurationException,
 			SAXException, IOException, InterruptedException {
@@ -1109,6 +1109,9 @@ import com.applitools.eyes.Eyes;
 
 
 		// go to parameterized report - Grid tab
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+
 		genMeth.clickName(genMeth, "Param Report Grid");
 		
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- add Parameters", useEye);
@@ -1153,6 +1156,8 @@ import com.applitools.eyes.Eyes;
 
 		// go to parameterized report - Grid tab
 		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+
 		genMeth.clickName(genMeth, "Param Report List");
 		
 		genMeth.eyesCheckWindow(eyes, "Param Report List- add Parameters", useEye);
@@ -1194,12 +1199,10 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	
-	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS" })
-
-	public void Param_Report_DL_Dashboard() throws ParserConfigurationException, SAXException,
-			IOException, InterruptedException {
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_DL_Dashboard()
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
 
 
 		// go to parameterized report dashboard - DL- Device Info tab
@@ -1240,6 +1243,40 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_CoverFlow()
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
+
+
+		// go to parameterized report dashboard - DL- Device Info tab
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickId(genMeth, "Param Rep Cover Flow");
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Parameters", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "Insert Gender (F or M)");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - QR", useEye);
+		genMeth.clickId(genMeth, "Insert Gender (F or M)");
+		genMeth.clickId(genMeth, iosData.BTNClearName);
+		genMeth.clickId(genMeth, "m");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Males", useEye);
+		
+		//Go To cover flow tab by const (females)
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Const-Female Only");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Female", useEye);
+		
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
 	
 	
 	

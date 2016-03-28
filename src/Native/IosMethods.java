@@ -55,7 +55,7 @@ public class IosMethods {
 	
 	
 
-	public void cleanLoginIos(IosMethods genMeth,String user) throws ParserConfigurationException, SAXException,
+	public void cleanLoginIos(IosMethods genMeth,String user, String password) throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// Check language making sure keyboard is set to English
@@ -80,9 +80,8 @@ public class IosMethods {
 			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
 
 		}
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth, iosData.userQA);
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth,
-				iosData.passwordQA);
+		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth, user);
+		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);
 		genMeth.clickId(genMeth, iosData.BTNloginID);
 		
 		// Check if default app is open
@@ -1248,7 +1247,7 @@ public class IosMethods {
 		if (isStartupScreenDisplay != true ) {
 
 			genMeth.signOutFromStartup(genMeth);
-			genMeth.cleanLoginIos(genMeth, iosData.userQA);
+			genMeth.cleanLoginIos(genMeth, iosData.userQA, iosData.passwordQA);
 		}
 
 	}
