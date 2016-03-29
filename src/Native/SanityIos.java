@@ -1278,7 +1278,49 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_Chart()
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
+
+
+		// go to parameterized report-  Param report chart tab
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickId(genMeth, "Param Report Chart");
+		Thread.sleep(2000);
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - Parameters", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "Choose Value");
+		genMeth.clickId(genMeth, "Mall of America");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL ", useEye);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Bar", useEye);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(3000);
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america in bar chart", useEye);
+		
+		//Naviagte to param report
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - Param report map - parameters screen", useEye);
+		genMeth.clickId(genMeth, iosData.BTNCancelName);
+		
+		//Go To Pie tab
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "SL-SalesbyBranch-Pie");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Pie", useEye);
+		genMeth.clickName(genMeth, "Returns");
+		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Pie- Returnes", useEye);
+
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
 	
 	
 	
