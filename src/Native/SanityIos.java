@@ -1278,7 +1278,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Chart()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1321,7 +1321,114 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_EmployeeDirectoryD()
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
+
+
+		// go to parameterized report-  Param report chart tab
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+
+		genMeth.clickId(genMeth, "Param Report ED");
+		Thread.sleep(2000);
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep ED - Parameters", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "Choose Value");
+		genMeth.clickId(genMeth, "Female");
+		genMeth.eyesCheckWindow(eyes, "Param Rep ED -SL MB", useEye);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(2000);
+		genMeth.eyesCheckWindow(eyes, "Param Rep ED - Female only", useEye);
+		
+		//Go To Employee tab by Login variable
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "ED by Login");
+		genMeth.eyesCheckWindow(eyes, "Param Rep ED - ED by Login", useEye);
+
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_Map()
+
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
+
+
+		// go to parameterized report-  Param report chart tab
+		genMeth.swipedownIphone5Long(1000);
+
+		genMeth.clickId(genMeth, "Param Report Map");
+		Thread.sleep(5000);
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Parameters", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "Choose Value");
+		genMeth.clickId(genMeth, "Mall of America");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america chosen", useEye);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america on map", useEye);
+
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_Crds()
+			throws ParserConfigurationException, SAXException, IOException,
+			InterruptedException {
+
+
+		// go to parameterized report-  Param report chart tab
+		genMeth.swipedownIphone5Long(1000);
+
+		genMeth.clickId(genMeth, "Param Report Cards");
+		Thread.sleep(5000);
+		
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Parameters", useEye);
+
+		//Insert parameters
+		genMeth.clickId(genMeth, "Default");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, "delete");
+		
+		genMeth.clickId(genMeth, "more, numbers");
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Priority = 1", useEye);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Priority = 1 service calls", useEye);
+
+		//Back to startup screen
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
 	
 	
 	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
