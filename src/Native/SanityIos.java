@@ -529,6 +529,9 @@ import com.applitools.eyes.Eyes;
 	}
  
 	
+	
+	
+	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
 			groups = { "Sanity IOS" })
 
@@ -543,7 +546,7 @@ import com.applitools.eyes.Eyes;
 		//go to URL data Item
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "URL Constant");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
 		
 		//Go Back to Startup screen
@@ -921,14 +924,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);
 		genMeth.swipeRightIphone5(1000);			
 		
-		// Map
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
+		// Address
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Address",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 
 		// MiniMap - Navigation to slicer report
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Mini Map",useEye);
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
@@ -942,13 +945,13 @@ import com.applitools.eyes.Eyes;
 
 		// Mobile Phone
 		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[10]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Phone",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
 
 		// Email
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
 		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Email",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
@@ -958,12 +961,12 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);	
 		genMeth.swipeRightIphone5(1000);
 		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[3]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[4]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
 		// Landline
-		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
+		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Landline", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 				
@@ -972,7 +975,11 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
 		//Verify Startup screen is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);	}
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);	
+		genMeth.swipeUpIphone5Long(1000);
+	
+	
+	}
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
@@ -1143,6 +1150,7 @@ import com.applitools.eyes.Eyes;
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
 		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 		
 	}
@@ -1225,12 +1233,12 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
 		
 		//Navigate to Dashboard tab
 		genMeth.clickId(genMeth, "Device Type name (ParentName)");
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Navigate to SL- Devices by Type tab", useEye);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
@@ -1388,8 +1396,8 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
-	public void Param_Report_Crds()
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_Cards()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
 
@@ -1429,7 +1437,116 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
+	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
+			groups = { "Sanity IOS1" })
+
+	public void Actions_List() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+		// go to List
+		genMeth.clickName(genMeth, "List / Grid");
+		
+		genMeth.eyesCheckWindow(eyes, "All Tabs- List", useEye);
+		
+		//Execute action in the first layer
+		//Free text description
+		genMeth.clickId(genMeth, "Description");
+		boolean checkAction = genMeth.checkIsElementVisible(By.id("Test1"));
+		if (checkAction) {
+			genMeth.clickId(genMeth, "delete");
+			genMeth.clickName(genMeth, "more, numbers");
+			genMeth.clickName(genMeth, "2");
+
+		} else {
+			genMeth.clickId(genMeth, "delete");
+			genMeth.clickName(genMeth, "more, numbers");
+			genMeth.clickName(genMeth, "1");
+
+		}
+		
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow(eyes, "List Actions- cell description", useEye);
+
+		//Free text Priority (Simple List MB)
+		genMeth.clickId(genMeth, "Priority");
+		genMeth.clickId(genMeth, "1");
+		checkAction = genMeth.checkIsElementVisible(By.id("Update Pirority (MB)"));
+
+		if (checkAction) {
+			genMeth.clickId(genMeth, "2");
+
+		}
+		
+		genMeth.eyesCheckWindow(eyes, "List Actions- cell Priority (Simple List MB)", useEye);
+
+		//Assign To (Dynamic List)
+		genMeth.clickId(genMeth, "Assigned To");
+		genMeth.clickId(genMeth, "Adrian Lopez");
+		Thread.sleep(10000);		
+		genMeth.eyesCheckWindow(eyes, "List Actions- cell Assign To (DL)", useEye);	
+		
+		//Action in second layer
+	 
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		
+		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
+		Thread.sleep(2000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
 	
+		//KPI (QR code)
+		genMeth.clickId(genMeth, "KPI");
+		genMeth.clickId(genMeth, iosData.BTNClearName);
+
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "1");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(10000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickId(genMeth, "KPI");
+		genMeth.clickId(genMeth, iosData.BTNClearName);
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "2");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(10000);
+		genMeth.swipedownIphone5Long(1000);
+
+		genMeth.eyesCheckWindow(eyes, "List Actions- cell KPI second layer (QR)", useEye);
+
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		
+		//Row Action (Adding a row to the all parameters table)
+		genMeth.clickId(genMeth, "AddRowAllParamaters");
+		genMeth.clickId(genMeth, "Write");
+	
+		//genMeth.sendId(genMeth, "//UIAApplication[1]/UIAWindow[5]/UIAKeyboard[1]", "N");
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "New Row");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.clickId(genMeth, "DeviceType_SL_ByName");
+		genMeth.clickId(genMeth, "Laptop");
+
+		genMeth.clickId(genMeth, "Device_Model_DL");
+		genMeth.clickId(genMeth, "Asus");
+
+		genMeth.clickId(genMeth, "Items_By_Category_PSL");
+		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
+		
+		genMeth.clickId(genMeth, "QR");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		
+		genMeth.clickId(genMeth, "SL_Manual_List");
+		genMeth.clickId(genMeth, "2");
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		
+		//Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Short(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+
+	}
+
 	
 	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {

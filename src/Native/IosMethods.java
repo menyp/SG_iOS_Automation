@@ -422,21 +422,6 @@ public class IosMethods {
 
 	}
 
-	public void clickId1(IosMethods genMeth, String id)
-			throws InterruptedException {
-
-		try {
-
-			WebElement myElement = genMeth.fluentwait(driver, By.id(id));
-			myElement.click();
-		}
-
-		catch (Exception e) {
-
-			org.testng.Assert.fail(id + " didn't display");
-
-		}
-	}
 
 	public void clickId(IosMethods genMeth, String id)
 			throws InterruptedException, IOException {
