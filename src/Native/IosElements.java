@@ -40,6 +40,11 @@ public class IosElements {
 	String BTNrefresh_Name;
 	String BTNsend_Name;
 	String BTNseeAll_ID;
+	String BTNkeyboardDelete;
+	String BtnkeyboardMoreNumbers;
+	
+	
+	
 	
 	//TextFields	
 	String TEXTFIELDemailXpth;
@@ -129,8 +134,9 @@ public class IosElements {
 		this.BTNrefresh_Name = XmlHandel.readAndroidXml("BTNrefresh_Name", langXml, xmlPath);
 		this.BTNsend_Name = XmlHandel.readAndroidXml("BTNsend_Name", langXml, xmlPath);
 		this.BTNseeAll_ID = XmlHandel.readAndroidXml("BTNseeAll_ID", langXml, xmlPath);
+		this.BTNkeyboardDelete = XmlHandel.readAndroidXml("BTNkeyboardDelete", langXml, xmlPath);
+		this.BtnkeyboardMoreNumbers = XmlHandel.readAndroidXml("BtnkeyboardMoreNumbers", langXml, xmlPath);
 
-		
 		
 		
 		

@@ -37,12 +37,14 @@ import com.applitools.eyes.Eyes;
 	String StopServerPath;
 	String appIdentifier;
 	
-	IosElements iosData;
+
 	IOSDriver<MobileElement> driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
-
+	IosElements iosData;
+	
+	
 	@BeforeSuite(alwaysRun = true)
 	public void setupBeforeSuite(ITestContext context) throws ParserConfigurationException, SAXException, IOException, InterruptedException, jdk.internal.org.xml.sax.SAXException {
 		
@@ -539,7 +541,7 @@ import com.applitools.eyes.Eyes;
 			IOException, InterruptedException {
 
 		// go to URL Constant
-		genMeth.clickName(genMeth, "URL");
+		genMeth.clickName(genMeth, "URL / News");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
 		
@@ -1133,7 +1135,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "Laptop");
 		Thread.sleep(6000);
 		
-		genMeth.clickId(genMeth, "PSL- Device Model");
+		genMeth.clickId(genMeth, "Choose Value");
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- PSL param", useEye);
 		genMeth.clickId(genMeth, "Lenovo");
 		
@@ -1176,7 +1178,7 @@ import com.applitools.eyes.Eyes;
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "FreeText  (Priority)");
-		genMeth.clickId(genMeth, "more, numbers");
+		genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
@@ -1412,15 +1414,15 @@ import com.applitools.eyes.Eyes;
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Default");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
-		genMeth.clickId(genMeth, "delete");
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+		genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
 		
-		genMeth.clickId(genMeth, "more, numbers");
+		genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
@@ -1438,7 +1440,7 @@ import com.applitools.eyes.Eyes;
 	}
 
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1453,13 +1455,13 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "Description");
 		boolean checkAction = genMeth.checkIsElementVisible(By.id("Test1"));
 		if (checkAction) {
-			genMeth.clickId(genMeth, "delete");
-			genMeth.clickName(genMeth, "more, numbers");
+			genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+			genMeth.clickName(genMeth, iosData.BtnkeyboardMoreNumbers);
 			genMeth.clickName(genMeth, "2");
 
 		} else {
-			genMeth.clickId(genMeth, "delete");
-			genMeth.clickName(genMeth, "more, numbers");
+			genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+			genMeth.clickName(genMeth, iosData.BtnkeyboardMoreNumbers);
 			genMeth.clickName(genMeth, "1");
 
 		}
@@ -1547,6 +1549,152 @@ import com.applitools.eyes.Eyes;
 
 	}
 
+	
+	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
+			groups = { "Sanity IOS1" })
+
+	public void Actions_Grid_OneLayer() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+		// go to List
+		genMeth.clickName(genMeth, "List / Grid");
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Grid - One Layer");  
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer main view", useEye);
+
+		//Description  user input = Free Text
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[10]");
+		
+		
+		boolean isTextDisplayed = genMeth.checkIsElementVisible(By.name("“Test1”"));
+		
+		if (isTextDisplayed){
+			genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+			genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
+			genMeth.clickId(genMeth, "2");
+		}
+		else{
+			genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
+			genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
+			genMeth.clickId(genMeth, "1");
+		}
+		
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		Thread.sleep(10000);		
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- description (free text)", useEye);
+		genMeth.swipeRightIphone5(1000);
+
+		//Priority  user input = Simple List MB
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickId(genMeth, "1");
+		isTextDisplayed = genMeth.checkIsElementVisible(By.id("Update Pirority (ML)"));
+		
+		if (isTextDisplayed) {
+			genMeth.clickId(genMeth, "2");
+		}
+		Thread.sleep(10000);		
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Priority (Simple List MB)", useEye);
+
+		//Status  user input = Simple List (DI)
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickId(genMeth, "Open");
+		isTextDisplayed = genMeth.checkIsElementVisible(By.id("Update Status (SL)"));
+		
+		if (isTextDisplayed) {
+			genMeth.clickId(genMeth, "In Progress");
+		}
+		
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Status (Simple List DI)", useEye);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+
+		//ItemID  user input = PSL
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[9]");
+		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
+		isTextDisplayed = genMeth.checkIsElementVisible(By.id("Update ItemID (PSL)"));
+		
+		if (isTextDisplayed) {
+			genMeth.clickId(genMeth, "Drawer (Cat 1)");
+		}
+		
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- ItemID (PSL)", useEye);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		//genMeth.swipeRightIphone5(1000);
+
+
+		//KPI  user input = QR
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[15]");
+		genMeth.clickId(genMeth, iosData.BTNClearName);
+		genMeth.sendXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "2");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(10000);
+
+		
+		isTextDisplayed = genMeth.checkIsElementVisible(By.name("action_icon_orange"));
+		
+		if (isTextDisplayed == false) {
+			
+			genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[15]");
+			genMeth.clickId(genMeth, iosData.BTNClearName);
+			genMeth.sendXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "1");
+		}
+		
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- KPI (QR)", useEye);
+
+		//OutGrid(Row)  
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[17]");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Row parameters before insert", useEye);
+
+		genMeth.clickId(genMeth, "Free_Text1");
+		Thread.sleep(2000);
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "New row");
+								   
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		genMeth.clickId(genMeth, "QR_");
+		Thread.sleep(3000);
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "New QR");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+		genMeth.clickId(genMeth, "SL_Manual_List_");
+		genMeth.clickId(genMeth, "1");
+
+		genMeth.clickId(genMeth, "Device_Type_SL_DI_");
+		genMeth.clickId(genMeth, "Laptop");
+
+
+		genMeth.clickId(genMeth, "Device_Model_DL_");
+		genMeth.clickId(genMeth, "HP");
+		
+		
+
+		genMeth.clickId(genMeth, "Items_By_Category_PSL");
+		genMeth.clickId(genMeth, "Power Supply (Cat 1)");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Row parameters after insert", useEye);
+
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- after action executed", useEye);
+
+		
+		// Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Short(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App", useEye);
+
+	}
+	
+	
 	
 	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {

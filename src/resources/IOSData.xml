@@ -28,6 +28,8 @@
 			<BTNdeleteDraft_Name>Delete Draft</BTNdeleteDraft_Name>
 			<BTNclearText_Name>Clear text</BTNclearText_Name>
 			<BTNdelete_Name>Delete</BTNdelete_Name>
+			<BTNkeyboardDelete>delete</BTNkeyboardDelete>
+			<BtnkeyboardMoreNumbers>more, numbers</BtnkeyboardMoreNumbers>
 			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
 			<BTNsend_Name>Send</BTNsend_Name>
 			<BTNseeAll_ID>See All</BTNseeAll_ID>

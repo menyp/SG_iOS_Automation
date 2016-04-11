@@ -3,7 +3,6 @@ package Native;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -27,8 +26,12 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
+
+
 import org.openqa.selenium.remote.CapabilityType;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -162,15 +165,21 @@ public class IosMethods {
 	public IOSDriver<MobileElement> setCapabilitiesIos(IosMethods genMeth)
 			throws IOException, ParserConfigurationException, SAXException,
 			InterruptedException {
-
+	
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("deviceName",genMeth.getValueFromPropFile("deviceName"));
-		capabilities.setCapability("device",genMeth.getValueFromPropFile("device"));
-		capabilities.setCapability("udid", genMeth.getValueFromPropFile("udid"));
-		capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,genMeth.getValueFromPropFile("deviceName"));
+		//capabilities.setCapability("device",genMeth.getValueFromPropFile("device"));
+		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid"));
+		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
-		capabilities.setCapability("autoAcceptAlerts", true);
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
 
+		//capabilities.setCapability("autoAcceptAlerts", true);
+		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("udid"));
+
+		
+		
+		
 		try {
 
 			driver = new IOSDriver<MobileElement>(new URL(
