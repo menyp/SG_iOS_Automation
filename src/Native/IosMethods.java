@@ -1245,6 +1245,17 @@ public class IosMethods {
 		}
 
 	}
+	
+	public void rotateLandscape(){
+
+		driver.rotate(ScreenOrientation.LANDSCAPE);
+	}
+	
+	public void rotatePortrait(){
+
+		driver.rotate(ScreenOrientation.PORTRAIT);
+	}
+	
 	// public void changeConnectionType(String mode) {
 	//
 	// NetworkConnection mobileDriver = (NetworkConnection) driver;

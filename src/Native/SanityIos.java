@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ScreenOrientation;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeSuite;
 import org.xml.sax.SAXException;
@@ -559,6 +560,39 @@ import com.applitools.eyes.Eyes;
 		
 	}
 		
+	
+	@Test(enabled = true, testName = "News Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
+			groups = { "Sanity IOS1" })
+
+	public void Tabs_News() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+		// go to News 
+		genMeth.clickName(genMeth, "URL / News");
+		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "News");
+
+		genMeth.eyesCheckWindow(eyes, "All Tabs- News", useEye);
+		genMeth.clickId(genMeth, "www.milliondollarhomepage.com");
+		Thread.sleep(10000);
+
+		genMeth.eyesCheckWindow(eyes, "All Tabs- The milliion $ home page", useEye);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		genMeth.rotateLandscape();
+		genMeth.eyesCheckWindow(eyes, "All Tabs- News Landscape", useEye);
+		genMeth.rotatePortrait();
+
+		//Go Back to Startup screen
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
+		//Verify Startup screen is open
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+
+	
+	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
 			groups = { "Sanity IOS" })
 
@@ -1551,9 +1585,9 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
-	public void Actions_Grid_OneLayer() throws ParserConfigurationException, SAXException,
+	public void Actions_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to List
@@ -1626,7 +1660,6 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);
 		genMeth.swipeRightIphone5(1000);
 		genMeth.swipeRightIphone5(1000);
-		//genMeth.swipeRightIphone5(1000);
 
 
 		//KPI  user input = QR
@@ -1695,6 +1728,32 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	
+	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the Grid two layer actions",
+			groups = { "Sanity IOS" })
+
+	public void Actions_Grid_Two_Layer() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+
+		// go to List
+		genMeth.clickName(genMeth, "List / Grid");
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Grid - Two Layers");  
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid Two Layer main view", useEye);
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, "ItemID");
+		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
+		Thread.sleep(10000);
+		
+		// Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Short(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+	}
+
+	
+	
+	
 	
 	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {
@@ -1752,7 +1811,6 @@ import com.applitools.eyes.Eyes;
 		// existing email)
 	
 	}
-	
 	
 
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Switching from Foreground to Background and vice versa use cases",
