@@ -562,7 +562,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 	@Test(enabled = true, testName = "News Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_News() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1751,6 +1751,70 @@ import com.applitools.eyes.Eyes;
 		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 	}
 
+	
+
+	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
+	public void slicerReport() throws InterruptedException, IOException{
+		
+		// go to List
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickName(genMeth, "Slicer report");
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
+		
+		genMeth.clickId(genMeth, "BranchID");
+		genMeth.clickName(genMeth, "7");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- branchID selected",useEye);
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- List (BranchID=7)",useEye);
+
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		
+		genMeth.clickId(genMeth, "Slicer Grid");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Grid (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer Cover Flow");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Cover Flow (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer Dashboard");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Dashboard (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer Map");
+//		genMeth.clickName(genMeth, "Garden State Plaza, Paramus, NJ, 1 item");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Map (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer Cards");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Cards (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer News");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- News (BranchID=7)",useEye);
+		
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Slicer Bar Chart");
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Bar chart empty slicing",useEye);
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
+		genMeth.clickId(genMeth, "BranchID");
+		genMeth.clickId(genMeth, "7");
+		genMeth.clickId(genMeth, "Aventura Mall");
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Slicer Report- Bar chart Aventura Mall",useEye);
+
+
+		// Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		
+	}
+	
 	
 	
 	
