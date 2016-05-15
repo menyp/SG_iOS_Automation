@@ -175,7 +175,7 @@ public class IosMethods {
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
 
 		//capabilities.setCapability("autoAcceptAlerts", true);
-		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("udid"));
+		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
 
 		
 		
@@ -277,7 +277,7 @@ public class IosMethods {
 		return myElement;
 	}
 
-	public WebElement returnId(IOSDriver<MobileElement> driver,
+	public MobileElement returnId(IOSDriver<MobileElement> driver,
 			IosMethods genMeth, String id) throws InterruptedException {
 
 		try {
@@ -292,7 +292,7 @@ public class IosMethods {
 
 		}
 
-		WebElement myElement = genMeth.fluentwait(driver, By.id(id));
+		MobileElement myElement = genMeth.fluentwait(driver, By.id(id));
 		return myElement;
 
 	}
@@ -1112,7 +1112,7 @@ public class IosMethods {
 	public void setEnglishKeyboard(IosMethods genMeth)
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
-		boolean isENG = genMeth.checkIsElementVisible(By.name("space"));
+		boolean isENG = genMeth.checkIsElementVisible(By.id("@"));
 		if (isENG != true) {
 			// change to English
 			genMeth.clickId(genMeth, "English (US)");

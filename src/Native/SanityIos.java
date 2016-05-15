@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.WithTimeout;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -536,7 +537,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -549,7 +550,7 @@ import com.applitools.eyes.Eyes;
 		//go to URL data Item
 		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickName(genMeth, "URL Constant");
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
 		
 		//Go Back to Startup screen
@@ -562,7 +563,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 	@Test(enabled = true, testName = "News Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_News() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -594,7 +595,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS3" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -623,7 +624,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Map,Dashboard, Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Tabs_Map() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -672,7 +673,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Map Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Chart() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -739,7 +740,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Cover Flow", retryAnalyzer = Retry.class, description = "Check the Cover Flow tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -794,7 +795,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -860,7 +861,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Grid two layer", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -942,7 +943,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Tabs_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1019,7 +1020,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1145,7 +1146,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Param_Report_Grid() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1167,9 +1168,9 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "SL-Device Types");
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- SL param", useEye);
 		genMeth.clickId(genMeth, "Laptop");
-		Thread.sleep(6000);
+		Thread.sleep(12000);
 		
-		genMeth.clickId(genMeth, "Choose Value");
+		genMeth.clickId(genMeth, "PSL- Device Model");
 		genMeth.eyesCheckWindow(eyes, "Param Report Grid- PSL param", useEye);
 		genMeth.clickId(genMeth, "Lenovo");
 		
@@ -1192,7 +1193,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Parameterized report List", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Param_Report_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1243,7 +1244,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_DL_Dashboard()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1287,7 +1288,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_CoverFlow()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1322,7 +1323,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Chart()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1365,7 +1366,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_EmployeeDirectoryD()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1401,7 +1402,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Map()
 
 			throws ParserConfigurationException, SAXException, IOException,
@@ -1422,7 +1423,7 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america chosen", useEye);
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(10000);
+		Thread.sleep(12000);
 		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america on map", useEye);
 
 		//Back to startup screen
@@ -1432,7 +1433,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Cards()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1474,12 +1475,13 @@ import com.applitools.eyes.Eyes;
 	}
 
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to List
+		
 		genMeth.clickName(genMeth, "List / Grid");
 		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- List", useEye);
@@ -1574,6 +1576,45 @@ import com.applitools.eyes.Eyes;
 		
 		genMeth.clickId(genMeth, "SL_Manual_List");
 		genMeth.clickId(genMeth, "2");
+		
+		// image 
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[5]");
+		genMeth.clickName(genMeth, "PhotoCapture");
+		genMeth.clickName(genMeth, "Use Photo");
+		genMeth.clickName(genMeth, "Done");
+		genMeth.eyesCheckWindow(eyes, "List Actions- Image set", useEye);
+
+/*
+		//Signature
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]");
+		TouchAction touchAction = new TouchAction(driver);
+      //  touchAction.press(250, 250).moveTo(250, 150).release().perform();
+
+		//MobileElement el1 = genMeth.returnName(driver, genMeth, "SkyGiraffe");
+		//MobileElement el2 = genMeth.returnId(driver, genMeth, "X");
+
+		//touchAction.longPress(el1, 2000).moveTo(el2).release().perform();
+		
+		
+        
+		touchAction.longPress(200, 200, 3000).perform();
+		
+		touchAction.longPress(200, 200, 3000).waitAction(1000).moveTo(200,201).release().perform();
+		
+		touchAction.longPress(100, 100, 3000);
+		touchAction.moveTo(100, 50).waitAction(1000);
+		touchAction.release();
+		touchAction.perform();
+		
+		genMeth.eyesCheckWindow(eyes, "List Actions- Cancel signature", useEye);
+		
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]");
+		touchAction.longPress(250, 250, 1000).moveTo(250, 150).release().perform();
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "List Actions- signature Set", useEye);
+		*/
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		//Verify Startup screen is open
@@ -1585,7 +1626,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1706,7 +1747,7 @@ import com.applitools.eyes.Eyes;
 
 
 		genMeth.clickId(genMeth, "Device_Model_DL_");
-		genMeth.clickId(genMeth, "HP");
+		genMeth.clickId(genMeth, "Lenovo");
 		
 		
 
@@ -1714,6 +1755,16 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "Power Supply (Cat 1)");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Row parameters after insert", useEye);
 
+		// image
+		genMeth.clickXpth(genMeth,
+				"//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
+		genMeth.clickXpth(genMeth,
+				"//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[5]");
+		genMeth.clickName(genMeth, "PhotoCapture");
+		genMeth.clickName(genMeth, "Use Photo");
+		genMeth.clickName(genMeth, "Done");
+		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- Image set", useEye);
+		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		Thread.sleep(5000);
@@ -1729,7 +1780,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the Grid two layer actions",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_Two_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1753,7 +1804,7 @@ import com.applitools.eyes.Eyes;
 
 	
 
-	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReport() throws InterruptedException, IOException{
 		
 		// go to List
