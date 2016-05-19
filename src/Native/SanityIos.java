@@ -108,443 +108,18 @@ import com.applitools.eyes.Eyes;
 
 	}
 		
-	
-	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
-			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
 
-	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
-			SAXException, IOException, InterruptedException {
-
-		
-//Logout from startup page
-		genMeth.signOutFromStartup(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
-		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 5.2");
-		
-		//useEye = true;
-	
-// Login to sample app & open Dashboard report
-
-		genMeth.eyesCheckWindow(eyes, "SampleApp Main screen", useEye);
-		genMeth.clickName(genMeth,  iosData.DashboardName);
-		genMeth.eyesCheckWindow(eyes, "Dashboard Tab", useEye);
-//		genMeth.swipeRightIphone6Plus(1000);
-		genMeth.swipeRightIphone5(500);
-		genMeth.eyesCheckWindow(eyes, "World wide orders Tab", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickName(genMeth,  iosData.DashboardName);
-		
-// Open Sales Bar
-		// Change eye back to true once oleg fix the decimal issue
-		Thread.sleep(2000);
-		genMeth.clickId(genMeth, iosData.SalesName);
-		//set Eye UI to false due to ordinal change
-//		useEye = true;
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
-		genMeth.clickId(genMeth, iosData.ReturnsName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- show Sales/Net Sales", useEye);
-		genMeth.clickId(genMeth, iosData.SalesName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp show Net Sales", useEye);
-		genMeth.clickId(genMeth, iosData.NetSalesName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales - show Empty", useEye);
-		
-		genMeth.clickId(genMeth, iosData.SalesName);
-		genMeth.clickId(genMeth, iosData.ReturnsName);
-		genMeth.clickId(genMeth, iosData.NetSalesName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
-		
-		
-//Open Sales Pie
-		genMeth.clickId(genMeth, iosData.DailySalesBarID);
-		genMeth.clickId(genMeth, iosData.DailysalesPieID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Net Sales", useEye);
-		//genMeth.clickId(genMeth, iosData.DestinyUSAID);
-		//genMeth.clickName(genMeth, iosData.DestinyUSAID);
-		
-		try {
-			driver.findElementById(iosData.DestinyUSAID).click();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Net Sales - Destiny USA", useEye);
-
-		genMeth.clickId(genMeth, iosData.ReturnsName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Returns", useEye);
-		
-		genMeth.clickId(genMeth, iosData.SalesName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Sales", useEye);
-		genMeth.clickId(genMeth, iosData.DailysalesPieID);
-		genMeth.clickId(genMeth, iosData.Last12hoursID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
-		
-	
-// Check slicer in Sparklines
-		genMeth.clickName(genMeth, iosData.BTNSlicer);
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.clickId(genMeth, iosData.DestinyUSAID);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
-		
-//Clear the Slicer
-		genMeth.clickName(genMeth, iosData.BTNSlicer);
-		genMeth.clickName(genMeth, iosData.BTNClearName);
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		
-//Open Daily Sales from main screen
-		genMeth.clickId(genMeth, iosData.DailySalesID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		
-		genMeth.clickName(genMeth, "M");
-		
-	}
-	
-	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
-
-	public void sampleAplicationServiceCalls() throws ParserConfigurationException,
-			SAXException, IOException, InterruptedException {
-
-	
-//OPEN SERVICE CALLS
-		genMeth.signOutFromStartup(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
-		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 4.11");
-		
-		//genMeth.clickName(genMeth,  iosData.DashboardName);
-		
-		genMeth.clickId(genMeth, iosData.ServiceCallsID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls", useEye);
-		
-// InGrid Action- First layer
-		//genMeth.clickName(genMeth, iosData.BTNpriority_Name);
-	/*	genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[7]");
-		genMeth.clickName(genMeth, "1");
-		Thread.sleep(3000);
-		genMeth.swipedownIphone5(1000);
-		genMeth.swipeUpIphone5(1000);
-		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
-		genMeth.clickName(genMeth, "3");
-		Thread.sleep(5000);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- priority = 3", useEye);	*/
-		
-		//Open the Slicer
-		genMeth.clickName(genMeth, iosData.BTNSlicer);
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
-		genMeth.clickId(genMeth, iosData.BTNBackName);
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Slicer Mall Of America", useEye);
-/*
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[6]/UIAStaticText[1]");
-		Thread.sleep(3000);
-		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
-		genMeth.clickName(genMeth, "1");
-		Thread.sleep(10000);
-		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
-		genMeth.clickName(genMeth, "4");
-		Thread.sleep(6000);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- priority = 4", useEye);
-		
-*/		
-		//Open the second layer
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Second layer", useEye);
-		
-		//Mobile & Email Contact Details/Person
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[16]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile Contact Person -Cards", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[17]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email Contact Person -Cards", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
-		
-		genMeth.scrollDown(driver);
-		genMeth.scrollDown(driver);
-
-		//Mobile / Email / Map / URL - Address section
-		//Phone
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[20]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile (Address Section)", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-
-		//Email
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[21]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email (Address Section)", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
-		
-		// URL
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[22]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- URL ((Address Section))", useEye);
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		
-		//Map
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[24]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile Maps (Address Section)", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-
-		// Mobile / Email (Address Section)
-		//Mobile
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[28]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Phone (Assigned To Section)", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-
-		// Email 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[29]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email (Assigned To Section)", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
-		
-		//Close Service Call Action
-		genMeth.clickName(genMeth, "Close Service Call");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - Action", useEye);
-		genMeth.clickName(genMeth, "Comments");
-		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "Meny The Best");
-		
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickName(genMeth, "Parts");
-		genMeth.clickName(genMeth, "Drawer");
-		genMeth.clickName(genMeth, "SolutionType");
-		genMeth.clickName(genMeth, "Replaced cash drawer");
-		genMeth.clickName(genMeth, "Status");
-		genMeth.clickName(genMeth, "Open");
-		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - After Action", useEye);
-		Thread.sleep(2000);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-				
-	}
-	
-	
-	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
-			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
-
-	public void sampleAplicationServiceCallsMapNewServicecall() throws ParserConfigurationException,
-			SAXException, IOException, InterruptedException {
-
-		
-//OPEN SERVICE CALLS Map
-		genMeth.signOutFromStartup(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
-		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 4.11");
-		
-		//Open service calls map
-		genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
-		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, iosData.MallofAmericaOnMapXpath);
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America", useEye);
-
-		
-		//Check is Location popup is displayed
-		//genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAButton[2]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		
-	//	genMeth.clickName(genMeth, iosData.BTNMapCarIconName);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Car Direction", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		//go back to the map tab via the back navigation icon
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
-		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-
-//Create new service call
-		genMeth.clickId(genMeth, iosData.BTNnewServiceCallId);
-		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
-		
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.eyesCheckWindow(eyes, "Branch simple list", useEye);
-		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
-		
-		genMeth.clickId(genMeth, "Assigned To");
-		genMeth.clickId(genMeth, "Jessica Blue");
-		
-		genMeth.clickId(genMeth, "Category");
-		genMeth.clickId(genMeth, "Computer");
-		
-		genMeth.clickId(genMeth, "Item");
-		genMeth.clickId(genMeth, "Memory card");
-		
-		genMeth.clickId(genMeth, "Description");
-		genMeth.setEnglishKeyboard(genMeth);
-		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "Meny The Best");
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		
-		genMeth.clickId(genMeth, iosData.BTNpriority_Name);
-		genMeth.clickId(genMeth, "1");
-		
-		genMeth.eyesCheckWindow(eyes, "New service call with parameters", useEye);
-		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(2000);
-
-		//genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
-		genMeth.eyesCheckWindow(eyes, "New service call Actions collections +", useEye);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[1]");
-		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-
-	}
- 
-
-	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
-			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
-
-	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
-			SAXException, IOException, InterruptedException {
-
-//OPEN Order Lookup
-		genMeth.signOutFromStartup(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
-		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 4.11");
-			
-//Order lookup	
-		genMeth.clickId(genMeth, iosData.OrderLookup_ID);
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "Order Lookup parameters", useEye);
-		genMeth.clickName(genMeth, "Start Date");
-		MobileElement UIAPickerWheel = driver.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAPicker[1]/UIAPickerWheel[1]");
-		UIAPickerWheel.sendKeys("July");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		
-		//Operations
-		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
-		//Open grid second layer
-		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
-		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		
-		genMeth.clickName(genMeth, "Inventory");
-		genMeth.clickName(genMeth, "Orders");
-		/*genMeth.swipeRightIphone5(1000);
-		genMeth.swipeRightIphone5(1000);
-		genMeth.swipeRightIphone5(1000);*/
-
-		genMeth.eyesCheckWindow(eyes, "Orders", useEye);
-		
-		genMeth.clickName(genMeth, "Orders");
-		genMeth.clickName(genMeth, "Place New Order");
-
-		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
-
-		//Open the place new order
-		MobileElement El = driver.findElementByXPath(iosData.BTNplaceNewOrder_Xpth);
-		El.click();
-		
-		genMeth.eyesCheckWindow(eyes, "Place new order parameters", useEye);
-//		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);		
-//		genMeth.eyesCheckWindow(eyes, "Place new order parameters missing", useEye);
-//		genMeth.clickName(genMeth, iosData.BTNokName);
-		
-//Fill the parameters
-		genMeth.clickId(genMeth, iosData.BranchID);
-		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
-		genMeth.clickName(genMeth, "ProductID");
-//		genMeth.accessToCameraHandle(genMeth);
-		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
-		Thread.sleep(1000);
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		Thread.sleep(2000);
-		genMeth.clickName(genMeth, "Quantity");
-		genMeth.clickName(genMeth, "1");
-		genMeth.clickName(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Place new order All parameters", useEye);
-		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
-		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
-		
-	}
-	
-	@Test (enabled = true ,testName = "Sample App Technicians", retryAnalyzer = Retry.class, description = "Technicians" ,
-			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"}*/)	
-
-	public void sampleAplicationTechnicians() throws ParserConfigurationException,
-			SAXException, IOException, InterruptedException {
-		
-//OPEN Order Lookup
-		genMeth.signOutFromStartup(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
-		
-		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
-		genMeth.clickName(genMeth,  "Operations 4.11");
-					
-// Technicians
-		genMeth.clickName(genMeth, "Technicians");
-		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "Technicians", useEye);
-		
-// 	Phone Icon
-		genMeth.clickName(genMeth, "Phone");
-		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- Phone", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, "Phone");
-// Add to contacts
-		genMeth.clickName(genMeth, iosData.BTNaddContact_Name);
-//		genMeth.accessToContactsHandle(genMeth);
-		genMeth.eyesCheckWindow(eyes, "Technicians- Added by SkyGiraffe screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNBackName);
-		
-// Mail Icon
-		genMeth.clickName(genMeth, "Email");
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- New Message screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
-
-// Map Icon
-		genMeth.clickName(genMeth, "Address");
-		genMeth.eyesCheckWindow(eyes, "Technicians- Address screen", useEye);
-		genMeth.clickName(genMeth, iosData.BTNCancelName);
-		
-// Swipe along the technicians Cover Flow
-		genMeth.swipeRightIphone5(1000);
-		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
-				
-	}
- 
-	
-	
 	
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to URL Constant
 		genMeth.clickName(genMeth, "URL / News");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
 		
 		//go to URL data Item
@@ -563,7 +138,7 @@ import com.applitools.eyes.Eyes;
 		
 	
 	@Test(enabled = true, testName = "News Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_News() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -595,7 +170,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS3" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -603,12 +178,12 @@ import com.applitools.eyes.Eyes;
 		
 		//Open Dashboard tab Tab
 		genMeth.clickName(genMeth, "DashB/Cards/Employee");
-		genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickName(genMeth, "Dashboard DefLayouts");
+		//genMeth.clickName(genMeth, iosData.TabBarTitle_Name);
+		//genMeth.clickName(genMeth, "Dashboard DefLayouts");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
 		
 		//Navigate to Employee directory tab
-		genMeth.clickName(genMeth, "Service Call ID");
+		genMeth.clickId(genMeth, "Service Call ID");
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout- Navigate to Employee Directory", useEye);
 
@@ -624,7 +199,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Map,Dashboard, Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Map() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -673,7 +248,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Map Charts Tabs", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Chart() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -740,7 +315,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Cover Flow", retryAnalyzer = Retry.class, description = "Check the Cover Flow tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -795,7 +370,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -861,7 +436,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Grid two layer", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -943,7 +518,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -962,13 +537,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipeRightIphone5(1000);			
 		
 		// Address
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[8]");
+		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Address",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		
 
 		// MiniMap - Navigation to slicer report
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[12]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer-  Mini Map",useEye);
 		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
 		
@@ -982,28 +558,30 @@ import com.applitools.eyes.Eyes;
 
 		// Mobile Phone
 		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[10]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[8]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Phone",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 
 
 		// Email
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
 		
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Email",useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
 
 		// URL
-		genMeth.swipeRightIphone5(1000);	
-		genMeth.swipeRightIphone5(1000);
 		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[4]");
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[14]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
 		genMeth.clickName(genMeth, iosData.BTNdoneName);
 		
 		// Landline
-		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+
+		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[5]");
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Landline", useEye);
 		genMeth.clickName(genMeth, iosData.BTNCancelName);
 				
@@ -1020,7 +598,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1146,7 +724,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "Parameterized report Grid", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Param_Report_Grid() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1193,7 +771,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = true, testName = "Parameterized report List", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Param_Report_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1244,7 +822,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOSNeed to fix" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_DL_Dashboard()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1288,7 +866,8 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS"
+			+ "" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_CoverFlow()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1323,7 +902,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 	
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Chart()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1366,7 +945,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_EmployeeDirectoryD()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1402,7 +981,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Map()
 
 			throws ParserConfigurationException, SAXException, IOException,
@@ -1433,7 +1012,7 @@ import com.applitools.eyes.Eyes;
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Cards()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1475,7 +1054,7 @@ import com.applitools.eyes.Eyes;
 	}
 
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1535,26 +1114,35 @@ import com.applitools.eyes.Eyes;
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
 	
-		//KPI (QR code)
-		genMeth.clickId(genMeth, "KPI");
+		//QR code
+		genMeth.clickId(genMeth, "QR");
 		genMeth.clickId(genMeth, iosData.BTNClearName);
 
 		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		Thread.sleep(10000);
+		
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.clickId(genMeth, "KPI");
+		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
+		Thread.sleep(2000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		
+		genMeth.clickId(genMeth, "QR");
 		genMeth.clickId(genMeth, iosData.BTNClearName);
 		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "2");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
 		genMeth.swipedownIphone5Long(1000);
 
-		genMeth.eyesCheckWindow(eyes, "List Actions- cell KPI second layer (QR)", useEye);
+		genMeth.eyesCheckWindow(eyes, "List Actions- cell QR second layer (QR)", useEye);
 
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		
 		//Row Action (Adding a row to the all parameters table)
+		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "AddRowAllParamaters");
 		genMeth.clickId(genMeth, "Write");
 	
@@ -1577,8 +1165,14 @@ import com.applitools.eyes.Eyes;
 		genMeth.clickId(genMeth, "SL_Manual_List");
 		genMeth.clickId(genMeth, "2");
 		
+		//PSL with Variable
+		genMeth.clickName(genMeth, "Items_SmallerThanMobileDate_PSL");
+		genMeth.clickName(genMeth, "3");
+		
 		// image 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
+		
+		
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]/UIAStaticText[1]");
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[5]");
 		genMeth.clickName(genMeth, "PhotoCapture");
 		genMeth.clickName(genMeth, "Use Photo");
@@ -1626,7 +1220,7 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS2" })
 
 	public void Actions_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1718,9 +1312,9 @@ import com.applitools.eyes.Eyes;
 			genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[15]");
 			genMeth.clickId(genMeth, iosData.BTNClearName);
 			genMeth.sendXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "1");
+			genMeth.clickId(genMeth, iosData.BTNdoneName);
 		}
 		
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid One Layer- KPI (QR)", useEye);
 
@@ -1780,7 +1374,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the Grid two layer actions",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_Grid_Two_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1804,7 +1398,7 @@ import com.applitools.eyes.Eyes;
 
 	
 
-	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReport() throws InterruptedException, IOException{
 		
 		// go to List
@@ -1870,7 +1464,7 @@ import com.applitools.eyes.Eyes;
 	
 	
 	
-	@Test(enabled = true, groups = { "Sanity IOS2" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
+	@Test(enabled = true, groups = { "Sanity IOS__" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
 	public void badCredentials() throws Exception, Throwable {
 
 		genMeth.signOutFromStartup(genMeth);
@@ -1929,7 +1523,7 @@ import com.applitools.eyes.Eyes;
 	
 
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "Sanity Tests", description = "Switching from Foreground to Background and vice versa use cases",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS__" })
 	public void foregroundBackgroundSwitch() throws Exception, Throwable {
 
 		//Take the app to background & foreground x times
@@ -1941,7 +1535,7 @@ import com.applitools.eyes.Eyes;
 	}
 	
 	@Test(enabled = false, retryAnalyzer = Retry.class, testName = "connection lost handling", description = "Checking how the app owrks while connection is lost & back again", dependsOnGroups = { "Sanity*" },
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS__" })
 	public void connectionLost() throws InterruptedException, IOException,
 			ParserConfigurationException, SAXException {
 
@@ -1979,6 +1573,433 @@ import com.applitools.eyes.Eyes;
 
 	
 
+	/*
+	
+	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
+
+	public void sampleAplicationDashboardDailySales() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		
+//Logout from startup page
+		genMeth.signOutFromStartup(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
+		
+		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth,  "Operations 5.2");
+		
+		//useEye = true;
+	
+// Login to sample app & open Dashboard report
+
+		genMeth.eyesCheckWindow(eyes, "SampleApp Main screen", useEye);
+		genMeth.clickName(genMeth,  iosData.DashboardName);
+		genMeth.eyesCheckWindow(eyes, "Dashboard Tab", useEye);
+//		genMeth.swipeRightIphone6Plus(1000);
+		genMeth.swipeRightIphone5(500);
+		genMeth.eyesCheckWindow(eyes, "World wide orders Tab", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth,  iosData.DashboardName);
+		
+// Open Sales Bar
+		// Change eye back to true once oleg fix the decimal issue
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.SalesName);
+		//set Eye UI to false due to ordinal change
+//		useEye = true;
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
+		genMeth.clickId(genMeth, iosData.ReturnsName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- show Sales/Net Sales", useEye);
+		genMeth.clickId(genMeth, iosData.SalesName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp show Net Sales", useEye);
+		genMeth.clickId(genMeth, iosData.NetSalesName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales - show Empty", useEye);
+		
+		genMeth.clickId(genMeth, iosData.SalesName);
+		genMeth.clickId(genMeth, iosData.ReturnsName);
+		genMeth.clickId(genMeth, iosData.NetSalesName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar- Show All", useEye);
+		
+		
+//Open Sales Pie
+		genMeth.clickId(genMeth, iosData.DailySalesBarID);
+		genMeth.clickId(genMeth, iosData.DailysalesPieID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Net Sales", useEye);
+		//genMeth.clickId(genMeth, iosData.DestinyUSAID);
+		//genMeth.clickName(genMeth, iosData.DestinyUSAID);
+		
+		try {
+			driver.findElementById(iosData.DestinyUSAID).click();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Net Sales - Destiny USA", useEye);
+
+		genMeth.clickId(genMeth, iosData.ReturnsName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Returns", useEye);
+		
+		genMeth.clickId(genMeth, iosData.SalesName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Pie- Sales", useEye);
+		genMeth.clickId(genMeth, iosData.DailysalesPieID);
+		genMeth.clickId(genMeth, iosData.Last12hoursID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
+		
+	
+// Check slicer in Sparklines
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.clickId(genMeth, iosData.DestinyUSAID);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines / Destiny USA", useEye);
+		
+//Clear the Slicer
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
+		genMeth.clickName(genMeth, iosData.BTNClearName);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Last 12 Months - Sparklines", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+//Open Daily Sales from main screen
+		genMeth.clickId(genMeth, iosData.DailySalesID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Daily Sales Bar (no back icon)- Show All", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		genMeth.clickName(genMeth, "M");
+		
+	}
+	
+	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
+
+	public void sampleAplicationServiceCalls() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+	
+//OPEN SERVICE CALLS
+		genMeth.signOutFromStartup(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
+		
+		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth,  "Operations 4.11");
+		
+		//genMeth.clickName(genMeth,  iosData.DashboardName);
+		
+		genMeth.clickId(genMeth, iosData.ServiceCallsID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls", useEye);
+		
+// InGrid Action- First layer
+		//genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+	/*	genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[7]");
+		genMeth.clickName(genMeth, "1");
+		Thread.sleep(3000);
+		genMeth.swipedownIphone5(1000);
+		genMeth.swipeUpIphone5(1000);
+		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "3");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- priority = 3", useEye);	
+		
+		//Open the Slicer
+		genMeth.clickName(genMeth, iosData.BTNSlicer);
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
+		genMeth.clickId(genMeth, iosData.BTNBackName);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Slicer Mall Of America", useEye);
+/*
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIATableView[1]/UIATableCell[6]/UIAStaticText[1]");
+		Thread.sleep(3000);
+		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "1");
+		Thread.sleep(10000);
+		genMeth.clickName(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickName(genMeth, "4");
+		Thread.sleep(6000);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- priority = 4", useEye);
+		
+	
+		//Open the second layer
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAButton[1]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Second layer", useEye);
+		
+		//Mobile & Email Contact Details/Person
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[16]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile Contact Person -Cards", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[17]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email Contact Person -Cards", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+		
+		genMeth.scrollDown(driver);
+		genMeth.scrollDown(driver);
+
+		//Mobile / Email / Map / URL - Address section
+		//Phone
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[20]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile (Address Section)", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+
+		//Email
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[21]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email (Address Section)", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+		
+		// URL
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[22]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- URL ((Address Section))", useEye);
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		
+		//Map
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[24]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Mobile Maps (Address Section)", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+
+		// Mobile / Email (Address Section)
+		//Mobile
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[28]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Phone (Assigned To Section)", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+
+		// Email 
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAStaticText[29]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Email (Assigned To Section)", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+		
+		//Close Service Call Action
+		genMeth.clickName(genMeth, "Close Service Call");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - Action", useEye);
+		genMeth.clickName(genMeth, "Comments");
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "Meny The Best");
+		
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, "Parts");
+		genMeth.clickName(genMeth, "Drawer");
+		genMeth.clickName(genMeth, "SolutionType");
+		genMeth.clickName(genMeth, "Replaced cash drawer");
+		genMeth.clickName(genMeth, "Status");
+		genMeth.clickName(genMeth, "Open");
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls- Close Service Calls - After Action", useEye);
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+				
+	}
+	
+	
+	@Test (enabled = true ,testName = "Sample Application", retryAnalyzer = Retry.class, description = "" ,
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
+
+	public void sampleAplicationServiceCallsMapNewServicecall() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+		
+//OPEN SERVICE CALLS Map
+		genMeth.signOutFromStartup(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
+		
+		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth,  "Operations 4.11");
+		
+		//Open service calls map
+		genMeth.clickId(genMeth, iosData.ServiceCallsMapID);
+		Thread.sleep(1000);
+		genMeth.clickXpth(genMeth, iosData.MallofAmericaOnMapXpath);
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America", useEye);
+
+		
+		//Check is Location popup is displayed
+		//genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAButton[2]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Phone Icon Option", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		
+	//	genMeth.clickName(genMeth, iosData.BTNMapCarIconName);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls Maps- Mall of America - Car Direction", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		//go back to the map tab via the back navigation icon
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
+		genMeth.eyesCheckWindow(eyes, "SampleApp Service Calls:5", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
+//Create new service call
+		genMeth.clickId(genMeth, iosData.BTNnewServiceCallId);
+		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
+		
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.eyesCheckWindow(eyes, "Branch simple list", useEye);
+		genMeth.clickId(genMeth, iosData.MallOfAmerica_Id);
+		
+		genMeth.clickId(genMeth, "Assigned To");
+		genMeth.clickId(genMeth, "Jessica Blue");
+		
+		genMeth.clickId(genMeth, "Category");
+		genMeth.clickId(genMeth, "Computer");
+		
+		genMeth.clickId(genMeth, "Item");
+		genMeth.clickId(genMeth, "Memory card");
+		
+		genMeth.clickId(genMeth, "Description");
+		genMeth.setEnglishKeyboard(genMeth);
+		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "Meny The Best");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		genMeth.clickId(genMeth, iosData.BTNpriority_Name);
+		genMeth.clickId(genMeth, "1");
+		
+		genMeth.eyesCheckWindow(eyes, "New service call with parameters", useEye);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(2000);
+
+		//genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
+		genMeth.eyesCheckWindow(eyes, "New service call Actions collections +", useEye);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIACollectionView[1]/UIACollectionCell[1]/UIAStaticText[1]");
+		genMeth.eyesCheckWindow(eyes, "New Service Call", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+
+	}
+ 
+
+	@Test (enabled = true ,testName = "Sample App OrderLookup Operation", retryAnalyzer = Retry.class, description = "OrderLookup Operation" ,
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
+
+	public void sampleAplicationOrderLookupOperation() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+
+//OPEN Order Lookup
+		genMeth.signOutFromStartup(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
+		
+		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth,  "Operations 4.11");
+			
+//Order lookup	
+		genMeth.clickId(genMeth, iosData.OrderLookup_ID);
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "Order Lookup parameters", useEye);
+		genMeth.clickName(genMeth, "Start Date");
+		MobileElement UIAPickerWheel = driver.findElementByXPath("//UIAApplication[1]/UIAWindow[1]/UIAPicker[1]/UIAPickerWheel[1]");
+		UIAPickerWheel.sendKeys("July");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "List of Orders", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		//Operations
+		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[7]");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "Inventory", useEye);
+		//Open grid second layer
+		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
+		genMeth.eyesCheckWindow(eyes, "Inventory second layer", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		
+		genMeth.clickName(genMeth, "Inventory");
+		genMeth.clickName(genMeth, "Orders");
+		/*genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+		genMeth.swipeRightIphone5(1000);
+
+		genMeth.eyesCheckWindow(eyes, "Orders", useEye);
+		
+		genMeth.clickName(genMeth, "Orders");
+		genMeth.clickName(genMeth, "Place New Order");
+
+		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
+
+		//Open the place new order
+		MobileElement El = driver.findElementByXPath(iosData.BTNplaceNewOrder_Xpth);
+		El.click();
+		
+		genMeth.eyesCheckWindow(eyes, "Place new order parameters", useEye);
+//		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);		
+//		genMeth.eyesCheckWindow(eyes, "Place new order parameters missing", useEye);
+//		genMeth.clickName(genMeth, iosData.BTNokName);
+		
+//Fill the parameters
+		genMeth.clickId(genMeth, iosData.BranchID);
+		genMeth.clickName(genMeth, iosData.MallOfAmerica_Id);
+		genMeth.clickName(genMeth, "ProductID");
+//		genMeth.accessToCameraHandle(genMeth);
+		Thread.sleep(1000);
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]");
+		Thread.sleep(1000);
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		Thread.sleep(2000);
+		genMeth.clickName(genMeth, "Quantity");
+		genMeth.clickName(genMeth, "1");
+		genMeth.clickName(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow(eyes, "Place new order All parameters", useEye);
+		genMeth.clickName(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow(eyes, "Place New Order", useEye);
+		genMeth.clickName(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.clickName(genMeth, iosData.Icon_AllApps_Name);
+		
+	}
+	
+	@Test (enabled = true ,testName = "Sample App Technicians", retryAnalyzer = Retry.class, description = "Technicians" ,
+			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
+
+	public void sampleAplicationTechnicians() throws ParserConfigurationException,
+			SAXException, IOException, InterruptedException {
+		
+//OPEN Order Lookup
+		genMeth.signOutFromStartup(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNsampleAccountID);
+		
+		genMeth.clickName(genMeth,  iosData.Icon_AllApps_Name);
+		genMeth.clickName(genMeth,  "Operations 4.11");
+					
+// Technicians
+		genMeth.clickName(genMeth, "Technicians");
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Technicians", useEye);
+		
+// 	Phone Icon
+		genMeth.clickName(genMeth, "Phone");
+		Thread.sleep(1000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- Phone", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, "Phone");
+// Add to contacts
+		genMeth.clickName(genMeth, iosData.BTNaddContact_Name);
+//		genMeth.accessToContactsHandle(genMeth);
+		genMeth.eyesCheckWindow(eyes, "Technicians- Added by SkyGiraffe screen", useEye);
+		genMeth.clickName(genMeth, iosData.BTNBackName);
+		
+// Mail Icon
+		genMeth.clickName(genMeth, "Email");
+		Thread.sleep(3000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- New Message screen", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		genMeth.clickName(genMeth, iosData.BTNdeleteDraft_Name);
+
+// Map Icon
+		genMeth.clickName(genMeth, "Address");
+		genMeth.eyesCheckWindow(eyes, "Technicians- Address screen", useEye);
+		genMeth.clickName(genMeth, iosData.BTNCancelName);
+		
+// Swipe along the technicians Cover Flow
+		genMeth.swipeRightIphone5(1000);
+		genMeth.eyesCheckWindow(eyes, "Technicians- cover flow John Grant", useEye);
+				
+	}
+ 
+	
+	*/
 
 	
 }
