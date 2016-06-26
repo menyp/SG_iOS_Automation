@@ -3,6 +3,7 @@ package Native;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -26,12 +27,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
-
-
 import org.openqa.selenium.remote.CapabilityType;
+
 import io.appium.java_client.remote.IOSMobileCapabilityType;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import io.appium.java_client.remote.MobileCapabilityType;
+
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -70,25 +73,27 @@ public class IosMethods {
 		genMeth.setEnglishKeyboard(genMeth);
 
 		// Make sure that the email & password fields are empty
-		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("E-Mail"));
+		//boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("Username"));
+	//	boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("E-Mail"));
+		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("Username"));
 		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By.id("Password"));
 
 		if (!isEmailEmpty) {
 
-			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
+			genMeth.clickId(genMeth, iosData.BTNclearText_Name);
 
 		}
 		if (!isPasswordEmpty) {
 			driver.tap(1, PasswordField, 1000);
-			genMeth.clickName(genMeth, iosData.BTNclearText_Name);
+			genMeth.clickId(genMeth, iosData.BTNclearText_Name);
 
 		}
 		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth, user);
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);
+		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);		
 		genMeth.clickId(genMeth, iosData.BTNloginID);
-		
+
 		// Check if default app is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+//		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 
 		// genMeth.clickXpth(genMeth, iosData.IconBackToApplicationList_xpth);
 
@@ -173,6 +178,8 @@ public class IosMethods {
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
+		capabilities.setCapability(MobileCapabilityType.NO_RESET,"true");
+
 
 		//capabilities.setCapability("autoAcceptAlerts", true);
 		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
@@ -1078,7 +1085,7 @@ public class IosMethods {
 
 		for (int count = 0; count < numOfTimes; count++) {
 
-			driver.lockScreen(2);
+		//	driver.lockScreen(2);  this method is deprecated since java-client 4.0.0
 
 		}
 
@@ -1186,49 +1193,83 @@ public class IosMethods {
 
 	}
 
-*/	public void swipeRightIphone6Plus(int miliseconds) {
+*/	public void swipeRightIphone6Plus(int miliseconds) throws InterruptedException {
 
 		driver.swipe(370, 200, 140, 200, miliseconds);
+		Thread.sleep(2000);
 
 	}
 
-	public void swipeRightIphone5(int miliseconds) {
+	public void swipeRightIphone5Long(int miliseconds) throws InterruptedException {
 
 		driver.swipe(250, 300, 75, 300, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeRightIphone5Short(int miliseconds) throws InterruptedException {
+
+		driver.swipe(150, 300, 75, 300, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeRightIphone5Shortest(int miliseconds) throws InterruptedException {
+
+		driver.swipe(100, 300, 75, 300, miliseconds);
+		Thread.sleep(2000);
 
 	}
 
-	public void swipedownIphone6Plus(int miliseconds) {
+
+	public void swipedownIphone6Plus(int miliseconds) throws InterruptedException {
 
 		driver.swipe(50, 650, 50, 200, miliseconds);
+		Thread.sleep(2000);
 
 	}
 
-	public void swipedownIphone5Long(int miliseconds) {
+	public void swipedownIphone5Long(int miliseconds) throws InterruptedException {
 
 		driver.swipe(150, 500, 150, 100, miliseconds);
+		Thread.sleep(2000);
+
 
 	}
 	
-	public void swipedownIphone5Short(int miliseconds) {
+	public void swipedownIphone5Short(int miliseconds) throws InterruptedException {
 
 		driver.swipe(150, 500, 150, 400, miliseconds);
+		Thread.sleep(2000);
 
-	}
-
-	public void swipeUpIphone6Plus(int miliseconds) {
-
-		driver.swipe(50, 200, 50, 650, miliseconds);
-	}
-
-	public void swipeUpIphone5Long(int miliseconds) {
-
-		driver.swipe(150, 100, 150, 500, miliseconds);
 	}
 	
-	public void swipeUpIphone5Short(int miliseconds) {
+	public void swipedownIphone5Shortest(int miliseconds) throws InterruptedException {
+
+		driver.swipe(150, 500, 150, 450, miliseconds);
+		Thread.sleep(2000);
+
+	}
+
+	public void swipeUpIphone6Plus(int miliseconds) throws InterruptedException {
+
+		driver.swipe(50, 200, 50, 650, miliseconds);
+		Thread.sleep(2000);
+
+	}
+
+	public void swipeUpIphone5Long(int miliseconds) throws InterruptedException {
+
+		driver.swipe(150, 100, 150, 500, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeUpIphone5Short(int miliseconds) throws InterruptedException {
 
 		driver.swipe(150, 400, 150, 500, miliseconds);
+		Thread.sleep(2000);
+
 	}
 	
 	public void openStratupScreen(IosMethods genMeth, IosElements iosData) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
