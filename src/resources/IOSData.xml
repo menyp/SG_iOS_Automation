@@ -33,6 +33,7 @@
 			<BTNrefresh_Name>Refresh</BTNrefresh_Name>
 			<BTNsend_Name>Send</BTNsend_Name>
 			<BTNseeAll_ID>See All</BTNseeAll_ID>
+			<BTNsave>Save</BTNsave>
 			
 		</Buttons>
 		

@@ -64,6 +64,32 @@ public class IosMethods {
 	public void cleanLoginIos(IosMethods genMeth,String user, String password) throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
+		
+		
+		//set Publisher & Authentication server
+		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		genMeth.clickId(genMeth, "QA Publisher");
+		genMeth.clickId(genMeth, "QA Authentication");
+
+		
+		
+		//Publisher name (Server label)
+		//genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "QA Publisher");
+		
+		//Publisher URL (Server URL)
+		//genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[2]", "https://publisher.skygiraffe.com/api/v1/");
+		//genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		//Authentication server
+		//genMeth.clickId(genMeth, "Add Authentication Server");
+		//Publisher name (Server label)
+		//genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "QA Authentication");
+				
+		//Publisher URL (Server URL)
+		//genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[2]", "https://skygiraffeauthorizationserver.skygiraffe.com/oauth2/token");
+		//genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
 		// Check language making sure keyboard is set to English
 		MobileElement EmailField = genMeth.returnXpth(driver, genMeth,iosData.TEXTFIELDemailXpth);
 		MobileElement PasswordField = genMeth.returnXpth(driver, genMeth,"//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
@@ -1216,7 +1242,7 @@ public class IosMethods {
 	
 	public void swipeRightIphone5Shortest(int miliseconds) throws InterruptedException {
 
-		driver.swipe(100, 300, 75, 300, miliseconds);
+		driver.swipe(130, 300, 75, 300, miliseconds);
 		Thread.sleep(2000);
 
 	}
@@ -1244,9 +1270,16 @@ public class IosMethods {
 
 	}
 	
-	public void swipedownIphone5Shortest(int miliseconds) throws InterruptedException {
+	public void swipedownIphone5Shorter(int miliseconds) throws InterruptedException {
 
 		driver.swipe(150, 500, 150, 450, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipedownIphone5Shortest(int miliseconds) throws InterruptedException {
+
+		driver.swipe(150, 500, 150, 480, miliseconds);
 		Thread.sleep(2000);
 
 	}

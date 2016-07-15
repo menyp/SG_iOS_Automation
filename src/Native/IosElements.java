@@ -42,6 +42,7 @@ public class IosElements {
 	String BTNseeAll_ID;
 	String BTNkeyboardDelete;
 	String BtnkeyboardMoreNumbers;
+	String BTNsave;
 	
 	
 	
@@ -136,7 +137,10 @@ public class IosElements {
 		this.BTNseeAll_ID = XmlHandel.readAndroidXml("BTNseeAll_ID", langXml, xmlPath);
 		this.BTNkeyboardDelete = XmlHandel.readAndroidXml("BTNkeyboardDelete", langXml, xmlPath);
 		this.BtnkeyboardMoreNumbers = XmlHandel.readAndroidXml("BtnkeyboardMoreNumbers", langXml, xmlPath);
+		this.BTNsave = XmlHandel.readAndroidXml("BTNsave", langXml, xmlPath);
 
+		
+		
 		
 		
 		
