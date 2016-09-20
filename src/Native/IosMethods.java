@@ -34,6 +34,7 @@ import io.appium.java_client.remote.IOSMobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -198,25 +199,46 @@ public class IosMethods {
 			InterruptedException {
 	
 		DesiredCapabilities capabilities = new DesiredCapabilities();
+		
+		
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,genMeth.getValueFromPropFile("deviceName"));
-		//capabilities.setCapability("device",genMeth.getValueFromPropFile("device"));
+		//capabilities.setCapability("device",genMeth.getValueFromPropFile("deviceName"));
+
+		
+
 		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid"));
+		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("udid"));
+
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
-		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
+		
+		
+		//capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
+	    capabilities.setCapability(MobileCapabilityType.APP, genMeth.getValueFromPropFile("appPath"));
+		//capabilities.setCapability(IOSMobileCapabilityType.APP_NAME, genMeth.getValueFromPropFile("appPath"));
+
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
-		capabilities.setCapability(MobileCapabilityType.NO_RESET,"true");
+		
+	    
+		capabilities.setCapability("newCommandTimeout", 12000);
 
 
 		//capabilities.setCapability("autoAcceptAlerts", true);
 		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
+	//	capabilities.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "True");
+
+
 
 		
 		
 		
 		try {
+			
+		 //   AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
+		   // service.stop();
 
-			driver = new IOSDriver<MobileElement>(new URL(
-					"http://127.0.0.1:4723/wd/hub"), capabilities);
+			//driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+
 		}
 
 		catch (MalformedURLException e) {
@@ -1301,6 +1323,34 @@ public class IosMethods {
 	public void swipeUpIphone5Short(int miliseconds) throws InterruptedException {
 
 		driver.swipe(150, 400, 150, 500, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeLandScapedownIphone5Long(int miliseconds) throws InterruptedException {
+
+		driver.swipe(200, 300, 200, 60, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeLandScapedownIphone5Short(int miliseconds) throws InterruptedException {
+
+		driver.swipe(200, 300, 200, 150, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeLandScapedownIphone5Shorter(int miliseconds) throws InterruptedException {
+
+		driver.swipe(200, 300, 200, 220, miliseconds);
+		Thread.sleep(2000);
+
+	}
+	
+	public void swipeLandScapedownIphone5Shortest(int miliseconds) throws InterruptedException {
+
+		driver.swipe(200, 300, 200, 250, miliseconds);
 		Thread.sleep(2000);
 
 	}
