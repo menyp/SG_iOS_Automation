@@ -9,7 +9,7 @@ import jdk.internal.org.xml.sax.SAXException;
 public class IosElements {
 	
 	
-	//Buttons
+	//Buttons1
 	String BTNloginID;
 	String BTNforgotPasswordID;
 	String BTNsettingsLoginScreenID;
