@@ -48,8 +48,8 @@ public class IosElements {
 	
 	
 	//TextFields	
-	String TEXTFIELDemailXpth;
-	String TEXTFIELDpasswordXpth;
+	String TEXTFIELDemailID;
+	String TEXTFIELDpasswordID;
 	String TEXTFIELDrecoveryEmailID;
 	String TEXTFIELDqr_Xpth;
 	
@@ -144,10 +144,10 @@ public class IosElements {
 		
 		
 		
-		this.TEXTFIELDemailXpth = XmlHandel.readAndroidXml("TEXTFIELDemailXpth", langXml, xmlPath);
-		this.TEXTFIELDpasswordXpth = XmlHandel.readAndroidXml("TEXTFIELDpasswordXpth", langXml, xmlPath);
+		this.TEXTFIELDemailID = XmlHandel.readAndroidXml("TEXTFIELDemailID", langXml, xmlPath);
+		this.TEXTFIELDpasswordID = XmlHandel.readAndroidXml("TEXTFIELDpasswordID", langXml, xmlPath);
 		this.TEXTFIELDrecoveryEmailID = XmlHandel.readAndroidXml("TEXTFIELDrecoveryEmailID", langXml, xmlPath);
-		this.TEXTFIELDqr_Xpth = XmlHandel.readAndroidXml("TEXTFIELDqr_Xpth", langXml, xmlPath);
+		//this.TEXTFIELDqr_Xpth = XmlHandel.readAndroidXml("TEXTFIELDqr_Xpth", langXml, xmlPath);
 
 		
 		this.scrollDown = XmlHandel.readAndroidXml("scrollDown", langXml, xmlPath);

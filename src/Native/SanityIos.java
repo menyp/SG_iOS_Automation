@@ -7,6 +7,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.WithTimeout;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -20,8 +21,11 @@ import org.xml.sax.SAXException;
 
 import com.applitools.eyes.Eyes;
 
-
-
+//MobileElement e2; //test will wait for this diring 20 seconds
+enum EnvironmentMode {
+	Prod, Staging, QA
+}
+	
 //MobileElement e2; //test will wait for this diring 20 seconds
 
   public class SanityIos {
@@ -43,13 +47,16 @@ import com.applitools.eyes.Eyes;
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
 	IosElements iosData;
+	EnvironmentMode EnvMode;
+	AppiumDriverLocalService service;
+
+
 	
 	
 	@BeforeSuite(alwaysRun = true)
 	public void setupBeforeSuite(ITestContext context) throws ParserConfigurationException, SAXException, IOException, InterruptedException, jdk.internal.org.xml.sax.SAXException {
 		
         // This is your api key, make sure you use it in all your tests.
-		
 		//Set the tests configuration
 		StartServerPath = genMeth.getValueFromPropFile("StartServerPath");
 		StopServerPath = genMeth.getValueFromPropFile("StopServerPath");
@@ -58,9 +65,17 @@ import com.applitools.eyes.Eyes;
 		appIdentifier = genMeth.getValueFromPropFile("appIdentifier");
 		
 		//iosData= new IosElements(webElementXmlLang, webElementXmlPath);
+		//Set the tests configuration
+		EnvMode = genMeth.UserSetEnvironmentMode(EnvMode);
+		useEye = genMeth.UseEye();
+		
+		
 		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-		driver = genMeth.setCapabilitiesIos(genMeth);
-			
+		
+		//service = genMeth.startAppiumService();
+
+		
+		driver = genMeth.setCapabilitiesIos(genMeth);	
 		genMeth.cleanLoginIos(genMeth, iosData.userQA, iosData.passwordQA); 
 	}
 
@@ -84,18 +99,40 @@ import com.applitools.eyes.Eyes;
 
 		else {
 			
-			genMeth.swipeUpIphone5Long(1000);
+			try {
+				genMeth.swipeUpIphone5Long(1000);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.id("SQL Golden App"));
+			//boolean LSM_Is_Open = genMeth.checkIsElementVisible( By.id(DroidData.BTNlogoutID));
+
 
 			if (StartUpScreenDisplay != true) {
 
 				try {
 					driver.resetApp();
-					driver.removeApp(appIdentifier);
-					driver.quit();
+					
 				} catch (Exception e) {
 					// swallow if fails
 				}
+				
+				try {
+					driver.removeApp(appIdentifier);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				try {
+					driver.quit();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 				
 				driver = genMeth.setCapabilitiesIos(genMeth);
 				iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
@@ -110,14 +147,14 @@ import com.applitools.eyes.Eyes;
 
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to URL Constant
 		genMeth.clickId(genMeth, "URL / News");
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
 		
 		//go to URL data Item
@@ -1676,46 +1713,46 @@ import com.applitools.eyes.Eyes;
 
 		genMeth.signOutFromStartup(genMeth);
 		// Login with bad user name
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, "bad name");
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordProd);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailID, "bad name");
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordID, iosData.passwordProd);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Login Failed"));
 		
 		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		// Login with bad password 
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.userQA);
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, "bad password");
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailID, iosData.userQA);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordID, "bad password");
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Login Failed"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		
 		// Login with bad user name & password 
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, "bad name");
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, "bad password");
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailID, "bad name");
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordID, "bad password");
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Login Failed"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		
 		// Login with empty Name
-		genMeth.clearId(genMeth, iosData.TEXTFIELDemailXpth);
-		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordXpth, iosData.passwordQA);
+		genMeth.clearId(genMeth, iosData.TEXTFIELDemailID);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDpasswordID, iosData.passwordQA);
 		genMeth.clickId( genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Bad Request"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
 		
 		// Login with empty Password
-		genMeth.sendId( genMeth, iosData.TEXTFIELDemailXpth, iosData.userQA);
-		genMeth.clearId(genMeth, iosData.TEXTFIELDpasswordXpth);
+		genMeth.sendId( genMeth, iosData.TEXTFIELDemailID, iosData.userQA);
+		genMeth.clearId(genMeth, iosData.TEXTFIELDpasswordID);
 		genMeth.clickId(genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Bad Request"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		// Login with empty Name & password
-		genMeth.clearId(genMeth, iosData.TEXTFIELDemailXpth);
-		genMeth.clearId(genMeth, iosData.TEXTFIELDpasswordXpth);
+		genMeth.clearId(genMeth, iosData.TEXTFIELDemailID);
+		genMeth.clearId(genMeth, iosData.TEXTFIELDpasswordID);
 		genMeth.clickId(genMeth, iosData.BTNloginID);
 		genMeth.isElementVisible(By.name("Bad Request"));
 		genMeth.clickId(genMeth, iosData.BTNokName);
@@ -1752,8 +1789,14 @@ import com.applitools.eyes.Eyes;
 	
 	@AfterSuite(alwaysRun = true)
 	public void tearDown() throws Exception {
+		
+		if (driver != null){
 		try {
+			//service.stop();
 			driver.removeApp(appIdentifier);
+			driver.quit();
+			//service.stop();
+
 			/*
 			boolean isAppInstalled = driver.isAppInstalled(appIdentifier);
 			if (isAppInstalled) {
@@ -1763,7 +1806,15 @@ import com.applitools.eyes.Eyes;
 	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			service.stop();
+			driver.quit();
+
 			e.printStackTrace();
+		}
+		}
+		else{
+			service.stop();
+			
 		}
 
 		SendResults sr = new SendResults("elicherni444@gmail.com",

@@ -4,6 +4,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -16,8 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import javax.imageio.ImageIO;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.FileUtils;
@@ -43,6 +47,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.xml.sax.SAXException;
 
 import com.applitools.eyes.Eyes;
+import com.applitools.eyes.MatchLevel;
+import com.applitools.eyes.RectangleSize;
+import com.applitools.eyes.StitchMode;
 import com.google.common.base.Function;
 
 public class IosMethods {
@@ -66,9 +73,12 @@ public class IosMethods {
 			IOException, InterruptedException {
 
 		
-		
+		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+
 		//set Publisher & Authentication server
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
+
 		genMeth.clickId(genMeth, "QA Publisher");
 		genMeth.clickId(genMeth, "QA Authentication");
 
@@ -92,18 +102,20 @@ public class IosMethods {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		// Check language making sure keyboard is set to English
-		MobileElement EmailField = genMeth.returnXpth(driver, genMeth,iosData.TEXTFIELDemailXpth);
-		MobileElement PasswordField = genMeth.returnXpth(driver, genMeth,"//UIAApplication[1]/UIAWindow[1]/UIASecureTextField[1]");
+		//MobileElement EmailField = genMeth.returnXpth(driver, genMeth,iosData.TEXTFIELDemailID);
+		//MobileElement PasswordField = genMeth.returnXpth(driver, genMeth,iosData.TEXTFIELDpasswordID);
 
 		// Make sure that the English keyboard is open
-		driver.tap(1, EmailField, 1000);
+		//driver.tap(1, EmailField, 1000);
+		genMeth.clickId(genMeth, iosData.TEXTFIELDemailID);
+		
 		genMeth.setEnglishKeyboard(genMeth);
 
 		// Make sure that the email & password fields are empty
 		//boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("Username"));
 	//	boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("E-Mail"));
-		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id("Username"));
-		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By.id("Password"));
+		boolean isEmailEmpty = genMeth.checkIsElementVisible(By.id(iosData.TEXTFIELDemailID));
+		boolean isPasswordEmpty = genMeth.checkIsElementVisible(By.id(iosData.TEXTFIELDpasswordID));
 
 		if (!isEmailEmpty) {
 
@@ -111,13 +123,22 @@ public class IosMethods {
 
 		}
 		if (!isPasswordEmpty) {
-			driver.tap(1, PasswordField, 1000);
+			//driver.tap(1, PasswordField, 1000);
+			genMeth.clickId(genMeth, iosData.TEXTFIELDpasswordID);
 			genMeth.clickId(genMeth, iosData.BTNclearText_Name);
 
 		}
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth, user);
-		genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);		
+		//genMeth.sendXpth(genMeth, iosData.TEXTFIELDemailXpth, user);
+		genMeth.sendId(genMeth, iosData.TEXTFIELDemailID, user);
+		//genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);		
+		genMeth.sendId(genMeth, iosData.TEXTFIELDpasswordID, password);
+
 		genMeth.clickId(genMeth, iosData.BTNloginID);
+		Thread.sleep(5000);
+		boolean isAllow = genMeth.checkIsElementVisible(By.id("Allow"));
+		if (isAllow) {
+			genMeth.clickId(genMeth, "Allow");
+		}
 
 		// Check if default app is open
 //		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
@@ -126,13 +147,18 @@ public class IosMethods {
 
 	}
 
+	
 	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEye)
 			throws InterruptedException {
-
+		//RectangleSize size = new RectangleSize(785, 1087);
 		if (useEye) {
 			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-			eyes.open(driver, "iOS_SG", testName);
+
+			 eyes.open(driver, "iOS_SG", testName);
 			 eyes.setMatchTimeout(2);
+			 //eyes.setViewportSize(driver, size);
+			// eyes.checkWindow(4, "iOS_SG");
+
 			eyes.checkWindow("Sample Screen");
 			
 			boolean skipfailure = true;
@@ -149,6 +175,61 @@ public class IosMethods {
 
 	}
 	
+	/*
+	
+	public void eyesCheckWindow(String testName, Boolean useEye, IosMethods genMeth, boolean  skipfailure)
+
+			throws InterruptedException, IOException {
+			
+		
+		if (useEye) {
+			Thread.sleep(2000);
+			eyes.setMatchTimeout(20);
+			
+			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
+			 //Switch between the versions to generate test failure.
+	        String version = "0.2";
+	        
+	        // Define the OS and hosting application to identify the baseline
+	        eyes.setHostOS("Mac");
+			eyes.setHostApp("My maxthon browser");
+			
+			BufferedImage img;
+
+			eyes.setMatchLevel(MatchLevel.STRICT);
+			
+			//eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  compatible with the old Samsung
+			eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  
+			// Load page image and validate
+			File scrFile = (driver.getScreenshotAs(OutputType.FILE));
+			img = ImageIO.read(scrFile);
+
+			// Visual validation point #1
+			//Rectangle rect = new Rectangle(0, 0, 1080, 1940);
+			Rectangle rect = new Rectangle(0, 0, 1080, 1810);
+			//eyes.setSaveNewTests(true);
+			eyes.setSaveFailedTests(false);
+
+			img = genMeth.cropImage(img, rect);
+			eyes.checkImage(img, "Sample");
+	            
+
+				if (skipfailure) {
+					// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
+					com.applitools.eyes.TestResults testResult = eyes.close(false);
+					
+
+				}
+
+				else {
+					
+					eyes.close();
+
+			}
+
+		}
+	}
+*/
 
 	public void killAppAndroid(IOSDriver<MobileElement> driver)
 			throws InterruptedException, IOException {
@@ -204,31 +285,50 @@ public class IosMethods {
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,genMeth.getValueFromPropFile("deviceName"));
 		//capabilities.setCapability("device",genMeth.getValueFromPropFile("deviceName"));
 
-		
 
 		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid"));
-		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("udid"));
+		capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
+
+		capabilities.setCapability("platformVersion","10.2.1");
 
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		
 		
-		//capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
-	    capabilities.setCapability(MobileCapabilityType.APP, genMeth.getValueFromPropFile("appPath"));
+		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
+	    //capabilities.setCapability(MobileCapabilityType.APP, genMeth.getValueFromPropFile("appPath"));
 		//capabilities.setCapability(IOSMobileCapabilityType.APP_NAME, genMeth.getValueFromPropFile("appPath"));
 
-		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"Appium");
-		
-	    
-		capabilities.setCapability("newCommandTimeout", 12000);
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"XCUITest");
+		//capabilities.setCapability("automationName", "XCUITest");
+		//capabilities.setCapability("wdaLocalPort", 8100);
 
+		
+		
+		//capabilities.setCapability("xcodeConfigFile","/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/Config.xcconfig");
+		
+
+		//capabilities.setCapability("xcodeOrgId", "7Y5J2RJXYV");
+		//capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+
+		
+		
+		//capabilities.setCapability("keychainPath", "/Users/menypeled/Library/Keychains/MyKeychaitest1.keychain-db"); 
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"iOS");
+
+		//capabilities.setCapability("keychainPassword", "test1");
+		//capabilities.setCapability(MobileCapabilityType.ENABLE_PROFILING_CAPABILITY,"true");
+
+
+		//capabilities.setCapability("useNewWDA", "true");
+		//capabilities.setCapability("wdaLaunchTimeout", 10000);
+		//capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
+		//capabilities.setCapability("wdaConnectionTimeout", 100000);
 
 		//capabilities.setCapability("autoAcceptAlerts", true);
-		capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
-	//	capabilities.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "True");
-
-
-
+		//capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
+		//capabilities.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "True");
 		
+		capabilities.setCapability("newCommandTimeout", 100000);
 		
 		
 		try {
@@ -238,6 +338,12 @@ public class IosMethods {
 
 			//driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 			driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+			boolean isAllow = genMeth.checkIsElementVisible(By.id("Allow"));
+			if (isAllow) {
+				genMeth.clickId(genMeth, "Allow");
+			}
+
+			// XCUIElementTypeButton
 
 		}
 
@@ -253,6 +359,30 @@ public class IosMethods {
 
 		return driver;
 	}
+	
+	public AppiumDriverLocalService startAppiumService() {
+
+		 AppiumDriverLocalService service =
+		 AppiumDriverLocalService.buildDefaultService();
+		 /*
+		AppiumDriverLocalService service = AppiumDriverLocalService
+				.buildService(new AppiumServiceBuilder()
+						.usingDriverExecutable(new File("/usr/local/bin/node"))
+						.withAppiumJS(
+								new File(
+										"/usr/local/lib/node_modules/appium/build/lib/appium.js"))
+						.withIPAddress("0.0.0.0").usingPort(4723));
+						*/
+		boolean isServiceRunning =  service.isRunning();
+		if (isServiceRunning){
+			
+			service.stop();
+		}
+		service.start();
+		return service;
+
+	}
+
 
 	public String getValueFromPropFile(String key) {
 		Properties properties = new Properties();
@@ -1156,12 +1286,12 @@ public class IosMethods {
 
 	public void setLandscapeMode() {
 
-		driver.rotate(ScreenOrientation.LANDSCAPE);
+		//driver.rotate(ScreenOrientation.LANDSCAPE);  --> Deprecated in java-client 5.x
 	}
 
 	public void setPortraitMode() {
 
-		driver.rotate(ScreenOrientation.PORTRAIT);
+		//driver.rotate(ScreenOrientation.PORTRAIT);  --> Was deprecated on java client 5.x
 	}
 
 	public void setEnglishKeyboard(IosMethods genMeth)
@@ -1372,14 +1502,62 @@ public class IosMethods {
 	
 	public void rotateLandscape(){
 
-		driver.rotate(ScreenOrientation.LANDSCAPE);
+		//driver.rotate(ScreenOrientation.LANDSCAPE); deprecated on java client 5.x
 	}
 	
 	public void rotatePortrait(){
 
-		driver.rotate(ScreenOrientation.PORTRAIT);
+	//	driver.rotate(ScreenOrientation.PORTRAIT);  --> deprecated on java client 5.x
 	}
 	
+	
+	public EnvironmentMode UserSetEnvironmentMode(EnvironmentMode EnvMode) {
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out
+				.print("Please choose Environment mode(1 for QA, 2 for Staging or 3 for PROD):");
+		byte number = scanner.nextByte();
+		
+		//Add a timer where after 10 seconds if no input was inserted then a default value will be setup
+
+		if (number == 1) {
+			EnvMode = EnvironmentMode.QA;
+			System.out.println("Testing against QA Environment");
+
+
+		} else if (number == 2) {
+			EnvMode = EnvironmentMode.Staging;
+			System.out.println("Testing against Stagins Environment");
+
+
+		} else if (number == 3) {
+			EnvMode = EnvironmentMode.Prod;
+			System.out.println("Testing against PROD Environment");
+
+		}
+		return EnvMode;
+	}
+	
+	public boolean UseEye() {
+		boolean UseEye;
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Do you want to use Applitools eye?(1 for Yes, or continue for No):");
+		byte number = scanner.nextByte();
+		//String choose = scanner.next();
+
+		if (number == 1) {
+			UseEye = true;
+			System.out.println("Testing with Applitools visual testing");
+
+		} else {
+			UseEye = false;
+			System.out.println("Testing without Applitools visual testing");
+
+		}
+		return UseEye;
+	}
+
 	// public void changeConnectionType(String mode) {
 	//
 	// NetworkConnection mobileDriver = (NetworkConnection) driver;
