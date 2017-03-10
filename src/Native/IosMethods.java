@@ -287,7 +287,7 @@ public class IosMethods {
 
 
 		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid"));
-		capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
+		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
 
 		capabilities.setCapability("platformVersion","10.2.1");
 
@@ -307,8 +307,8 @@ public class IosMethods {
 		//capabilities.setCapability("xcodeConfigFile","/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/Config.xcconfig");
 		
 
-		//capabilities.setCapability("xcodeOrgId", "7Y5J2RJXYV");
-		//capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+		capabilities.setCapability("xcodeOrgId", "7Y5J2RJXYV");
+		capabilities.setCapability("xcodeSigningId", "iPhone Developer");
 
 		
 		
