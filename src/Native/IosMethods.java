@@ -39,6 +39,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -49,7 +50,7 @@ import org.xml.sax.SAXException;
 import com.applitools.eyes.Eyes;
 import com.applitools.eyes.MatchLevel;
 import com.applitools.eyes.RectangleSize;
-import com.applitools.eyes.StitchMode;
+//import com.applitools.eyes.StitchMode;
 import com.google.common.base.Function;
 
 public class IosMethods {
@@ -58,6 +59,8 @@ public class IosMethods {
 	IosElements iosData;
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
+	boolean skipfailure = true;
+
 	
 	public IosMethods(){
 		
@@ -70,11 +73,8 @@ public class IosMethods {
 	
 
 	public void cleanLoginIos(IosMethods genMeth,String user, String password) throws ParserConfigurationException, SAXException,
+
 			IOException, InterruptedException {
-
-		
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
-
 		//set Publisher & Authentication server
 		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
@@ -145,35 +145,65 @@ public class IosMethods {
 
 		// genMeth.clickXpth(genMeth, iosData.IconBackToApplicationList_xpth);
 
+		
 	}
+	public void eyesCheckWindow(String testName, Boolean useEye, IosMethods genMeth, boolean  skipfailure)
 
-	
-	public void eyesCheckWindow(Eyes eyes, String testName, Boolean useEye)
-			throws InterruptedException {
-		//RectangleSize size = new RectangleSize(785, 1087);
-		if (useEye) {
-			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-
-			 eyes.open(driver, "iOS_SG", testName);
-			 eyes.setMatchTimeout(2);
-			 //eyes.setViewportSize(driver, size);
-			// eyes.checkWindow(4, "iOS_SG");
-
-			eyes.checkWindow("Sample Screen");
+			throws InterruptedException, IOException {
 			
-			boolean skipfailure = true;
-			if (skipfailure) {
-				// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
-				com.applitools.eyes.TestResults testResult = eyes.close(false);
+		
+		if (useEye) {
+			Thread.sleep(2000);
+			eyes.setMatchTimeout(20);
+			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
+			 //Switch between the versions to generate test failure.
+	        String version = "0.2";
+	        
+	        // Define the OS and hosting application to identify the baseline
+	        eyes.setHostOS("Mac");
+			eyes.setHostApp("My maxthon browser");
+			
+			BufferedImage img;
 
-			} else {
+			eyes.setMatchLevel(MatchLevel.STRICT);
+			
+			//eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  compatible with the old Samsung
+			eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  
+			// Load page image and validate
+			File scrFile = (driver.getScreenshotAs(OutputType.FILE));
+			img = ImageIO.read(scrFile);
 
-				eyes.close();
+			// Visual validation point #1
+			//Rectangle rect = new Rectangle(0, 0, 1080, 1940);
+			//Rectangle rect = new Rectangle(0, 0, 640, 1136);
+			Rectangle rect = new Rectangle(0, 0, 640, 1136);
+
+			//eyes.setSaveNewTests(true);
+			eyes.setSaveFailedTests(false);
+
+			img = genMeth.cropImage(img, rect);
+			eyes.checkImage(img, "Sample");
+	            
+
+				if (skipfailure) {
+					// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
+					com.applitools.eyes.TestResults testResult = eyes.close(false);
+					
+
+				}
+
+				else {
+					
+					eyes.close();
+
 			}
 
 		}
-
+		
 	}
+
+
+	
 	
 	/*
 	
@@ -362,8 +392,7 @@ public class IosMethods {
 	
 	public AppiumDriverLocalService startAppiumService() {
 
-		 AppiumDriverLocalService service =
-		 AppiumDriverLocalService.buildDefaultService();
+		 AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
 		 /*
 		AppiumDriverLocalService service = AppiumDriverLocalService
 				.buildService(new AppiumServiceBuilder()
@@ -373,6 +402,7 @@ public class IosMethods {
 										"/usr/local/lib/node_modules/appium/build/lib/appium.js"))
 						.withIPAddress("0.0.0.0").usingPort(4723));
 						*/
+						
 		boolean isServiceRunning =  service.isRunning();
 		if (isServiceRunning){
 			
@@ -1558,6 +1588,12 @@ public class IosMethods {
 		return UseEye;
 	}
 
+	private BufferedImage cropImage(BufferedImage src, Rectangle rect) {
+        BufferedImage dest = src.getSubimage(0, 30, rect.width, rect.height -30);
+        return dest; 
+     }
+	
+	
 	// public void changeConnectionType(String mode) {
 	//
 	// NetworkConnection mobileDriver = (NetworkConnection) driver;

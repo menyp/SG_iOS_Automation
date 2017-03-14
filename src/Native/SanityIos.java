@@ -46,6 +46,7 @@ enum EnvironmentMode {
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
 	Boolean useEye = true;
+	boolean  skipfailure;
 	IosElements iosData;
 	EnvironmentMode EnvMode;
 	AppiumDriverLocalService service;
@@ -71,8 +72,7 @@ enum EnvironmentMode {
 		
 		
 		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-		
-		//service = genMeth.startAppiumService();
+	//	service = genMeth.startAppiumService();
 
 		
 		driver = genMeth.setCapabilitiesIos(genMeth);	
@@ -155,19 +155,21 @@ enum EnvironmentMode {
 		// go to URL Constant
 		genMeth.clickId(genMeth, "URL / News");
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
+		genMeth.eyesCheckWindow("Tabs- URL Data Item", useEye, genMeth, skipfailure);
 		
 		//go to URL data Item
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "URL Constant");
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
+		genMeth.eyesCheckWindow("Tabs- URL Constant", useEye, genMeth,skipfailure);
+		//genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
 		
 		//Go Back to Startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 
 		//Verify Startup screen is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,skipfailure);
+		//genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 		
 	}
 		

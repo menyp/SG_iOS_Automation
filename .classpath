@@ -45,7 +45,6 @@
 	<classpathentry kind="lib" path="lib/jetty-servlets-9.2.13.v20150730.jar"/>
 	<classpathentry kind="lib" path="lib/jsp-api-2.0.jar"/>
 	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="lib/eyes-sdk-java-2.24.jar"/>
 	<classpathentry kind="lib" path="lib/aopalliance-repackaged-2.4.0-b09.jar"/>
 	<classpathentry kind="lib" path="lib/commons-digester-1.8.1.jar"/>
 	<classpathentry kind="lib" path="lib/hk2-api-2.4.0-b09.jar"/>
@@ -78,10 +77,6 @@
 	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="lib/commons-validator-1.4.1.jar"/>
 	<classpathentry kind="lib" path="lib/cssparser-0.9.16.jar"/>
-	<classpathentry kind="lib" path="lib/eyes-common-java-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/eyes-connectivity-java-jersey2x-1.0.jar"/>
-	<classpathentry kind="lib" path="lib/eyes-sdk-java-jersey2x-2.24.jar"/>
-	<classpathentry kind="lib" path="lib/eyes-selenium-java-2.30.jar"/>
 	<classpathentry kind="lib" path="lib/gson-2.3.1.jar"/>
 	<classpathentry kind="lib" path="lib/htmlunit-2.18.jar"/>
 	<classpathentry kind="lib" path="lib/htmlunit-core-js-2.17.jar"/>
@@ -106,5 +101,9 @@
 	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5-javadoc.jar"/>
 	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5-sources.jar"/>
 	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5.jar"/>
+	<classpathentry kind="lib" path="lib/eyes-common-java-2.51.jar"/>
+	<classpathentry kind="lib" path="lib/eyes-connectivity-java-jersey2x-2.51.jar"/>
+	<classpathentry kind="lib" path="lib/eyes-images-java-2.51.jar"/>
+	<classpathentry kind="lib" path="lib/eyes-sdk-java-jersey2x-2.51.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
