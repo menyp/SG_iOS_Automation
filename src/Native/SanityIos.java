@@ -45,8 +45,8 @@ enum EnvironmentMode {
 	IOSDriver<MobileElement> driver;
 	IosMethods genMeth = new IosMethods();
 	Eyes eyes = new Eyes();
-	Boolean useEye = true;
-	boolean  skipfailure;
+	Boolean useEye;
+	boolean  skipfailure = true;
 	IosElements iosData;
 	EnvironmentMode EnvMode;
 	AppiumDriverLocalService service;
@@ -147,19 +147,27 @@ enum EnvironmentMode {
 
 	
 	@Test(enabled = true, testName = "URL Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_URL() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to URL Constant
+	//	driver.findElementById("URL / News").click();
 		genMeth.clickId(genMeth, "URL / News");
+
 		Thread.sleep(10000);
+		
 		genMeth.eyesCheckWindow("Tabs- URL Data Item", useEye, genMeth, skipfailure);
 		
 		//go to URL data Item
+		
+		//driver.findElementById(iosData.TabBarTitle_Name).click();
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		
+		//driver.findElementById("URL Constant").click();
 		genMeth.clickId(genMeth, "URL Constant");
+
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("Tabs- URL Constant", useEye, genMeth,skipfailure);
 		//genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
@@ -185,29 +193,34 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "News");
 
-		genMeth.eyesCheckWindow(eyes, "All Tabs- News", useEye);
+		//genMeth.eyesCheckWindow(eyes, "All Tabs- News", useEye);
+		genMeth.eyesCheckWindow("All Tabs- News", useEye, genMeth, skipfailure);
+
 		genMeth.clickId(genMeth, "www.milliondollarhomepage.com");
 		Thread.sleep(10000);
 
-		genMeth.eyesCheckWindow(eyes, "All Tabs- The milliion $ home page", useEye);
+		genMeth.eyesCheckWindow("All Tabs- The milliion $ home page", useEye, genMeth, skipfailure);		
+		//genMeth.eyesCheckWindow(eyes, "All Tabs- The milliion $ home page", useEye);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		genMeth.rotateLandscape();
-		genMeth.eyesCheckWindow(eyes, "All Tabs- News Landscape", useEye);
+		genMeth.eyesCheckWindow("All Tabs- News Landscape", useEye, genMeth, skipfailure);		
+		//genMeth.eyesCheckWindow(eyes, "All Tabs- News Landscape", useEye);
 		genMeth.rotatePortrait();
 
 		//Go Back to Startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 
 		//Verify Startup screen is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
+		//genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
 		
 	}
 
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -215,20 +228,24 @@ enum EnvironmentMode {
 		
 		//Open Dashboard tab Tab
 		genMeth.clickId(genMeth, "DashB/Cards/Employee");
-		//genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
-		//genMeth.clickId(genMeth, "Dashboard DefLayouts");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("Dashboard Default Layout", useEye, genMeth, skipfailure);
 		
 		//Navigate to Employee directory tab
 		genMeth.clickId(genMeth, "Service Call ID1");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout- Navigate to Employee Directory", useEye);
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("All Tabs- Dashboard Default Layout- Navigate to Employee Directory", useEye, genMeth, skipfailure);
 
 		//Navigate back to Dashboard
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		Thread.sleep(4000);
 //		genMeth.clickId(genMeth, "Gauge");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Default Layout", useEye);
-		
+		//genMeth.eyesCheckWindow("All Tabs- Dashboard Default Layout", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, "DashB/Cards/Employee");
+		Thread.sleep(8000);
+
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
+		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Service Call ID1");
 		genMeth.clickId(genMeth, "1");
@@ -236,27 +253,29 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard Advanced columns (Scroll down)", useEye);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.eyesCheckWindow("All Tabs- Dashboard Advanced columns (Scroll down)", useEye, genMeth, skipfailure);
 
 		//Gauge
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Dash with Gauge");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard- Gauge Half", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Dashboard- Gauge Half", useEye, genMeth, skipfailure);
 		
 		//Navigate
-		genMeth.clickId(genMeth, "Gauge/Half/noTar/Per");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard- Navigate to Map By GPS", useEye);
+		genMeth.clickId(genMeth, "Gauge/Half/NoTar/Per");
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("All Tabs- Dashboard- Navigate to Map By GPS", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Dashboard- Gauge Full/Solid", useEye);
+		genMeth.swipedownIphone5Long(1000);
 
+		genMeth.eyesCheckWindow("All Tabs- Dashboard- Gauge Full/Soli", useEye, genMeth, skipfailure);
 
 		//Back to Startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		
-		
 				
 	}
 	

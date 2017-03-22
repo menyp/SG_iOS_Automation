@@ -2,7 +2,7 @@
 
 
 		<Buttons>
-			<BTNloginID>Login</BTNloginID>
+			<BTNloginID>LOGIN</BTNloginID>
 			<BTNforgotPasswordID></BTNforgotPasswordID>
 			<BTNsettingsLoginScreenID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTNsettingsLoginScreenID>
 			<BTNsampleAccountID>Sample account</BTNsampleAccountID>

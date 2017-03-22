@@ -58,8 +58,8 @@ public class IosMethods {
 	IOSDriver<MobileElement> driver;
 	IosElements iosData;
 	Eyes eyes = new Eyes();
-	Boolean useEye = true;
-	boolean skipfailure = true;
+	//Boolean useEye = true;
+	//boolean skipfailure = true;
 
 	
 	public IosMethods(){
@@ -132,13 +132,13 @@ public class IosMethods {
 		genMeth.sendId(genMeth, iosData.TEXTFIELDemailID, user);
 		//genMeth.sendXpth(genMeth, iosData.TEXTFIELDpasswordXpth, password);		
 		genMeth.sendId(genMeth, iosData.TEXTFIELDpasswordID, password);
-
+	    //genMeth.clickId(genMeth, "return");
 		genMeth.clickId(genMeth, iosData.BTNloginID);
-		Thread.sleep(5000);
 		boolean isAllow = genMeth.checkIsElementVisible(By.id("Allow"));
 		if (isAllow) {
 			genMeth.clickId(genMeth, "Allow");
 		}
+	
 
 		// Check if default app is open
 //		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
@@ -168,7 +168,7 @@ public class IosMethods {
 			eyes.setMatchLevel(MatchLevel.STRICT);
 			
 			//eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  compatible with the old Samsung
-			eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  
+			eyes.open("SG_iOS", testName, new RectangleSize(785, 1087));  
 			// Load page image and validate
 			File scrFile = (driver.getScreenshotAs(OutputType.FILE));
 			img = ImageIO.read(scrFile);
@@ -202,8 +202,6 @@ public class IosMethods {
 		
 	}
 
-
-	
 	
 	/*
 	
@@ -1082,11 +1080,11 @@ public class IosMethods {
 	public MobileElement fluentwait(IOSDriver driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
 
-		.withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
+		.withTimeout(15, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 
 		MobileElement foo = (MobileElement) wait
-				.until(new Function<IOSDriver, WebElement>() {
+				.until(new Function<IOSDriver, MobileElement>() {
 					public MobileElement apply(IOSDriver driver) {
 						return (MobileElement) driver.findElement(byType);
 					}
@@ -1153,7 +1151,7 @@ public class IosMethods {
 			// (new WebDriverWait(driver,
 			// 20)).until(ExpectedConditions.visibilityOfElementLocated(by));
 			element = new FluentWait<IOSDriver<MobileElement>>(driver)
-					.withTimeout(5, TimeUnit.SECONDS)
+					.withTimeout(15, TimeUnit.SECONDS)
 					.pollingEvery(1, TimeUnit.SECONDS)
 					.ignoring(NoSuchElementException.class)
 					.until(ExpectedConditions.visibilityOfElementLocated(By));
@@ -1589,9 +1587,11 @@ public class IosMethods {
 	}
 
 	private BufferedImage cropImage(BufferedImage src, Rectangle rect) {
-        BufferedImage dest = src.getSubimage(0, 30, rect.width, rect.height -30);
+        BufferedImage dest = src.getSubimage(0, 30, rect.width, rect.height -118);
         return dest; 
      }
+	
+	
 	
 	
 	// public void changeConnectionType(String mode) {
