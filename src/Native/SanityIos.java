@@ -220,7 +220,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -281,7 +281,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Map", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Map() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -295,34 +295,35 @@ enum EnvironmentMode {
 		Thread.sleep(3000);
 		//genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address", useEye);
 		genMeth.clickId(genMeth,"19501 Biscayne Blvd, Aventura, FL 33180, 1 item");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Aventura", useEye);
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow("All Tabs- Map By Address- Aventura", useEye, genMeth, skipfailure);
 		
 		//Driving Directions
 		genMeth.clickId(genMeth, iosData.BTNdirection);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Driving directions", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Map By Address- Driving directions", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//Phone
 		genMeth.clickId(genMeth, iosData.BTNmapphoneiconID);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By Address- Phone", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Map By Address- Phone", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 
-		//Navigation to URL tab
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[1]/UIAButton[1]" );
-		genMeth.eyesCheckWindow(eyes, "Tabs- URL Data Item", useEye);
+		//Navigation to URL tab (need an id for the navigation iocn from Limor)
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");       
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("Tabs- URL Data Item", useEye, genMeth, skipfailure);
 		
 		//Navigation Back
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		
 		
 		//Open Map By GPS
 		Thread.sleep(10000);
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Map By GPS");
 		genMeth.clickId(genMeth, "1160 Garden State Plz,Paramus, 3 items");
-		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Map By GPS- Press pin map", useEye);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("All Tabs- Map By GPS- Press pin map", useEye, genMeth, skipfailure);
+		genMeth.swipedownIphone5Long(1000);
 		
 		//Back to Startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);

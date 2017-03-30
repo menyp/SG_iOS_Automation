@@ -16,7 +16,7 @@
 			<BTNBackName>Back</BTNBackName>
 			<BTNClearName>Clear</BTNClearName>
 			<BTNSlicer>BTNSlicer</BTNSlicer>
-			<BTNmapphoneiconID>mapphoneicon</BTNmapphoneiconID>
+			<BTNmapphoneiconID>BTNmapphoneiconID</BTNmapphoneiconID>
 			<BTNCancelName>Cancel</BTNCancelName>					
 			<BTNdirection>BTNdirection</BTNdirection>
 			<BTNokName>OK</BTNokName>
