@@ -153,10 +153,10 @@ public class IosMethods {
 			
 		
 		if (useEye) {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 			eyes.setMatchTimeout(20);
 			eyes.setApiKey("Hbh6716cKDCgn8a9bMAREPM105nbW109PQe0993So5GwFpNM110");
-			 //Switch between the versions to generate test failure.
+
 	        String version = "0.2";
 	        
 	        // Define the OS and hosting application to identify the baseline
@@ -169,21 +169,18 @@ public class IosMethods {
 			
 			//eyes.open("SG_Android", testName, new RectangleSize(785, 1087));  compatible with the old Samsung
 			eyes.open("SG_iOS", testName, new RectangleSize(785, 1087));  
+			
 			// Load page image and validate
 			File scrFile = (driver.getScreenshotAs(OutputType.FILE));
 			img = ImageIO.read(scrFile);
 
 			// Visual validation point #1
-			//Rectangle rect = new Rectangle(0, 0, 1080, 1940);
-			//Rectangle rect = new Rectangle(0, 0, 640, 1136);
 			Rectangle rect = new Rectangle(0, 0, 640, 1136);
 
-			//eyes.setSaveNewTests(true);
 			eyes.setSaveFailedTests(false);
 
 			img = genMeth.cropImage(img, rect);
 			eyes.checkImage(img, "Sample");
-	            
 
 				if (skipfailure) {
 					// Use the below code instead of eyes.close(); --> It will allow to continue the test even if the UI testing will fail
@@ -390,16 +387,9 @@ public class IosMethods {
 	
 	public AppiumDriverLocalService startAppiumService() {
 
-		 AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
-		 /*
-		AppiumDriverLocalService service = AppiumDriverLocalService
-				.buildService(new AppiumServiceBuilder()
-						.usingDriverExecutable(new File("/usr/local/bin/node"))
-						.withAppiumJS(
-								new File(
-										"/usr/local/lib/node_modules/appium/build/lib/appium.js"))
-						.withIPAddress("0.0.0.0").usingPort(4723));
-						*/
+		 //AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
+		AppiumServiceBuilder c = new AppiumServiceBuilder();
+		 AppiumDriverLocalService service =  AppiumDriverLocalService.buildService(c.usingPort(4724).withIPAddress("0.0.0.0"));
 						
 		boolean isServiceRunning =  service.isRunning();
 		if (isServiceRunning){

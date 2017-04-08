@@ -72,7 +72,7 @@ enum EnvironmentMode {
 		
 		
 		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-	//	service = genMeth.startAppiumService();
+		//service = genMeth.startAppiumService();
 
 		
 		driver = genMeth.setCapabilitiesIos(genMeth);	
@@ -400,7 +400,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Cover Flow", retryAnalyzer = Retry.class, description = "Check the Cover Flow tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_CoverFlow() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -410,7 +410,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Cover Flow");
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow", useEye, genMeth, skipfailure);
-		genMeth.swipeRightIphone5Short(1000);
+		genMeth.swipeRightIphone5Long(1000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- swipe John Grant", useEye, genMeth, skipfailure);
 		
 		genMeth.swipedownIphone5Shorter(1000);
@@ -426,6 +426,8 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.swipedownIphone5Shorter(1000);
+		Thread.sleep(2000);
+
 
 
 		genMeth.clickId(genMeth, "Phone");
@@ -434,6 +436,7 @@ enum EnvironmentMode {
 		
 		//Email
 		genMeth.clickId(genMeth, "Email");
+		Thread.sleep(3000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- Email", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
@@ -453,6 +456,8 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);
+
 		
 	}
 
@@ -465,6 +470,7 @@ enum EnvironmentMode {
 
 		// go to List
 		genMeth.clickId(genMeth, "List / Grid");
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- List", useEye, genMeth, skipfailure);
 
 		//Phone
@@ -473,11 +479,13 @@ enum EnvironmentMode {
 		
 		//Email
 		genMeth.clickId(genMeth, "Email");
+		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("All Tabs- List Email", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNsend_Name);
 		Thread.sleep(2000);
 		//URL
 		genMeth.clickId(genMeth, "URL");
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- List URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);		
 		Thread.sleep(3000);
@@ -492,11 +500,16 @@ enum EnvironmentMode {
 		
 		//Mini Map
 		genMeth.swipedownIphone5Short(3000);
+		genMeth.swipedownIphone5Short(3000);
 		genMeth.clickId(genMeth, "Address Mini Map");
 		genMeth.eyesCheckWindow("All Tabs- List (Address Mini Map options)", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 
 		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+
 		
 		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
 		genMeth.eyesCheckWindow("All Tabs- List See All", useEye, genMeth, skipfailure);
@@ -516,7 +529,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Grid two layer Advanced", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -525,16 +538,12 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "List / Grid");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - Two Layers");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Grid two layers", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "kpi_green");
+		genMeth.clickId(genMeth, "icon_usa");
 		
 		//Second layer
 		genMeth.eyesCheckWindow("All Tabs- Grid two layers- Second layer", useEye, genMeth, skipfailure);		
-		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.setLandscapeMode();
-		genMeth.eyesCheckWindow("All Tabs- Grid two layers- Second layer - Landscape ", useEye, genMeth, skipfailure);		
-		genMeth.setPortraitMode();
-		
 	
 		//Phone
 		genMeth.clickId(genMeth, "Phone");
@@ -551,6 +560,7 @@ enum EnvironmentMode {
 		
 		//URL
 		genMeth.clickId(genMeth, "URL");
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Grid two layers- URL", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
@@ -573,7 +583,11 @@ enum EnvironmentMode {
 			
 		}
 		*/
-		
+		genMeth.swipedownIphone5Long(1000);		
+		genMeth.swipedownIphone5Long(1000);	
+		genMeth.swipedownIphone5Long(1000);		
+
+
 		//Email
 		genMeth.clickId(genMeth, "Email");
 		genMeth.eyesCheckWindow("All Tabs- Grid two layers- Email", useEye, genMeth, skipfailure);		
@@ -643,27 +657,25 @@ enum EnvironmentMode {
 		// Email
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Email", useEye, genMeth, skipfailure);		
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Email",useEye);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 
 		// URL
 		Thread.sleep(1000);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[10]");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- URL", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Grid one layer- URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		// Landline
 		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Landline", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Landline", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
-				
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Grid one layer- Swipe right",useEye);
+		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Swipe right", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		
 		//Verify Startup screen is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);	
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		genMeth.swipeUpIphone5Long(1000);
 	
 	
@@ -683,95 +695,96 @@ enum EnvironmentMode {
 		//genMeth.swipedownIphone5Short(1000);
 		
 		genMeth.clickId(genMeth, "Employee Directory");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory main", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory main", useEye, genMeth, skipfailure);		
 		
 		//Search an employee (Empty search)
 		genMeth.clickId(genMeth, "Search");
 		genMeth.sendId(genMeth, "Search", "no emplyees found");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - empty search", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - empty search", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNclearText_Name);
 		
 		//Search an employee
 		genMeth.sendId(genMeth, "Search" , "Lane" );
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - search Specific employee", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - search Specific employee", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//second layer
 		genMeth.clickId(genMeth, "Lane R. Barlow");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Second layer", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Second layer", useEye, genMeth, skipfailure);		
 		
 
 		// Phone
 		genMeth.clickId(genMeth, "Phone");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Phone", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Phone", useEye, genMeth, skipfailure);		
 	
 		// Email
 		genMeth.clickId(genMeth, "Email");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Email", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Email", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 		
 		//Map
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.clickId(genMeth, "Address First");
-		genMeth.eyesCheckWindow(eyes,"All Tabs- Employee Directory - Address First", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address First", useEye, genMeth, skipfailure);		
 
 		
 		// Mini Map
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.clickId(genMeth, "Address (Second)");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Address second", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address second", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 
 		// URL
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "google.com");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - URL", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - URL", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		//Social Networks
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[1]");
 		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - FaceBook", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - FaceBook", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
 		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Twitter", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Twitter", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
 		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Linkein", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Linkein", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[4]");
 		Thread.sleep(3000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Google+", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Google+", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		//Navigation
 		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.clickId(genMeth, "First_Name");
 		Thread.sleep(8000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory - Navigation to Param report ed", useEye);
+		
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Navigation to Param report ED", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Back from navigation", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Back from navigation", useEye, genMeth, skipfailure);		
 		
 		//No Social Networks available
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNclearText_Name);
 		genMeth.clickId(genMeth, "Callum R. Aguirre");
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, No Social Networks", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Social Networks", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		
 		//No Google+ 
 		genMeth.clickId(genMeth, "Caldwell Alexander");
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, No Google+", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Google+", useEye, genMeth, skipfailure);		
 		
 		//Back to Startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
@@ -780,12 +793,12 @@ enum EnvironmentMode {
 		
 		//Press info for the app
 		genMeth.clickId(genMeth, iosData.IconApplicationInfo_Name);
-		genMeth.eyesCheckWindow(eyes, "All Tabs- Employee Directory, Golden App info screen", useEye);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);		
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 				
 		//Verify Startup screen is open
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -802,38 +815,36 @@ enum EnvironmentMode {
 		//genMeth.swipedownIphone5Short(1000);
 
 		genMeth.clickId(genMeth, "Param Report Grid");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- add Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- add Parameters", useEye, genMeth, skipfailure);		
 		
 		//Attempt to submit while mandatory is missing
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Mandatory field is missing", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- Mandatory field is missing", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "SL-Device Types");
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- SL param", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- SL param", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Laptop");
 		Thread.sleep(12000);
 		
 		genMeth.clickId(genMeth, "PSL- Device Model");
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- PSL param", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- PSL param", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Lenovo");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- All params were filled", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- All params were filled", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		Thread.sleep(4000);
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Grid first layer", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- Grid first layer", useEye, genMeth, skipfailure);		
 		//Go To second layer
 		genMeth.clickId(genMeth, "Laptop");
-		genMeth.eyesCheckWindow(eyes, "Param Report Grid- Grid second layer", useEye);
+		genMeth.eyesCheckWindow("Param Report Grid- Grid second layer", useEye, genMeth, skipfailure);		
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -846,13 +857,13 @@ enum EnvironmentMode {
 
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "Param Variables only");
-		genMeth.eyesCheckWindow(eyes, "Param Report with All Variables - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Param Report with All Variables - SQL Golden App", useEye, genMeth, skipfailure);		
 
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -868,12 +879,11 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Short(1000);
 
 		genMeth.clickId(genMeth, "Param Report List");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Report List- add Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Report List- add Parameters", useEye, genMeth, skipfailure);		
 		
 		//Attempt to submit while mandatory is missing
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		genMeth.eyesCheckWindow(eyes, "Param Report List- Mandatory field is missing", useEye);
+		genMeth.eyesCheckWindow("Param Report List- Mandatory field is missing", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "FreeText  (Priority)");
@@ -882,30 +892,25 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		genMeth.clickId(genMeth, "SL_ML (Priority)");
-		genMeth.eyesCheckWindow(eyes, "Param Report List- SL ML  Priority", useEye);
-		genMeth.clickId(genMeth, "2");
-		genMeth.eyesCheckWindow(eyes, "Param Report List- All params were filled", useEye);
+		genMeth.eyesCheckWindow("Param Report List- All params were filled", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(2000);
-		genMeth.eyesCheckWindow(eyes, "Param Report List- FreeText Priority = 1", useEye);
+		genMeth.eyesCheckWindow("Param Report List- FreeText Priority = 1", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "SL_ML (Priority)");
-		genMeth.eyesCheckWindow(eyes, "Param Report List- FreeText Priority = 2", useEye);
-		
+		genMeth.eyesCheckWindow("Param Report List- FreeText Priority = 2", useEye, genMeth, skipfailure);				
 
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "SC(Up_Date<=MobDate)");
-		genMeth.eyesCheckWindow(eyes, "Param Report List- SC(Up_Date<=MobDate)", useEye);
+		genMeth.eyesCheckWindow("Param Report List- SC(Up_Date<=MobDate)", useEye, genMeth, skipfailure);				
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
 		genMeth.swipeUpIphone5Long(1000);
-
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
-		
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);						
 	}
 
 	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
@@ -917,39 +922,37 @@ enum EnvironmentMode {
 		// go to parameterized report dashboard - DL- Device Info tab
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param DL-Dashboard");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- add Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- add Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "SL- Devices Type");
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- SL param", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- SL param", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Laptop");
 		Thread.sleep(2000);
 		
 		genMeth.clickId(genMeth, "DL- Device Model");
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- DL param", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- DL param", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Lenovo");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- All params were filled", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- All params were filled", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		Thread.sleep(5000);
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- Dashboard tab", useEye, genMeth, skipfailure);		
 		
 		//Navigate to Dashboard tab
 		genMeth.clickId(genMeth, "Device Type name (ParentName)");
 		Thread.sleep(8000);
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(5000);
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Navigate to SL- Devices by Type tab", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- Navigate to SL- Devices by Type tab", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.eyesCheckWindow(eyes, "Param Report Dashboard DL- Dashboard tab", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- Dashboard tab", useEye, genMeth, skipfailure);		
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
@@ -963,29 +966,28 @@ enum EnvironmentMode {
 		// go to parameterized report dashboard - DL- Device Info tab
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param Rep Cover Flow");
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - QR", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
 		genMeth.clickId(genMeth, iosData.BTNClearName);
 		genMeth.clickId(genMeth, "m");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		Thread.sleep(1000);
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Males", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);		
 		
 		//Go To cover flow tab by const (females)
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Const-Female Only");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cover Flow - Female", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - Female", useEye, genMeth, skipfailure);		
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
@@ -999,36 +1001,34 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param Report Chart");
 		Thread.sleep(2000);
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Report Dashboard DL- add Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Choose Value");
 		genMeth.clickId(genMeth, "Mall of America");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL ", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - SL", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Bar", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - SL Mall of america Bar", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(3000);
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america in bar chart", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - SL Mall of america in bar chart", useEye, genMeth, skipfailure);		
 		
 		//Naviagte to param report
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - Param report map - parameters screen", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - Param report map - parameters screen", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//Go To Pie tab
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "SL-SalesbyBranch-Pie");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Pie", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - SL Mall of america Pie", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Returns");
-		genMeth.eyesCheckWindow(eyes, "Param Rep Chart - SL Mall of america Pie- Returnes", useEye);
+		genMeth.eyesCheckWindow("Param Rep Chart - SL Mall of america Pie- Returnes", useEye, genMeth, skipfailure);		
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -1044,27 +1044,26 @@ enum EnvironmentMode {
 
 		genMeth.clickId(genMeth, "Param Report ED");
 		Thread.sleep(2000);
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep ED - Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Rep ED - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Choose Value");
 		genMeth.clickId(genMeth, "Female");
-		genMeth.eyesCheckWindow(eyes, "Param Rep ED -SL MB", useEye);
+		genMeth.eyesCheckWindow("Param Rep ED -SL MB", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(2000);
-		genMeth.eyesCheckWindow(eyes, "Param Rep ED - Female only", useEye);
+		genMeth.eyesCheckWindow("Param Rep ED - Female only", useEye, genMeth, skipfailure);		
 		
 		//Go To Employee tab by Login variable
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "ED by Login");
-		genMeth.eyesCheckWindow(eyes, "Param Rep ED - ED by Login", useEye);
+		genMeth.eyesCheckWindow("Param Rep ED - ED by Login", useEye, genMeth, skipfailure);		
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -1079,22 +1078,21 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "Param Report Map");
 		Thread.sleep(5000);
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Rep Map - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Choose Value");
 		genMeth.clickId(genMeth, "Mall of America");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america chosen", useEye);
+		genMeth.eyesCheckWindow("Param Rep Map - Mall Of america chosen", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(12000);
-		genMeth.eyesCheckWindow(eyes, "Param Rep Map - Mall Of america on map", useEye);
+		genMeth.eyesCheckWindow("Param Rep Map - Mall Of america on map", useEye, genMeth, skipfailure);		
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -1109,8 +1107,7 @@ enum EnvironmentMode {
 
 		genMeth.clickId(genMeth, "Param Report Cards");
 		Thread.sleep(5000);
-		
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Parameters", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cards - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Default");
@@ -1126,16 +1123,15 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Priority = 1", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cards - Priority = 1", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Param Rep Cards - Priority = 1 service calls", useEye);
+		genMeth.eyesCheckWindow("Param Rep Cards - Priority = 1 service calls", useEye, genMeth, skipfailure);		
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 
@@ -1158,8 +1154,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, "1 Slicers");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-
-		genMeth.eyesCheckWindow(eyes, "List Actions- List Actions", useEye);
+		genMeth.eyesCheckWindow("List Actions- List Actions", useEye, genMeth, skipfailure);		
 		
 		//Execute action in the first layer
 		//Free text description
@@ -1179,7 +1174,7 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "List Actions- cell description", useEye);
+		genMeth.eyesCheckWindow("List Actions- cell description", useEye, genMeth, skipfailure);		
 
 		//Priority (Simple List MB)
 		genMeth.clickId(genMeth, "Priority");
@@ -1190,14 +1185,13 @@ enum EnvironmentMode {
 			genMeth.clickId(genMeth, "90");
 
 		}
-		
-		genMeth.eyesCheckWindow(eyes, "List Actions- cell Priority (Simple List MB)", useEye);
+		genMeth.eyesCheckWindow("List Actions- cell Priority (Simple List MB)", useEye, genMeth, skipfailure);		
 
 		//Assign To (Dynamic List)
 		genMeth.clickId(genMeth, "Assigned To");
 		genMeth.clickId(genMeth, "Adrian Lopez");
-		Thread.sleep(10000);		
-		genMeth.eyesCheckWindow(eyes, "List Actions- cell Assign To (DL)", useEye);	
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("List Actions- cell Assign To (DL)", useEye, genMeth, skipfailure);		
 		
 		//Action in second layer
 		genMeth.swipedownIphone5Long(1000);
@@ -1245,8 +1239,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
 		genMeth.swipedownIphone5Short(1000);
-
-		genMeth.eyesCheckWindow(eyes, "List Actions- cell QR second layer (QR)", useEye);
+		genMeth.eyesCheckWindow("List Actions- cell QR second layer (QR)", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		
@@ -1308,7 +1301,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "PhotoCapture");
 		genMeth.clickId(genMeth, "Use Photo");
 		genMeth.clickId(genMeth, "Done");
-		genMeth.eyesCheckWindow(eyes, "List Actions- Image set", useEye);
+		genMeth.eyesCheckWindow("List Actions- Image set", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 
@@ -1350,7 +1343,7 @@ enum EnvironmentMode {
 		//Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Short(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 
 	}
 
@@ -1368,7 +1361,7 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "InLine- AddRow");
 		Thread.sleep(4000);
-		genMeth.eyesCheckWindow(eyes, "Actions_List_Inline- Inline parameters default", useEye);
+		genMeth.eyesCheckWindow("Actions_List_Inline- Inline parameters default", useEye, genMeth, skipfailure);		
 
 		genMeth.sendId(genMeth, "This is default value", "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
@@ -1400,14 +1393,14 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "PhotoCapture");
 		genMeth.clickId(genMeth, "Use Photo");
 		genMeth.clickId(genMeth, "Done");
-		genMeth.eyesCheckWindow(eyes, "Actions_List_Inline- Inline Image set", useEye);
+		genMeth.eyesCheckWindow("Actions_List_Inline- Inline Image set", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		
 		//Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Short(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 
 	}
 	
@@ -1422,7 +1415,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "List / Grid Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - One Layer");  
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer main view", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer main view", useEye, genMeth, skipfailure);		
 
 		//USER INPUT = Free Text (Description)
 		boolean isTextDisplayed = genMeth.checkIsElementVisible(By.id("Descrip 1"));
@@ -1441,8 +1434,8 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
-		Thread.sleep(10000);		
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- description (free text)", useEye);
+		Thread.sleep(10000);	
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- description (free text)", useEye, genMeth, skipfailure);		
 
 		//USER INPUT = Simple List MB (Priority)
 		isTextDisplayed = genMeth.checkIsElementVisible(By.id("90"));
@@ -1456,16 +1449,15 @@ enum EnvironmentMode {
 			genMeth.clickId(genMeth, "90");
 		}
 		
-		Thread.sleep(10000);		
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Priority (Simple List MB)", useEye);
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Priority (Simple List MB)", useEye, genMeth, skipfailure);		
 
 		//USER INPUT = Simple List DI (Status) 
 		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAStaticText[4]");
-		
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Closed");
 		Thread.sleep(6000);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Status success (Simple List DI)", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status success (Simple List DI)", useEye, genMeth, skipfailure);		
 		genMeth.swipeRightIphone5Long(1000);
 		
 
@@ -1474,7 +1466,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Video card  (Cat 1)");
 		
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye, genMeth, skipfailure);		
 		
 		//USER INPUT = QR (KPI)
 		
@@ -1497,11 +1489,11 @@ enum EnvironmentMode {
 
 		
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- KPI (QR)", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- KPI (QR)", useEye, genMeth, skipfailure);		
 
 		//OutGrid(Row)  
 		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Row parameters before insert", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters before insert", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, "Free_Text1");
 		Thread.sleep(2000);
@@ -1527,7 +1519,7 @@ enum EnvironmentMode {
 	
 		genMeth.clickId(genMeth, "Items_By_Category_PSL");
 		genMeth.clickId(genMeth, "Power Supply (Cat 1)");
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye, genMeth, skipfailure);		
 
 		genMeth.swipedownIphone5Long(1000);
 		
@@ -1537,7 +1529,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "PhotoCapture");
 		genMeth.clickId(genMeth, "Use Photo");
 		genMeth.clickId(genMeth, "Done");
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- Image set", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Image set", useEye, genMeth, skipfailure);		
 		
 
 		//PSL with Variable
@@ -1547,13 +1539,13 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		Thread.sleep(5000);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_One_Layer- Grid One Layer- after action executed", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- after action executed", useEye, genMeth, skipfailure);		
 
 		
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Short(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App", useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 
 	}
 	
@@ -1568,7 +1560,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "List / Grid Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - Two Layers");  
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_Two_Layer- Grid Two Layer main view", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layer main view", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "3");
 		
 		//DL
@@ -1576,7 +1568,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_Two_Layer- Grid Two Layers- ItemID SL", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- ItemID SL", useEye, genMeth, skipfailure);		
 		
 		//Row Action
 		genMeth.clickId(genMeth, "m");
@@ -1592,19 +1584,19 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Status");
 		genMeth.clickId(genMeth, "Open");
 		genMeth.clickId(genMeth, iosData.BTNsave);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_Two_Layer- Grid Two Layers- Table Parameter filled", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- Table Parameter filled", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_Two_Layer- Grid Two Layers- All parameters are filled", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- All parameters are filled", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(10000);
 		
 		//Check the push notification
-		genMeth.eyesCheckWindow(eyes, "Actions_Grid_Two_Layer- Grid Two Layers- Action Success", useEye);
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- Action Success", useEye, genMeth, skipfailure);		
 		
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 	}
 
 	
@@ -1620,54 +1612,54 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, "BranchID");
 		genMeth.clickId(genMeth, "7");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- branchID selected",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- branchID selected", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- List (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- List (BranchID=7)", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		
 		genMeth.clickId(genMeth, "Slicer Grid");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Grid (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Grid (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cover Flow");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Cover Flow (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Cover Flow (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Dashboard");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Dashboard (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Dashboard (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Map");
 //		genMeth.clickName(genMeth, "Garden State Plaza, Paramus, NJ, 1 item");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Map (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Map (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cards");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Cards (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Cards (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer News");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- News (BranchID=7)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- News (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Bar Chart");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Bar chart empty slicing",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Bar chart empty slicing", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
 		genMeth.clickId(genMeth, "BranchID");
 		genMeth.clickId(genMeth, "7");
 		genMeth.clickId(genMeth, "Aventura Mall");
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Slicer Report- Bar chart Aventura Mall",useEye);
+		genMeth.eyesCheckWindow("Slicer Report- Bar chart Aventura Mall", useEye, genMeth, skipfailure);		
 
 
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
@@ -1681,52 +1673,52 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
 		
 		genMeth.clickId(genMeth, "BranchID");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter - branchID 1,3 only",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter - branchID 1,3 only", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, "3");
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- List (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- List (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer One Layer");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Grid One Layer (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Grid One Layer (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Two Layer");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Grid Two Layer (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Grid Two Layer (BranchID=3)", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "3");
 		genMeth.clickId(genMeth, iosData.IconBack_Name);
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cover Flow");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Cover Flow (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Cover Flow (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Dashboard");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Dashboard (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Dashboard (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Map");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Map (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Map (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cards");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Cards (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Cards (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer News");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- News (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- News (BranchID=3)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Bar Chart");
-		genMeth.eyesCheckWindow(eyes, "Slicer Report with Security Filter- Bar Chart (BranchID=3)",useEye);
+		genMeth.eyesCheckWindow("Slicer Report with Security Filter- Bar Chart (BranchID=3)", useEye, genMeth, skipfailure);		
 
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
 		genMeth.swipeUpIphone5Long(1000);
-		genMeth.eyesCheckWindow(eyes, "Default app is open - SQL Golden App",useEye);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
