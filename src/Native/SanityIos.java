@@ -663,7 +663,7 @@ enum EnvironmentMode {
 		// URL
 		Thread.sleep(1000);
 		genMeth.clickXpth(genMeth, " //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
-		Thread.sleep(10000);
+		Thread.sleep(12000);
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
