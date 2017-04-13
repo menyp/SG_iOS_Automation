@@ -311,10 +311,12 @@ public class IosMethods {
 		//capabilities.setCapability("device",genMeth.getValueFromPropFile("deviceName"));
 
 
-		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid"));
+		//capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone6"));
+		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone5S"));
+
 		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
 
-		capabilities.setCapability("platformVersion","10.2.1");
+		capabilities.setCapability("platformVersion","10.1.1");
 
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		
@@ -344,9 +346,9 @@ public class IosMethods {
 		//capabilities.setCapability(MobileCapabilityType.ENABLE_PROFILING_CAPABILITY,"true");
 
 
-		//capabilities.setCapability("useNewWDA", "true");
+		capabilities.setCapability("useNewWDA", "true");
 		//capabilities.setCapability("wdaLaunchTimeout", 10000);
-		//capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
+		capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
 		//capabilities.setCapability("wdaConnectionTimeout", 100000);
 
 		//capabilities.setCapability("autoAcceptAlerts", true);

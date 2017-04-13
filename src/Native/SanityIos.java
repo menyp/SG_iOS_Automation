@@ -529,7 +529,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Grid two layer Advanced", retryAnalyzer = Retry.class, description = "Check the Grid two layer tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_Two_Layers() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -618,7 +618,7 @@ enum EnvironmentMode {
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab Advanced & navigation",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Grid_One_Layer_Advance_Navigation() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -631,43 +631,44 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer (Advanced - Part 1)", useEye, genMeth, skipfailure);		
 		
 		// Address
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[11]");
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer-  Address", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 
 		// Mobile Phone
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[14]");
+		genMeth.swipeRightIphone5Long(1000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Phone", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
-		
-		genMeth.swipeRightIphone5Long(1000);
-		genMeth.swipeRightIphone5Long(1000);
-		//genMeth.swipeRightIphone5Long(1000);
-
 
 		// MiniMap - Navigation to slicer report
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[6]");
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer-  Mini Map", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		
-		genMeth.swipeRightIphone5Long(1000);
-		genMeth.swipeRightIphone5Long(1000);
+		Thread.sleep(2000);
 
 		// Email
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[7]");
+		genMeth.swipeRightIphone5Long(2000);
+		genMeth.swipeRightIphone5Long(2000);
+		genMeth.swipeRightIphone5Long(2000);
+
+
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]	");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Email", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 
 		// URL
 		Thread.sleep(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[10]");
+		genMeth.clickXpth(genMeth, " //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		// Landline
-		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
+		genMeth.clickXpth(genMeth,"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Landline", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Swipe right", useEye, genMeth, skipfailure);		
