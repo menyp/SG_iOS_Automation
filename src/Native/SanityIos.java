@@ -930,17 +930,18 @@ enum EnvironmentMode {
 		// go to parameterized report dashboard - DL- Device Info tab
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param DL-Dashboard");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- add Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "SL- Devices Type");
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- SL param", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "Laptop");
+		genMeth.clickId(genMeth, "Mobile");
 		Thread.sleep(2000);
 		
 		genMeth.clickId(genMeth, "DL- Device Model");
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- DL param", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "Lenovo");
+		genMeth.clickId(genMeth, "iPhone6");
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- All params were filled", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
@@ -949,7 +950,9 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- Dashboard tab", useEye, genMeth, skipfailure);		
 		
 		//Navigate to Dashboard tab
-		genMeth.clickId(genMeth, "Device Type name (ParentName)");
+//		genMeth.clickId(genMeth, "Device Type name (ParentName)");
+		genMeth.clickId(genMeth, "Mobile");
+
 		Thread.sleep(8000);
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		Thread.sleep(5000);
