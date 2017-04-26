@@ -883,7 +883,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report - Grid tab
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Long(1000);
 
 		genMeth.clickId(genMeth, "Param Report List");
 		genMeth.eyesCheckWindow("Param Report List- add Parameters", useEye, genMeth, skipfailure);		
@@ -891,6 +891,7 @@ enum EnvironmentMode {
 		//Attempt to submit while mandatory is missing
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow("Param Report List- Mandatory field is missing", useEye, genMeth, skipfailure);		
+		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "FreeText  (Priority)");
@@ -900,9 +901,9 @@ enum EnvironmentMode {
 
 		genMeth.clickId(genMeth, "SL_ML (Priority)");
 		genMeth.eyesCheckWindow("Param Report List- All params were filled", useEye, genMeth, skipfailure);		
-		
+		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Report List- FreeText Priority = 1", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
