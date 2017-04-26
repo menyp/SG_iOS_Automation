@@ -684,20 +684,23 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Employee Directory", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Employee_Directory() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-
 		// go to Employee Directory tab
+		
+
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);
+			
 		genMeth.clickId(genMeth, "DashB/Cards/Employee");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		//genMeth.swipedownIphone5Short(1000);
 		
 		genMeth.clickId(genMeth, "Employee Directory");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory main", useEye, genMeth, skipfailure);		
-		
+		/*
 		//Search an employee (Empty search)
 		genMeth.clickId(genMeth, "Search");
 		genMeth.sendId(genMeth, "Search", "no emplyees found");
@@ -710,9 +713,9 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - search Specific employee", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
-		
+		*/
 		//second layer
-		genMeth.clickId(genMeth, "Lane R. Barlow");
+		genMeth.clickId(genMeth, "Callum R. Aguirre");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Second layer", useEye, genMeth, skipfailure);		
 		
 
@@ -728,6 +731,9 @@ enum EnvironmentMode {
 		
 		//Map
 		genMeth.swipedownIphone5Shorter(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "Address First");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address First", useEye, genMeth, skipfailure);		
 
@@ -737,55 +743,52 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Address (Second)");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address second", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
+		
+		// Navigation
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.clickId(genMeth, "First_Name");
+		Thread.sleep(8000);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Navigation to Param report ED", useEye, genMeth,skipfailure);
+		genMeth.clickId(genMeth, iosData.BTNCancelName);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Back from navigation", useEye, genMeth, skipfailure);
 
 		// URL
 		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "google.com");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - URL", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		//Social Networks
 		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[1]");
-		Thread.sleep(3000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]");
+		
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - FaceBook", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
-		Thread.sleep(3000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Twitter", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[3]");
-		Thread.sleep(3000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Linkein", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[4]");
-		Thread.sleep(3000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[4]");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Google+", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
-		//Navigation
-		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.clickId(genMeth, "First_Name");
-		Thread.sleep(8000);
-		
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Navigation to Param report ED", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, iosData.BTNCancelName);
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Back from navigation", useEye, genMeth, skipfailure);		
-		
-		//No Social Networks available
+		//No Google+/Twitter/Linkenin
 		genMeth.clickId(genMeth, iosData.BTNBackName);
-		genMeth.clickId(genMeth, iosData.BTNclearText_Name);
-		genMeth.clickId(genMeth, "Callum R. Aguirre");
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Social Networks", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, iosData.BTNBackName);
-		
-		//No Google+ 
 		genMeth.clickId(genMeth, "Caldwell Alexander");
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Google+", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Twitter/Linkedin/Google+", useEye, genMeth, skipfailure);		
 		
 		//Back to Startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
@@ -793,10 +796,11 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
 		
 		//Press info for the app
-		genMeth.clickId(genMeth, iosData.IconApplicationInfo_Name);
+		//genMeth.clickId(genMeth, iosData.IconApplicationInfo_Name);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);		
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipeRightIphone5Short(1000);
 				
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
@@ -813,7 +817,7 @@ enum EnvironmentMode {
 
 		// go to parameterized report - Grid tab
 		genMeth.swipedownIphone5Short(1000);
-		//genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
 
 		genMeth.clickId(genMeth, "Param Report Grid");
 		genMeth.eyesCheckWindow("Param Report Grid- add Parameters", useEye, genMeth, skipfailure);		
@@ -821,16 +825,17 @@ enum EnvironmentMode {
 		//Attempt to submit while mandatory is missing
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		genMeth.eyesCheckWindow("Param Report Grid- Mandatory field is missing", useEye, genMeth, skipfailure);		
+		genMeth.clickId(genMeth, iosData.BTNokName);
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "SL-Device Types");
 		genMeth.eyesCheckWindow("Param Report Grid- SL param", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "Laptop");
-		Thread.sleep(12000);
+		genMeth.clickId(genMeth, "Mobile");
+		Thread.sleep(5000);
 		
 		genMeth.clickId(genMeth, "PSL- Device Model");
 		genMeth.eyesCheckWindow("Param Report Grid- PSL param", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "Lenovo");
+		genMeth.clickId(genMeth, "iPhone5");
 		genMeth.eyesCheckWindow("Param Report Grid- All params were filled", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
@@ -838,7 +843,7 @@ enum EnvironmentMode {
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Param Report Grid- Grid first layer", useEye, genMeth, skipfailure);		
 		//Go To second layer
-		genMeth.clickId(genMeth, "Laptop");
+		genMeth.clickId(genMeth, "iPhone5");
 		genMeth.eyesCheckWindow("Param Report Grid- Grid second layer", useEye, genMeth, skipfailure);		
 		
 		//Back to startup screen
@@ -858,6 +863,7 @@ enum EnvironmentMode {
 
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "Param Variables only");
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Report with All Variables - SQL Golden App", useEye, genMeth, skipfailure);		
 
 		
@@ -870,7 +876,7 @@ enum EnvironmentMode {
 
 	
 	@Test(enabled = true, testName = "Parameterized report List", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Param_Report_List() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {

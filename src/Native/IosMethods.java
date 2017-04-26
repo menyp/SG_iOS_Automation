@@ -316,7 +316,7 @@ public class IosMethods {
 
 		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
 
-		capabilities.setCapability("platformVersion","10.1.1");
+		capabilities.setCapability("platformVersion","10.3.1");
 
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		
