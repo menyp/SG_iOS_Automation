@@ -1017,7 +1017,7 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param Report Chart");
 		Thread.sleep(2000);
-		genMeth.eyesCheckWindow("Param Report Dashboard DL- add Parameters", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("Param Rep Chart- add Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Choose Value");
@@ -1030,9 +1030,10 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("Param Rep Chart - SL Mall of america in bar chart", useEye, genMeth, skipfailure);		
 		
 		//Naviagte to param report
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAImage[2]");
-		genMeth.eyesCheckWindow("Param Rep Chart - Param report map - parameters screen", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, iosData.BTNCancelName);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeImage[2]");
+		genMeth.eyesCheckWindow("Param Rep Chart - Navigation with auto submit to Param report map", useEye, genMeth, skipfailure);		
+		//genMeth.clickId(genMeth, iosData.BTNCancelName);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		
 		//Go To Pie tab
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
