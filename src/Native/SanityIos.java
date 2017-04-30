@@ -1121,9 +1121,10 @@ enum EnvironmentMode {
 
 		// go to parameterized report-  Param report chart tab
 		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
 
 		genMeth.clickId(genMeth, "Param Report Cards");
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("Param Rep Cards - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
@@ -1148,6 +1149,8 @@ enum EnvironmentMode {
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
