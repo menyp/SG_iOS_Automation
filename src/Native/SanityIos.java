@@ -1049,7 +1049,7 @@ enum EnvironmentMode {
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_EmployeeDirectory()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1092,7 +1092,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report-  Param report chart tab
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Long(1000);
 		genMeth.clickId(genMeth, "Param Report Map");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Rep Map - Parameters", useEye, genMeth, skipfailure);		
@@ -1103,7 +1103,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.eyesCheckWindow("Param Rep Map - Mall Of america chosen", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		Thread.sleep(12000);
+		Thread.sleep(15000);
 		genMeth.eyesCheckWindow("Param Rep Map - Mall Of america on map", useEye, genMeth, skipfailure);		
 
 		//Back to startup screen
@@ -1113,7 +1113,7 @@ enum EnvironmentMode {
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Cards()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
