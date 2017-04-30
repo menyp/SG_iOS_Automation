@@ -921,7 +921,7 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);						
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_DL_Dashboard()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -976,19 +976,23 @@ enum EnvironmentMode {
 
 		// go to parameterized report dashboard - DL- Device Info tab
 		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+
 		genMeth.clickId(genMeth, "Param Rep Cover Flow");
 		genMeth.eyesCheckWindow("Param Rep Cover Flow - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
-		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);		
+		genMeth.clickId(genMeth, iosData.BTNokName);
+		Thread.sleep(4000);
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);	
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
 		genMeth.clickId(genMeth, iosData.BTNClearName);
 		genMeth.clickId(genMeth, "m");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 		Thread.sleep(1000);
-		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR1", useEye, genMeth, skipfailure);		
 		
 		//Go To cover flow tab by const (females)
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
@@ -998,11 +1002,12 @@ enum EnvironmentMode {
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Chart()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
