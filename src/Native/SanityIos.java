@@ -1007,7 +1007,7 @@ enum EnvironmentMode {
 		
 	}
 	
-	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
 	public void Param_Report_Chart()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
@@ -1049,8 +1049,8 @@ enum EnvironmentMode {
 		
 	}
 
-	@Test(enabled = true, groups = { "Sanity IOS" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
-	public void Param_Report_EmployeeDirectoryD()
+	@Test(enabled = true, groups = { "Sanity IOS1" }, testName = "Param_Report_DL_Dashboard", retryAnalyzer = Retry.class, description = "Check the Employee Directory tab")
+	public void Param_Report_EmployeeDirectory()
 			throws ParserConfigurationException, SAXException, IOException,
 			InterruptedException {
 
