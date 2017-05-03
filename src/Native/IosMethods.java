@@ -1092,7 +1092,7 @@ public class IosMethods {
 
 		try {
 
-			(new WebDriverWait(driver, 45)).until(ExpectedConditions
+			(new WebDriverWait(driver, 30)).until(ExpectedConditions
 					.invisibilityOfElementLocated(By));
 
 		}
@@ -1202,12 +1202,14 @@ public class IosMethods {
 
 	}
 
-	public void isElementInvisibleText(By By, String Text)
+	public boolean isElementInvisibleText(By By, String Text)
 			throws ParserConfigurationException, SAXException, IOException {
+		
+		boolean isTextVisible= false;
 
 		try {
 
-			(new WebDriverWait(driver, 45)).until(ExpectedConditions
+			isTextVisible = (new WebDriverWait(driver, 45)).until(ExpectedConditions
 					.invisibilityOfElementWithText(By, Text));
 
 		}
@@ -1222,6 +1224,7 @@ public class IosMethods {
 			org.testng.Assert.fail(Text + " still visible");
 
 		}
+		return isTextVisible;
 
 	}
 
