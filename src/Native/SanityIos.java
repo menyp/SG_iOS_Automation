@@ -75,7 +75,6 @@ enum EnvironmentMode {
 		//service = genMeth.startAppiumService();
 
 		
-		driver = genMeth.setCapabilitiesIos(genMeth);	
 		genMeth.cleanLoginIos(genMeth, iosData.userQA, iosData.passwordQA); 
 	}
 
@@ -1270,7 +1269,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Actions_List_Row", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 	
 	public void Actions_List_Row() throws ParserConfigurationException, SAXException,
 	IOException, InterruptedException {
@@ -1289,149 +1288,13 @@ genMeth.clickId(genMeth, "1");
 genMeth.clickId(genMeth, "1 Slicers");
 genMeth.clickId(genMeth, iosData.BTNdoneName);
 genMeth.eyesCheckWindow("List Actions- List Actions", useEye, genMeth, skipfailure);		
-/*
-//Execute action in the first layer
-//Free text description
-genMeth.clickId(genMeth, "Description");
-boolean checkAction = genMeth.checkIsElementVisible(By.id("Descrip 1"));
-if (checkAction) {
-	genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
-	genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
-	genMeth.clickId(genMeth, "2");
 
-} else {
-	genMeth.clickId(genMeth, iosData.BTNkeyboardDelete);
-	genMeth.clickId(genMeth, iosData.BtnkeyboardMoreNumbers);
-	genMeth.clickId(genMeth, "1");
-
-}
-
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-Thread.sleep(8000);
-genMeth.eyesCheckWindow("List Actions- cell description - Success Popup", useEye, genMeth, skipfailure);	
-genMeth.clickId(genMeth, iosData.BTNokName);
-
-
-//Priority (Simple List MB)
-genMeth.clickId(genMeth, "Priority");
-genMeth.clickId(genMeth, "91");
-checkAction = genMeth.checkIsElementVisible(By.id("Update Pirority (MB)"));
-
-if (checkAction) {
-	genMeth.clickId(genMeth, "90");
-
-}
-genMeth.eyesCheckWindow("List Actions- Priority (Simple List MB) - Success Popup", useEye, genMeth, skipfailure);	
-genMeth.clickId(genMeth, iosData.BTNokName);
-
-
-//PSL By Variable (PSL gets id's by mobile date)
-genMeth.clickId(genMeth, "Branch ID");
-genMeth.clickId(genMeth, "3");
-Thread.sleep(5000);
-genMeth.clickId(genMeth, iosData.BTNokName);
-
-
-
-//Assign To (Dynamic List)
-genMeth.clickId(genMeth, "Assigned To");
-genMeth.clickId(genMeth, "Daniel Arkle");
-Thread.sleep(8000);
-genMeth.eyesCheckWindow("List Actions- cell Assign To (DL)- Success Popup", useEye, genMeth, skipfailure);		
-genMeth.clickId(genMeth, iosData.BTNokName);
-genMeth.eyesCheckWindow("List Actions- Success V icons", useEye, genMeth, skipfailure);		
-
-
-//Action in second layer
 genMeth.swipedownIphone5Long(1000);
 genMeth.swipedownIphone5Long(1000);
 genMeth.swipedownIphone5Long(1000);
 genMeth.swipedownIphone5Long(1000);
-
-
-
-genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
-Thread.sleep(2000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-*/
-
-//QR code
-genMeth.clickId(genMeth, "QR");
-boolean isVisible =  genMeth.checkIsElementVisible(By.id(iosData.BTNokName));
-if (isVisible){
-	genMeth.clickId(genMeth, iosData.BTNokName);
-}
-
-isVisible = genMeth.isElementInvisibleText(By.xpath("//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]"), "1");
-
-if (isVisible){
-	
-	genMeth.clickId(genMeth, iosData.BTNClearName);
-	genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "2");
-
-}
-
-else{
-	genMeth.clickId(genMeth, iosData.BTNClearName);
-	genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "1");
-	
-}
-
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-Thread.sleep(5000);
-genMeth.eyesCheckWindow("List Actions- QR Success Popup", useEye, genMeth, skipfailure);		
-genMeth.clickId(genMeth, iosData.BTNokName);
-genMeth.eyesCheckWindow("List Actions- V Success Second Layer", useEye, genMeth, skipfailure);		
-genMeth.clickId(genMeth, iosData.BTNBackName);
-genMeth.clickId(genMeth, iosData.BTNBackName);
-genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
-
-
-/*
-genMeth.swipedownIphone5Long(1000);
-Thread.sleep(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-
-
-try {
-	driver.findElementById(iosData.BTNseeAll_ID).click();
-	//genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
-} catch (Exception e1) {
-	// TODO Auto-generated catch block
-}
-
-boolean isDisplayed = genMeth.checkIsElementVisible(By.id("Service Call ID"));
-if(!isDisplayed){
-	genMeth.swipedownIphone5Long(1000);
-	genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
-}
-
-Thread.sleep(2000);
-genMeth.swipedownIphone5Long(1000);
-
-genMeth.clickId(genMeth, "QR");
-genMeth.clickId(genMeth, iosData.BTNClearName);
-genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "02");
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-Thread.sleep(10000);
-genMeth.swipedownIphone5Short(1000);
-genMeth.eyesCheckWindow("List Actions- cell QR second layer (QR)", useEye, genMeth, skipfailure);		
-
-genMeth.clickId(genMeth, iosData.BTNBackName);
-*/
-
-//Row Action (Adding a row to the all parameters table)
-try {
-	genMeth.clickId(genMeth, "•••");
-} catch (Exception e1) {
-	// TODO Auto-generated catch block
-	genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[23]/XCUIElementTypeButton[2]");
-}
-
-genMeth.clickId(genMeth, "PopUp- AddRow");
+//Row Action (All User input parameters)
+genMeth.clickId(genMeth, "PopUp- AddRow");	
 
 //Free_Text
 genMeth.clickId(genMeth, "Write");
@@ -1440,11 +1303,11 @@ genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 //SL DI
 genMeth.clickId(genMeth, "DeviceType_SL_ByName");
-genMeth.clickId(genMeth, "Laptop");
+genMeth.clickId(genMeth, "Mobile");
 
 //DL
 genMeth.clickId(genMeth, "Device_Model_DL");
-genMeth.clickId(genMeth, "Asus");
+genMeth.clickId(genMeth, "iPhone5");
 
 //PSL
 genMeth.clickId(genMeth, "Items_By_Category_PSL");
@@ -1452,6 +1315,7 @@ genMeth.clickId(genMeth, "Keyboard (Cat 1)");
 
 //QR
 genMeth.clickId(genMeth, "QR");
+genMeth.releaseOK(genMeth);
 genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 
@@ -1467,28 +1331,37 @@ genMeth.clickId(genMeth, "3");
 genMeth.swipedownIphone5Long(1000);
 genMeth.swipedownIphone5Long(1000);
 genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[8]");
-//Take Snapshot
-genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[4]");
-genMeth.clickId(genMeth, "PhotoCapture");
-genMeth.clickId(genMeth, "Use Photo");
-genMeth.clickId(genMeth, "Done");
+//Open Gallery
+//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[4]");
+//genMeth.clickId(genMeth, "PhotoCapture");
+//genMeth.clickId(genMeth, "Use Photo");
+
+
+genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[3]");
+genMeth.releaseOK(genMeth);
+genMeth.clickId(genMeth, "Favorites");
+genMeth.eyesCheckWindow("List Actions- Favorites", useEye, genMeth, skipfailure);		
+genMeth.clickId(genMeth, "Photos");
+genMeth.clickId(genMeth, iosData.BTNCancelName);
+genMeth.clickId(genMeth, iosData.BTNdoneName);
+//genMeth.clickId(genMeth, "Photo, Favorite, Portrait, 10 February 2016, 14:42");
+//genMeth.clickId(genMeth, "Choose");
 
 
 //Signature
 genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[9]/XCUIElementTypeStaticText[1]");
-genMeth.swipedownIphone5Short(1000);
+genMeth.swipedownIphone5Long(1000);
 genMeth.eyesCheckWindow("List Actions- Signature", useEye, genMeth, skipfailure);
 genMeth.clickId(genMeth, "Clear");
 genMeth.eyesCheckWindow("List Actions- Clear Signature", useEye, genMeth, skipfailure);
-genMeth.swipedownIphone5Short(1000);
+genMeth.swipedownIphone5Long(1000);
 genMeth.clickId(genMeth, iosData.BTNdoneName);
-
 genMeth.eyesCheckWindow("List Actions- Image/Signature set", useEye, genMeth, skipfailure);		
 genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-Thread.sleep(10000);
+Thread.sleep(12000);
 genMeth.eyesCheckWindow("List Actions- PopUp - AddRow - Sucess Popup", useEye, genMeth, skipfailure);
-genMeth.clickId(genMeth, iosData.BTNokName);
-
+genMeth.releaseOK(genMeth);
+//genMeth.clickId(genMeth, iosData.BTNokName);
 
 
 //Row Action- Variables only (Adding a row to the all parameters table)
@@ -1502,7 +1375,8 @@ try {
 genMeth.clickId(genMeth, "Add VarOnlyListRow");
 Thread.sleep(12000);
 genMeth.eyesCheckWindow("List Actions- Add VarOnlyListRow - Sucess Popup", useEye, genMeth, skipfailure);
-genMeth.clickId(genMeth, iosData.BTNokName);
+genMeth.releaseOK(genMeth);
+
 
 //Verify Startup screen is open
 genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
@@ -1513,7 +1387,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 
 
 	@Test(enabled = true, testName = "Inline row action", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_List_Inline() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {

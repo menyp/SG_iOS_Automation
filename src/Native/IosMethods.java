@@ -58,10 +58,12 @@ public class IosMethods {
 	IOSDriver<MobileElement> driver;
 	IosElements iosData;
 	Eyes eyes = new Eyes();
+	
 	//Boolean useEye = true;
 	//boolean skipfailure = true;
+	IosMethods genMeth;
 
-	
+	/*
 	public IosMethods(){
 		
 		
@@ -70,12 +72,13 @@ public class IosMethods {
 		
 	}
 	
-	
+	*/
 
 	public void cleanLoginIos(IosMethods genMeth,String user, String password) throws ParserConfigurationException, SAXException,
 
 			IOException, InterruptedException {
 		//set Publisher & Authentication server
+		driver =genMeth.setCapabilitiesIos(genMeth);
 		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
 
@@ -256,6 +259,8 @@ public class IosMethods {
 	}
 */
 
+	
+	
 	public void killAppAndroid(IOSDriver<MobileElement> driver)
 			throws InterruptedException, IOException {
 
@@ -1586,7 +1591,13 @@ public class IosMethods {
         return dest; 
      }
 	
-	
+	public void releaseOK(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		
+		boolean isVisible =  genMeth.checkIsElementVisible(By.id(iosData.BTNokName));
+		if (isVisible){
+			genMeth.clickId(genMeth, iosData.BTNokName);
+		}
+	}
 	
 	
 	// public void changeConnectionType(String mode) {
