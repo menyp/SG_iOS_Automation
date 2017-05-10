@@ -369,7 +369,14 @@ public class IosMethods {
 		   // service.stop();
 
 			//driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-			driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+			try {
+				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				driver.quit();
+				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+
+			}
 			boolean isAllow = genMeth.checkIsElementVisible(By.id("Allow"));
 			if (isAllow) {
 				genMeth.clickId(genMeth, "Allow");

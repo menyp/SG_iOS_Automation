@@ -219,7 +219,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS3" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -412,8 +412,11 @@ enum EnvironmentMode {
 		genMeth.swipeRightIphone5Long(1000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- swipe John Grant", useEye, genMeth, skipfailure);
 		
-		genMeth.swipedownIphone5Shorter(1000);
 		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- swipe down", useEye, genMeth, skipfailure);
 		
 		//Address
@@ -422,10 +425,10 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//Phone
-		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.swipedownIphone5Shorter(1000);
-		Thread.sleep(2000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+		//Thread.sleep(2000);
 
 
 
@@ -441,9 +444,9 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 		
 		//URL
-		genMeth.swipedownIphone5Shorter(1000);
+		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "URL");
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.swipedownIphone5Long(1000);
@@ -1392,47 +1395,80 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	public void Actions_List_Inline() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 		
-		genMeth.clickId(genMeth, "List / Grid Actions");
+		genMeth.clickId(genMeth, "L_G_C Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "List (Inline)");
 
 		// go to List
 		genMeth.swipedownIphone5Long(1000);
-		genMeth.clickId(genMeth, "InLine- AddRow");
+	
+		genMeth.clickId(genMeth, "Inline- AddRow");
+		
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Actions_List_Inline- Inline parameters default", useEye, genMeth, skipfailure);		
 
 		genMeth.sendId(genMeth, "This is default value", "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
+		//SL DI
 		genMeth.clickId(genMeth, "Mobile");
+		
+		//DL
 		genMeth.clickId(genMeth, "iPhone6");
 
-		genMeth.swipedownIphone5Short(1000);
-
-		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
-			
-		genMeth.clickId(genMeth, "QR");
-		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.swipedownIphone5Long(1000);
 		
+		//PSL (Mapped to source Column )
+		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
+		
+		genMeth.swipedownIphone5Long(1000);
+	
+		//QR
+ 		genMeth.clickId(genMeth, "QR");
+ 		genMeth.releaseOK(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+/*
 		genMeth.swipedownIphone5Short(1000);
-			
+		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1000);
+*/
+		
+		//SL Manual List
 		genMeth.clickId(genMeth, "2");
-		genMeth.swipedownIphone5Short(1000);
-		//PSL with Variable
-		genMeth.clickId(genMeth, "7");
-			
+		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+
+		//PSL (Mapped to Variable/Auto fill - Mobile Date)
+		try {
+			genMeth.clickId(genMeth, "4");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			genMeth.clickId(genMeth, "3");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		/*
 		// image 
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
 
 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[50]/UIAStaticText[1]");
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[5]");
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[24]/XCUIElementTypeStaticText[1]");
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[4]");
+		genMeth.releaseOK(genMeth);
 		genMeth.clickId(genMeth, "PhotoCapture");
 		genMeth.clickId(genMeth, "Use Photo");
 		genMeth.clickId(genMeth, "Done");
 		genMeth.eyesCheckWindow("Actions_List_Inline- Inline Image set", useEye, genMeth, skipfailure);		
+		
+		*/
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
 		
@@ -1445,7 +1481,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_One_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1590,7 +1626,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the Grid two layer actions",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_Two_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1638,9 +1674,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 	}
 
-	
 
-	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReport() throws InterruptedException, IOException{
 		
 		// go to List
@@ -1703,7 +1738,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	}
 	
 	
-	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReportWithSecurityFilter() throws InterruptedException, IOException{
 		
 		// go to List
@@ -1761,8 +1796,6 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		
 	}
 	
-	
-
 	
 	
 	@Test(enabled = false, groups = { "Sanity IOS__" }, testName = "Sanity Tests", description = "login with bad/missing credentials", retryAnalyzer = Retry.class)
