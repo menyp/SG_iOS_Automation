@@ -1647,13 +1647,13 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the Grid two layer actions",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_Grid_Two_Layer() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
 		// go to List
-		genMeth.clickId(genMeth, "List / Grid Actions");
+		genMeth.clickId(genMeth, "L_G_C Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - Two Layers");  
 		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layer main view", useEye, genMeth, skipfailure);		
@@ -1664,12 +1664,13 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- ItemID SL", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- Update ItemID DL", useEye, genMeth, skipfailure);		
+		genMeth.releaseOK(genMeth);
 		
 		//Row Action
 		genMeth.clickId(genMeth, "m");
 		genMeth.clickId(genMeth, "UpdateWithTableParam");
-		genMeth.clickId(genMeth, "DummyParam");
+		genMeth.clickId(genMeth, "DummyParam1");
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		genMeth.clickId(genMeth, "TableParams");
@@ -1687,7 +1688,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		Thread.sleep(10000);
 		
 		//Check the push notification
-		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- Action Success", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("Actions_Grid_Two_Layer- Grid Two Layers- Action Success", useEye, genMeth, skipfailure);	
+		genMeth.releaseOK(genMeth);
 		
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.BTNBackName);
@@ -1702,6 +1704,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		// go to List
 		genMeth.swipedownIphone5Long(1000);
 		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1000);
+
 		genMeth.clickId(genMeth, "Slicer report");
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
 		
@@ -1754,12 +1758,13 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.swipeUpIphone5Long(1000);
 		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
 	
-	@Test(enabled = true, groups = {"Sanity IOS1_deprecated"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = false, groups = {"Sanity IOS1_deprecated"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReportWithSecurityFilter() throws InterruptedException, IOException{
 		
 		// go to List
