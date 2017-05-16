@@ -219,7 +219,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOS3" })
+			groups = { "Sanity IOSל" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -231,6 +231,7 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("Dashboard Default Layout", useEye, genMeth, skipfailure);
 		
 		//Navigate to Employee directory tab
+
 		genMeth.clickId(genMeth, "Service Call ID1");
 		Thread.sleep(12000);
 		genMeth.eyesCheckWindow("All Tabs- Dashboard Default Layout- Navigate to Employee Directory", useEye, genMeth, skipfailure);
@@ -1390,7 +1391,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 
 
 	@Test(enabled = true, testName = "Inline row action", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_List_Inline() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1480,14 +1481,14 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	}
 	
 	
-	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+	@Test(enabled = true, testName = "Actions_Grid_One_Layer_CellAction", retryAnalyzer = Retry.class, description = "Check the List tab",
+			groups = { "Sanity IOS" })
 
-	public void Actions_Grid_One_Layer() throws ParserConfigurationException, SAXException,
+	public void Actions_Grid_One_Layer_CellAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 		
 		// go to List
-		genMeth.clickId(genMeth, "List / Grid Actions");
+		genMeth.clickId(genMeth, "L_G_C Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - One Layer");  
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer main view", useEye, genMeth, skipfailure);		
@@ -1511,6 +1512,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		
 		Thread.sleep(10000);	
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- description (free text)", useEye, genMeth, skipfailure);		
+		genMeth.releaseOK(genMeth);
 
 		//USER INPUT = Simple List MB (Priority)
 		isTextDisplayed = genMeth.checkIsElementVisible(By.id("90"));
@@ -1526,95 +1528,114 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Priority (Simple List MB)", useEye, genMeth, skipfailure);		
+		genMeth.releaseOK(genMeth);
 
-		//USER INPUT = Simple List DI (Status) 
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAStaticText[4]");
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye, genMeth, skipfailure);		
-		genMeth.clickId(genMeth, "Closed");
-		Thread.sleep(6000);
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status success (Simple List DI)", useEye, genMeth, skipfailure);		
-		genMeth.swipeRightIphone5Long(1000);
-		
-
-		//USER INPUT = PSL (ItemID)
+		// USER INPUT = PSL (ItemID)
 		genMeth.clickId(genMeth, "21");
 		genMeth.clickId(genMeth, "Video card  (Cat 1)");
-		
 		Thread.sleep(10000);
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye, genMeth, skipfailure);
+		genMeth.releaseOK(genMeth);
 		
-		//USER INPUT = QR (KPI)
-		
+		genMeth.swipeRightIphone5Long(1000);
+		//USER INPUT = QR
 		isTextDisplayed = genMeth.checkIsElementVisible(By.id("01"));
 		if (isTextDisplayed) {
 			genMeth.clickId(genMeth, "01");
+			genMeth.releaseOK(genMeth);
 			genMeth.clickId(genMeth, iosData.BTNClearName);
-			genMeth.sendXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "02");
+			genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "02");
 			genMeth.clickId(genMeth, iosData.BTNdoneName);
 		}
 		else{
 			genMeth.clickId(genMeth, "02");
+			genMeth.releaseOK(genMeth);
 			genMeth.clickId(genMeth, iosData.BTNClearName);
-			genMeth.sendXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "01");
+			genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "01");
 			genMeth.clickId(genMeth, iosData.BTNdoneName);	
 		}
-		
-		
+		Thread.sleep(8000);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- QR", useEye, genMeth, skipfailure);
+		genMeth.releaseOK(genMeth);
 
-
 		
-		Thread.sleep(10000);
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- KPI (QR)", useEye, genMeth, skipfailure);		
+		//USER INPUT = Simple List DI (Status) 
+		genMeth.swipeRightIphone5Long(1000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]");
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye, genMeth, skipfailure);		
+		genMeth.clickId(genMeth, "Closed");
+		Thread.sleep(8000);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status success (Simple List DI)", useEye, genMeth, skipfailure);
+		genMeth.releaseOK(genMeth);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		
+	}
+		
+	
+	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
+			groups = { "Sanity IOS" })
 
-		//OutGrid(Row)  
-		genMeth.clickXpth(genMeth, " //UIAApplication[1]/UIAWindow[1]/UIAScrollView[1]/UIAScrollView[1]/UIAScrollView[2]/UIAImage[13]");
+	public void Actions_Grid_One_Layer_RowAction() throws ParserConfigurationException, SAXException,
+			IOException, InterruptedException {
+		
+		// go to List
+		genMeth.clickId(genMeth, "L_G_C Actions");
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Grid - One Layer");  
+		genMeth.swipeRightIphone5Long(1000);
+		genMeth.swipeRightIphone5Long(1000);
+
+		//Row (AddRowAllParameters)
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
+		Thread.sleep(3000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters before insert", useEye, genMeth, skipfailure);		
 
-		genMeth.clickId(genMeth, "Free_Text1");
-		Thread.sleep(2000);
-		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextView[1]", "New row");
-								   
+		//DateTime
+		genMeth.clickId(genMeth, "DateTime");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
+		//Free text
+		genMeth.clickId(genMeth, "Free_Text1");
+		Thread.sleep(2000);
+		genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]", "New row");			   
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		//DateTime
+		genMeth.clickId(genMeth, "DateTime");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		//QR
 		genMeth.clickId(genMeth, "QR_");
+		genMeth.releaseOK(genMeth);
 		Thread.sleep(3000);
-		genMeth.sendXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATextField[1]", "New QR");
+		genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "New QR");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
+		//SL Manual List
 		genMeth.clickId(genMeth, "SL_Manual_List_");
 		genMeth.clickId(genMeth, "1");
 
+		//SL DI
 		genMeth.clickId(genMeth, "Device_Type_SL_DI_");
-		genMeth.clickId(genMeth, "Laptop");
+		genMeth.clickId(genMeth, "Mobile");
 
-
+		//DL
 		genMeth.clickId(genMeth, "Device_Model_DL_");
-		genMeth.clickId(genMeth, "Lenovo");
+		genMeth.clickId(genMeth, "iPhone6");
 		
-	
+		//PSL (Source = column)
 		genMeth.clickId(genMeth, "Items_By_Category_PSL");
 		genMeth.clickId(genMeth, "Power Supply (Cat 1)");
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye, genMeth, skipfailure);		
-
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye, genMeth, skipfailure);	
 		
-		// image
-		genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIATableView[1]/UIATableCell[8]/UIAStaticText[1]");
-		genMeth.clickXpth(genMeth,"//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[5]");
-		genMeth.clickId(genMeth, "PhotoCapture");
-		genMeth.clickId(genMeth, "Use Photo");
-		genMeth.clickId(genMeth, "Done");
-		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Image set", useEye, genMeth, skipfailure);		
-		
-
 		//PSL with Variable
+		genMeth.swipedownIphone5Short(1000);
 		genMeth.clickId(genMeth, "Items_SmallerThanMobileDate_PSL");
 		genMeth.clickId(genMeth, "3");
-		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-		
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- after action executed", useEye, genMeth, skipfailure);		
+		genMeth.releaseOK(genMeth);
 
 		
 		// Verify Startup screen is open
@@ -1675,7 +1696,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	}
 
 
-	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReport() throws InterruptedException, IOException{
 		
 		// go to List
@@ -1738,7 +1759,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	}
 	
 	
-	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "Sanity", description = "Slicer report")
+	@Test(enabled = true, groups = {"Sanity IOS1_deprecated"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReportWithSecurityFilter() throws InterruptedException, IOException{
 		
 		// go to List
