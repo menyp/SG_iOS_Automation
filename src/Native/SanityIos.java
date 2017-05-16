@@ -219,7 +219,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Dashboard  Tab", retryAnalyzer = Retry.class, description = "Check the URL tab",
-			groups = { "Sanity IOSל" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Dashboard() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
