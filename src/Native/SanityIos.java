@@ -1300,13 +1300,19 @@ genMeth.swipedownIphone5Long(1000);
 //Row Action (All User input parameters)
 genMeth.clickId(genMeth, "PopUp- AddRow");	
 
+//DateTime
+genMeth.clickId(genMeth, "DateTime");
+genMeth.clickId(genMeth, iosData.BTNdoneName);
+
+
 //Free_Text
 genMeth.clickId(genMeth, "Write");
 genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]", "New Row");
 genMeth.clickId(genMeth, iosData.BTNdoneName);
 
 //SL DI
-genMeth.clickId(genMeth, "DeviceType_SL_ByName");
+//genMeth.clickId(genMeth, "DeviceType_SL_ByName");
+genMeth.clickId(genMeth, "DeviceType_SL_DI");
 genMeth.clickId(genMeth, "Mobile");
 
 //DL
@@ -1403,6 +1409,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		// go to List
 		genMeth.swipedownIphone5Long(1000);
 	
+		//Inline- AddRow
 		genMeth.clickId(genMeth, "Inline- AddRow");
 		
 		Thread.sleep(4000);
@@ -1429,8 +1436,9 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
  		genMeth.releaseOK(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-/*
+
 		genMeth.swipedownIphone5Short(1000);
+/*
 		genMeth.swipedownIphone5Short(1000);
 		genMeth.swipedownIphone5Short(1000);
 */
@@ -1764,6 +1772,84 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	}
 	
 	
+	
+	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "JTR_SameReport", description = "JTR_SameReport")
+	public void JTR_SameReport() throws InterruptedException, IOException{
+		
+		// Open the JTR App
+		genMeth.clickId(genMeth, "");
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "");  
+		genMeth.eyesCheckWindow("JTR Same Report- Grid Two Layer main view", useEye, genMeth, skipfailure);	
+		
+
+
+		// Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1000);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
+		
+	}
+	
+	
+	
+	
+
+	@AfterSuite(alwaysRun = true)
+	public void tearDown() throws Exception {
+		
+		if (driver != null){
+		try {
+			//service.stop();
+			driver.removeApp(appIdentifier);
+			driver.quit();
+			//service.stop();
+
+			/*
+			boolean isAppInstalled = driver.isAppInstalled(appIdentifier);
+			if (isAppInstalled) {
+				driver.removeApp(appIdentifier);
+			}
+			*/
+	
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			service.stop();
+			driver.quit();
+
+			e.printStackTrace();
+		}
+		}
+		else{
+			service.stop();
+			
+		}
+
+		SendResults sr = new SendResults("elicherni444@gmail.com",
+				"meny@skygiraffe.com", "TestNG results", "Test Results");
+		//sr.sendTestNGResult();
+		sr.sendRegularEmail();
+		/*
+		TestListenerAdapter tla = new TestListenerAdapter();
+		TestNG testng2 = new TestNG();
+		testng2.setTestClasses(new Class[] { SendReport.class });
+		testng2.setGroups("send mail");
+		testng2.addListener(tla);
+		testng2.run();
+*/
+	}
+	
+	
+	
+  }
+  
+  
+  
+  
+	/*
+	
 	@Test(enabled = false, groups = {"Sanity IOS1_deprecated"}, testName = "Sanity", description = "Slicer report")
 	public void slicerReportWithSecurityFilter() throws InterruptedException, IOException{
 		
@@ -1903,53 +1989,9 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	
 	
 	
-	@AfterSuite(alwaysRun = true)
-	public void tearDown() throws Exception {
-		
-		if (driver != null){
-		try {
-			//service.stop();
-			driver.removeApp(appIdentifier);
-			driver.quit();
-			//service.stop();
-
-			/*
-			boolean isAppInstalled = driver.isAppInstalled(appIdentifier);
-			if (isAppInstalled) {
-				driver.removeApp(appIdentifier);
-			}
-			*/
-	
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			service.stop();
-			driver.quit();
-
-			e.printStackTrace();
-		}
-		}
-		else{
-			service.stop();
-			
-		}
-
-		SendResults sr = new SendResults("elicherni444@gmail.com",
-				"meny@skygiraffe.com", "TestNG results", "Test Results");
-		//sr.sendTestNGResult();
-		sr.sendRegularEmail();
-		/*
-		TestListenerAdapter tla = new TestListenerAdapter();
-		TestNG testng2 = new TestNG();
-		testng2.setTestClasses(new Class[] { SendReport.class });
-		testng2.setGroups("send mail");
-		testng2.addListener(tla);
-		testng2.run();
-*/
-	}
-
 	
 
-	/*
+	
 	
 	@Test (enabled = true ,testName = "Sample App Dashboard DailySales", retryAnalyzer = Retry.class, description = "Dashboard DailySales" ,
 			groups= {"Sanity IOSsample"}  /*dependsOnMethods={"testLogin"})	
@@ -2377,8 +2419,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	
 	*/
 
-	
-}
+
 
 
 
