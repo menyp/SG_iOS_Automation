@@ -5,7 +5,7 @@
       <groups>
 		<run>
 		
-		    <include name="Sanity IOS"/>
+		    <include name="Sanity IOS2"/>
 		    
 		</run>
 	</groups>

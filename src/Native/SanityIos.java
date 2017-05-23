@@ -74,7 +74,7 @@ enum EnvironmentMode {
 		iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
 		//service = genMeth.startAppiumService();
 
-		
+		driver = genMeth.setCapabilitiesIos(genMeth);
 		genMeth.cleanLoginIos(genMeth, iosData.userQA, iosData.passwordQA); 
 	}
 
@@ -86,28 +86,20 @@ enum EnvironmentMode {
 		if (driver == null) {
 			try {
 //				driver.removeApp(genMeth.getValueFromPropFile("appPackage"));
-				driver.quit();
+				//driver.quit();
+				driver = genMeth.setCapabilitiesIos(genMeth);
+				genMeth.cleanLoginIos( genMeth, iosData.userQA , iosData.passwordQA );
+				
 			} catch (Exception e) {
 				// swallow if fails
+				
 			}
 			
-			driver = genMeth.setCapabilitiesIos(genMeth);
-			iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
-			genMeth.cleanLoginIos( genMeth, iosData.userQA , iosData.passwordQA );
 		}
 
 		else {
 			
-			try {
-				genMeth.swipeUpIphone5Long(1000);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
 			boolean StartUpScreenDisplay = genMeth.checkIsElementVisible( By.id("SQL Golden App"));
-			//boolean LSM_Is_Open = genMeth.checkIsElementVisible( By.id(DroidData.BTNlogoutID));
-
 
 			if (StartUpScreenDisplay != true) {
 
@@ -118,6 +110,7 @@ enum EnvironmentMode {
 					// swallow if fails
 				}
 				
+				/*
 				try {
 					driver.removeApp(appIdentifier);
 				} catch (Exception e) {
@@ -132,9 +125,10 @@ enum EnvironmentMode {
 					e.printStackTrace();
 				}
 
+*/
 				
-				driver = genMeth.setCapabilitiesIos(genMeth);
-				iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
+				//driver = genMeth.setCapabilitiesIos(genMeth);
+				//iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
 				genMeth.cleanLoginIos( genMeth, iosData.userQA, iosData.passwordQA);
 
 			}
@@ -245,16 +239,12 @@ enum EnvironmentMode {
 		Thread.sleep(8000);
 
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 		genMeth.clickId(genMeth, "Service Call ID1");
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(4, 1000);
 		genMeth.eyesCheckWindow("All Tabs- Dashboard Advanced columns (Scroll down)", useEye, genMeth, skipfailure);
 
 		//Gauge
@@ -267,10 +257,7 @@ enum EnvironmentMode {
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Dashboard- Navigate to Map By GPS", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(3, 1000);
 
 		genMeth.eyesCheckWindow("All Tabs- Dashboard- Gauge Full/Soli", useEye, genMeth, skipfailure);
 
@@ -309,7 +296,8 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 
 		//Navigation to URL tab (need an id for the navigation iocn from Limor)
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");       
+		//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");       
+		genMeth.clickId(genMeth, iosData.Icon_Map_Navigation);
 		Thread.sleep(12000);
 		genMeth.eyesCheckWindow("Tabs- URL Data Item", useEye, genMeth, skipfailure);
 		
@@ -320,10 +308,11 @@ enum EnvironmentMode {
 		Thread.sleep(10000);
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Map By GPS");
-		genMeth.clickId(genMeth, "1160 Garden State Plz,Paramus, 3 items");
+		genMeth.clickId(genMeth, "1 Garden State Plz,Paramus, 3 items");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("All Tabs- Map By GPS- Press pin map", useEye, genMeth, skipfailure);
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");
+		//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[3]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");
+		genMeth.clickId(genMeth, iosData.Icon_Map_Navigation);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 				
 		//Back to Startup screen
@@ -410,13 +399,10 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Cover Flow");
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow", useEye, genMeth, skipfailure);
-		genMeth.swipeRightIphone5Long(1000);
+		genMeth.swipeRightIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- swipe John Grant", useEye, genMeth, skipfailure);
 		
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(4, 1000);
 
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- swipe down", useEye, genMeth, skipfailure);
 		
@@ -426,9 +412,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//Phone
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1, 1000);
 		//Thread.sleep(2000);
 
 
@@ -445,13 +429,12 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 		
 		//URL
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1, 1000);
 		genMeth.clickId(genMeth, "URL");
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- URL", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.swipedownIphone5Long(1000);
-		
+		genMeth.swipedownIphone5Long(1, 1000);		
 		
 		// Landline
 		genMeth.clickId(genMeth, "Landline");
@@ -502,22 +485,17 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("All Tabs- List Address", useEye, genMeth, skipfailure);
 		
 		//Mini Map
-		genMeth.swipedownIphone5Short(3000);
-		genMeth.swipedownIphone5Short(3000);
+		genMeth.swipedownIphone5Short(4, 1000);
+
 		genMeth.clickId(genMeth, "Address Mini Map");
 		genMeth.eyesCheckWindow("All Tabs- List (Address Mini Map options)", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
-
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-
+		genMeth.swipedownIphone5Short(8, 1000);
 		
 		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
 		genMeth.eyesCheckWindow("All Tabs- List See All", useEye, genMeth, skipfailure);
-		
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
+
 		Thread.sleep(2000);
 		genMeth.eyesCheckWindow("All Tabs- List See All scroll down", useEye, genMeth, skipfailure);		
 		
@@ -586,10 +564,7 @@ enum EnvironmentMode {
 			
 		}
 		*/
-		genMeth.swipedownIphone5Long(1000);		
-		genMeth.swipedownIphone5Long(1000);	
-		genMeth.swipedownIphone5Long(1000);		
-
+		genMeth.swipedownIphone5Long(3, 1000);
 
 		//Email
 		genMeth.clickId(genMeth, "Email");
@@ -603,8 +578,8 @@ enum EnvironmentMode {
 		
 		//Address
 		genMeth.clickId(genMeth, "Address");
-		genMeth.eyesCheckWindow("All Tabs- Grid two layers-  Address", useEye, genMeth, skipfailure);		
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.eyesCheckWindow("All Tabs- Grid two layers-  Address", useEye, genMeth, skipfailure);	
+		genMeth.swipedownIphone5Short(1, 1000);
 		
 		//MiniMap
 		genMeth.clickId(genMeth, "Address Mini Map");
@@ -640,7 +615,7 @@ enum EnvironmentMode {
 		
 
 		// Mobile Phone
-		genMeth.swipeRightIphone5Long(1000);
+		genMeth.swipeRightIphone5Long(1, 1000);
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Phone", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
@@ -653,11 +628,7 @@ enum EnvironmentMode {
 		Thread.sleep(2000);
 
 		// Email
-		genMeth.swipeRightIphone5Long(2000);
-		genMeth.swipeRightIphone5Long(2000);
-		genMeth.swipeRightIphone5Long(2000);
-
-
+		genMeth.swipeRightIphone5Long(3, 1000);
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]	");
 		genMeth.eyesCheckWindow("All Tabs- Grid one layer- Email", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
@@ -680,7 +651,7 @@ enum EnvironmentMode {
 		
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 	
 	
 	}
@@ -733,23 +704,21 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNdeleteDraft_Name);
 		
 		//Map
-		genMeth.swipedownIphone5Shorter(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Shorter(1, 1000);
+		genMeth.swipedownIphone5Short(3, 1000);
+		
 		genMeth.clickId(genMeth, "Address First");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address First", useEye, genMeth, skipfailure);		
 
 		
 		// Mini Map
-		genMeth.swipedownIphone5Shorter(1000);
+		genMeth.swipedownIphone5Shorter(1, 1000);
 		genMeth.clickId(genMeth, "Address (Second)");
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Address second", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		// Navigation
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(2, 1000);
 		genMeth.clickId(genMeth, "First_Name");
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - Navigation to Param report ED", useEye, genMeth,skipfailure);
@@ -757,15 +726,14 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Back from navigation", useEye, genMeth, skipfailure);
 
 		// URL
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 		genMeth.clickId(genMeth, "google.com");
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory - URL", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
 		//Social Networks
-		genMeth.swipedownIphone5Shorter(1000);
+		genMeth.swipedownIphone5Shorter(1, 1000);
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]");
 		
 		Thread.sleep(8000);
@@ -790,7 +758,7 @@ enum EnvironmentMode {
 		//No Google+/Twitter/Linkenin
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, "Caldwell Alexander");
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("All Tabs- Employee Directory, No Twitter/Linkedin/Google+", useEye, genMeth, skipfailure);		
 		
 		//Back to Startup screen
@@ -801,9 +769,9 @@ enum EnvironmentMode {
 		//Press info for the app
 		//genMeth.clickId(genMeth, iosData.IconApplicationInfo_Name);
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);		
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipeRightIphone5Short(1000);
+		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);
+		genMeth.swipedownIphone5Short(1, 1000);
+		genMeth.swipeRightIphone5Short(1, 1000);
 				
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
@@ -819,10 +787,10 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report - Grid tab
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(2, 1000);
 
 		genMeth.clickId(genMeth, "Param Report Grid");
+		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Param Report Grid- add Parameters", useEye, genMeth, skipfailure);		
 		
 		//Attempt to submit while mandatory is missing
@@ -852,7 +820,7 @@ enum EnvironmentMode {
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -863,8 +831,7 @@ enum EnvironmentMode {
 	public void Param_Report_AllVariables() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
 
-
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1, 1000);
 		genMeth.clickId(genMeth, "Param Variables only");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Report with All Variables - SQL Golden App", useEye, genMeth, skipfailure);		
@@ -872,7 +839,7 @@ enum EnvironmentMode {
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -886,7 +853,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report - Grid tab
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 
 		genMeth.clickId(genMeth, "Param Report List");
 		genMeth.eyesCheckWindow("Param Report List- add Parameters", useEye, genMeth, skipfailure);		
@@ -919,8 +886,8 @@ enum EnvironmentMode {
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(2, 1000);
+
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);						
 	}
 
@@ -931,7 +898,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report dashboard - DL- Device Info tab
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 		genMeth.clickId(genMeth, "Param DL-Dashboard");
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- add Parameters", useEye, genMeth, skipfailure);		
@@ -949,7 +916,7 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Param Report Dashboard DL- Dashboard tab", useEye, genMeth, skipfailure);		
 		
 		//Navigate to Dashboard tab
@@ -965,7 +932,7 @@ enum EnvironmentMode {
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -978,14 +945,14 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report dashboard - DL- Device Info tab
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 
 		genMeth.clickId(genMeth, "Param Rep Cover Flow");
 		genMeth.eyesCheckWindow("Param Rep Cover Flow - Parameters", useEye, genMeth, skipfailure);		
 
 		//Insert parameters
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
+		genMeth.releaseOK(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNokName);
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);	
@@ -1004,8 +971,7 @@ enum EnvironmentMode {
 		
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(2, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1017,7 +983,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report-  Param report chart tab
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 		genMeth.clickId(genMeth, "Param Report Chart");
 		Thread.sleep(2000);
 		genMeth.eyesCheckWindow("Param Rep Chart- add Parameters", useEye, genMeth, skipfailure);		
@@ -1034,6 +1000,7 @@ enum EnvironmentMode {
 		
 		//Naviagte to param report
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeImage[2]");
+		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Param Rep Chart - Navigation with auto submit to Param report map", useEye, genMeth, skipfailure);		
 		//genMeth.clickId(genMeth, iosData.BTNCancelName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
@@ -1047,7 +1014,7 @@ enum EnvironmentMode {
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1059,8 +1026,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report-  Param report chart tab
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 
 		genMeth.clickId(genMeth, "Param Report ED");
 		Thread.sleep(2000);
@@ -1081,8 +1047,8 @@ enum EnvironmentMode {
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(2, 1000);
+
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1095,7 +1061,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report-  Param report chart tab
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 		genMeth.clickId(genMeth, "Param Report Map");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Rep Map - Parameters", useEye, genMeth, skipfailure);		
@@ -1111,7 +1077,7 @@ enum EnvironmentMode {
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1123,8 +1089,7 @@ enum EnvironmentMode {
 
 
 		// go to parameterized report-  Param report chart tab
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 
 		genMeth.clickId(genMeth, "Param Report Cards");
 		Thread.sleep(10000);
@@ -1151,9 +1116,7 @@ enum EnvironmentMode {
 
 		//Back to startup screen
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
-
+		genMeth.swipeUpIphone5Long(2, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1173,8 +1136,7 @@ enum EnvironmentMode {
 		
 		//Set slicer to one item
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
 		genMeth.clickId(genMeth, "Service Call ID");
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, "1 Slicers");
@@ -1212,6 +1174,7 @@ enum EnvironmentMode {
 			genMeth.clickId(genMeth, "90");
 
 		}
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("List Actions- Priority (Simple List MB) - Success Popup", useEye, genMeth, skipfailure);	
 		genMeth.clickId(genMeth, iosData.BTNokName);
 		
@@ -1219,12 +1182,19 @@ enum EnvironmentMode {
 		//PSL By Variable (PSL gets id's by mobile date)
 		genMeth.clickId(genMeth, "Branch ID");
 		genMeth.clickId(genMeth, "3");
+		checkAction = genMeth.checkIsElementVisible(By.id("BranchID(PSL_Var)"));
+		if (checkAction) {
+			genMeth.clickId(genMeth, "1");
+		}
+
 		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("List Actions- cell description (PSL By Variable) - Success Popup", useEye, genMeth, skipfailure);	
 		genMeth.clickId(genMeth, iosData.BTNokName);
 		
 		
 		
 		//Assign To (Dynamic List)
+		Thread.sleep(5000);
 		genMeth.clickId(genMeth, "Assigned To");
 		genMeth.clickId(genMeth, "Daniel Arkle");
 		Thread.sleep(8000);
@@ -1234,19 +1204,11 @@ enum EnvironmentMode {
 
 		
 		//Action in second layer
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-
-
-
+		genMeth.swipedownIphone5Long(4, 1000);
+	
 		genMeth.clickId(genMeth, iosData.BTNseeAll_ID);
 		Thread.sleep(2000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-
+		genMeth.swipedownIphone5Long(3, 1000);
 	
 		//QR code
 		genMeth.clickId(genMeth, "QR");
@@ -1278,123 +1240,119 @@ enum EnvironmentMode {
 	public void Actions_List_Row() throws ParserConfigurationException, SAXException,
 	IOException, InterruptedException {
 
-// go to List
+		// go to List
 
-genMeth.clickId(genMeth, "L_G_C Actions");
-Thread.sleep(5000);
+		genMeth.clickId(genMeth, "L_G_C Actions");
+		Thread.sleep(5000);
 
-//Set slicer to one item
-genMeth.clickId(genMeth, iosData.BTNSlicer);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.clickId(genMeth, "Service Call ID");
-genMeth.clickId(genMeth, "1");
-genMeth.clickId(genMeth, "1 Slicers");
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-genMeth.eyesCheckWindow("List Actions- List Actions", useEye, genMeth, skipfailure);		
+		// Set slicer to one item
+		genMeth.clickId(genMeth, iosData.BTNSlicer);
+		genMeth.swipedownIphone5Long(2, 1000);
+		genMeth.clickId(genMeth, "Service Call ID");
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, "1 Slicers");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow("List Actions- List Actions", useEye, genMeth, skipfailure);	
+		genMeth.swipedownIphone5Long(4, 1000);
+		
+		// Row Action (All User input parameters)
+		genMeth.clickId(genMeth, "PopUp- AddRow");
 
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-//Row Action (All User input parameters)
-genMeth.clickId(genMeth, "PopUp- AddRow");	
+		// DateTime
+		genMeth.clickId(genMeth, "DateTime");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-//DateTime
-genMeth.clickId(genMeth, "DateTime");
-genMeth.clickId(genMeth, iosData.BTNdoneName);
+		// Free_Text
+		genMeth.clickId(genMeth, "Write");
+		genMeth.sendXpth(genMeth,
+				"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]",
+				"New Row");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
+		// SL DI
+		// genMeth.clickId(genMeth, "DeviceType_SL_ByName");
+		genMeth.clickId(genMeth, "Device_Type_SL_DI");
+		genMeth.clickId(genMeth, "Mobile");
+		genMeth.clickId(genMeth, "Laptop");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-//Free_Text
-genMeth.clickId(genMeth, "Write");
-genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTextView[1]", "New Row");
-genMeth.clickId(genMeth, iosData.BTNdoneName);
+		// DL
+		genMeth.clickId(genMeth, "Device_Model_DL");
+		genMeth.clickId(genMeth, "iPhone5");
 
-//SL DI
-//genMeth.clickId(genMeth, "DeviceType_SL_ByName");
-genMeth.clickId(genMeth, "DeviceType_SL_DI");
-genMeth.clickId(genMeth, "Mobile");
+		// PSL
+		genMeth.clickId(genMeth, "Items_By_Category_PSL");
+		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
 
-//DL
-genMeth.clickId(genMeth, "Device_Model_DL");
-genMeth.clickId(genMeth, "iPhone5");
+		// QR
+		genMeth.clickId(genMeth, "QR");
+		genMeth.releaseOK(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-//PSL
-genMeth.clickId(genMeth, "Items_By_Category_PSL");
-genMeth.clickId(genMeth, "Keyboard (Cat 1)");
+		// SL Manual List
+		genMeth.clickId(genMeth, "SL_Manual_List");
+		genMeth.clickId(genMeth, "2");
 
-//QR
-genMeth.clickId(genMeth, "QR");
-genMeth.releaseOK(genMeth);
-genMeth.clickId(genMeth, iosData.BTNdoneName);
+		// PSL with Variable
+		genMeth.swipedownIphone5Long(1, 1000);
+		genMeth.clickId(genMeth, "Items_SmallerThanMobileDate_PSL");
+		genMeth.clickId(genMeth, "3");
 
+		// image
+		genMeth.swipedownIphone5Long(2, 1000);
 
-//SL Manual List
-genMeth.clickId(genMeth, "SL_Manual_List");
-genMeth.clickId(genMeth, "2");
+		genMeth.clickXpth(genMeth,
+				"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[9]/XCUIElementTypeStaticText[1]");
+		// Open Gallery
+		//genMeth.clickXpth(genMeth,
+			//	"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[2]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[3]");
+		genMeth.clickId(genMeth, "");
+		genMeth.releaseOK(genMeth);
+		genMeth.clickId(genMeth, "Favorites");
+		genMeth.eyesCheckWindow("List Actions- Favorites", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, "Photos");
+		genMeth.clickId(genMeth, iosData.BTNCancelName);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		// genMeth.clickId(genMeth, "Photo, Favorite, Portrait, 10 February
+		// 2016, 14:42");
+		// genMeth.clickId(genMeth, "Choose");
 
-//PSL with Variable
-genMeth.clickId(genMeth, "Items_SmallerThanMobileDate_PSL");
-genMeth.clickId(genMeth, "3");
+		// Signature
+		genMeth.clickXpth(genMeth,
+				"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[10]/XCUIElementTypeStaticText[1]");
+		genMeth.swipedownIphone5Long(1, 1000);
+		genMeth.eyesCheckWindow("List Actions- Signature", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, "Clear");
+		genMeth.eyesCheckWindow("List Actions- Clear Signature", useEye, genMeth, skipfailure);
+		genMeth.swipedownIphone5Long(1, 1000);
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		genMeth.eyesCheckWindow("List Actions- Image/Signature set", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("List Actions- PopUp - AddRow - Sucess Popup", useEye, genMeth, skipfailure);
+		genMeth.releaseOK(genMeth);
+		// genMeth.clickId(genMeth, iosData.BTNokName);
 
-// image 
-genMeth.swipedownIphone5Long(1000);
-genMeth.swipedownIphone5Long(1000);
-genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[8]");
-//Open Gallery
-//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[4]");
-//genMeth.clickId(genMeth, "PhotoCapture");
-//genMeth.clickId(genMeth, "Use Photo");
+		// Row Action- Variables only (Adding a row to the all parameters table)
+		try {
+			genMeth.clickId(genMeth, "•••");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			genMeth.clickXpth(genMeth,
+					"//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[23]/XCUIElementTypeButton[2]");
+		}
 
+		genMeth.clickId(genMeth, "Add VarOnlyListRow");
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("List Actions- Add VarOnlyListRow - Sucess Popup", useEye, genMeth, skipfailure);
+		genMeth.releaseOK(genMeth);
 
-genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[3]");
-genMeth.releaseOK(genMeth);
-genMeth.clickId(genMeth, "Favorites");
-genMeth.eyesCheckWindow("List Actions- Favorites", useEye, genMeth, skipfailure);		
-genMeth.clickId(genMeth, "Photos");
-genMeth.clickId(genMeth, iosData.BTNCancelName);
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-//genMeth.clickId(genMeth, "Photo, Favorite, Portrait, 10 February 2016, 14:42");
-//genMeth.clickId(genMeth, "Choose");
+		// Verify Startup screen is open
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		genMeth.swipeUpIphone5Short(1, 1000);
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);
 
-
-//Signature
-genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[9]/XCUIElementTypeStaticText[1]");
-genMeth.swipedownIphone5Long(1000);
-genMeth.eyesCheckWindow("List Actions- Signature", useEye, genMeth, skipfailure);
-genMeth.clickId(genMeth, "Clear");
-genMeth.eyesCheckWindow("List Actions- Clear Signature", useEye, genMeth, skipfailure);
-genMeth.swipedownIphone5Long(1000);
-genMeth.clickId(genMeth, iosData.BTNdoneName);
-genMeth.eyesCheckWindow("List Actions- Image/Signature set", useEye, genMeth, skipfailure);		
-genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
-Thread.sleep(12000);
-genMeth.eyesCheckWindow("List Actions- PopUp - AddRow - Sucess Popup", useEye, genMeth, skipfailure);
-genMeth.releaseOK(genMeth);
-//genMeth.clickId(genMeth, iosData.BTNokName);
-
-
-//Row Action- Variables only (Adding a row to the all parameters table)
-try {
-	genMeth.clickId(genMeth, "•••");
-} catch (Exception e1) {
-	// TODO Auto-generated catch block
-	genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[23]/XCUIElementTypeButton[2]");
-}
-
-genMeth.clickId(genMeth, "Add VarOnlyListRow");
-Thread.sleep(12000);
-genMeth.eyesCheckWindow("List Actions- Add VarOnlyListRow - Sucess Popup", useEye, genMeth, skipfailure);
-genMeth.releaseOK(genMeth);
-
-
-//Verify Startup screen is open
-genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-genMeth.swipeUpIphone5Short(1000);
-genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
-
-}
-
+	}
 
 	@Test(enabled = true, testName = "Inline row action", retryAnalyzer = Retry.class, description = "Check the List tab",
 			groups = { "Sanity IOS" })
@@ -1407,14 +1365,14 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.clickId(genMeth, "List (Inline)");
 
 		// go to List
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 	
 		//Inline- AddRow
 		genMeth.clickId(genMeth, "Inline- AddRow");
 		
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Actions_List_Inline- Inline parameters default", useEye, genMeth, skipfailure);		
-
+		
 		genMeth.sendId(genMeth, "This is default value", "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
@@ -1423,67 +1381,37 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		
 		//DL
 		genMeth.clickId(genMeth, "iPhone6");
-
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 		
 		//PSL (Mapped to source Column )
 		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
-		
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(1, 1000);
 	
 		//QR
  		genMeth.clickId(genMeth, "QR");
  		genMeth.releaseOK(genMeth);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-
-		genMeth.swipedownIphone5Short(1000);
-/*
-		genMeth.swipedownIphone5Short(1000);
-		genMeth.swipedownIphone5Short(1000);
-*/
+		genMeth.swipedownIphone5Short(3, 1000);
 		
 		//SL Manual List
 		genMeth.clickId(genMeth, "2");
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		genMeth.swipedownIphone5Long(2, 1000);
+	
 
 		//PSL (Mapped to Variable/Auto fill - Mobile Date)
-		try {
-			genMeth.clickId(genMeth, "4");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			genMeth.clickId(genMeth, "3");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		/*
-		// image 
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
+		//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[23]");
+		//genMeth.clickId(genMeth, "2");
 
-
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[24]/XCUIElementTypeStaticText[1]");
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[3]/XCUIElementTypeOther[1]/XCUIElementTypeNavigationBar[1]/XCUIElementTypeButton[4]");
-		genMeth.releaseOK(genMeth);
-		genMeth.clickId(genMeth, "PhotoCapture");
-		genMeth.clickId(genMeth, "Use Photo");
-		genMeth.clickId(genMeth, "Done");
-		genMeth.eyesCheckWindow("Actions_List_Inline- Inline Image set", useEye, genMeth, skipfailure);		
-		
-		*/
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		genMeth.eyesCheckWindow("Actions_List_Inline- Actions_List_Inline Success Popup", useEye, genMeth, skipfailure);		
+		genMeth.releaseOK(genMeth);
 		
 		
 		//Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Short(1000);
+		genMeth.swipeUpIphone5Long(1, 1000);
+
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 
 	}
@@ -1545,7 +1473,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye, genMeth, skipfailure);
 		genMeth.releaseOK(genMeth);
 		
-		genMeth.swipeRightIphone5Long(1000);
+		genMeth.swipeRightIphone5Long(1, 1000);
+
 		//USER INPUT = QR
 		isTextDisplayed = genMeth.checkIsElementVisible(By.id("01"));
 		if (isTextDisplayed) {
@@ -1568,7 +1497,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 
 		
 		//USER INPUT = Simple List DI (Status) 
-		genMeth.swipeRightIphone5Long(1000);
+		genMeth.swipeRightIphone5Long(1, 1000);
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]");
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Closed");
@@ -1589,9 +1518,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		// go to List
 		genMeth.clickId(genMeth, "L_G_C Actions");
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickId(genMeth, "Grid - One Layer");  
-		genMeth.swipeRightIphone5Long(1000);
-		genMeth.swipeRightIphone5Long(1000);
+		genMeth.clickId(genMeth, "Grid - One Layer"); 
+		genMeth.swipeRightIphone5Long(2, 1000);
 
 		//Row (AddRowAllParameters)
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
@@ -1637,7 +1565,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye, genMeth, skipfailure);	
 		
 		//PSL with Variable
-		genMeth.swipedownIphone5Short(1000);
+		genMeth.swipedownIphone5Short(1, 1000);
 		genMeth.clickId(genMeth, "Items_SmallerThanMobileDate_PSL");
 		genMeth.clickId(genMeth, "3");
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
@@ -1648,7 +1576,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 		
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Short(1000);
+		genMeth.swipeUpIphone5Short(1, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 
 	}
@@ -1710,10 +1638,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 	public void slicerReport() throws InterruptedException, IOException{
 		
 		// go to List
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-		genMeth.swipedownIphone5Long(1000);
-
+		genMeth.swipedownIphone5Long(3, 1000);
 		genMeth.clickId(genMeth, "Slicer report");
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
 		
@@ -1764,9 +1689,7 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(3, 1000);
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
@@ -1786,9 +1709,8 @@ genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth,
 
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
-		genMeth.swipeUpIphone5Long(1000);
+		genMeth.swipeUpIphone5Long(3, 1000);
+
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}

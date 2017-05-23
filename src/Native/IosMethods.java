@@ -78,8 +78,8 @@ public class IosMethods {
 
 			IOException, InterruptedException {
 		//set Publisher & Authentication server
-		driver =genMeth.setCapabilitiesIos(genMeth);
-		//genMeth.clickXpth(genMeth, "//UIAApplication[1]/UIAWindow[1]/UIAButton[2]");
+		
+		//Open the Servers settings screen
 		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
 
 		genMeth.clickId(genMeth, "QA Publisher");
@@ -668,22 +668,8 @@ public class IosMethods {
 		}
 	}
 
-	public void tapId(IosMethods genMeth, String id)
-			throws InterruptedException {
+	
 
-		try {
-
-			MobileElement myElement = genMeth.fluentwait(driver, By.id(id));
-			driver.tap(1, myElement, 1000);
-
-		}
-
-		catch (Exception e) {
-
-			org.testng.Assert.fail(id + " didn't display");
-
-		}
-	}
 
 	public void clickClassName(IOSDriver<MobileElement> driver,
 			IosMethods genMeth, String className) throws InterruptedException {
@@ -1413,112 +1399,213 @@ public class IosMethods {
 
 	}
 
-	public void swipeRightIphone5Long(int miliseconds) throws InterruptedException {
 
-		driver.swipe(250, 300, 75, 300, miliseconds);
-		Thread.sleep(2000);
+
+
+	public void swipeRightIphone5Short(int NumOfSwipe, int miliseconds) throws InterruptedException {
+
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(150, 300, 75, 300, miliseconds);
+			Thread.sleep(2000);
+
+		}
+
+	}
+
+	
+	public void swipeRightIphone5Long(int NumOfSwipe, int miliseconds) throws InterruptedException {
+
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(250, 300, 75, 300, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeRightIphone5Short(int miliseconds) throws InterruptedException {
+	
+	
+	
+	public void swipeRightIphone5Shortest(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(150, 300, 75, 300, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(130, 300, 75, 300, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeRightIphone5Shortest(int miliseconds) throws InterruptedException {
+	
+	public void swipedownIphone5Long(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(130, 300, 75, 300, miliseconds);
-		Thread.sleep(2000);
+		int i;
 
-	}
+		for (i = 0; i < NumOfSwipe; i++) {
 
+			driver.swipe(150, 500, 150, 100, miliseconds);
+			Thread.sleep(2000);
 
-	public void swipedownIphone6Plus(int miliseconds) throws InterruptedException {
-
-		driver.swipe(50, 650, 50, 200, miliseconds);
-		Thread.sleep(2000);
-
-	}
-
-	public void swipedownIphone5Long(int miliseconds) throws InterruptedException {
-
-		driver.swipe(150, 500, 150, 100, miliseconds);
-		Thread.sleep(2000);
-
+		}
 
 	}
 	
-	public void swipedownIphone5Short(int miliseconds) throws InterruptedException {
+	
+	
+	public void swipedownIphone5Short(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(150, 500, 150, 400, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(150, 500, 150, 400, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipedownIphone5Shorter(int miliseconds) throws InterruptedException {
+	
+	public void swipedownIphone5Shorter(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(150, 500, 150, 450, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(150, 500, 150, 450, miliseconds);
+			Thread.sleep(2000);
+
+		}
+
+	}
+
+	
+	
+	public void swipedownIphone5Shortest(int NumOfSwipe, int miliseconds) throws InterruptedException {
+
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(150, 500, 150, 480, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipedownIphone5Shortest(int miliseconds) throws InterruptedException {
+	
+	public void swipedownIphone6Plus(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(150, 500, 150, 480, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(50, 650, 50, 200, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 
-	public void swipeUpIphone6Plus(int miliseconds) throws InterruptedException {
+	
+	public void swipeUpIphone5Long(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(50, 200, 50, 650, miliseconds);
-		Thread.sleep(2000);
+		int i;
 
-	}
+		for (i = 0; i < NumOfSwipe; i++) {
 
-	public void swipeUpIphone5Long(int miliseconds) throws InterruptedException {
+			driver.swipe(150, 100, 150, 500, miliseconds);
+			Thread.sleep(2000);
 
-		driver.swipe(150, 100, 150, 500, miliseconds);
-		Thread.sleep(2000);
+		}
 
 	}
 	
-	public void swipeUpIphone5Short(int miliseconds) throws InterruptedException {
+	
+	public void swipeUpIphone5Short(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(150, 400, 150, 500, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(150, 400, 150, 500, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeLandScapedownIphone5Long(int miliseconds) throws InterruptedException {
+	
+	public void swipeLandScapedownIphone5Long(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(200, 300, 200, 60, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(200, 300, 200, 60, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeLandScapedownIphone5Short(int miliseconds) throws InterruptedException {
+	
+	public void swipeLandScapedownIphone5Short(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(200, 300, 200, 150, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(200, 300, 200, 150, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeLandScapedownIphone5Shorter(int miliseconds) throws InterruptedException {
+	
+	public void swipeLandScapedownIphone5Shorter(int NumOfSwipe, int miliseconds) throws InterruptedException {
 
-		driver.swipe(200, 300, 200, 220, miliseconds);
-		Thread.sleep(2000);
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(200, 300, 200, 220, miliseconds);
+			Thread.sleep(2000);
+
+		}
+
+	}
+
+	
+	public void swipeLandScapedownIphone5Shortest(int NumOfSwipe, int miliseconds) throws InterruptedException {
+
+		int i;
+
+		for (i = 0; i < NumOfSwipe; i++) {
+
+			driver.swipe(200, 300, 200, 250, miliseconds);
+			Thread.sleep(2000);
+
+		}
 
 	}
 	
-	public void swipeLandScapedownIphone5Shortest(int miliseconds) throws InterruptedException {
+	
 
-		driver.swipe(200, 300, 200, 250, miliseconds);
-		Thread.sleep(2000);
-
-	}
+	
+	
+	
 	
 	public void openStratupScreen(IosMethods genMeth, IosElements iosData) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
 		
