@@ -89,7 +89,8 @@
 	<IconBack_Nav_Name>back nav</IconBack_Nav_Name>
 	<IconApplicationInfo_Name>Icon_i</IconApplicationInfo_Name>
 	<Icon_Map_Navigation>Icon_Map_Navigation</Icon_Map_Navigation>
-	
+	<Icon_PieChart_Navigation>Icon_PieChart_Navigation</Icon_PieChart_Navigation>
+	<Icon_BarChart_Navigation>Icon_BarChart_Navigation</Icon_BarChart_Navigation>
 	</Icon>
 	
 	

@@ -802,7 +802,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "SL-Device Types");
 		genMeth.eyesCheckWindow("Param Report Grid- SL param", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Mobile");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		genMeth.clickId(genMeth, "PSL- Device Model");
 		genMeth.eyesCheckWindow("Param Report Grid- PSL param", useEye, genMeth, skipfailure);		
@@ -811,7 +811,7 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
 		
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Param Report Grid- Grid first layer", useEye, genMeth, skipfailure);		
 		//Go To second layer
 		genMeth.clickId(genMeth, "iPhone5");
@@ -1696,27 +1696,179 @@ enum EnvironmentMode {
 	
 	
 	
-	@Test(enabled = true, groups = {"Sanity IOS1"}, testName = "JTR_SameReport", description = "JTR_SameReport")
+	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "JTR_SameReport", description = "JTR_SameReport")
 	public void JTR_SameReport() throws InterruptedException, IOException{
-		
+				
+
 		// Open the JTR App
-		genMeth.clickId(genMeth, "");
-		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
-		genMeth.clickId(genMeth, "");  
-		genMeth.eyesCheckWindow("JTR Same Report- Grid Two Layer main view", useEye, genMeth, skipfailure);	
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "JTR App");
+		genMeth.clickId(genMeth, "JTR- Same Report");
+		Thread.sleep(5000);
 		
+		//JTR from List
+		genMeth.clickId(genMeth, "Service Call ID");
+		Thread.sleep(8000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from List",useEye, genMeth, skipfailure);
+	
+		// JTR from Grid Two Layers
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, "Service Call ID");
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Grid", useEye, genMeth, skipfailure);
+	
+		// JTR from Bar Chart
+		//genMeth.clickId(genMeth, "Aventura Mall");
+		genMeth.clickId(genMeth, iosData.Icon_BarChart_Navigation);
+		Thread.sleep(8000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Bar Chart", useEye, genMeth, skipfailure);
+		
+		// JTR from Dashboard
+		genMeth.clickId(genMeth, "Service Call ID");
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Dashboard", useEye, genMeth, skipfailure);
+
+		// JTR from Grid One Layer
+		genMeth.clickId(genMeth, "H");
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Grid One Layer", useEye, genMeth, skipfailure);
+		
+		// JTR from Map
+		
+		genMeth.clickId(genMeth, "19501 Biscayne Blvd, Aventura, FL 33180, 1 item");
+		genMeth.clickId(genMeth, iosData.Icon_Map_Navigation);
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Map to Pie Chart", useEye, genMeth, skipfailure);
+
+		// JTR from Pie Chart
+		//Limor will add label in the next version - need to check if it will work ????????????
+		//genMeth.clickId(genMeth, iosData.Icon_PieChart_Navigation);
+		genMeth.clickId(genMeth, "   Aventura Mall         ");		
+		
+		
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Pie Chart to ED", useEye, genMeth, skipfailure);
+		
+		
+		// JTR from ED
+		genMeth.clickId(genMeth, "Abra");
+		genMeth.clickId(genMeth, "Cell Phone");
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from ED to List", useEye, genMeth, skipfailure);
+
+		// Verify Startup screen is open
+	
 
 
 		// Verify Startup screen is open
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.swipeUpIphone5Long(3, 1000);
-
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "SQL Golden App");
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
 		
 	}
 	
 	
+	@Test(enabled = true, groups = {"Sanity IOS"}, testName = "JTR_SameReport", description = "JTR_SameReport")
+	public void JTR_Param_Report_AutoSubmit() throws InterruptedException, IOException{
+				
+
+		// Open the JTR App
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "JTR App");
+		genMeth.clickId(genMeth, "JTR- Nav to Param");
+		Thread.sleep(5000);
+		
+		
+		//JTR from List
+		genMeth.clickId(genMeth, "id");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from List",useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		
+		// JTR from Grid One Layer
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes2");
+		Thread.sleep(5000);
+		genMeth.clickId(genMeth, "1");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Grid", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		// JTR from Dashboard
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes3");
+		Thread.sleep(5000);
+		genMeth.clickId(genMeth, "id");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Dashboard", useEye, genMeth, skipfailure);	
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		// JTR from Map
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes4");
+		Thread.sleep(5000);
+		genMeth.clickId(genMeth, "690 W Dekalb Pike, King of Prussia, Pennsylvania, 2 items");
+		genMeth.clickId(genMeth, iosData.Icon_Map_Navigation);
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Map", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+				
+		// JTR from ED
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes5");
+		genMeth.clickId(genMeth, "4.7");
+		genMeth.clickId(genMeth, "id");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from ED", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+				
+		// JTR from Cover Flow
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes6");
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, "id");
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Cover Flow", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+				
+		// JTR from Bar Chart
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes7");
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.Icon_BarChart_Navigation);
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Bar Chart", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+				
+		// JTR from Pie Chart
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "AutoSubAllDataTypes8");
+		Thread.sleep(2000);
+		//Limor will add label in the next version - need to check if it will work ????????????
+		//genMeth.clickId(genMeth, iosData.Icon_PieChart_Navigation);
+		genMeth.clickId(genMeth, "   Aventura Mall         ");			
+		Thread.sleep(5000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Pie Chart", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+				
+
+		// Verify Startup screen is open
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "SQL Golden App");
+		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
+		
+	}
 	
+	
+
 	
 
 	@AfterSuite(alwaysRun = true)

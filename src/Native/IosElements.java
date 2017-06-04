@@ -90,6 +90,11 @@ public class IosElements {
 	String IconBack_Nav_Name;
 	String IconApplicationInfo_Name;
 	String Icon_Map_Navigation;
+	String Icon_PieChart_Navigation;
+	String Icon_BarChart_Navigation;
+	
+	
+	
 	
 	//General Info
 	String ConnectionAIRPLANE_MODE;
@@ -183,6 +188,10 @@ public class IosElements {
 		this.IconBack_Nav_Name = XmlHandel.readAndroidXml("IconBack_Nav_Name", langXml, xmlPath);	
 		this.IconApplicationInfo_Name = XmlHandel.readAndroidXml("IconApplicationInfo_Name", langXml, xmlPath);	
 		this.Icon_Map_Navigation = XmlHandel.readAndroidXml("Icon_Map_Navigation", langXml, xmlPath);	
+		this.Icon_PieChart_Navigation = XmlHandel.readAndroidXml("Icon_PieChart_Navigation", langXml, xmlPath);	
+		this.Icon_BarChart_Navigation = XmlHandel.readAndroidXml("Icon_BarChart_Navigation", langXml, xmlPath);	
+
+		
 
 		
 		
