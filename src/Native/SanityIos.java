@@ -129,6 +129,7 @@ enum EnvironmentMode {
 				
 				//driver = genMeth.setCapabilitiesIos(genMeth);
 				//iosData = genMeth.setElements(webElementXmlPath, webElementXmlLang);
+				genMeth.releaseAllow(genMeth);
 				genMeth.cleanLoginIos( genMeth, iosData.userQA, iosData.passwordQA);
 
 			}
@@ -412,10 +413,8 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.BTNCancelName);
 		
 		//Phone
-		genMeth.swipedownIphone5Short(1, 1000);
+		genMeth.swipedownIphone5Short(3, 1000);
 		//Thread.sleep(2000);
-
-
 
 		genMeth.clickId(genMeth, "Phone");
 		genMeth.eyesCheckWindow("All Tabs- Cover Flow- Phone", useEye, genMeth, skipfailure);
@@ -764,14 +763,17 @@ enum EnvironmentMode {
 		//Back to Startup screen
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
-		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
 		
-		//Press info for the app
+		
+		
+		//Press info for the app (Doesn't work)
+		//genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
 		//genMeth.clickId(genMeth, iosData.IconApplicationInfo_Name);
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeButton[1]");
-		genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);
-		genMeth.swipedownIphone5Short(1, 1000);
-		genMeth.swipeRightIphone5Short(1, 1000);
+		//genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeTable[1]/XCUIElementTypeCell[1]/XCUIElementTypeStaticText[2]");
+		//genMeth.clickId(genMeth, "");
+		//genMeth.eyesCheckWindow("All Tabs- Employee Directory, Golden App info screen", useEye, genMeth, skipfailure);
+		//genMeth.swipedownIphone5Short(1, 1000);
+		//genMeth.swipeRightIphone5Short(1, 1000);
 				
 		//Verify Startup screen is open
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
@@ -790,7 +792,7 @@ enum EnvironmentMode {
 		genMeth.swipedownIphone5Short(2, 1000);
 
 		genMeth.clickId(genMeth, "Param Report Grid");
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Param Report Grid- add Parameters", useEye, genMeth, skipfailure);		
 		
 		//Attempt to submit while mandatory is missing
@@ -953,7 +955,8 @@ enum EnvironmentMode {
 		//Insert parameters
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
 		genMeth.releaseOK(genMeth);
-		genMeth.clickId(genMeth, iosData.BTNokName);
+		//genMeth.clickId(genMeth, iosData.BTNokName);
+		genMeth.releaseOK(genMeth);
 		Thread.sleep(4000);
 		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR", useEye, genMeth, skipfailure);	
 		genMeth.clickId(genMeth, "Insert Gender (F or M)");
@@ -961,7 +964,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "m");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Param Rep Cover Flow - QR1", useEye, genMeth, skipfailure);		
 		
 		//Go To cover flow tab by const (females)
@@ -1370,9 +1373,14 @@ enum EnvironmentMode {
 		//Inline- AddRow
 		genMeth.clickId(genMeth, "Inline- AddRow");
 		
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Actions_List_Inline- Inline parameters default", useEye, genMeth, skipfailure);		
 		
+		
+		//DateTime
+		genMeth.clickId(genMeth, "DateTime");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+
 		genMeth.sendId(genMeth, "This is default value", "1");
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
 		
@@ -1382,6 +1390,8 @@ enum EnvironmentMode {
 		//DL
 		genMeth.clickId(genMeth, "iPhone6");
 		genMeth.swipedownIphone5Long(1, 1000);
+		genMeth.swipedownIphone5Short(2, 1000);
+
 		
 		//PSL (Mapped to source Column )
 		genMeth.clickId(genMeth, "Keyboard (Cat 1)");
@@ -1404,6 +1414,7 @@ enum EnvironmentMode {
 		//genMeth.clickId(genMeth, "2");
 
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
+		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("Actions_List_Inline- Actions_List_Inline Success Popup", useEye, genMeth, skipfailure);		
 		genMeth.releaseOK(genMeth);
 		
@@ -1418,7 +1429,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Actions_Grid_One_Layer_CellAction", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS2" })
 
 	public void Actions_Grid_One_Layer_CellAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1510,7 +1521,7 @@ enum EnvironmentMode {
 		
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_One_Layer_RowAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {

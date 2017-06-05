@@ -377,10 +377,8 @@ public class IosMethods {
 				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
 
 			}
-			boolean isAllow = genMeth.checkIsElementVisible(By.id("Allow"));
-			if (isAllow) {
-				genMeth.clickId(genMeth, "Allow");
-			}
+			genMeth.releaseAllow(genMeth);
+			
 
 			// XCUIElementTypeButton
 
@@ -1690,6 +1688,14 @@ public class IosMethods {
 		boolean isVisible =  genMeth.checkIsElementVisible(By.id(iosData.BTNokName));
 		if (isVisible){
 			genMeth.clickId(genMeth, iosData.BTNokName);
+		}
+	}
+	
+public void releaseAllow(IosMethods genMeth) throws ParserConfigurationException, SAXException, IOException, InterruptedException{
+		
+		boolean isVisible =  genMeth.checkIsElementVisible(By.id("Allow"));
+		if (isVisible){
+			genMeth.clickId(genMeth, "Allow");
 		}
 	}
 	
