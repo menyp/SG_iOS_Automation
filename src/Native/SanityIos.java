@@ -1429,7 +1429,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Actions_Grid_One_Layer_CellAction", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS1" })
 
 	public void Actions_Grid_One_Layer_CellAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1485,8 +1485,18 @@ enum EnvironmentMode {
 		genMeth.releaseOK(genMeth);
 		
 		genMeth.swipeRightIphone5Long(1, 1000);
+		genMeth.swipeRightIphone5Short(3, 1000);
+
 
 		//USER INPUT = QR
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[2]");
+		Thread.sleep(5000);
+		genMeth.releaseOK(genMeth);
+		genMeth.clickId(genMeth, iosData.BTNClearName);
+		genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "02");
+		genMeth.clickId(genMeth, iosData.BTNdoneName);
+		
+		/*
 		isTextDisplayed = genMeth.checkIsElementVisible(By.id("01"));
 		if (isTextDisplayed) {
 			genMeth.clickId(genMeth, "01");
@@ -1502,6 +1512,7 @@ enum EnvironmentMode {
 			genMeth.sendXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[3]/XCUIElementTypeTextField[1]", "01");
 			genMeth.clickId(genMeth, iosData.BTNdoneName);	
 		}
+		*/
 		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- QR", useEye, genMeth, skipfailure);
 		genMeth.releaseOK(genMeth);
@@ -1521,7 +1532,7 @@ enum EnvironmentMode {
 		
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_Grid_One_Layer_RowAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1531,10 +1542,12 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - One Layer"); 
 		genMeth.swipeRightIphone5Long(2, 1000);
+		genMeth.swipeRightIphone5Short(1, 1000);
+
 
 		//Row (AddRowAllParameters)
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[6]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
-		Thread.sleep(3000);
+		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]");
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters before insert", useEye, genMeth, skipfailure);		
 
 		//DateTime
@@ -1576,7 +1589,7 @@ enum EnvironmentMode {
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Row parameters after insert", useEye, genMeth, skipfailure);	
 		
 		//PSL with Variable
-		genMeth.swipedownIphone5Short(1, 1000);
+		genMeth.swipedownIphone5Short(2, 1000);
 		genMeth.clickId(genMeth, "Items_SmallerThanMobileDate_PSL");
 		genMeth.clickId(genMeth, "3");
 		genMeth.clickId(genMeth, iosData.BTNsubmit_ID);
