@@ -1429,7 +1429,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Actions_Grid_One_Layer_CellAction", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS2" })
 
 	public void Actions_Grid_One_Layer_CellAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1732,13 +1732,13 @@ enum EnvironmentMode {
 		
 		//JTR from List
 		genMeth.clickId(genMeth, "Service Call ID");
-		Thread.sleep(8000);
+		Thread.sleep(14000);
 		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from List",useEye, genMeth, skipfailure);
 	
 		// JTR from Grid Two Layers
 		genMeth.clickId(genMeth, "1");
 		genMeth.clickId(genMeth, "Service Call ID");
-		Thread.sleep(10000);
+		Thread.sleep(14000);
 		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Grid", useEye, genMeth, skipfailure);
 	
 		// JTR from Bar Chart
@@ -1749,7 +1749,7 @@ enum EnvironmentMode {
 		
 		// JTR from Dashboard
 		genMeth.clickId(genMeth, "Service Call ID");
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Dashboard", useEye, genMeth, skipfailure);
 
 		// JTR from Grid One Layer
@@ -1778,8 +1778,12 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Abra");
 		genMeth.clickId(genMeth, "Cell Phone");
 		Thread.sleep(15000);
-		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from ED to List", useEye, genMeth, skipfailure);
-
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from ED to Cover Flow", useEye, genMeth, skipfailure);
+		
+		// JTR from Cover Flow
+		genMeth.clickId(genMeth, "Name");
+		Thread.sleep(12000);
+		genMeth.eyesCheckWindow("iOS JTR Same report - JTR from Cover Flow to List", useEye, genMeth, skipfailure);
 		// Verify Startup screen is open
 	
 
@@ -1789,6 +1793,7 @@ enum EnvironmentMode {
 		Thread.sleep(2000);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
 		genMeth.clickId(genMeth, "SQL Golden App");
 		genMeth.eyesCheckWindow("Default app is open - SQL Golden App", useEye, genMeth, skipfailure);		
@@ -1818,7 +1823,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "AutoSubAllDataTypes2");
 		Thread.sleep(5000);
 		genMeth.clickId(genMeth, "1");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from Grid", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 
@@ -1891,7 +1896,104 @@ enum EnvironmentMode {
 		
 	}
 	
+
+	@Test(enabled = true, testName = "Regression", retryAnalyzer = Retry.class, description = "Check the Grid one layer Row action",
+			groups = { "Sanity IOS1" })
+	public void JTR_To_Slicer_Report() throws ParserConfigurationException, SAXException,
+	IOException, InterruptedException {
+		
+		// Open the JTR App
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "JTR App");
+		genMeth.clickId(genMeth, "JTR- To SlicerReport");
+		Thread.sleep(10000);
+		
+		//JTR from List
+		genMeth.clickId(genMeth, "Branch ID");
+		Thread.sleep(14000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from List",useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 	
+		// JTR from Grid Two Layers
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Grid - Two Layers");
+		genMeth.clickId(genMeth, "1");
+		genMeth.clickId(genMeth, "Branch ID");
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Grid Two Layers",useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		
+		// JTR from Bar Chart
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "JTR- BarChart");
+		genMeth.clickId(genMeth, iosData.Icon_BarChart_Navigation);
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Bar Chart",useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		
+		
+		// JTR from Dashboard
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Dashboard DefLayouts");
+		genMeth.clickId(genMeth, "Branch ID");
+		Thread.sleep(14000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Dashboard", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		// JTR from Grid One Layer
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Grid - One Layer");
+		genMeth.clickId(genMeth, "2");
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Grid One Layer", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		
+		// JTR from Map
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "JTR- Map");
+		genMeth.clickId(genMeth, "690 W Dekalb Pike, King of Prussia, Pennsylvania, 1 item");
+		genMeth.clickId(genMeth, iosData.Icon_Map_Navigation);
+		Thread.sleep(15000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Map", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		// JTR from Pie Chart
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "JTR- Pie Chart");
+		genMeth.clickId(genMeth, "   Aventura Mall         ");			
+		Thread.sleep(14000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Pie Chart", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+
+		
+		// JTR from ED
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "Employee Directory");
+		genMeth.clickId(genMeth, "Legal");
+		genMeth.clickId(genMeth, "BranchID");
+		genMeth.eyesCheckWindow("JTR To Slicer report - JTR from ED", useEye, genMeth, skipfailure);
+		Thread.sleep(14000);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);		
+		
+		// JTR from Cover Flow
+		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
+		genMeth.clickId(genMeth, "JTR- Cover Flow");
+		genMeth.clickId(genMeth, "Name");
+		Thread.sleep(14000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Cover Flow", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);		
+	
+		// Verify Startup screen is open
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		Thread.sleep(2000);
+		genMeth.clickId(genMeth, iosData.Icon_AllApps_Name);
+		genMeth.clickId(genMeth, "SQL Golden App");
+
+
+	}
+
 
 	
 
