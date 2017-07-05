@@ -104,9 +104,21 @@ enum EnvironmentMode {
 			if (StartUpScreenDisplay != true) {
 
 				try {
+					/*
+					genMeth.clickId(genMeth, iosData.BTNsettingsIconXpth);
+					driver.findElementById(iosData.BTNlogoutName).click();
+					//genMeth.clickId(genMeth, iosData.BTNlogoutName);			
+					driver.removeApp(appIdentifier);
+					driver.quit();
+					*/
+					
+					//reset app -->  reinstall the app (login screen will be displayed)
 					driver.resetApp();
+					//driver.resetApp();   
+
 					
 				} catch (Exception e) {
+					driver.quit();
 					// swallow if fails
 				}
 				
@@ -1898,7 +1910,7 @@ enum EnvironmentMode {
 	
 
 	@Test(enabled = true, testName = "Regression", retryAnalyzer = Retry.class, description = "Check the Grid one layer Row action",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 	public void JTR_To_Slicer_Report() throws ParserConfigurationException, SAXException,
 	IOException, InterruptedException {
 		
@@ -2002,7 +2014,13 @@ enum EnvironmentMode {
 		
 		if (driver != null){
 		try {
-			//service.stop();
+			//driver.resetApp();   -->  reinstall the app (login screen will be displayed)
+			
+			//Logut from the app
+			genMeth.clickId(genMeth, iosData.BTNsettingsIconXpth);
+			driver.findElementById(iosData.BTNlogoutName).click();
+			//genMeth.clickId(genMeth, iosData.BTNlogoutName);		
+			
 			driver.removeApp(appIdentifier);
 			driver.quit();
 			//service.stop();
@@ -2016,14 +2034,15 @@ enum EnvironmentMode {
 	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			service.stop();
+			//service.stop();
 			driver.quit();
 
 			e.printStackTrace();
 		}
 		}
 		else{
-			service.stop();
+			driver.quit();
+			//service.stop();
 			
 		}
 

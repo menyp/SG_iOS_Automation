@@ -6,13 +6,13 @@
 			<BTNforgotPasswordID></BTNforgotPasswordID>
 			<BTNsettingsLoginScreenID>com.skygiraffe.operationaldata:id/login_screen_settings_image_btn</BTNsettingsLoginScreenID>
 			<BTNsampleAccountID>Sample account</BTNsampleAccountID>
-			<BTNlogoutName>Log Out</BTNlogoutName>
+			<BTNlogoutName>LOG OUT</BTNlogoutName>
 			<BTNlogoutXpth>//UIAApplication[1]/UIAWindow[1]/UIAButton[2]</BTNlogoutXpth>
 			<BTNcancelForgotPasswordID></BTNcancelForgotPasswordID>	
 			<BTNrecoverPasswordID></BTNrecoverPasswordID>	
 			<BTNresetPasswordID></BTNresetPasswordID>	
 			<BTNdoneName>Done</BTNdoneName>
-			<BTNsettingsIconXpth>//UIAApplication[1]/UIAWindow[1]/UIANavigationBar[1]/UIAButton[3]</BTNsettingsIconXpth>
+			<BTNsettingsIconXpth>s</BTNsettingsIconXpth>
 			<BTNBackName>Back</BTNBackName>
 			<BTNClearName>Clear</BTNClearName>
 			<BTNSlicer>BTNSlicer</BTNSlicer>
