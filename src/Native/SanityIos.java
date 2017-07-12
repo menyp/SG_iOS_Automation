@@ -162,7 +162,7 @@ enum EnvironmentMode {
 	//	driver.findElementById("URL / News").click();
 		genMeth.clickId(genMeth, "URL / News");
 
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		
 		genMeth.eyesCheckWindow("Tabs- URL Data Item", useEye, genMeth, skipfailure);
 		
@@ -174,7 +174,7 @@ enum EnvironmentMode {
 		//driver.findElementById("URL Constant").click();
 		genMeth.clickId(genMeth, "URL Constant");
 
-		Thread.sleep(10000);
+		Thread.sleep(15000);
 		genMeth.eyesCheckWindow("Tabs- URL Constant", useEye, genMeth,skipfailure);
 		//genMeth.eyesCheckWindow(eyes, "Tabs- URL Constant", useEye);
 		
@@ -460,7 +460,7 @@ enum EnvironmentMode {
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_List_AdvancedColumns() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -607,7 +607,7 @@ enum EnvironmentMode {
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab Advanced & navigation",
-			groups = { "Sanity IOS" })
+			groups = { "Sanity IOS1" })
 
 	public void Tabs_Grid_One_Layer_Advance_Navigation() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1441,7 +1441,7 @@ enum EnvironmentMode {
 	
 	
 	@Test(enabled = true, testName = "Actions_Grid_One_Layer_CellAction", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS2" })
+			groups = { "Sanity IOS" })
 
 	public void Actions_Grid_One_Layer_CellAction() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1490,7 +1490,9 @@ enum EnvironmentMode {
 		genMeth.releaseOK(genMeth);
 
 		// USER INPUT = PSL (ItemID)
-		genMeth.clickId(genMeth, "21");
+		String xPath= "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]";
+		genMeth.clickXpth(genMeth, xPath);
+		//genMeth.clickId(genMeth, "21");
 		genMeth.clickId(genMeth, "Video card  (Cat 1)");
 		Thread.sleep(10000);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- ItemID (PSL)", useEye, genMeth, skipfailure);
@@ -1532,7 +1534,8 @@ enum EnvironmentMode {
 		
 		//USER INPUT = Simple List DI (Status) 
 		genMeth.swipeRightIphone5Long(1, 1000);
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[5]/XCUIElementTypeOther[1]/XCUIElementTypeStaticText[1]");
+		xPath = " //XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[1]/XCUIElementTypeOther[1]/XCUIElementTypeScrollView[2]/XCUIElementTypeOther[4]/XCUIElementTypeOther[1]/XCUIElementTypeImage[1]";
+		genMeth.clickXpth(genMeth, xPath);
 		genMeth.eyesCheckWindow("Actions_Grid_One_Layer- Grid One Layer- Status (Simple List DI)", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, "Closed");
 		Thread.sleep(8000);
@@ -1956,7 +1959,7 @@ enum EnvironmentMode {
 		// JTR from Grid One Layer
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Grid - One Layer");
-		genMeth.clickId(genMeth, "2");
+		genMeth.clickId(genMeth, "3");
 		Thread.sleep(15000);
 		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Grid One Layer", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
@@ -2016,8 +2019,9 @@ enum EnvironmentMode {
 		try {
 			//driver.resetApp();   -->  reinstall the app (login screen will be displayed)
 			
-			//Logut from the app
-			genMeth.clickId(genMeth, iosData.BTNsettingsIconXpth);
+			//Logout from the app
+			driver.findElementById(iosData.BTNsettingsIconXpth);
+			//genMeth.clickId(genMeth, iosData.BTNsettingsIconXpth);
 			driver.findElementById(iosData.BTNlogoutName).click();
 			//genMeth.clickId(genMeth, iosData.BTNlogoutName);		
 			
