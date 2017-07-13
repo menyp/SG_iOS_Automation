@@ -460,7 +460,7 @@ enum EnvironmentMode {
 
 	
 	@Test(enabled = true, testName = "List", retryAnalyzer = Retry.class, description = "Check the List tab",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_List_AdvancedColumns() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -607,7 +607,7 @@ enum EnvironmentMode {
 	}
 	
 	@Test(enabled = true, testName = "Grid one layer", retryAnalyzer = Retry.class, description = "Check the Grid one layer tab Advanced & navigation",
-			groups = { "Sanity IOS1" })
+			groups = { "Sanity IOS" })
 
 	public void Tabs_Grid_One_Layer_Advance_Navigation() throws ParserConfigurationException, SAXException,
 			IOException, InterruptedException {
@@ -1683,47 +1683,47 @@ enum EnvironmentMode {
 		
 		genMeth.clickId(genMeth, "BranchID");
 		genMeth.clickId(genMeth, "7");
-		genMeth.eyesCheckWindow("Slicer Report- branchID selected", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- branchID selected", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow("Slicer Report- List (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- List (BranchID=7)", useEye, genMeth, skipfailure);		
 
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		
 		genMeth.clickId(genMeth, "Slicer Grid");
-		genMeth.eyesCheckWindow("Slicer Report- Grid (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Grid (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cover Flow");
-		genMeth.eyesCheckWindow("Slicer Report- Cover Flow (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Cover Flow (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Dashboard");
-		genMeth.eyesCheckWindow("Slicer Report- Dashboard (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Dashboard (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Map");
 //		genMeth.clickName(genMeth, "Garden State Plaza, Paramus, NJ, 1 item");
-		genMeth.eyesCheckWindow("Slicer Report- Map (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Map (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Cards");
-		genMeth.eyesCheckWindow("Slicer Report- Cards (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Cards (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer News");
-		genMeth.eyesCheckWindow("Slicer Report- News (BranchID=7)", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- News (BranchID=7)", useEye, genMeth, skipfailure);		
 		
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "Slicer Bar Chart");
-		genMeth.eyesCheckWindow("Slicer Report- Bar chart empty slicing", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Bar chart empty slicing", useEye, genMeth, skipfailure);		
 		genMeth.clickId(genMeth, iosData.BTNSlicer);
 		genMeth.clickId(genMeth, "BranchID");
 		genMeth.clickId(genMeth, "7");
 		genMeth.clickId(genMeth, "Aventura Mall");
 		genMeth.clickId(genMeth, iosData.BTNBackName);
 		genMeth.clickId(genMeth, iosData.BTNdoneName);
-		genMeth.eyesCheckWindow("Slicer Report- Bar chart Aventura Mall", useEye, genMeth, skipfailure);		
+		genMeth.eyesCheckWindow("iOS Slicer Report- Bar chart Aventura Mall", useEye, genMeth, skipfailure);		
 
 
 		// Verify Startup screen is open
@@ -1826,12 +1826,18 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "JTR- Nav to Param");
 		Thread.sleep(5000);
 		
+		// JTR from List to HIDDEN REPORT
+		genMeth.clickId(genMeth, "int");
+		Thread.sleep(10000);
+		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from List To Hidden Report", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		
 		//JTR from List
 		genMeth.clickId(genMeth, "id");
 		Thread.sleep(5000);
 		genMeth.eyesCheckWindow("iOS JTR Param report - JTR from List",useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
+		
 		
 		// JTR from Grid One Layer
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
@@ -1922,6 +1928,12 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "JTR App");
 		genMeth.clickId(genMeth, "JTR- To SlicerReport");
 		Thread.sleep(10000);
+		
+		// JTR from List to HIDDEN Report
+		genMeth.clickId(genMeth, "Service Call ID");
+		Thread.sleep(14000);
+		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from List to HIDDEN Report", useEye, genMeth, skipfailure);
+		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 		
 		//JTR from List
 		genMeth.clickId(genMeth, "Branch ID");
