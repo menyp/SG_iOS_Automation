@@ -78,9 +78,8 @@ public class IosMethods {
 
 			IOException, InterruptedException {
 		//set Publisher & Authentication server
-		
 		//Open the Servers settings screen
-		genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
+        genMeth.clickXpth(genMeth, "//XCUIElementTypeApplication[1]/XCUIElementTypeWindow[1]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]/XCUIElementTypeButton[2]");
 
 		genMeth.clickId(genMeth, "QA Publisher");
 		genMeth.clickId(genMeth, "QA Authentication");
@@ -321,7 +320,7 @@ public class IosMethods {
 
 		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
 
-		capabilities.setCapability("platformVersion","10.3.1");
+		capabilities.setCapability("platformVersion","10.3.3");
 
 		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
 		
@@ -347,11 +346,8 @@ public class IosMethods {
 		//capabilities.setCapability("keychainPath", "/Users/menypeled/Library/Keychains/MyKeychaitest1.keychain-db"); 
 		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"iOS");
 
-		//capabilities.setCapability("keychainPassword", "test1");
-		//capabilities.setCapability(MobileCapabilityType.ENABLE_PROFILING_CAPABILITY,"true");
 
-
-		capabilities.setCapability("useNewWDA", "true");
+		capabilities.setCapability("useNewWDA", "false");
 		//capabilities.setCapability("wdaLaunchTimeout", 10000);
 		capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
 		//capabilities.setCapability("wdaConnectionTimeout", 100000);

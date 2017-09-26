@@ -1355,7 +1355,7 @@ enum EnvironmentMode {
 		}
 
 		genMeth.clickId(genMeth, "Add VarOnlyListRow");
-		Thread.sleep(12000);
+		Thread.sleep(14000);
 		genMeth.eyesCheckWindow("List Actions- Add VarOnlyListRow - Sucess Popup", useEye, genMeth, skipfailure);
 		genMeth.releaseOK(genMeth);
 
@@ -1991,7 +1991,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "JTR- Pie Chart");
 		genMeth.clickId(genMeth, "   Aventura Mall         ");			
-		Thread.sleep(18000);
+		Thread.sleep(20000);
 		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Pie Chart", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);
 
@@ -2001,7 +2001,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, "Employee Directory");
 		genMeth.clickId(genMeth, "Legal");
 		genMeth.clickId(genMeth, "BranchID");
-		Thread.sleep(15000);
+		Thread.sleep(20000);
 		genMeth.eyesCheckWindow("JTR To Slicer report - JTR from ED", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);		
 		
@@ -2009,7 +2009,7 @@ enum EnvironmentMode {
 		genMeth.clickId(genMeth, iosData.TabBarTitle_Name);
 		genMeth.clickId(genMeth, "JTR- Cover Flow");
 		genMeth.clickId(genMeth, "Name");
-		Thread.sleep(18000);
+		Thread.sleep(20000);
 		genMeth.eyesCheckWindow("iOS JTR To Slicer report - JTR from Cover Flow", useEye, genMeth, skipfailure);
 		genMeth.clickId(genMeth, iosData.IconBack_Nav_Name);		
 	

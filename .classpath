@@ -102,8 +102,8 @@
 	<classpathentry kind="lib" path="lib/eyes-connectivity-java-jersey2x-2.51.jar"/>
 	<classpathentry kind="lib" path="lib/eyes-images-java-2.51.jar"/>
 	<classpathentry kind="lib" path="lib/eyes-sdk-java-jersey2x-2.51.jar"/>
-	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5-javadoc.jar"/>
-	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5-sources.jar"/>
-	<classpathentry kind="lib" path="Java-Client/java-client-5.0.0-BETA5.jar"/>
+	<classpathentry kind="lib" path="Java-Client 5 beta5/java-client-5.0.0-BETA5-javadoc.jar"/>
+	<classpathentry kind="lib" path="Java-Client 5 beta5/java-client-5.0.0-BETA5-sources.jar"/>
+	<classpathentry kind="lib" path="Java-Client 5 beta5/java-client-5.0.0-BETA5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
