@@ -74,6 +74,90 @@ public class IosMethods {
 	
 	*/
 
+	
+
+	public IOSDriver<MobileElement> setCapabilitiesIos(IosMethods genMeth)
+			throws IOException, ParserConfigurationException, SAXException,
+			InterruptedException {
+	
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		
+		
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,genMeth.getValueFromPropFile("deviceName"));
+		//capabilities.setCapability("device",genMeth.getValueFromPropFile("deviceName"));
+
+
+		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone6_1"));
+		//capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone5S"));
+
+		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
+
+		capabilities.setCapability("platformVersion","11.0.3");
+
+		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
+		
+		
+		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
+	    //capabilities.setCapability(MobileCapabilityType.APP, genMeth.getValueFromPropFile("appPath"));
+		//capabilities.setCapability(IOSMobileCapabilityType.APP_NAME, genMeth.getValueFromPropFile("appPath"));
+
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"XCUITest");
+		//capabilities.setCapability("automationName", "XCUITest");
+		//capabilities.setCapability("wdaLocalPort", 8100);
+		
+		//capabilities.setCapability("xcodeConfigFile","/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/Config.xcconfig");
+		
+
+		capabilities.setCapability("xcodeOrgId", "7Y5J2RJXYV");
+		capabilities.setCapability("xcodeSigningId", "iPhone Developer");
+		
+		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"iOS");
+
+
+		capabilities.setCapability("useNewWDA", "false");
+		capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
+		//capabilities.setCapability("wdaConnectionTimeout", 20000);
+
+		
+		capabilities.setCapability("newCommandTimeout", 60);
+		
+		
+		try {
+			
+		 //   AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
+		   // service.stop();
+
+			//driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+			try {
+				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				driver.quit();
+				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
+
+			}
+			genMeth.releaseAllow(genMeth);
+			
+
+			// XCUIElementTypeButton
+
+		}
+
+		catch (MalformedURLException e) {
+
+			genMeth.takeScreenShot(driver, genMeth,
+					"Faliled to open iOS driver");
+			org.testng.Assert
+					.fail("WebElement" + " Faliled to open iOS driver");
+		}
+
+		// genMeth.sendNotificationHandle(genMeth);
+
+		return driver;
+	}
+
+	
+	
 	public void cleanLoginIos(IosMethods genMeth,String user, String password) throws ParserConfigurationException, SAXException,
 
 			IOException, InterruptedException {
@@ -149,6 +233,8 @@ public class IosMethods {
 
 		
 	}
+	
+	
 	public void eyesCheckWindow(String testName, Boolean useEye, IosMethods genMeth, boolean  skipfailure)
 
 			throws InterruptedException, IOException {
@@ -177,7 +263,9 @@ public class IosMethods {
 			img = ImageIO.read(scrFile);
 
 			// Visual validation point #1
-			Rectangle rect = new Rectangle(0, 0, 640, 1136);
+			//Rectangle rect = new Rectangle(0, 0, 750, 1334);
+			Rectangle rect = new Rectangle(0, 0, 750, 1330);
+
 
 			eyes.setSaveFailedTests(false);
 
@@ -302,95 +390,6 @@ public class IosMethods {
 		Map<String, String> scrollMap = new HashMap<String, String>();
 		scrollMap.put("direction", "down");
 		js.executeScript("mobile: scroll", scrollMap);
-	}
-
-	public IOSDriver<MobileElement> setCapabilitiesIos(IosMethods genMeth)
-			throws IOException, ParserConfigurationException, SAXException,
-			InterruptedException {
-	
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		
-		
-		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,genMeth.getValueFromPropFile("deviceName"));
-		//capabilities.setCapability("device",genMeth.getValueFromPropFile("deviceName"));
-
-
-		//capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone6"));
-		capabilities.setCapability(MobileCapabilityType.UDID, genMeth.getValueFromPropFile("udid_iPhone5S"));
-
-		//capabilities.setCapability(IOSMobileCapabilityType.BUNDLE_ID, genMeth.getValueFromPropFile("appIdentifier"));
-
-		capabilities.setCapability("platformVersion","10.3.3");
-
-		//capabilities.setCapability(CapabilityType.VERSION,genMeth.getValueFromPropFile("CapabilityType.VERSION"));
-		
-		
-		capabilities.setCapability("app",genMeth.getValueFromPropFile("appPath"));
-	    //capabilities.setCapability(MobileCapabilityType.APP, genMeth.getValueFromPropFile("appPath"));
-		//capabilities.setCapability(IOSMobileCapabilityType.APP_NAME, genMeth.getValueFromPropFile("appPath"));
-
-		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"XCUITest");
-		//capabilities.setCapability("automationName", "XCUITest");
-		//capabilities.setCapability("wdaLocalPort", 8100);
-
-		
-		
-		//capabilities.setCapability("xcodeConfigFile","/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/Config.xcconfig");
-		
-
-		capabilities.setCapability("xcodeOrgId", "7Y5J2RJXYV");
-		capabilities.setCapability("xcodeSigningId", "iPhone Developer");
-
-		
-		
-		//capabilities.setCapability("keychainPath", "/Users/menypeled/Library/Keychains/MyKeychaitest1.keychain-db"); 
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"iOS");
-
-
-		capabilities.setCapability("useNewWDA", "false");
-		//capabilities.setCapability("wdaLaunchTimeout", 10000);
-		capabilities.setCapability("updatedWDABundleId", genMeth.getValueFromPropFile("appIdentifier"));
-		//capabilities.setCapability("wdaConnectionTimeout", 100000);
-
-		//capabilities.setCapability("autoAcceptAlerts", true);
-		//capabilities.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, genMeth.getValueFromPropFile("Alert"));
-		//capabilities.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "True");
-		
-		capabilities.setCapability("newCommandTimeout", 100000);
-		
-		
-		try {
-			
-		 //   AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
-		   // service.stop();
-
-			//driver = new IOSDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-			try {
-				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				driver.quit();
-				driver = new IOSDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
-
-			}
-			genMeth.releaseAllow(genMeth);
-			
-
-			// XCUIElementTypeButton
-
-		}
-
-		catch (MalformedURLException e) {
-
-			genMeth.takeScreenShot(driver, genMeth,
-					"Faliled to open iOS driver");
-			org.testng.Assert
-					.fail("WebElement" + " Faliled to open iOS driver");
-		}
-
-		// genMeth.sendNotificationHandle(genMeth);
-
-		return driver;
 	}
 	
 	public AppiumDriverLocalService startAppiumService() {
@@ -606,38 +605,28 @@ public class IosMethods {
 
 	}
 
-	public void tapBy(IOSDriver<MobileElement> driver, IosMethods genMeth, By by)
-			throws InterruptedException {
+	public void clickAccessibilityID(String AccessibilityId) throws InterruptedException, IOException {
 
-		try {
+		int count = 0;
 
-			WebElement myElement = genMeth.fluentwait(driver, by);
-			driver.tap(1, myElement, 1000);
+		while (count < 4) {
+
+			try {
+
+				MobileElement el = (MobileElement) driver.findElementByAccessibilityId(AccessibilityId);
+				el.click();
+				count = 4;
+			} catch (Exception e) {
+				Thread.sleep(5000);
+				count++;
+				// TODO Auto-generated catch block
+
+			}
 		}
 
-		catch (Exception e) {
+		if (count < 4) {
 
-			org.testng.Assert.fail("WebElement can't be located");
-
-		}
-
-	}
-
-	public void clickCss(IOSDriver<MobileElement> driver, IosMethods genMeth,
-			String cssSelector) throws InterruptedException {
-
-		try {
-
-			WebElement myElement = genMeth.fluentwait(driver,
-					By.cssSelector(cssSelector));
-			myElement.click();
-
-		}
-
-		catch (Exception e) {
-
-			org.testng.Assert.fail(cssSelector + " didn't display");
-
+			org.testng.Assert.fail(AccessibilityId + " didn't display");
 		}
 
 	}
@@ -1064,7 +1053,7 @@ public class IosMethods {
 	public MobileElement fluentwait(IOSDriver driver, final By byType) {
 		Wait<IOSDriver> wait = new FluentWait<IOSDriver>(driver)
 
-		.withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
+		.withTimeout(45, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(NoSuchElementException.class);
 
 		MobileElement foo = (MobileElement) wait
